@@ -32,36 +32,60 @@ async function loadData() {
         allData = {};
 
         for (const plugin of pluginsConfig.plugins) {
+            const pluginData = {
+                repository: plugin.repository,
+                ships: [],
+                variants: [],
+                outfits: []
+            };
+        
+            let loadedSomething = false;
+        
             try {
                 const shipsResponse = await fetch(`${baseUrl}/${plugin.name}/ships.json`);
-                const outfitsResponse = await fetch(`${baseUrl}/${plugin.name}/outfits.json`);
-                const variantsResponse = await fetch(`${baseUrl}/${plugin.name}/variants.json`);
-
-                allData[plugin.name] = {
-                    repository: plugin.repository,
-                    ships: [],
-                    variants: [],
-                    outfits: []
-                };
-
                 if (shipsResponse.ok) {
-                    allData[plugin.name].ships = await shipsResponse.json();
+                    pluginData.ships = await shipsResponse.json();
+                    loadedSomething = true;
+                } else {
+                    console.warn(`${plugin.name}: ships.json not found (${shipsResponse.status})`);
                 }
-
+            
+                const variantsResponse = await fetch(`${baseUrl}/${plugin.name}/variants.json`);
                 if (variantsResponse.ok) {
-                    allData[plugin.name].variants = await variantsResponse.json();
+                    pluginData.variants = await variantsResponse.json();
+                    loadedSomething = true;
+                } else {
+                    console.warn(`${plugin.name}: variants.json not found (${variantsResponse.status})`);
                 }
-
+            
+                const outfitsResponse = await fetch(`${baseUrl}/${plugin.name}/outfits.json`);
                 if (outfitsResponse.ok) {
-                    allData[plugin.name].outfits = await outfitsResponse.json();
+                    pluginData.outfits = await outfitsResponse.json();
+                    loadedSomething = true;
+                } else {
+                    console.warn(`${plugin.name}: outfits.json not found (${outfitsResponse.status})`);
                 }
+            
+                // Only add plugin if at least ONE file loaded
+                if (loadedSomething) {
+                    allData[plugin.name] = pluginData;
+                } else {
+                    console.warn(`${plugin.name}: no data files found, skipping plugin`);
+                }
+            
             } catch (err) {
-                console.warn(`Could not load data for plugin: ${plugin.name}`, err);
+                console.warn(`Failed loading plugin ${plugin.name}`, err);
             }
         }
 
-        if (Object.keys(allData).length === 0) {
-            throw new Error('No plugin data found in repository');
+        const hasAnyData = Object.values(allData).some(plugin =>
+            (plugin.ships && plugin.ships.length > 0) ||
+            (plugin.variants && plugin.variants.length > 0) ||
+            (plugin.outfits && plugin.outfits.length > 0)
+        );
+
+        if (!hasAnyData) {
+            throw new Error('No plugin data files could be loaded');
         }
 
         loadingIndicator.style.display = 'none';

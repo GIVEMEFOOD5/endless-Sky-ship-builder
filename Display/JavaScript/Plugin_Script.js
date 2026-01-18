@@ -57,7 +57,7 @@ async function loadData() {
                             console.warn('ships.json not found');
                         } else {
                             fetchedShipsData = await fetch(shipsUrl);
-                            pluginData.ships = fetchedShipsData.json();
+                            pluginData.ships = await fetchedShipsData.json();
                             loadedSomething = true;
                         }
 
@@ -83,7 +83,7 @@ async function loadData() {
                             console.warn('variants.json not found');
                         } else {
                             fetchedVariantsData = await fetch(variantsUrl);
-                            pluginData.variants = fetchedVariantsData.json();
+                            pluginData.variants = await fetchedVariantsData.json();
                             loadedSomething = true;
                         }
 
@@ -108,7 +108,7 @@ async function loadData() {
                             console.warn('outfits.json not found');
                         } else {
                             fetchedOutfitData = await fetch(outfitsUrl);
-                            pluginData.outfits = fetchedOutfitData.json();
+                            pluginData.outfits = await fetchedOutfitData.json();
                             loadedSomething = true;
                         }
 

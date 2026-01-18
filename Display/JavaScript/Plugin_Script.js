@@ -53,12 +53,20 @@ async function loadData() {
 
                         extractHash = rawText.match(/oid\s+sha256:([a-f0-9]{64})/i);
                         hash = match[1];
-                        if (extractHardFindPluginFolder.name == ships.json) {
-                            lfsUrl = await fetch(`${baseUrl}/${plugin.name}/ships.json`);
+
+                        const shipsUrl = extractHardFindPluginFolder.find(f => f.name === 'ships.json')?.download_url;
+
+                        if (!shipsUrl) {
+                            console.warn('ships.json not found');
+                        } else {
+                            fsUrl = await fetch(shipsUrl);
                         }
+                        
+                    } else {
+                        pluginData.ships = await shipsResponse.json();
+                        loadedSomething = true;
                     }
-                    pluginData.ships = await shipsResponse.json();
-                    loadedSomething = true;
+
                 } else {
                     console.warn(`${plugin.name}: ships.json not found (${shipsResponse.status})`);
                 }

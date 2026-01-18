@@ -38,11 +38,13 @@ async function loadData() {
             try {
                 const shipsResponse = await fetch(`${baseUrl}/${plugin.name}/ships.json`);
                 const outfitsResponse = await fetch(`${baseUrl}/${plugin.name}/outfits.json`);
+                const variantsResponse = await fetch(`${baseUrl}/${plugin.name}/variants.json`);
 
-                if (shipsResponse.ok && outfitsResponse.ok) {
+                if (shipsResponse.ok && outfitsResponse.ok && variantsResponse.ok) {
                     allData[plugin.name] = {
                         ships: await shipsResponse.json(),
                         outfits: await outfitsResponse.json(),
+                        varients: await variantsResponse.json(),
                         repository: plugin.repository
                     };
                 }
@@ -107,7 +109,7 @@ function updateStats() {
     
     statsContainer.innerHTML = `
         <div class="stat-card">
-            <div class="stat-value">${data.ships.length}</div>
+            <div class="stat-value">${data.ships.length + data.varients.length}</div>
             <div class="stat-label">Ships</div>
         </div>
         <div class="stat-card">
@@ -115,7 +117,7 @@ function updateStats() {
             <div class="stat-label">Outfits</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">${data.ships.length + data.outfits.length}</div>
+            <div class="stat-value">${data.ships.length + data.varients.length + data.outfits.length}</div>
             <div class="stat-label">Total Items</div>
         </div>
     `;
@@ -136,7 +138,7 @@ function renderCards() {
 
     const container = document.getElementById('cardsContainer');
     const data = allData[currentPlugin];
-    const items = currentTab === 'ships' ? data.ships : data.outfits;
+    const items = currentTab === 'ships' ? data.ships + data.varients : data.outfits;
 
     filteredData = items;
     filterItems(); // Apply any active search

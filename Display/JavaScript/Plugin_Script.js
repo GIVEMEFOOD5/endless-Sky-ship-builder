@@ -51,9 +51,6 @@ async function loadData() {
                         hardFindPluginFolder = await fetch(`${apiServerUrl}/repos/${repoUrl}/contents/data/${plugin.name}?ref=main`)
                         extractHardFindPluginFolder = await hardFindPluginFolder.json();
 
-                        extractHash = rawText.match(/oid\s+sha256:([a-f0-9]{64})/i);
-                        hash = match[1];
-
                         const shipsUrl = extractHardFindPluginFolder.find(f => f.name === 'ships.json')?.download_url;
 
                         if (!shipsUrl) {
@@ -61,7 +58,7 @@ async function loadData() {
                         } else {
                             fsUrl = await fetch(shipsUrl);
                         }
-                        
+
                     } else {
                         pluginData.ships = await shipsResponse.json();
                         loadedSomething = true;

@@ -42,11 +42,20 @@ async function loadData() {
 
                 if (shipsResponse.ok && outfitsResponse.ok && variantsResponse.ok) {
                     allData[plugin.name] = {
-                        ships: await shipsResponse.json(),
-                        outfits: await outfitsResponse.json(),
-                        varients: await variantsResponse.json(),
                         repository: plugin.repository
                     };
+
+                    if (shipsResponse.ok) {
+                        allData[plugin.name].ships = await shipsResponse.json();
+                    }
+
+                    if (outfitsResponse.ok) {
+                        allData[plugin.name].outfits = await outfitsResponse.json();
+                    }
+
+                    if (variantsResponse.ok) {
+                        allData[plugin.name].variants = await variantsResponse.json();
+                    }
                 }
             } catch (err) {
                 console.warn(`Could not load data for plugin: ${plugin.name}`, err);

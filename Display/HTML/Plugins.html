@@ -42,6 +42,12 @@
 
             <div class="search-section">
                 <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search..." oninput="filterItems()">
+            
+                <div class="filter-section" id="filterSection" style="display: none;">
+                    <div class="filter-title">Filter by Category:</div>
+                    <div class="filter-options" id="filterOptions"></div>
+                    <button class="filter-clear" onclick="clearFilters()">Clear Filters</button>
+                </div>
             </div>
 
             <div class="cards-grid" id="cardsContainer"></div>

@@ -1,3 +1,5 @@
+import { filterItems } from 'Plugin_Data.js'
+
 // Function to extract unique categories from JSON data
 function extractCategories(data) {
     const categories = new Set();

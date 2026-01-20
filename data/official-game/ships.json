@@ -18474,6 +18474,7 @@
     "turrets": [],
     "bays": [],
     "display name": "`K-IA \"Latte\"`",
+    "Lattes": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",

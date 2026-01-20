@@ -389,54 +389,76 @@ button {
     margin-top: 5px;
 }
 
+/* Check Boxes */
+
 .filter-section {
-    background: #f5f5f5;
-    padding: 15px;
+    background: rgba(30, 41, 59, 0.5);
+    padding: 20px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
-        
+
 .filter-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #93c5fd;
+    font-size: 1.1rem;
 }
-        
+
 .filter-options {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
-        
+
 .filter-option {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.4);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.3s;
 }
-        
+
+.filter-option:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+}
+
 .filter-option input[type="checkbox"] {
     cursor: pointer;
     width: 18px;
     height: 18px;
+    accent-color: #3b82f6;
 }
-        
+
 .filter-option label {
     cursor: pointer;
     user-select: none;
     text-transform: capitalize;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    margin-bottom: 0;
 }
-        
+
 .filter-clear {
-    margin-top: 10px;
-    padding: 6px 12px;
-    background: #666;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: rgba(71, 85, 105, 0.8);
+    color: #e2e8f0;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
 }
-        
+
 .filter-clear:hover {
-    background: #555;
+    background: rgba(71, 85, 105, 1);
+    border-color: #3b82f6;
+    transform: translateY(-1px);
 }

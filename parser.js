@@ -859,11 +859,11 @@ class EndlessSkyParser {
   parseFileContent(content) {
     var lines = content.split('\n');
     var i = 0;
-    
+  
     while (i < lines.length) {
       var line = lines[i].trim();
-      
-      if (line.startsWith('ship "')) {
+    
+      if (line.startsWith('ship "') || line.startsWith('ship `')) {
         var result = this.parseShip(lines, i);
         var shipData = result[0];
         var nextI = result[1];
@@ -879,7 +879,7 @@ class EndlessSkyParser {
           }
         }
         i = nextI;
-      } else if (line.startsWith('outfit "')) {
+      } else if (line.startsWith('outfit "') || line.startsWith('outfit `')) {
         var result = this.parseOutfit(lines, i);
         var outfitData = result[0];
         var nextI = result[1];
@@ -891,10 +891,10 @@ class EndlessSkyParser {
         i++;
       }
     }
-    
+  
     // DO NOT process variants here - it will be done once after all files are parsed
   }
-
+  
   async parseRepository(repoUrl) {
     this.ships = [];
     this.variants = [];

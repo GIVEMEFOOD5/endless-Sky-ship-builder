@@ -65169,12 +65169,6 @@
       "thumbnail": "outfit/unknown"
     },
     {
-      "name": "Trefoil Board"
-    },
-    {
-      "name": "Damselflyman"
-    },
-    {
       "name": "Damselflyman"
     },
     {
@@ -66545,74 +66539,6 @@
       "description": "As the Korath began to saturate systems with mines, the effectiveness of Bunrodean fighters dropped substantially. In response, the Bunrodea developed this rapid-fire anti-missile turret, able to clear sections of a system of Korath mines at blinding speed."
     },
     {
-      "name": "Jump Drive"
-    },
-    {
-      "name": "Jump Drive"
-    },
-    {
-      "name": "Armageddon Core"
-    },
-    {
-      "name": "Fusion Reactor"
-    },
-    {
-      "name": "Breeder Reactor"
-    },
-    {
-      "name": "Torpedo Launcher"
-    },
-    {
-      "name": "Typhoon Launcher"
-    },
-    {
-      "name": "Plasma Turret"
-    },
-    {
-      "name": "Flamethrower"
-    },
-    {
-      "name": "Fragmentation Grenades"
-    },
-    {
-      "name": "Heavy Anti-Missile Turret"
-    },
-    {
-      "name": "Jump Drive",
-      "on": "complete"
-    },
-    {
-      "name": "Yottrite"
-    },
-    {
-      "name": "Yottrite"
-    },
-    {
-      "name": "Yottrite",
-      "on": "complete"
-    },
-    {
-      "name": "Yottrite"
-    },
-    {
-      "name": "Outskirts Gauger"
-    },
-    {
-      "name": "Jump Drive"
-    },
-    {
-      "name": "Beyond the Hyperdrive",
-      "`The": "moment you land, Anna arrives, very happy to see you. She grabs your shoulders with both arms and in an excited tone explains that her book has been approved for publication.`",
-      "`": "Anna looks disappointed, but the emotion quickly disappears in her flood of exuberence. She dashes off in the direction she came in.`",
-      "choice": {
-        "Why is this book so different from the one in human space?": true,
-        "Did you make any changes to it?": true
-      },
-      "label": "decline",
-      "My book succeeded beyond my wildest dreams, and it was all because of you, <first>!": "she says, almost in a teary voice. She pulls out a credit chip. \"Here, <payment>. You've done so much for me and my career, and you deserve it.\"`",
-      "Well, for one, it's not in our language. Some concepts just don't translate very well, so I tried to capture the spirit of the story. The Heliarch linguists were very helpful,": "she explains. \"They really went into depth on some aspects of the Coalition's languages. None of the major plot points were changed, thankfully, though some content in the book had to be edited or removed. My Heliarch friend said that if I changed this or removed that, the book would sell so much better, and as they said, they wanted to 'make it more suitable for the Coalition.' Their words.`"
-    },
-    {
       "name": "Small Collector Module",
       "category": "Power",
       "series": "Solar",
@@ -67553,34 +67479,6 @@
       "description": "\tEspecially popular with novice pilots looking to pay off their ships, the extractor has been a reliable tool of mining businesses in the Coalition for millennia."
     },
     {
-      "name": "Fragmentation Grenades",
-      "on": "fail"
-    },
-    {
-      "name": "Heavy Anti-Missile Turret",
-      "on": "fail"
-    },
-    {
-      "name": "Torpedo Launcher",
-      "on": "fail"
-    },
-    {
-      "name": "Plasma Turret",
-      "on": "fail"
-    },
-    {
-      "name": "Armageddon Core",
-      "on": "fail"
-    },
-    {
-      "name": "Jump Drive",
-      "on": "fail"
-    },
-    {
-      "name": "Jump Drive",
-      "on": "fail"
-    },
-    {
       "name": "Drak Distancer",
       "category": "Turrets",
       "series": "Turrets",
@@ -67900,27 +67798,6 @@
         "shield damage": 80,
         "ion damage": 2
       }
-    },
-    {
-      "name": "Iron"
-    },
-    {
-      "name": "Aluminum"
-    },
-    {
-      "name": "Copper"
-    },
-    {
-      "name": "Iron"
-    },
-    {
-      "name": "Lead"
-    },
-    {
-      "name": "Silicon"
-    },
-    {
-      "name": "Titanium"
     },
     {
       "name": "R01 Skirmish Battery",
@@ -69615,43 +69492,6 @@
       "description": "This was meant to control some sort of experimental system, but it appears to have failed. Unfortunately it doesn't appear to be safely removable."
     },
     {
-      "name": "Hyperdrive",
-      "on": "accept"
-    },
-    {
-      "name": "Hyperdrive",
-      "on": "accept"
-    },
-    {
-      "name": "Hyperdrive",
-      "on": "accept"
-    },
-    {
-      "name": "Tripulse Shredder",
-      "on": "accept"
-    },
-    {
-      "name": "Tripulse Shredder"
-    },
-    {
-      "name": "Silicon"
-    },
-    {
-      "name": "Silicon"
-    },
-    {
-      "name": "Silver"
-    },
-    {
-      "name": "Silver"
-    },
-    {
-      "name": "Lead"
-    },
-    {
-      "name": "Lead"
-    },
-    {
       "name": "Aluminum",
       "plural": "Aluminum",
       "category": "Minerals",
@@ -69848,23 +69688,6 @@
     },
     {
       "name": "Antigrav Glass"
-    },
-    {
-      "name": "Quantum Keystone"
-    },
-    {
-      "name": "Quantum Keystone",
-      "on": "visit",
-      "to": "complete"
-    },
-    {
-      "name": "Forge-Class Thruster"
-    },
-    {
-      "name": "Millennium Cell"
-    },
-    {
-      "name": "Inhibitor Cannon"
     },
     {
       "name": "Tear of Skade"
@@ -70509,60 +70332,6 @@
       "description": "\tBecause a reverse thruster must be facing forwards, it must be installed in the weapon section of your ship instead of the engine section."
     },
     {
-      "name": "Surveillance Pod"
-    },
-    {
-      "name": "Electron Beam",
-      "on": "complete",
-      "npc": {
-        "government": "Republic",
-        "system": "Alnasl",
-        "personality": "heroic opportunistic staying",
-        "fleet": {
-          "names": "republic small",
-          "variant": {
-            "Gunboat (Mark II)": true
-          }
-        }
-      },
-      "to": "fail"
-    },
-    {
-      "name": "Electron Turret"
-    },
-    {
-      "name": "Hyperdrive",
-      "on": "complete"
-    },
-    {
-      "name": "Scram Drive",
-      "on": "complete"
-    },
-    {
-      "name": "Cloaking Device",
-      "on": "visit",
-      "npc": {
-        "government": "Navy (Oathkeeper)",
-        "system": "Deneb",
-        "personality": "heroic escort",
-        "fleet": {
-          "names": "republic capital",
-          "fighters": {
-            "names": "republic fighter"
-          },
-          "variant": {
-            "Carrier (Mark II)": 3,
-            "Lance": 24,
-            "Combat Drone": [
-              18,
-              12
-            ],
-            "Cruiser (Mark II)": 3
-          }
-        }
-      }
-    },
-    {
       "name": "Puny"
     },
     {
@@ -70585,49 +70354,7 @@
       }
     },
     {
-      "name": "Ion Cannon"
-    },
-    {
       "name": "Blood of Surtr"
-    },
-    {
-      "name": "Old Man's Sword"
-    },
-    {
-      "name": "Silicon"
-    },
-    {
-      "name": "Lead"
-    },
-    {
-      "name": "Iron"
-    },
-    {
-      "name": "Aluminum"
-    },
-    {
-      "name": "Titanium"
-    },
-    {
-      "name": "Copper"
-    },
-    {
-      "name": "Neodymium"
-    },
-    {
-      "name": "Tungsten"
-    },
-    {
-      "name": "Uranium"
-    },
-    {
-      "name": "Silver"
-    },
-    {
-      "name": "Gold"
-    },
-    {
-      "name": "Platinum"
     },
     {
       "name": "Cooling Ducts",
@@ -71258,15 +70985,6 @@
       "thumbnail": "outfit/unknown",
       "mass": 1,
       "description": "Cargo stolen from a merchant ship which has caught the interest of a pirate warlord."
-    },
-    {
-      "name": "Secret Cargo"
-    },
-    {
-      "name": "Secret Cargo"
-    },
-    {
-      "name": "Secret Cargo"
     },
     {
       "name": "Supercapacitor",
@@ -75560,9 +75278,6 @@
       }
     },
     {
-      "name": "Ka'het Electric Stunner"
-    },
-    {
       "name": "Asteroid Weapon Super",
       "display name": "\"???\"",
       "category": "Guns",
@@ -78855,48 +78570,6 @@
       "description": "With an abundance of caution regarding the potential theft and misuse of their technology, Quarg ships are outfitted with special systems for repelling boarders in a manner that could be considered overkill. Because no one wants to be caught by the Quarg with stolen technology, these systems are pretty much worthless on the open market."
     },
     {
-      "name": "Quantum Key Stone"
-    },
-    {
-      "name": "Quantum Keystone"
-    },
-    {
-      "name": "Quantum Keystone"
-    },
-    {
-      "name": "Heavy Laser"
-    },
-    {
-      "name": "Plasma Cannon"
-    },
-    {
-      "name": "Catalytic Ramscoop"
-    },
-    {
-      "name": "Electron Beam"
-    },
-    {
-      "name": "D94-YV Shield Generator"
-    },
-    {
-      "name": "S-970 Regenerator"
-    },
-    {
-      "name": "Jump Drive (Broken)"
-    },
-    {
-      "name": "Jump Drive (Broken)"
-    },
-    {
-      "name": "Jump Drive (Broken)"
-    },
-    {
-      "name": "Jump Drive (Broken)"
-    },
-    {
-      "name": "Jump Drive (Broken)"
-    },
-    {
       "name": "Void Rifle"
     },
     {
@@ -78907,13 +78580,6 @@
       "#": "This generator will fail when an ion storm comes and the ship runs out of energy",
       "hull repair rate": 60000,
       "hull energy": 1
-    },
-    {
-      "name": "Aeon Cell",
-      "on": "complete"
-    },
-    {
-      "name": "Jump Drive (Broken)"
     },
     {
       "name": "Suicide Gun",
@@ -79935,11 +79601,6 @@
       }
     },
     {
-      "name": "Jump Drive",
-      "on": "visit",
-      "npc": "assist"
-    },
-    {
       "name": "Small EM Battery",
       "plural": "Small EM Batteries",
       "category": "Power",
@@ -80274,9 +79935,6 @@
         "shield damage": 1.79,
         "hull damage": 1.47
       }
-    },
-    {
-      "name": "Local Map"
     },
     {
       "name": "Successor License",
@@ -81409,15 +81067,6 @@
       "description": "The history of the Wanderers is not without hardship and failure. Immortalized in a bronze mold, this withered branch recalls the time the Wanderers could not save a world, for skilled as they may be, they cannot stop destruction when it is actively sought after by others mightier than them. The fall of the Noble Watchwood, their cherished emblem, now stands as a solemn vow: when peace fails, they too must prepare to fight. To stand and fight with the Wanderers, this license grants access to their greatest warships."
     },
     {
-      "name": "Reasoning Node"
-    },
-    {
-      "name": "Control Transceiver"
-    },
-    {
-      "name": "Jump Drive"
-    },
-    {
       "name": "Pincer",
       "category": "Guns",
       "series": "Guns",
@@ -81438,5 +81087,5 @@
       }
     }
   ],
-  "parsedAt": "2026-01-20T23:28:55.992Z"
+  "parsedAt": "2026-01-21T08:39:22.332Z"
 }

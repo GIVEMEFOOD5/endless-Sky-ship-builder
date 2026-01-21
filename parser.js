@@ -714,6 +714,23 @@ class EndlessSkyParser {
     let descriptionLines = [];
     let i = startIdx + 1;
     
+    // Check if the first indented line is a display name
+    if (i < lines.length) {
+      const firstLine = lines[i];
+      const firstIndent = firstLine.length - firstLine.replace(/^\t+/, '').length;
+      if (firstIndent === 1) {
+        const firstStripped = firstLine.trim();
+        // Key is always "display name" but value can use quotes or backticks
+        const displayMatchQuotes = firstStripped.match(/^"display name"\s+"([^"]+)"$/);
+        const displayMatchBackticks = firstStripped.match(/^"display name"\s+`(.+)`$/);
+        const displayMatch = displayMatchBackticks || displayMatchQuotes;
+        if (displayMatch) {
+          outfitData.displayName = displayMatch[1];
+          i++; // Move past the display name line
+        }
+      }
+    }
+    
     while (i < lines.length) {
       const currentLine = lines[i];
       if (!currentLine.trim()) { i++; continue; }

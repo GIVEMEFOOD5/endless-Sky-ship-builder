@@ -17281,9 +17281,9 @@
         "energy capacity": 400,
         "energy generation": 4,
         "thrust": 12,
-        "flare sound": "\"jje\"",
+        "flare sound": "jje",
         "turn": 90,
-        "steering flare sound": "\"jje\"",
+        "steering flare sound": "jje",
         "burn protection": 2,
         "discharge protection": 2,
         "energy protection": 2,
@@ -17395,15 +17395,15 @@
         "atmosphere scan": 10,
         "inscrutable": 1,
         "thrust": 21,
-        "flare sound": "\"ayym\"",
+        "flare sound": "ayym",
         "turn": 120,
-        "steering flare sound": "\"ayym\"",
+        "steering flare sound": "ayym",
         "jump fuel": 100,
         "jump speed": 0.2,
         "hyperdrive": 1,
-        "hyperdrive sound": "\"organ drive\"",
-        "hyperdrive out sound": "\"organ drive out\"",
-        "hyperdrive in sound": "\"organ drive in\"",
+        "hyperdrive sound": "organ drive",
+        "hyperdrive out sound": "organ drive out",
+        "hyperdrive in sound": "organ drive in",
         "burn protection": 3,
         "discharge protection": 3,
         "energy protection": 3,
@@ -23485,7 +23485,7 @@
         "hull repair": 3,
         "thrust": 23.4,
         "reverse thrust": 15.6,
-        "flare sound": "\"ion medium\"",
+        "flare sound": "ion medium",
         "turn": 2453.7,
         "jump speed": 0.2,
         "jump fuel": 50,
@@ -25810,12 +25810,12 @@
         "turning heat": 0.2,
         "reverse thrusting energy": 0.75,
         "reverse thrusting heat": 0.7,
-        "flare sprite": "\"effect/remnant flare/small\"",
-        "flare sound": "\"plasma tiny\"",
-        "steering flare sprite": "\"effect/remnant flare/small\"",
-        "steering flare sound": "\"plasma tiny\"",
-        "reverse flare sprite": "\"effect/remnant flare/small\"",
-        "reverse flare sound": "\"plasma tiny\"",
+        "flare sprite": "effect/remnant flare/small",
+        "flare sound": "plasma tiny",
+        "steering flare sprite": "effect/remnant flare/small",
+        "steering flare sound": "plasma tiny",
+        "reverse flare sprite": "effect/remnant flare/small",
+        "reverse flare sound": "plasma tiny",
         "weapon": {
           "blast radius": 10,
           "shield damage": 100,
@@ -26027,12 +26027,12 @@
         "reverse thrusting heat": 0.55,
         "energy generation": 0.6,
         "heat generation": 1,
-        "flare sprite": "\"effect/remnant flare/small\"",
-        "flare sound": "\"plasma tiny\"",
-        "steering flare sprite": "\"effect/remnant flare/small\"",
-        "steering flare sound": "\"plasma tiny\"",
-        "reverse flare sprite": "\"effect/remnant flare/small\"",
-        "reverse flare sound": "\"plasma tiny\"",
+        "flare sprite": "effect/remnant flare/small",
+        "flare sound": "plasma tiny",
+        "steering flare sprite": "effect/remnant flare/small",
+        "steering flare sound": "plasma tiny",
+        "reverse flare sprite": "effect/remnant flare/small",
+        "reverse flare sound": "plasma tiny",
         "remnant node": 1,
         "weapon": {
           "blast radius": 20,
@@ -26592,15 +26592,15 @@
         "thrust": 75,
         "thrusting energy": 20,
         "thrusting heat": 10,
-        "flare sound": "\"impulse engine\"",
+        "flare sound": "impulse engine",
         "reverse thrust": 75,
         "reverse thrusting energy": 20,
         "reverse thrusting heat": 10,
-        "reverse flare sound": "\"impulse engine\"",
+        "reverse flare sound": "impulse engine",
         "turn": 900,
         "turning energy": 10,
         "turning heat": 5,
-        "steering flare sound": "\"impulse engine\"",
+        "steering flare sound": "impulse engine",
         "disruption protection": 2,
         "energy protection": 2,
         "force protection": 1,
@@ -28320,7 +28320,7 @@
       "Vyrmeid": true,
       "never disabled": true,
       "attributes": {
-        "category": "\"Unclassified Minor\"",
+        "category": "Unclassified Minor",
         "cost": 0,
         "shields": 0,
         "hull": 400,
@@ -28396,15 +28396,15 @@
         "energy capacity": 2000,
         "energy generation": 160,
         "thrust": 36,
-        "flare sound": "\"astral cetacean\"",
+        "flare sound": "astral cetacean",
         "turn": 360,
-        "steering flare sound": "\"astral cetacean\"",
+        "steering flare sound": "astral cetacean",
         "jump fuel": 80,
         "jump speed": 0.1,
         "hyperdrive": 1,
-        "hyperdrive sound": "\"organ drive\"",
-        "hyperdrive out sound": "\"organ drive out\"",
-        "hyperdrive in sound": "\"organ drive in\"",
+        "hyperdrive sound": "organ drive",
+        "hyperdrive out sound": "organ drive out",
+        "hyperdrive in sound": "organ drive in",
         "energy protection": 2,
         "heat protection": 2,
         "ion protection": 2,
@@ -40566,12 +40566,12 @@
         "turning heat": 0.2,
         "reverse thrusting energy": 0.75,
         "reverse thrusting heat": 0.7,
-        "flare sprite": "\"effect/remnant flare/small\"",
-        "flare sound": "\"plasma tiny\"",
-        "steering flare sprite": "\"effect/remnant flare/small\"",
-        "steering flare sound": "\"plasma tiny\"",
-        "reverse flare sprite": "\"effect/remnant flare/small\"",
-        "reverse flare sound": "\"plasma tiny\"",
+        "flare sprite": "effect/remnant flare/small",
+        "flare sound": "plasma tiny",
+        "steering flare sprite": "effect/remnant flare/small",
+        "steering flare sound": "plasma tiny",
+        "reverse flare sprite": "effect/remnant flare/small",
+        "reverse flare sound": "plasma tiny",
         "weapon": {
           "blast radius": 10,
           "shield damage": 100,
@@ -40914,7 +40914,7 @@
       "Vyrmeid": true,
       "never disabled": true,
       "attributes": {
-        "category": "\"Unclassified Minor\"",
+        "category": "Unclassified Minor",
         "cost": 0,
         "shields": 0,
         "hull": 400,
@@ -40958,7 +40958,7 @@
       "Vyrmeid": true,
       "never disabled": true,
       "attributes": {
-        "category": "\"Unclassified Minor\"",
+        "category": "Unclassified Minor",
         "cost": 0,
         "shields": 0,
         "hull": 400,
@@ -41933,11 +41933,11 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/grab-strike",
-        "hardpoint sprite": "\"hardpoint/grab-strike\"",
+        "hardpoint sprite": "hardpoint/grab-strike",
         "hardpoint offset": 7,
         "sound": "grab-strike",
-        "hit effect": "\"grab-strike impact\"",
-        "die effect": "\"grab-strike impact\"",
+        "hit effect": "grab-strike impact",
+        "die effect": "grab-strike impact",
         "inaccuracy": 1,
         "turret turn": 1.9,
         "velocity": 10,
@@ -41968,10 +41968,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/banisher",
-        "hardpoint sprite": "\"hardpoint/banisher\"",
+        "hardpoint sprite": "hardpoint/banisher",
         "hardpoint offset": 5,
         "sound": "banisher",
-        "hit effect": "\"banisher impact\"",
+        "hit effect": "banisher impact",
         "inaccuracy": 0.4,
         "turret turn": 4.2,
         "velocity": 590,
@@ -41996,9 +41996,9 @@
       "energy capacity": 50,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/warder\"",
+        "hardpoint sprite": "hardpoint/warder",
         "hardpoint offset": 3,
-        "hit effect": "\"korath warder\"",
+        "hit effect": "korath warder",
         "anti-missile": 10,
         "velocity": 350,
         "lifetime": 1,
@@ -42020,7 +42020,7 @@
       "weapon": {
         "sprite": "projectile/fire-lance",
         "sound": "fire-lance",
-        "hit effect": "\"fire-lance impact\"",
+        "hit effect": "fire-lance impact",
         "inaccuracy": 0.4,
         "velocity": 350,
         "lifetime": 1,
@@ -42046,7 +42046,7 @@
       "weapon": {
         "sprite": "projectile/repeater",
         "sound": "repeater",
-        "hit effect": "\"repeater impact\"",
+        "hit effect": "repeater impact",
         "inaccuracy": 4,
         "velocity": 13,
         "lifetime": 40,
@@ -42075,10 +42075,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/repeater",
-        "hardpoint sprite": "\"hardpoint/repeater turret\"",
+        "hardpoint sprite": "hardpoint/repeater turret",
         "hardpoint offset": 7,
         "sound": "repeater",
-        "hit effect": "\"repeater impact\"",
+        "hit effect": "repeater impact",
         "inaccuracy": 3,
         "turret turn": 2.6,
         "velocity": 13,
@@ -42131,12 +42131,12 @@
         "sound": "piercer",
         "ammo": "Korath Piercer",
         "icon": "icon/piercer",
-        "fire effect": "\"piercer fire\"",
+        "fire effect": "piercer fire",
         "hit effect": [
-          "\"piercer impact\"",
-          "\"piercer explosion\""
+          "piercer impact",
+          "piercer explosion"
         ],
-        "die effect": "\"piercer explosion\"",
+        "die effect": "piercer explosion",
         "inaccuracy": 3,
         "velocity": 18,
         "lifetime": 200,
@@ -42193,10 +42193,10 @@
         "sound": "minelayer",
         "ammo": "Korath Mine",
         "icon": "icon/minelayer",
-        "fire effect": "\"minelayer fire\"",
-        "hit effect": "\"huge explosion\"",
-        "die effect": "\"minelayer split\" 5",
-        "submunition": "\"Korath Mine Submunition\" 11",
+        "fire effect": "minelayer fire",
+        "hit effect": "huge explosion",
+        "die effect": "minelayer split\" 5",
+        "submunition": "Korath Mine Submunition\" 11",
         "inaccuracy": 10,
         "velocity": 3,
         "lifetime": 100,
@@ -42228,10 +42228,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/disruptor",
-        "hardpoint sprite": "\"hardpoint/disruptor\"",
+        "hardpoint sprite": "hardpoint/disruptor",
         "hardpoint offset": 15,
         "sound": "disruptor",
-        "hit effect": "\"disruptor impact\"",
+        "hit effect": "disruptor impact",
         "inaccuracy": 1,
         "turret turn": 1.5,
         "velocity": 480,
@@ -42257,7 +42257,7 @@
       "weapon": {
         "sprite": "projectile/slicer",
         "sound": "slicer",
-        "hit effect": "\"slicer impact\"",
+        "hit effect": "slicer impact",
         "inaccuracy": 0,
         "velocity": 520,
         "lifetime": 1,
@@ -42283,10 +42283,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/slicer",
-        "hardpoint sprite": "\"hardpoint/slicer turret\"",
+        "hardpoint sprite": "hardpoint/slicer turret",
         "hardpoint offset": 17,
         "sound": "slicer",
-        "hit effect": "\"slicer impact\"",
+        "hit effect": "slicer impact",
         "inaccuracy": 0,
         "turret turn": 2.9,
         "velocity": 520,
@@ -42354,10 +42354,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/skylance",
-        "hardpoint sprite": "\"hardpoint/quarg skylance\"",
+        "hardpoint sprite": "hardpoint/quarg skylance",
         "hardpoint offset": 10,
         "sound": "skylance",
-        "hit effect": "\"skylance impact\"",
+        "hit effect": "skylance impact",
         "inaccuracy": 0.4,
         "turret turn": 2.6,
         "velocity": 500,
@@ -42382,8 +42382,8 @@
       "weapon capacity": -40,
       "turret mounts": -1,
       "weapon": {
-        "hit effect": "\"quarg anti-missile\"",
-        "hardpoint sprite": "\"hardpoint/quarg anti missile\"",
+        "hit effect": "quarg anti-missile",
+        "hardpoint sprite": "hardpoint/quarg anti missile",
         "hardpoint offset": 4,
         "anti-missile": 25,
         "velocity": 500,
@@ -42530,7 +42530,7 @@
       "solar heat": 9,
       "drag": 3,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/plasmadyne scoop\""
+        "hardpoint sprite": "hardpoint/plasmadyne scoop"
       },
       "description": "\tThis magnetic field spans a range far larger than what can be generated by any physical loop of wire of reasonable size, while also sparing a starship from carrying an enormous mass of superconducting wire. It does require a rather large amount of power to function, however, and the interaction with the plasma of the interplanetary medium causes a significant amount of drag."
     },
@@ -43057,9 +43057,9 @@
       "gun ports": -1,
       "speck capacity": 900,
       "weapon": {
-        "sound": "\"speckle\"",
+        "sound": "speckle",
         "ammo": "Speck Round",
-        "fire effect": "\"speckle fire\"",
+        "fire effect": "speckle fire",
         "inaccuracy": 0.9,
         "velocity override": 30,
         "reload": 18,
@@ -43069,7 +43069,7 @@
         "firing energy": 36,
         "firing heat": 30,
         "firing force": 12,
-        "submunition": "\"Speck\""
+        "submunition": "Speck"
       },
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
     },
@@ -43087,11 +43087,11 @@
       "turret mounts": -1,
       "speck capacity": 1800,
       "weapon": {
-        "sound": "\"speckle\"",
+        "sound": "speckle",
         "Speck Round": 2,
-        "hardpoint sprite": "\"hardpoint/speckle turret\"",
+        "hardpoint sprite": "hardpoint/speckle turret",
         "hardpoint offset": 9,
-        "fire effect": "\"speckle fire\"",
+        "fire effect": "speckle fire",
         "inaccuracy": 1.2,
         "velocity override": 30,
         "reload": 18,
@@ -43103,8 +43103,8 @@
         "firing heat": 60,
         "firing force": 24,
         "submunition": [
-          "\"Speck\"",
-          "\"Speck\""
+          "Speck",
+          "Speck"
         ]
       },
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
@@ -43135,14 +43135,14 @@
       "optical jamming": 6,
       "lasing power": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/green optical laser\"",
+        "hardpoint sprite": "hardpoint/green optical laser",
         "hardpoint offset": 3,
-        "sound": "\"optical laser\"",
-        "fire effect": "\"green laser glare\"",
+        "sound": "optical laser",
+        "fire effect": "green laser glare",
         "die effect": [
-          "\"laser ejecta\" 4",
-          "\"green laser reflection\" 30",
-          "\"green laser scattering\""
+          "laser ejecta\" 4",
+          "green laser reflection\" 30",
+          "green laser scattering"
         ],
         "anti-missile": 2,
         "velocity": 1200,
@@ -43168,14 +43168,14 @@
       "turret mounts": -1,
       "lasing power": -2,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/blue optical laser\"",
+        "hardpoint sprite": "hardpoint/blue optical laser",
         "hardpoint offset": 3,
-        "sound": "\"optical laser\"",
-        "fire effect": "\"blue laser glare\"",
+        "sound": "optical laser",
+        "fire effect": "blue laser glare",
         "hit effect": [
-          "\"laser ejecta\" 6",
-          "\"blue laser reflection\" 60",
-          "\"blue laser scattering\""
+          "laser ejecta\" 6",
+          "blue laser reflection\" 60",
+          "blue laser scattering"
         ],
         "velocity": 1500,
         "lifetime": 1,
@@ -43210,13 +43210,13 @@
       "weapon": {
         "sprite": "projectile/orchid terminal",
         "sound": "nuke",
-        "Ophrys": "Nuclear Torpedo`",
+        "Ophrys": "Nuclear Torpedo",
         "stream": [
           true,
           true
         ],
         "icon": "icon/orchid",
-        "fire effect": "\"torpedo fire\"",
+        "fire effect": "torpedo fire",
         "firing energy": 30,
         "firing heat": 15,
         "firing force": 600,
@@ -43227,7 +43227,7 @@
         "homing": true,
         "optical tracking": 0.72,
         "range override": 600,
-        "submunition": "\"Ophrys Terminal\""
+        "submunition": "Ophrys Terminal"
       },
       "description": "This pylon externally mounts a single torpedo, employing a small electromagnetic catapult to fling its payload towards a nearby target."
     },
@@ -43249,11 +43249,11 @@
       "weapon": {
         "sprite": "projectile/orchid inactive",
         "sound": "nuke",
-        "Orchid": "Nuclear Missile`",
+        "Orchid": "Nuclear Missile",
         "icon": "icon/orchid",
         "fire effect": [
-          "\"sidewinder fire\"",
-          "\"speckle fire\""
+          "sidewinder fire",
+          "speckle fire"
         ],
         "inaccuracy": 1.2,
         "velocity": 6,
@@ -43267,7 +43267,7 @@
         "homing": true,
         "missile strength": 18,
         "stream": true,
-        "submunition": "\"Orchid Active\""
+        "submunition": "Orchid Active"
       },
       "description": "This is a large launcher capable of carrying and deploying large torch-driven missiles and torpedoes. With a standardized design, it is compatible with a wide range of Avgi torch missiles. A coilgun-based ejection system allows missiles to be deployed with considerable initial velocity."
     },
@@ -43288,12 +43288,12 @@
       "turret mounts": -1,
       "nettle capacity": 27,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/tiny vls\"",
+        "hardpoint sprite": "hardpoint/tiny vls",
         "sprite": "projectile/nettle",
         "sound": "bounce",
-        "Nettle": "KKV`",
+        "Nettle": "KKV",
         "icon": "icon/nettle",
-        "fire effect": "\"sidewinder fire\"",
+        "fire effect": "sidewinder fire",
         "inaccuracy": 360,
         "velocity": 3,
         "lifetime": 30,
@@ -43309,7 +43309,7 @@
         "optical tracking": 0.6,
         "homing": true,
         "missile strength": 9,
-        "submunition": "\"Nettle Active\""
+        "submunition": "Nettle Active"
       },
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
     },
@@ -43330,12 +43330,12 @@
       "turret mounts": -1,
       "nettle capacity": 54,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/small vls\"",
+        "hardpoint sprite": "hardpoint/small vls",
         "sprite": "projectile/nettle",
         "sound": "bounce",
-        "Nettle": "KKV`",
+        "Nettle": "KKV",
         "icon": "icon/nettle",
-        "fire effect": "\"sidewinder fire\"",
+        "fire effect": "sidewinder fire",
         "inaccuracy": 360,
         "velocity": 3,
         "lifetime": 30,
@@ -43351,7 +43351,7 @@
         "optical tracking": 0.6,
         "homing": true,
         "missile strength": 9,
-        "submunition": "\"Nettle Active\""
+        "submunition": "Nettle Active"
       },
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
     },
@@ -43372,12 +43372,12 @@
       "turret mounts": -1,
       "nettle capacity": 108,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/medium vls\"",
+        "hardpoint sprite": "hardpoint/medium vls",
         "sprite": "projectile/nettle",
         "sound": "bounce",
-        "Nettle": "KKV`",
+        "Nettle": "KKV",
         "icon": "icon/nettle",
-        "fire effect": "\"sidewinder fire\"",
+        "fire effect": "sidewinder fire",
         "inaccuracy": 360,
         "velocity": 3,
         "lifetime": 30,
@@ -43393,7 +43393,7 @@
         "optical tracking": 0.6,
         "homing": true,
         "missile strength": 9,
-        "submunition": "\"Nettle Active\""
+        "submunition": "Nettle Active"
       },
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
     },
@@ -43767,7 +43767,7 @@
       "weapon": {
         "sprite": "projectile/locust blaster",
         "sound": "locust blaster",
-        "hit effect": "\"bullet impact\"",
+        "hit effect": "bullet impact",
         "hardpoint offset": 20,
         "inaccuracy": 5,
         "velocity": 10,
@@ -43794,10 +43794,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/locust blaster",
-        "hardpoint sprite": "\"hardpoint/locust turret\"",
+        "hardpoint sprite": "hardpoint/locust turret",
         "hardpoint offset": 40,
         "sound": "locust blaster",
-        "hit effect": "\"bullet impact\"",
+        "hit effect": "bullet impact",
         "inaccuracy": 5,
         "turret turn": 3.7,
         "velocity": 10,
@@ -43825,7 +43825,7 @@
       "weapon": {
         "sprite": "projectile/mandible cannon",
         "sound": "mandible cannon",
-        "hit effect": "\"proton impact\"",
+        "hit effect": "proton impact",
         "inaccuracy": 0.1,
         "velocity": 34,
         "lifetime": 25,
@@ -43856,16 +43856,16 @@
       "weapon": {
         "sprite": "projectile/thorax cannon",
         "sound": "thorax cannon",
-        "fire effect": "\"torpedo fire\"",
+        "fire effect": "torpedo fire",
         "live effect": [
-          "\"yellow spark\" 140",
-          "\"yellow spark trail\" 840",
-          "\"yellow spark twinkle\" 400"
+          "yellow spark\" 140",
+          "yellow spark trail\" 840",
+          "yellow spark twinkle\" 400"
         ],
         "hit effect": [
-          "\"finisher impact\" 2",
-          "\"yellow spark\" 10",
-          "\"yellow spark fragment\" 150"
+          "finisher impact\" 2",
+          "yellow spark\" 10",
+          "yellow spark fragment\" 150"
         ],
         "inaccuracy": 0,
         "velocity": 15,
@@ -43921,9 +43921,9 @@
         "sound": "swarm missile",
         "ammo": "Swarm Missile",
         "icon": "icon/swarm",
-        "die effect": "\"missile death\"",
-        "hit effect": "\"particle impact\"",
-        "live effect": "\"swarm flare\" 1000000",
+        "die effect": "missile death",
+        "hit effect": "particle impact",
+        "live effect": "swarm flare\" 1000000",
         "inaccuracy": 90,
         "velocity": 13,
         "lifetime": 460,
@@ -43955,9 +43955,9 @@
       "weapon capacity": -19,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/buzzer am\"",
+        "hardpoint sprite": "hardpoint/buzzer am",
         "hardpoint offset": 5,
-        "hit effect": "\"buzzer\"",
+        "hit effect": "buzzer",
         "anti-missile": 4,
         "velocity": 300,
         "lifetime": 1,
@@ -44542,7 +44542,7 @@
       "weapon": {
         "sprite": "projectile/bombardment",
         "sound": "bombardment",
-        "hit effect": "\"bombardment impact\"",
+        "hit effect": "bombardment impact",
         "inaccuracy": 4,
         "velocity": 6,
         "random velocity": 1,
@@ -44572,10 +44572,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/bombardment",
-        "hardpoint sprite": "\"hardpoint/bombardment turret\"",
+        "hardpoint sprite": "hardpoint/bombardment turret",
         "hardpoint offset": 10,
         "sound": "bombardment",
-        "hit effect": "\"bombardment impact\"",
+        "hit effect": "bombardment impact",
         "inaccuracy": 4,
         "turret turn": 2.6,
         "velocity": 6,
@@ -44609,12 +44609,12 @@
         "sound": "finisher",
         "ammo": "Finisher Torpedo",
         "icon": "icon/finisher",
-        "fire effect": "\"finisher sparks\" 8",
+        "fire effect": "finisher sparks\" 8",
         "hit effect": [
-          "\"finisher impact\" 1",
-          "\"finisher fragment\" 12"
+          "finisher impact\" 1",
+          "finisher fragment\" 12"
         ],
-        "die effect": "\"finisher fragment\" 6",
+        "die effect": "finisher fragment\" 6",
         "inaccuracy": 5,
         "velocity": 10,
         "lifetime": 60,
@@ -44627,7 +44627,7 @@
         "homing": true,
         "radar tracking": 0.8,
         "missile strength": 50,
-        "submunition": "\"Active Finisher\" 1"
+        "submunition": "Active Finisher\" 1"
       },
       "description": "Finisher Torpedoes are one of the Heliarchs' most dreaded weapons. In fact, in one way or another most of their other weapons merely exist to hold a ship in place for long enough for a barrage of Finishers to destroy it."
     },
@@ -44651,12 +44651,12 @@
         "sound": "finisher",
         "ammo": "Finisher Torpedo",
         "icon": "icon/finisher",
-        "fire effect": "\"finisher sparks\" 8",
+        "fire effect": "finisher sparks\" 8",
         "hit effect": [
-          "\"finisher impact\" 1",
-          "\"finisher fragment\" 12"
+          "finisher impact\" 1",
+          "finisher fragment\" 12"
         ],
-        "die effect": "\"finisher fragment\" 6",
+        "die effect": "finisher fragment\" 6",
         "inaccuracy": 6,
         "velocity": 9,
         "lifetime": 60,
@@ -44671,7 +44671,7 @@
         "homing": true,
         "radar tracking": 0.8,
         "missile strength": 50,
-        "submunition": "\"Active Finisher\" 1"
+        "submunition": "Active Finisher\" 1"
       },
       "furious thunderstorm,": "this enormous launcher is not meant for prolonged fights nor for use by lighter craft, but for delivering a few quick, devastating bursts of Finisher Torpedoes. It has much greater damage potential than its smaller counterpart.`",
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
@@ -44719,10 +44719,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/attractor",
-        "hardpoint sprite": "\"hardpoint/heliarch attractor\"",
+        "hardpoint sprite": "hardpoint/heliarch attractor",
         "hardpoint offset": 9,
         "sound": "heliarch attractor",
-        "hit effect": "\"attractor impact\"",
+        "hit effect": "attractor impact",
         "inaccuracy": 2,
         "turret turn": 3.6,
         "velocity": 640,
@@ -44754,10 +44754,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/repulsor",
-        "hardpoint sprite": "\"hardpoint/heliarch repulsor\"",
+        "hardpoint sprite": "hardpoint/heliarch repulsor",
         "hardpoint offset": 9,
         "sound": "heliarch repulsor",
-        "hit effect": "\"repulsor impact\"",
+        "hit effect": "repulsor impact",
         "inaccuracy": 3,
         "turret turn": 2.6,
         "velocity": 560,
@@ -44789,7 +44789,7 @@
       "required crew": 1,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/ion hail turret\"",
+        "hardpoint sprite": "hardpoint/ion hail turret",
         "hardpoint offset": 10,
         "sound": "ion rain",
         "inaccuracy": 3,
@@ -44800,7 +44800,7 @@
         "burst count": 5,
         "firing energy": 48,
         "firing heat": 24,
-        "submunition": "\"ion hail\" 4"
+        "submunition": "ion hail\" 4"
       },
       "description": "Instead of just placing an Ion Rain Gun on a turret mount, the Heliarch tweaked the cycles of shots, having each shot be significantly more effective and seeing an overall increase to the weapon's range, but at the cost of a reload period."
     },
@@ -44821,7 +44821,7 @@
       "weapon": {
         "sprite": "projectile/ion rain",
         "sound": "ion rain",
-        "hit effect": "\"ion rain impact\"",
+        "hit effect": "ion rain impact",
         "inaccuracy": 4.5,
         "velocity": 16,
         "random velocity": 2,
@@ -44854,7 +44854,7 @@
       "gun ports": -1,
       "weapon": {
         "sound": "drill",
-        "hit effect": "\"drilling\"",
+        "hit effect": "drilling",
         "velocity": 10,
         "lifetime": 1,
         "reload": 1,
@@ -44881,7 +44881,7 @@
       "turret mounts": -1,
       "energy capacity": 6400,
       "weapon": {
-        "fire effect": "\"distancer flare\"",
+        "fire effect": "distancer flare",
         "turret turn": 4,
         "velocity": 2000,
         "lifetime": 1,
@@ -45018,7 +45018,7 @@
       "energy capacity": 4800,
       "weapon": {
         "sprite": "projectile/drak bolt",
-        "hit effect": "\"drak bolt impact\"",
+        "hit effect": "drak bolt impact",
         "inaccuracy": 1,
         "turret turn": 4,
         "velocity": 30,
@@ -45047,7 +45047,7 @@
       "weapon": {
         "Jump Drive": 0,
         "sprite": "projectile/drak bolt",
-        "hit effect": "\"drak bolt impact\"",
+        "hit effect": "drak bolt impact",
         "inaccuracy": 1,
         "turret turn": 8,
         "velocity": 30,
@@ -45078,10 +45078,10 @@
         "inaccuracy": 0,
         "velocity": 20,
         "lifetime": 1,
-        "submunition": "\"Drak Antimatter Fragment\" 3",
+        "submunition": "Drak Antimatter Fragment\" 3",
         "hit effect": [
-          "\"antimatter dust\" 10",
-          "\"nuke explosion\""
+          "antimatter dust\" 10",
+          "nuke explosion"
         ],
         "safe": true,
         "reload": 187,
@@ -45110,10 +45110,10 @@
         "inaccuracy": 0,
         "velocity": 20,
         "lifetime": 1,
-        "submunition": "\"Drak Antimatter Fragment (Augmented)\" 5",
+        "submunition": "Drak Antimatter Fragment (Augmented)\" 5",
         "hit effect": [
-          "\"antimatter dust\" 10",
-          "\"nuke explosion\""
+          "antimatter dust\" 10",
+          "nuke explosion"
         ],
         "safe": true,
         "reload": 187,
@@ -45561,9 +45561,9 @@
       "weapon": {
         "sprite": "projectile/irate",
         "sound": "irate",
-        "fire effect": "\"irate fire\"",
-        "live effect": "\"irate smoke\" 12",
-        "hit effect": "\"tiny explosion\"",
+        "fire effect": "irate fire",
+        "live effect": "irate smoke\" 12",
+        "hit effect": "tiny explosion",
         "inaccuracy": 2,
         "velocity": 22,
         "lifetime": 15,
@@ -45594,12 +45594,12 @@
       "required crew": 2,
       "weapon": {
         "sprite": "projectile/irate",
-        "hardpoint sprite": "\"hardpoint/irate\"",
+        "hardpoint sprite": "hardpoint/irate",
         "hardpoint offset": -0.8,
         "sound": "irate",
-        "fire effect": "\"irate fire\"",
-        "live effect": "\"irate smoke\" 12",
-        "hit effect": "\"tiny explosion\"",
+        "fire effect": "irate fire",
+        "live effect": "irate smoke\" 12",
+        "hit effect": "tiny explosion",
         "inaccuracy": 2,
         "turret turn": 3.6,
         "velocity": 22,
@@ -45632,9 +45632,9 @@
       "weapon": {
         "sprite": "projectile/choleric",
         "sound": "choleric",
-        "fire effect": "\"choleric fire\"",
-        "live effect": "\"choleric smoke\" 24",
-        "hit effect": "\"small explosion\"",
+        "fire effect": "choleric fire",
+        "live effect": "choleric smoke\" 24",
+        "hit effect": "small explosion",
         "inaccuracy": 2,
         "velocity": 11,
         "lifetime": 55,
@@ -45666,12 +45666,12 @@
       "required crew": 2,
       "weapon": {
         "sprite": "projectile/choleric",
-        "hardpoint sprite": "\"hardpoint/choleric\"",
+        "hardpoint sprite": "hardpoint/choleric",
         "hardpoint offset": 15,
         "sound": "choleric",
-        "fire effect": "\"choleric fire\"",
-        "live effect": "\"choleric smoke\" 24",
-        "hit effect": "\"small explosion\"",
+        "fire effect": "choleric fire",
+        "live effect": "choleric smoke\" 24",
+        "hit effect": "small explosion",
         "inaccuracy": 2,
         "turret turn": 2.2,
         "velocity": 9,
@@ -45705,9 +45705,9 @@
       "weapon": {
         "sprite": "projectile/ballistic",
         "sound": "ballistic",
-        "fire effect": "\"ballistic fire\"",
-        "live effect": "\"ballistic smoke\" 36",
-        "hit effect": "\"ballistic hit\"",
+        "fire effect": "ballistic fire",
+        "live effect": "ballistic smoke\" 36",
+        "hit effect": "ballistic hit",
         "inaccuracy": 3,
         "velocity": 8,
         "lifetime": 100,
@@ -45742,12 +45742,12 @@
       "required crew": 3,
       "weapon": {
         "sprite": "projectile/ballistic",
-        "hardpoint sprite": "\"hardpoint/ballistic\"",
+        "hardpoint sprite": "hardpoint/ballistic",
         "hardpoint offset": 10,
         "sound": "ballistic",
-        "fire effect": "\"ballistic fire\"",
-        "live effect": "\"ballistic smoke\" 36",
-        "hit effect": "\"ballistic hit\"",
+        "fire effect": "ballistic fire",
+        "live effect": "ballistic smoke\" 36",
+        "hit effect": "ballistic hit",
         "inaccuracy": 3,
         "turret turn": 0.4,
         "velocity": 8,
@@ -45779,10 +45779,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/astuit",
-        "hardpoint sprite": "\"hardpoint/astuit\"",
+        "hardpoint sprite": "hardpoint/astuit",
         "hardpoint offset": 8,
         "sound": "astuit",
-        "hit effect": "\"astuit hit\"",
+        "hit effect": "astuit hit",
         "inaccuracy": 5,
         "turret turn": 2.6,
         "velocity": 8,
@@ -45814,9 +45814,9 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/acuit",
-        "hardpoint sprite": "\"hardpoint/acuit\"",
+        "hardpoint sprite": "hardpoint/acuit",
         "hardpoint offset": 14,
-        "hit effect": "\"acuit hit\"",
+        "hit effect": "acuit hit",
         "sound": "acuit",
         "inaccuracy": 3,
         "turret turn": 1,
@@ -45848,7 +45848,7 @@
       "gun ports": -1,
       "weapon": {
         "sprite": "projectile/neutron bolt",
-        "hit effect": "\"neutron explosion\"",
+        "hit effect": "neutron explosion",
         "sound": "neutron bolt",
         "inaccuracy": 9,
         "velocity": 5,
@@ -45879,9 +45879,9 @@
       "weapon capacity": -15,
       "gun ports": -1,
       "weapon": {
-        "sprite": "\"projectile/guile pulse laser\"",
+        "sprite": "projectile/guile pulse laser",
         "sound": "guile pulse",
-        "hit effect": "\"heavy laser impact\"",
+        "hit effect": "heavy laser impact",
         "inaccuracy": 0.2,
         "velocity": 150,
         "lifetime": 1,
@@ -45914,7 +45914,7 @@
       "drill lock": 1,
       "weapon": {
         "sound": "excavator",
-        "hit effect": "\"excavate\"",
+        "hit effect": "excavate",
         "inaccuracy": 90,
         "velocity": 20,
         "lifetime": 1,
@@ -45948,9 +45948,9 @@
       "drill spar": -1,
       "weapon": {
         "sound": "drill",
-        "hardpoint sprite": "\"hardpoint/burrower\"",
+        "hardpoint sprite": "hardpoint/burrower",
         "hardpoint offset": 14,
-        "hit effect": "\"burrow\"",
+        "hit effect": "burrow",
         "inaccuracy": 0.4,
         "velocity": 30,
         "lifetime": 1,
@@ -45987,14 +45987,14 @@
       "reverse thrusting energy": 0.4,
       "reverse thrusting heat": 0.9,
       "weapon": {
-        "sprite": "\"projectile/torch\"",
+        "sprite": "projectile/torch",
         "inaccuracy": 0.4,
         "velocity": 50,
         "lifetime": 1,
         "sound": "ion torch",
-        "hardpoint sprite": "\"hardpoint/ion torch\"",
+        "hardpoint sprite": "hardpoint/ion torch",
         "hardpoint offset": 10,
-        "hit effect": "\"burning spark\"",
+        "hit effect": "burning spark",
         "reload": 1,
         "range override": 74,
         "velocity override": 12,
@@ -46023,7 +46023,7 @@
       "gun ports": -1,
       "unplunderable": 1,
       "weapon": {
-        "hit effect": "\"bludgeon impact\"",
+        "hit effect": "bludgeon impact",
         "inaccuracy": 360,
         "velocity": 30,
         "lifetime": 1,
@@ -46192,7 +46192,7 @@
       "weapon": {
         "sprite": "projectile/pulse",
         "sound": "pulse",
-        "hit effect": "\"pulse impact\"",
+        "hit effect": "pulse impact",
         "inaccuracy": 1,
         "velocity": 15,
         "lifetime": 30,
@@ -46218,10 +46218,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/pulse",
-        "hardpoint sprite": "\"hardpoint/pulse turret\"",
+        "hardpoint sprite": "hardpoint/pulse turret",
         "hardpoint offset": 7,
         "sound": "pulse",
-        "hit effect": "\"pulse impact\"",
+        "hit effect": "pulse impact",
         "inaccuracy": 1,
         "turret turn": 2.6,
         "velocity": 15,
@@ -46248,7 +46248,7 @@
       "weapon": {
         "sprite": "projectile/pulse",
         "sound": "pulse",
-        "hit effect": "\"pulse impact\"",
+        "hit effect": "pulse impact",
         "inaccuracy": 5,
         "velocity": 15,
         "lifetime": 30,
@@ -46277,7 +46277,7 @@
       "weapon": {
         "sprite": "projectile/ion bolt",
         "sound": "ion",
-        "hit effect": "\"ion impact\" 2",
+        "hit effect": "ion impact\" 2",
         "inaccuracy": 1,
         "velocity": 16,
         "lifetime": 50,
@@ -46307,7 +46307,7 @@
       "weapon": {
         "sprite": "projectile/ionic blast",
         "sound": "ionic blast",
-        "hit effect": "\"ion impact\"",
+        "hit effect": "ion impact",
         "inaccuracy": 4,
         "velocity": 18,
         "lifetime": 30,
@@ -46338,10 +46338,10 @@
       "weapon": {
         "sprite": "projectile/ionic turret",
         "fade out": 10,
-        "hardpoint sprite": "\"hardpoint/hai ionic turret\"",
+        "hardpoint sprite": "hardpoint/hai ionic turret",
         "hardpoint offset": 16,
         "sound": "ion",
-        "hit effect": "\"ionic impact\" 5",
+        "hit effect": "ionic impact\" 5",
         "inaccuracy": 2,
         "turret turn": 1.4,
         "velocity": 12,
@@ -46402,8 +46402,8 @@
         "ammo": "Railgun Slug",
         "icon": "icon/rail gun",
         "sound": "ion impact",
-        "fire effect": "\"rail sparks\"",
-        "hit effect": "\"bullet impact\"",
+        "fire effect": "rail sparks",
+        "hit effect": "bullet impact",
         "inaccuracy": 3,
         "velocity": 44,
         "lifetime": 1,
@@ -46413,7 +46413,7 @@
         "firing heat": 7.2,
         "firing force": 105,
         "stream": true,
-        "submunition": "\"rslug\" 1"
+        "submunition": "rslug\" 1"
       },
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
     },
@@ -46458,12 +46458,12 @@
         "sound": "tracker",
         "ammo": "Hai Tracker",
         "icon": "icon/tracker",
-        "fire effect": "\"tracker fire\"",
+        "fire effect": "tracker fire",
         "hit effect": [
-          "\"tracker impact\"",
-          "\"tracker cloud\" 3"
+          "tracker impact",
+          "tracker cloud\" 3"
         ],
-        "die effect": "\"tracker impact\"",
+        "die effect": "tracker impact",
         "inaccuracy": 20,
         "velocity": 14,
         "lifetime": 475,
@@ -46495,9 +46495,9 @@
       "weapon capacity": -10,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/anti-missile hai\"",
+        "hardpoint sprite": "hardpoint/anti-missile hai",
         "hardpoint offset": 3,
-        "hit effect": "\"small anti-missile\"",
+        "hit effect": "small anti-missile",
         "anti-missile": 12,
         "velocity": 150,
         "lifetime": 1,
@@ -46520,9 +46520,9 @@
       "weapon capacity": -22,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/heavy anti-missile hai\"",
+        "hardpoint sprite": "hardpoint/heavy anti-missile hai",
         "hardpoint offset": 4,
-        "hit effect": "\"large anti-missile\"",
+        "hit effect": "large anti-missile",
         "anti-missile": 16,
         "velocity": 200,
         "lifetime": 1,
@@ -48707,7 +48707,7 @@
       "weapon": {
         "sprite": "projectile/blaster",
         "sound": "blaster",
-        "hit effect": "\"blaster impact\"",
+        "hit effect": "blaster impact",
         "inaccuracy": 3,
         "velocity": 10.625,
         "lifetime": 48,
@@ -48733,10 +48733,10 @@
       "weapon": {
         "sound": "blaster",
         "submunition": [
-          "\"Blaster Submunition\"",
-          "\"Blaster Submunition\""
+          "Blaster Submunition",
+          "Blaster Submunition"
         ],
-        "hit effect": "\"blaster impact\" 2",
+        "hit effect": "blaster impact\" 2",
         "inaccuracy": 3,
         "lifetime": 1,
         "velocity override": 10.625,
@@ -48761,10 +48761,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/blaster",
-        "hardpoint sprite": "\"hardpoint/blaster turret\"",
+        "hardpoint sprite": "hardpoint/blaster turret",
         "hardpoint offset": 9,
         "sound": "blaster",
-        "hit effect": "\"blaster impact\"",
+        "hit effect": "blaster impact",
         "inaccuracy": 3,
         "turret turn": 3.6,
         "velocity": 10.625,
@@ -48791,10 +48791,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/blaster",
-        "hardpoint sprite": "\"hardpoint/quad blaster turret\"",
+        "hardpoint sprite": "hardpoint/quad blaster turret",
         "hardpoint offset": 9,
         "sound": "blaster",
-        "hit effect": "\"blaster impact\"",
+        "hit effect": "blaster impact",
         "inaccuracy": 3,
         "turret turn": 2.6,
         "velocity": 10.625,
@@ -48821,7 +48821,7 @@
       "weapon": {
         "sprite": "projectile/mod blaster",
         "sound": "mod blaster",
-        "hit effect": "\"blaster impact\"",
+        "hit effect": "blaster impact",
         "inaccuracy": 4,
         "velocity": 10,
         "lifetime": 48,
@@ -48847,10 +48847,10 @@
       "weapon": {
         "sound": "mod blaster",
         "submunition": [
-          "\"Modified Blaster Submunition\"",
-          "\"Modified Blaster Submunition\""
+          "Modified Blaster Submunition",
+          "Modified Blaster Submunition"
         ],
-        "hit effect": "\"blaster impact\" 2",
+        "hit effect": "blaster impact\" 2",
         "inaccuracy": 4,
         "lifetime": 0,
         "velocity override": 10,
@@ -48875,10 +48875,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/mod blaster",
-        "hardpoint sprite": "\"hardpoint/mod blaster turret\"",
+        "hardpoint sprite": "hardpoint/mod blaster turret",
         "hardpoint offset": 9,
         "sound": "mod blaster",
-        "hit effect": "\"blaster impact\"",
+        "hit effect": "blaster impact",
         "inaccuracy": 4,
         "turret turn": 3.6,
         "velocity": 10,
@@ -48905,7 +48905,7 @@
       "weapon": {
         "sprite": "projectile/heavy blaster",
         "sound": "heavy blaster",
-        "hit effect": "\"blaster impact\"",
+        "hit effect": "blaster impact",
         "inaccuracy": 5,
         "velocity": 9,
         "lifetime": 65,
@@ -48931,7 +48931,7 @@
       "weapon": {
         "sprite": "projectile/laser",
         "sound": "laser",
-        "hit effect": "\"beam laser impact\"",
+        "hit effect": "beam laser impact",
         "inaccuracy": 0.5,
         "velocity": 300,
         "lifetime": 1,
@@ -48957,10 +48957,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/2x laser",
-        "hardpoint sprite": "\"hardpoint/laser turret\"",
+        "hardpoint sprite": "hardpoint/laser turret",
         "hardpoint offset": -0.5,
         "sound": "laser",
-        "hit effect": "\"beam laser impact\"",
+        "hit effect": "beam laser impact",
         "inaccuracy": 0.5,
         "turret turn": 4,
         "velocity": 300,
@@ -48987,7 +48987,7 @@
       "weapon": {
         "sprite": "projectile/heavy laser",
         "sound": "heavy laser",
-        "hit effect": "\"heavy laser impact\"",
+        "hit effect": "heavy laser impact",
         "inaccuracy": 0.4,
         "velocity": 400,
         "lifetime": 1,
@@ -49013,10 +49013,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/2x heavy laser",
-        "hardpoint sprite": "\"hardpoint/heavy laser turret\"",
+        "hardpoint sprite": "hardpoint/heavy laser turret",
         "hardpoint offset": 8,
         "sound": "heavy laser",
-        "hit effect": "\"heavy laser impact\"",
+        "hit effect": "heavy laser impact",
         "inaccuracy": 0.4,
         "turret turn": 2.2,
         "velocity": 400,
@@ -49043,7 +49043,7 @@
       "weapon": {
         "sprite": "projectile/mining laser",
         "sound": "mining laser",
-        "hit effect": "\"beam laser impact\"",
+        "hit effect": "beam laser impact",
         "inaccuracy": 0.35,
         "velocity": 200,
         "lifetime": 1,
@@ -49071,10 +49071,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/mining laser",
-        "hardpoint sprite": "\"hardpoint/mining laser turret\"",
+        "hardpoint sprite": "hardpoint/mining laser turret",
         "hardpoint offset": 0.7,
         "sound": "mining laser",
-        "hit effect": "\"beam laser impact\"",
+        "hit effect": "beam laser impact",
         "inaccuracy": 0.35,
         "turret turn": 4.4,
         "velocity": 200,
@@ -49101,10 +49101,10 @@
       "weapon capacity": -22,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/tractor beam\"",
+        "hardpoint sprite": "hardpoint/tractor beam",
         "hardpoint offset": 4,
         "sound": "tractor beam",
-        "hit effect": "\"tractor beam\"",
+        "hit effect": "tractor beam",
         "tractor beam": 7,
         "velocity": 300,
         "lifetime": 1,
@@ -49128,7 +49128,7 @@
       "weapon": {
         "sprite": "projectile/electron",
         "sound": "electron beam",
-        "hit effect": "\"electron impact\"",
+        "hit effect": "electron impact",
         "inaccuracy": 0.3,
         "velocity": 450,
         "lifetime": 1,
@@ -49154,10 +49154,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/2x electron",
-        "hardpoint sprite": "\"hardpoint/electron turret\"",
+        "hardpoint sprite": "hardpoint/electron turret",
         "hardpoint offset": 8,
         "sound": "electron beam",
-        "hit effect": "\"electron impact\"",
+        "hit effect": "electron impact",
         "inaccuracy": 0.3,
         "turret turn": 1.2,
         "velocity": 450,
@@ -49182,9 +49182,9 @@
       "weapon capacity": -16,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/anti-missile\"",
+        "hardpoint sprite": "hardpoint/anti-missile",
         "hardpoint offset": 4,
-        "hit effect": "\"small anti-missile\"",
+        "hit effect": "small anti-missile",
         "anti-missile": 5,
         "velocity": 150,
         "lifetime": 1,
@@ -49206,9 +49206,9 @@
       "weapon capacity": -30,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/heavy anti-missile\"",
+        "hardpoint sprite": "hardpoint/heavy anti-missile",
         "hardpoint offset": 5,
-        "hit effect": "\"large anti-missile\"",
+        "hit effect": "large anti-missile",
         "anti-missile": 8,
         "velocity": 200,
         "lifetime": 1,
@@ -49232,7 +49232,7 @@
       "weapon": {
         "sprite": "projectile/particle beam",
         "sound": "particle",
-        "hit effect": "\"particle impact\"",
+        "hit effect": "particle impact",
         "inaccuracy": 0.5,
         "velocity": 30,
         "lifetime": 25,
@@ -49260,9 +49260,9 @@
       "weapon": {
         "sprite": "projectile/proton",
         "sound": "proton",
-        "hit effect": "\"proton impact\" 3",
+        "hit effect": "proton impact\" 3",
         "inaccuracy": 4,
-        "submunition": "\"Proton Fragment\" 3",
+        "submunition": "Proton Fragment\" 3",
         "velocity": 24,
         "lifetime": 2,
         "reload": 8,
@@ -49286,13 +49286,13 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/proton",
-        "hardpoint sprite": "\"hardpoint/proton turret\"",
+        "hardpoint sprite": "hardpoint/proton turret",
         "hardpoint offset": 14,
         "sound": "proton",
-        "hit effect": "\"proton impact\" 3",
+        "hit effect": "proton impact\" 3",
         "inaccuracy": 4,
         "turret turn": 2.4,
-        "submunition": "\"Proton Fragment\" 3",
+        "submunition": "Proton Fragment\" 3",
         "velocity": 24,
         "lifetime": 2,
         "reload": 8,
@@ -49316,7 +49316,7 @@
       "weapon": {
         "sprite": "projectile/plasma",
         "sound": "plasma",
-        "hit effect": "\"plasma explosion\"",
+        "hit effect": "plasma explosion",
         "inaccuracy": 2,
         "velocity": 12,
         "lifetime": 40,
@@ -49344,10 +49344,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/plasma",
-        "hardpoint sprite": "\"hardpoint/plasma turret\"",
+        "hardpoint sprite": "hardpoint/plasma turret",
         "hardpoint offset": 15,
         "sound": "plasma",
-        "hit effect": "\"plasma explosion\"",
+        "hit effect": "plasma explosion",
         "inaccuracy": 2,
         "turret turn": 1.6,
         "velocity": 12,
@@ -49376,7 +49376,7 @@
       "weapon": {
         "sprite": "projectile/plasma",
         "sound": "plasma",
-        "hit effect": "\"plasma explosion\"",
+        "hit effect": "plasma explosion",
         "lifetime": 38,
         "velocity": 12,
         "inaccuracy": 5,
@@ -49405,7 +49405,7 @@
         "sprite": "effect/explosion/small",
         "sound": "flamethrower",
         "icon": "icon/flamethrower",
-        "submunition": "\"Flamethrower Projectile\"",
+        "submunition": "Flamethrower Projectile",
         "inaccuracy": 12,
         "velocity": 9,
         "lifetime": 5,
@@ -49458,9 +49458,9 @@
         "sound": "meteor",
         "ammo": "Meteor Missile",
         "icon": "icon/meteor",
-        "fire effect": "\"meteor fire\"",
-        "die effect": "\"missile death\"",
-        "hit effect": "\"missile hit\"",
+        "fire effect": "meteor fire",
+        "die effect": "missile death",
+        "hit effect": "missile hit",
         "inaccuracy": 5,
         "velocity": 11,
         "lifetime": 350,
@@ -49496,9 +49496,9 @@
         "sound": "meteor",
         "ammo": "Meteor Missile",
         "icon": "icon/meteor",
-        "fire effect": "\"meteor fire\"",
-        "die effect": "\"missile death\"",
-        "hit effect": "\"missile hit\"",
+        "fire effect": "meteor fire",
+        "die effect": "missile death",
+        "hit effect": "missile hit",
         "inaccuracy": 5,
         "velocity": 11,
         "lifetime": 350,
@@ -49560,9 +49560,9 @@
         "sound": "sidewinder",
         "ammo": "Sidewinder Missile",
         "icon": "icon/sidewinder",
-        "fire effect": "\"sidewinder fire\"",
-        "die effect": "\"missile death\"",
-        "hit effect": "\"missile hit\"",
+        "fire effect": "sidewinder fire",
+        "die effect": "missile death",
+        "hit effect": "missile hit",
         "inaccuracy": 4,
         "velocity": 14,
         "lifetime": 350,
@@ -49598,9 +49598,9 @@
         "sound": "sidewinder",
         "ammo": "Sidewinder Missile",
         "icon": "icon/sidewinder",
-        "fire effect": "\"sidewinder fire\"",
-        "die effect": "\"missile death\"",
-        "hit effect": "\"missile hit\"",
+        "fire effect": "sidewinder fire",
+        "die effect": "missile death",
+        "hit effect": "missile hit",
         "inaccuracy": 4,
         "velocity": 14,
         "lifetime": 350,
@@ -49662,7 +49662,7 @@
         "sound": "javelin",
         "ammo": "Javelin",
         "icon": "icon/javelin",
-        "hit effect": "\"tiny explosion\"",
+        "hit effect": "tiny explosion",
         "inaccuracy": 1,
         "velocity": 10,
         "lifetime": 60,
@@ -49693,7 +49693,7 @@
         "sound": "javelin",
         "ammo": "Javelin",
         "icon": "icon/javelin",
-        "hit effect": "\"tiny explosion\"",
+        "hit effect": "tiny explosion",
         "inaccuracy": 1,
         "velocity": 10,
         "lifetime": 60,
@@ -49724,12 +49724,12 @@
       "javelin capacity": 400,
       "weapon": {
         "sprite": "projectile/javelin",
-        "hardpoint sprite": "\"hardpoint/javelin turret\"",
+        "hardpoint sprite": "hardpoint/javelin turret",
         "hardpoint offset": 9,
         "sound": "javelin",
         "ammo": "Javelin",
         "icon": "icon/javelin turret",
-        "hit effect": "\"tiny explosion\"",
+        "hit effect": "tiny explosion",
         "inaccuracy": 4,
         "turret turn": 2.6,
         "velocity": 10,
@@ -49786,9 +49786,9 @@
         "sound": "torpedo",
         "ammo": "Torpedo",
         "icon": "icon/torpedo",
-        "fire effect": "\"torpedo fire\"",
-        "hit effect": "\"torpedo hit\"",
-        "die effect": "\"tiny explosion\"",
+        "fire effect": "torpedo fire",
+        "hit effect": "torpedo hit",
+        "die effect": "tiny explosion",
         "inaccuracy": 5,
         "velocity": 0,
         "velocity override": 6,
@@ -49825,9 +49825,9 @@
         "sound": "torpedo",
         "ammo": "Torpedo",
         "icon": "icon/torpedo",
-        "fire effect": "\"torpedo fire\"",
-        "hit effect": "\"torpedo hit\"",
-        "die effect": "\"tiny explosion\"",
+        "fire effect": "torpedo fire",
+        "hit effect": "torpedo hit",
+        "die effect": "tiny explosion",
         "inaccuracy": 5,
         "velocity": 0,
         "velocity override": 6,
@@ -49891,9 +49891,9 @@
         "sound": "typhoon",
         "ammo": "Typhoon Torpedo",
         "icon": "icon/typhoon",
-        "fire effect": "\"typhoon fire\"",
-        "hit effect": "\"torpedo hit\"",
-        "die effect": "\"tiny explosion\"",
+        "fire effect": "typhoon fire",
+        "hit effect": "torpedo hit",
+        "die effect": "tiny explosion",
         "inaccuracy": 5,
         "velocity": 4,
         "lifetime": 1600,
@@ -49929,9 +49929,9 @@
         "sound": "typhoon",
         "ammo": "Typhoon Torpedo",
         "icon": "icon/typhoon",
-        "fire effect": "\"typhoon fire\"",
-        "hit effect": "\"torpedo hit\"",
-        "die effect": "\"tiny explosion\"",
+        "fire effect": "typhoon fire",
+        "hit effect": "torpedo hit",
+        "die effect": "tiny explosion",
         "inaccuracy": 5,
         "velocity": 4,
         "lifetime": 1600,
@@ -49993,8 +49993,8 @@
         "sound": "rocket",
         "ammo": "Heavy Rocket",
         "icon": "icon/rocket",
-        "hit effect": "\"heavy rocket hit\"",
-        "die effect": "\"small explosion\"",
+        "hit effect": "heavy rocket hit",
+        "die effect": "small explosion",
         "inaccuracy": 1,
         "velocity": 8,
         "lifetime": 125,
@@ -50029,8 +50029,8 @@
         "sound": "rocket",
         "ammo": "Heavy Rocket",
         "icon": "icon/rocket",
-        "hit effect": "\"heavy rocket hit\"",
-        "die effect": "\"small explosion\"",
+        "hit effect": "heavy rocket hit",
+        "die effect": "small explosion",
         "inaccuracy": 1,
         "velocity": 8,
         "lifetime": 125,
@@ -50063,16 +50063,16 @@
       "gun ports": -1,
       "weapon": {
         "sprite": "projectile/missile",
-        "hardpoint sprite": "\"hardpoint/nuke\"",
+        "hardpoint sprite": "hardpoint/nuke",
         "sound": "nuke",
         "ammo": "Nuclear Missile",
         "icon": "icon/nuke",
         "hit effect": [
-          "\"nuke explosion\"",
-          "\"nuke residue fast\" 10",
-          "\"nuke residue slow\" 10"
+          "nuke explosion",
+          "nuke residue fast\" 10",
+          "nuke residue slow\" 10"
         ],
-        "die effect": "\"missile death\"",
+        "die effect": "missile death",
         "inaccuracy": 1,
         "velocity": 6,
         "lifetime": 800,
@@ -50146,9 +50146,9 @@
         "burst reload": 1,
         "firing energy": 0.03,
         "firing heat": 2.5,
-        "submunition": "\"gbullet\"",
+        "submunition": "gbullet",
         "cluster": true,
-        "hit effect": "\"bullet impact\""
+        "hit effect": "bullet impact"
       },
       "description": "When Dr. Richard J. Gatling invented the rapid-fire gun bearing his name in the 19th century, he hoped that its destructiveness would lead to the end of war itself. Over a millennium later, this modern incarnation of the Gatling Gun sees action in the stars, a testament to its fundamentally robust design - and Dr. Gatling's naivete. While capable of a high fire rate, this gun needs to cool down for twice as long as it fires, and can only sustain a maximum of three seconds of continuous fire."
     },
@@ -50168,10 +50168,10 @@
       "weapon": {
         "sound": "gatling",
         "sprite": "projectile/2x tinyflare",
-        "hardpoint sprite": "\"hardpoint/gat turret hardpoint\"",
+        "hardpoint sprite": "hardpoint/gat turret hardpoint",
         "submunition": [
-          "\"gbullet\"",
-          "\"gbullet\""
+          "gbullet",
+          "gbullet"
         ],
         "Gatling Gun Ammo": 2,
         "icon": "icon/gat turret",
@@ -50185,7 +50185,7 @@
         "firing energy": 0.06,
         "firing heat": 5,
         "cluster": true,
-        "hit effect": "\"bullet impact\""
+        "hit effect": "bullet impact"
       },
       "description": "In an act that would make Dr. Richard J. Gatling spin in his grave with the ferocity of the barrels of his invention, the Gatling Turret was born when a resourceful pirate thought to replace the Energy Blasters on a Blaster Turret with a pair of Gatling Guns. Ever since, the dominion of the Gatling Turret has spread across the Southern Rim, terrorizing merchants and law enforcement alike with its unparalleled ability to tear apart the hulls of ships."
     },
@@ -50203,8 +50203,8 @@
       "weapon": {
         "sprite": "projectile/plasma discharge",
         "sound": "plasma discharger",
-        "hit effect": "\"blaster impact\"",
-        "submunition": "\"plasma particle\" 5",
+        "hit effect": "blaster impact",
+        "submunition": "plasma particle\" 5",
         "inaccuracy": 8,
         "velocity": 10,
         "lifetime": 64,
@@ -50234,9 +50234,9 @@
       },
       "weapon": {
         "sprite": "projectile/stagnation beam",
-        "hardpoint sprite": "\"hardpoint/stagnation beam\"",
+        "hardpoint sprite": "hardpoint/stagnation beam",
         "sound": "stagnation beam",
-        "hit effect": "\"stagnation beam impact\"",
+        "hit effect": "stagnation beam impact",
         "inaccuracy": 0.5,
         "turret turn": 3.8,
         "velocity": 600,
@@ -50270,7 +50270,7 @@
       "weapon": {
         "sprite": "projectile/star tail upload",
         "sound": "star tail",
-        "hit effect": "\"blaster impact\"",
+        "hit effect": "blaster impact",
         "velocity": 1,
         "lifetime": 58,
         "reload": 180,
@@ -50284,7 +50284,7 @@
         "optical tracking": 1,
         "turn": 0.5,
         "ammo": "Star Tail Cell",
-        "submunition": "\"Star Tail Projectile\" 1"
+        "submunition": "Star Tail Projectile\" 1"
       },
       "description": "\tAmmunition for this weapon can be restocked at any outfitter."
     },
@@ -50323,10 +50323,10 @@
       "weapon capacity": -25,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/horizon grappler\"",
+        "hardpoint sprite": "hardpoint/horizon grappler",
         "hardpoint offset": 0,
         "sound": "tractor beam",
-        "hit effect": "\"horizon grappler\"",
+        "hit effect": "horizon grappler",
         "tractor beam": 9,
         "velocity": 400,
         "lifetime": 1,
@@ -50542,10 +50542,10 @@
         "sprite": "projectile/aberrant spike",
         "sound": "minelayer",
         "icon": "icon/finisher",
-        "fire effect": "\"blood\" 20",
-        "live effect": "\"spiker trail\" 10000",
-        "die effect": "\"spiker impact\"",
-        "hit effect": "\"spiker impact\"",
+        "fire effect": "blood\" 20",
+        "live effect": "spiker trail\" 10000",
+        "die effect": "spiker impact",
+        "hit effect": "spiker impact",
         "inaccuracy": 7,
         "reload": 90,
         "firing energy": 4,
@@ -50584,7 +50584,7 @@
       "weapon": {
         "sprite": "projectile/nucleolysis",
         "sound": "nucleolysis",
-        "hit effect": "\"acuit hit\"",
+        "hit effect": "acuit hit",
         "inaccuracy": 0.2,
         "velocity": 420,
         "lifetime": 1,
@@ -50614,8 +50614,8 @@
       "unplunderable": 1,
       "turret mounts": -1,
       "weapon": {
-        "hit effect": "\"quarg anti-missile\"",
-        "hardpoint sprite": "\"hardpoint/quarg anti missile\"",
+        "hit effect": "quarg anti-missile",
+        "hardpoint sprite": "hardpoint/quarg anti missile",
         "anti-missile": 30,
         "velocity": 760,
         "lifetime": 1,
@@ -50685,7 +50685,7 @@
       "asteroid mount am": -1,
       "weapon": {
         "sound": "magic am",
-        "fire effect": "\"asteroid am fire\"",
+        "fire effect": "asteroid am fire",
         "anti-missile": 420,
         "velocity": 100,
         "lifetime": 1,
@@ -50706,9 +50706,9 @@
       "turret mounts": -1,
       "asteroid mount small": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/asteroid am circle\"",
+        "hardpoint sprite": "hardpoint/asteroid am circle",
         "sound": "magic am",
-        "fire effect": "\"asteroid am circle defense\"",
+        "fire effect": "asteroid am circle defense",
         "anti-missile": 420,
         "velocity": 50,
         "lifetime": 1,
@@ -50731,9 +50731,9 @@
       "weapon": {
         "sprite": "projectile/asteroid weapon circle",
         "sound": "magic am",
-        "hit effect": "\"large explosion\"",
+        "hit effect": "large explosion",
         "inaccuracy": 0.5,
-        "submunition": "\"Asteroid Circle Submunition\" 7",
+        "submunition": "Asteroid Circle Submunition\" 7",
         "velocity": 4,
         "lifetime": 100,
         "reload": 60,
@@ -50763,9 +50763,9 @@
         "sound": "magic weapon",
         "drag": 0.1,
         "turn": 16,
-        "hit effect": "\"seeker impact\"",
+        "hit effect": "seeker impact",
         "lifetime": 20,
-        "submunition": "\"creeper1 print\"",
+        "submunition": "creeper1 print",
         "reload": 100
       },
       "description": "By creating a circle of energy-based mines and then converting them into missiles at the same time, this weapon is capable of breaking through anti-missile defenses better than most."
@@ -50788,11 +50788,11 @@
         "acceleration": 1,
         "lifetime": 2000,
         "submunition": [
-          "\"asteroid laser 1\"",
-          "\"spin1 print right\"",
-          "\"spin1 print left\""
+          "asteroid laser 1",
+          "spin1 print right",
+          "spin1 print left"
         ],
-        "fire effect": "\"asteroid glow\"",
+        "fire effect": "asteroid glow",
         "split range": 400,
         "reload": 150,
         "firing heat": 5
@@ -50818,9 +50818,9 @@
         "acceleration": 1,
         "lifetime": 30,
         "submunition": [
-          "\"asteroid missile\"",
-          "\"asteroid missile\"",
-          "\"magic deployer1\""
+          "asteroid missile",
+          "asteroid missile",
+          "magic deployer1"
         ],
         "homing": true,
         "optical tracking": 1,
@@ -50850,7 +50850,7 @@
         "acceleration": 1,
         "lifetime": 20,
         "turn": -6,
-        "submunition": "\"wep1 print\" 2",
+        "submunition": "wep1 print\" 2",
         "reload": 130,
         "burst count": 7,
         "burst reload": 1,
@@ -50887,16 +50887,16 @@
       "weapon": {
         "sprite": "projectile/ionball",
         "sound": "ionball",
-        "fire effect": "\"finisher sparks\" 20",
+        "fire effect": "finisher sparks\" 20",
         "hit effect": [
-          "\"ionball ring\" 15",
-          "\"ionball impact\"",
-          "\"ionball fragment\" 24"
+          "ionball ring\" 15",
+          "ionball impact",
+          "ionball fragment\" 24"
         ],
         "live effect": [
-          "\"ionball spark\" 140",
-          "\"ionball trail\" 140",
-          "\"ionball twinkle\" 560"
+          "ionball spark\" 140",
+          "ionball trail\" 140",
+          "ionball twinkle\" 560"
         ],
         "inaccuracy": 0.2,
         "velocity": 9,
@@ -50931,7 +50931,7 @@
       "weapon": {
         "sprite": "projectile/ravager beam",
         "sound": "disruptor",
-        "hit effect": "\"ravager impact\"",
+        "hit effect": "ravager impact",
         "inaccuracy": 0.2,
         "velocity": 480,
         "lifetime": 1,
@@ -50956,10 +50956,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/ravager beam",
-        "hardpoint sprite": "\"hardpoint/ravager turret\"",
+        "hardpoint sprite": "hardpoint/ravager turret",
         "hardpoint offset": 3,
         "sound": "disruptor",
-        "hit effect": "\"ravager impact\"",
+        "hit effect": "ravager impact",
         "inaccuracy": 0.2,
         "turret turn": 4.2,
         "velocity": 480,
@@ -50986,7 +50986,7 @@
       "weapon": {
         "sprite": "projectile/annihilator",
         "sound": "inhibitor",
-        "hit effect": "\"bullet impact\"",
+        "hit effect": "bullet impact",
         "inaccuracy": 2.5,
         "velocity": 18,
         "lifetime": 35,
@@ -51012,9 +51012,9 @@
       "weapon": {
         "sprite": "projectile/annihilator",
         "sound": "inhibitor",
-        "hardpoint sprite": "\"hardpoint/annihilator turret\"",
+        "hardpoint sprite": "hardpoint/annihilator turret",
         "hardpoint offset": 15,
-        "hit effect": "\"bullet impact\"",
+        "hit effect": "bullet impact",
         "inaccuracy": 1,
         "turret turn": 3.2,
         "range override": 630,
@@ -51022,7 +51022,7 @@
         "reload": 10,
         "firing energy": 62,
         "firing heat": 16,
-        "submunition": "\"Annihilator Projectile\" 2"
+        "submunition": "Annihilator Projectile\" 2"
       },
       "description": "The Builders mounted two Annihilators on this turret, making it highly efficient against enemy shields."
     },
@@ -51043,13 +51043,13 @@
         "sound": "torpedo",
         "ammo": "EMP Torpedo",
         "icon": "icon/emp",
-        "fire effect": "\"emp torpedo fire\" 5",
+        "fire effect": "emp torpedo fire\" 5",
         "hit effect": [
-          "\"nuke explosion\"",
-          "\"emp ring\" 30",
-          "\"emp spark\" 20"
+          "nuke explosion",
+          "emp ring\" 30",
+          "emp spark\" 20"
         ],
-        "die effect": "\"tiny explosion\"",
+        "die effect": "tiny explosion",
         "inaccuracy": 4,
         "velocity": 7,
         "lifetime": 300,
@@ -51090,10 +51090,10 @@
         "ammo": "Ka'het MHD Generator",
         "icon": "icon/mhd",
         "hit effect": [
-          "\"mhd explosion\"",
-          "\"mhd spark\" 860"
+          "mhd explosion",
+          "mhd spark\" 860"
         ],
-        "die effect": "\"small explosion\"",
+        "die effect": "small explosion",
         "inaccuracy": 3,
         "velocity": 12,
         "lifetime": 230,
@@ -52156,11 +52156,11 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/grab-strike",
-        "hardpoint sprite": "\"hardpoint/grab-strike\"",
+        "hardpoint sprite": "hardpoint/grab-strike",
         "hardpoint offset": 7,
         "sound": "grab-strike",
-        "hit effect": "\"grab-strike impact\"",
-        "die effect": "\"grab-strike impact\"",
+        "hit effect": "grab-strike impact",
+        "die effect": "grab-strike impact",
         "inaccuracy": 1,
         "turret turn": 1.6,
         "velocity": 10,
@@ -52195,11 +52195,11 @@
       "asteroid scan power": 16,
       "weapon": {
         "sprite": "projectile/shunt-strike",
-        "hardpoint sprite": "\"hardpoint/shunt-strike\"",
+        "hardpoint sprite": "hardpoint/shunt-strike",
         "hardpoint offset": 7,
         "sound": "shunt-strike",
-        "hit effect": "\"shunt-strike hit\"",
-        "die effect": "\"shunt-strike sparkle\"",
+        "hit effect": "shunt-strike hit",
+        "die effect": "shunt-strike sparkle",
         "inaccuracy": 1,
         "turret turn": 2.6,
         "velocity": 10,
@@ -52237,10 +52237,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/banisher",
-        "hardpoint sprite": "\"hardpoint/banisher\"",
+        "hardpoint sprite": "hardpoint/banisher",
         "hardpoint offset": 5,
         "sound": "banisher",
-        "hit effect": "\"banisher impact\"",
+        "hit effect": "banisher impact",
         "inaccuracy": 0.4,
         "turret turn": 3.2,
         "velocity": 590,
@@ -52268,7 +52268,7 @@
       "weapon": {
         "sprite": "projectile/expeller",
         "sound": "banisher",
-        "hit effect": "\"banisher impact\"",
+        "hit effect": "banisher impact",
         "inaccuracy": 0.4,
         "velocity": 590,
         "lifetime": 1,
@@ -52294,9 +52294,9 @@
       "energy capacity": 50,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/warder\"",
+        "hardpoint sprite": "hardpoint/warder",
         "hardpoint offset": 3,
-        "hit effect": "\"korath warder\"",
+        "hit effect": "korath warder",
         "anti-missile": 10,
         "velocity": 350,
         "lifetime": 1,
@@ -52320,7 +52320,7 @@
       "weapon": {
         "sprite": "projectile/fire-lance",
         "sound": "fire-lance",
-        "hit effect": "\"fire-lance impact\"",
+        "hit effect": "fire-lance impact",
         "inaccuracy": 0.4,
         "velocity": 390,
         "lifetime": 1,
@@ -52348,9 +52348,9 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/blaze-pike",
-        "hardpoint sprite": "\"hardpoint/blaze-pike\"",
+        "hardpoint sprite": "hardpoint/blaze-pike",
         "sound": "blaze-pike",
-        "hit effect": "\"blaze-pike hit\"",
+        "hit effect": "blaze-pike hit",
         "inaccuracy": 0.45,
         "turret turn": 1.2,
         "velocity": 450,
@@ -52379,9 +52379,9 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/korath inferno",
-        "hardpoint sprite": "\"hardpoint/korath inferno\"",
+        "hardpoint sprite": "hardpoint/korath inferno",
         "sound": "korath inferno",
-        "hit effect": "\"korath inferno hit\"",
+        "hit effect": "korath inferno hit",
         "inaccuracy": 0.5,
         "turret turn": 0.8,
         "velocity": 550,
@@ -52411,7 +52411,7 @@
       "weapon": {
         "sprite": "projectile/repeater",
         "sound": "repeater",
-        "hit effect": "\"repeater impact\"",
+        "hit effect": "repeater impact",
         "inaccuracy": 4,
         "velocity": 13,
         "lifetime": 40,
@@ -52442,10 +52442,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/repeater",
-        "hardpoint sprite": "\"hardpoint/repeater turret\"",
+        "hardpoint sprite": "hardpoint/repeater turret",
         "hardpoint offset": 7,
         "sound": "repeater",
-        "hit effect": "\"repeater impact\"",
+        "hit effect": "repeater impact",
         "inaccuracy": 3,
         "turret turn": 2.6,
         "velocity": 13,
@@ -52504,12 +52504,12 @@
         "sound": "piercer",
         "ammo": "Piercer Missile",
         "icon": "icon/piercer",
-        "fire effect": "\"piercer fire\"",
+        "fire effect": "piercer fire",
         "hit effect": [
-          "\"piercer impact\"",
-          "\"piercer explosion\""
+          "piercer impact",
+          "piercer explosion"
         ],
-        "die effect": "\"piercer explosion\"",
+        "die effect": "piercer explosion",
         "inaccuracy": 3,
         "velocity": 18,
         "lifetime": 200,
@@ -52546,10 +52546,10 @@
         "sprite": "projectile/detainer",
         "sound": "detainer",
         "hit effect": [
-          "\"detainer impact\" 3",
-          "\"detainer smoke\" 5"
+          "detainer impact\" 3",
+          "detainer smoke\" 5"
         ],
-        "live effect": "\"detainer sparks\" 50",
+        "live effect": "detainer sparks\" 50",
         "inaccuracy": 0.5,
         "velocity": 14,
         "lifetime": 140,
@@ -52609,10 +52609,10 @@
         "sound": "minelayer",
         "ammo": "Cluster Mine",
         "icon": "icon/minelayer",
-        "fire effect": "\"minelayer fire\"",
-        "hit effect": "\"huge explosion\"",
-        "die effect": "\"minelayer split\" 5",
-        "submunition": "\"Korath Mine Submunition\" 11",
+        "fire effect": "minelayer fire",
+        "hit effect": "huge explosion",
+        "die effect": "minelayer split\" 5",
+        "submunition": "Korath Mine Submunition\" 11",
         "inaccuracy": 10,
         "velocity": 3,
         "lifetime": 100,
@@ -52646,10 +52646,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/disruptor",
-        "hardpoint sprite": "\"hardpoint/disruptor\"",
+        "hardpoint sprite": "hardpoint/disruptor",
         "hardpoint offset": 15,
         "sound": "disruptor",
-        "hit effect": "\"disruptor impact\"",
+        "hit effect": "disruptor impact",
         "inaccuracy": 1,
         "turret turn": 1.6,
         "velocity": 480,
@@ -52677,7 +52677,7 @@
       "weapon": {
         "sprite": "projectile/slicer",
         "sound": "slicer",
-        "hit effect": "\"slicer impact\"",
+        "hit effect": "slicer impact",
         "inaccuracy": 0,
         "velocity": 520,
         "lifetime": 1,
@@ -52705,10 +52705,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/slicer",
-        "hardpoint sprite": "\"hardpoint/slicer turret\"",
+        "hardpoint sprite": "hardpoint/slicer turret",
         "hardpoint offset": 17,
         "sound": "slicer",
-        "hit effect": "\"slicer impact\"",
+        "hit effect": "slicer impact",
         "inaccuracy": 0,
         "turret turn": 2.6,
         "velocity": 520,
@@ -52738,9 +52738,9 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/digger",
-        "hardpoint sprite": "\"hardpoint/digger turret\"",
+        "hardpoint sprite": "hardpoint/digger turret",
         "sound": "korath digger",
-        "hit effect": "\"korath digger hit\"",
+        "hit effect": "korath digger hit",
         "inaccuracy": 1.5,
         "turret turn": 4.4,
         "velocity": 480,
@@ -52771,7 +52771,7 @@
       "weapon": {
         "sprite": "projectile/digger thin",
         "sound": "korath digger",
-        "hit effect": "\"korath digger hit\"",
+        "hit effect": "korath digger hit",
         "inaccuracy": 0.1,
         "velocity": 480,
         "lifetime": 1,
@@ -52801,10 +52801,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/heaver hyperspace",
-        "hardpoint sprite": "\"hardpoint/korath heaver\"",
+        "hardpoint sprite": "hardpoint/korath heaver",
         "sound": "heaver",
         "icon": "icon/korath heaver",
-        "hit effect": "\"heaver hyperspace hit\"",
+        "hit effect": "heaver hyperspace hit",
         "inaccuracy": 0.5,
         "turret turn": 2.2,
         "velocity": 30,
@@ -52866,8 +52866,8 @@
         "sound": "firelight",
         "ammo": "Firelight Missile",
         "icon": "icon/firelight",
-        "hit effect": "\"firelight ring\" 20",
-        "die effect": "\"piercer fire\"",
+        "hit effect": "firelight ring\" 20",
+        "die effect": "piercer fire",
         "velocity": 4,
         "velocity override": 13,
         "lifetime": 10,
@@ -52902,9 +52902,9 @@
       "spinal mount": -1,
       "unplunderable": 1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/factory/microbot factory\"",
-        "hit effect": "\"shunt-strike hit\"",
-        "die effect": "\"shunt-strike hit\"",
+        "hardpoint sprite": "hardpoint/factory/microbot factory",
+        "hit effect": "shunt-strike hit",
+        "die effect": "shunt-strike hit",
         "inaccuracy": 10,
         "velocity": 10,
         "lifetime": 2,
@@ -52964,13 +52964,13 @@
       "firestorm torpedo capacity": 13,
       "weapon": {
         "sprite": "projectile/firestorm torpedo",
-        "hardpoint sprite": "\"hardpoint/firestorm battery\"",
+        "hardpoint sprite": "hardpoint/firestorm battery",
         "sound": "firestorm",
         "ammo": "Firestorm Torpedo",
         "turret turn": 2.6,
         "icon": "icon/firestorm torpedo",
-        "hit effect": "\"firestorm ring\" 40",
-        "die effect": "\"small explosion\"",
+        "hit effect": "firestorm ring\" 40",
+        "die effect": "small explosion",
         "reload": 210,
         "firing energy": 635,
         "firing heat": 451,
@@ -53007,7 +53007,7 @@
       "crystal projector": -1,
       "unique": 1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/shooting star flare/ss-rays\""
+        "hardpoint sprite": "hardpoint/shooting star flare/ss-rays"
       },
       "description": "Never underestimate the power of a bunch of crystals on a rock. In this case all they do is project some harmless purple rays around the Shooting Star, but the point still stands."
     },
@@ -53044,7 +53044,7 @@
       "core crystal": 1,
       "weapon": {
         "sound": "crunch",
-        "hit effect": "\"void sprite chewing\"",
+        "hit effect": "void sprite chewing",
         "turret turn": 6,
         "velocity": 46,
         "lifetime": 1,
@@ -53067,7 +53067,7 @@
       "core crystal": 1,
       "weapon": {
         "sound": "crunch",
-        "hit effect": "\"void sprite chewing\" 3",
+        "hit effect": "void sprite chewing\" 3",
         "turret turn": 6,
         "velocity": 42,
         "lifetime": 1,
@@ -53105,17 +53105,17 @@
         "sprite": "projectile/fusion gun bolt",
         "sound": "dragonflame",
         "icon": "icon/dragonflame",
-        "fire effect": "\"fusion cannon fire\"",
-        "die effect": "\"fusion cannon cloud\" 5",
+        "fire effect": "fusion cannon fire",
+        "die effect": "fusion cannon cloud\" 5",
         "hit effect": [
-          "\"fusion cannon impact\" 20",
-          "\"fusion cannonspark\" 40",
-          "\"fusion cannon explosion 1\" 10",
-          "\"fusion cannon explosion 2\" 10",
-          "\"fusion cannon explosion 3\" 10",
-          "\"fusion cannon nuke\" 1"
+          "fusion cannon impact\" 20",
+          "fusion cannonspark\" 40",
+          "fusion cannon explosion 1\" 10",
+          "fusion cannon explosion 2\" 10",
+          "fusion cannon explosion 3\" 10",
+          "fusion cannon nuke\" 1"
         ],
-        "live effect": "\"fusion cannon cloud\" 10",
+        "live effect": "fusion cannon cloud\" 10",
         "inaccuracy": 0.2,
         "velocity": 66,
         "lifetime": 20,
@@ -53152,7 +53152,7 @@
       "weapon": {
         "sprite": "projectile/lightning",
         "sound": "zapper",
-        "hit effect": "\"zapper impact\"",
+        "hit effect": "zapper impact",
         "inaccuracy": 0.3,
         "velocity": 320,
         "lifetime": 1,
@@ -53178,10 +53178,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/lightning",
-        "hardpoint sprite": "\"hardpoint/pug zapper turret\"",
+        "hardpoint sprite": "hardpoint/pug zapper turret",
         "hardpoint offset": 7,
         "sound": "zapper",
-        "hit effect": "\"zapper impact\"",
+        "hit effect": "zapper impact",
         "inaccuracy": 0.3,
         "turret turn": 1.6,
         "velocity": 320,
@@ -53208,8 +53208,8 @@
       "weapon": {
         "sprite": "projectile/seeker",
         "sound": "seeker",
-        "hit effect": "\"seeker impact\"",
-        "die effect": "\"seeker impact\"",
+        "hit effect": "seeker impact",
+        "die effect": "seeker impact",
         "inaccuracy": 2,
         "velocity": 13,
         "lifetime": 200,
@@ -53240,9 +53240,9 @@
       "weapon capacity": -41,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/pug anti-missile\"",
+        "hardpoint sprite": "hardpoint/pug anti-missile",
         "hardpoint offset": 6,
-        "hit effect": "\"pug anti-missile\"",
+        "hit effect": "pug anti-missile",
         "anti-missile": 5,
         "velocity": 200,
         "lifetime": 1,
@@ -53265,9 +53265,9 @@
       "turret mounts": -1,
       "unique": 1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/t3 anti missile\"",
-        "fire effect": "\"tier 3 anti-missile fire\"",
-        "die effect": "\"tier 3 anti-missile die\" 2",
+        "hardpoint sprite": "hardpoint/t3 anti missile",
+        "fire effect": "tier 3 anti-missile fire",
+        "die effect": "tier 3 anti-missile die\" 2",
         "anti-missile": 100,
         "velocity": 570,
         "lifetime": 1,
@@ -53290,11 +53290,11 @@
       "turret mounts": -1,
       "unique": 1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/pug gridfire turret\"",
-        "fire effect": "\"gridfire fire\"",
+        "hardpoint sprite": "hardpoint/pug gridfire turret",
+        "fire effect": "gridfire fire",
         "hit effect": [
-          "\"gridfire hit\" 2",
-          "\"gridfire cloud\""
+          "gridfire hit\" 2",
+          "gridfire cloud"
         ],
         "sound": "gridfire",
         "phasing": true,
@@ -53694,10 +53694,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/skydagger",
-        "hardpoint sprite": "\"hardpoint/quarg skydagger\"",
+        "hardpoint sprite": "hardpoint/quarg skydagger",
         "hardpoint offset": 7,
         "sound": "skydagger",
-        "hit effect": "\"skylance impact\"",
+        "hit effect": "skylance impact",
         "inaccuracy": 0.6,
         "turret turn": 3.1,
         "velocity": 350,
@@ -53726,10 +53726,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/skylance",
-        "hardpoint sprite": "\"hardpoint/quarg skylance\"",
+        "hardpoint sprite": "hardpoint/quarg skylance",
         "hardpoint offset": 10,
         "sound": "skylance",
-        "hit effect": "\"skylance impact\"",
+        "hit effect": "skylance impact",
         "inaccuracy": 0.4,
         "turret turn": 2.6,
         "velocity": 500,
@@ -53756,8 +53756,8 @@
       "weapon capacity": -40,
       "turret mounts": -1,
       "weapon": {
-        "hit effect": "\"quarg anti-missile\"",
-        "hardpoint sprite": "\"hardpoint/quarg anti missile\"",
+        "hit effect": "quarg anti-missile",
+        "hardpoint sprite": "hardpoint/quarg anti missile",
         "hardpoint offset": 4,
         "anti-missile": 25,
         "velocity": 500,
@@ -53780,10 +53780,10 @@
       "weapon capacity": -65,
       "weapon": {
         "sound": "ranseur",
-        "fire effect": "\"ranseur\"",
+        "fire effect": "ranseur",
         "hit effect": [
-          "\"jump drive\"",
-          "\"disruptor impact\" 10"
+          "jump drive",
+          "disruptor impact\" 10"
         ],
         "lifetime": 1,
         "reload": 100,
@@ -53811,8 +53811,8 @@
       "weapon": {
         "sprite": "projectile/culverin",
         "sound": "culverin",
-        "hit effect": "\"culverin hit\" 20",
-        "die effect": "\"culverin die\"",
+        "hit effect": "culverin hit\" 20",
+        "die effect": "culverin die",
         "lifetime": 110,
         "reload": 36,
         "homing": true,
@@ -53847,10 +53847,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/ribault",
-        "hardpoint sprite": "\"hardpoint/quarg ribault\"",
+        "hardpoint sprite": "hardpoint/quarg ribault",
         "hardpoint offset": 10,
-        "fire effect": "\"ribault flare\"",
-        "hit effect": "\"electron impact\"",
+        "fire effect": "ribault flare",
+        "hit effect": "electron impact",
         "sound": "ribault",
         "inaccuracy": 13,
         "turret turn": 2.5,
@@ -53860,7 +53860,7 @@
         "burst count": 19,
         "firing energy": 80,
         "firing heat": 5,
-        "submunition": "\"ribault unguided\" 2"
+        "submunition": "ribault unguided\" 2"
       },
       "description": "The rapid flurries shot by this turret cover a wide area at a long range, firing a storm of negative energy particles. Attractive forces guide these particles towards their target, dealing very high damage to enemies within the immediate vicinity while keeping those that flee within the Quarg's reach."
     },
@@ -53918,7 +53918,7 @@
       "weapon": {
         "sprite": "projectile/inhibitor",
         "sound": "inhibitor",
-        "hit effect": "\"inhibitor impact\" 3",
+        "hit effect": "inhibitor impact\" 3",
         "inaccuracy": 0.5,
         "velocity": 36,
         "random velocity": 0.5,
@@ -53953,10 +53953,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/inhibitor",
-        "hardpoint sprite": "\"hardpoint/inhibitor turret\"",
+        "hardpoint sprite": "hardpoint/inhibitor turret",
         "hardpoint offset": 6,
         "sound": "inhibitor",
-        "hit effect": "\"inhibitor impact\" 3",
+        "hit effect": "inhibitor impact\" 3",
         "inaccuracy": 0.5,
         "turret turn": 3.6,
         "velocity": 36,
@@ -53991,7 +53991,7 @@
       "weapon": {
         "sprite": "projectile/thrasher",
         "sound": "thrasher",
-        "hit effect": "\"thrasher impact\"",
+        "hit effect": "thrasher impact",
         "inaccuracy": 9,
         "velocity": 10,
         "lifetime": 36,
@@ -54020,10 +54020,10 @@
       "turret mounts": -1,
       "weapon": {
         "sprite": "projectile/thrasher",
-        "hardpoint sprite": "\"hardpoint/thrasher turret\"",
+        "hardpoint sprite": "hardpoint/thrasher turret",
         "hardpoint offset": 6,
         "sound": "thrasher",
-        "hit effect": "\"thrasher impact\"",
+        "hit effect": "thrasher impact",
         "inaccuracy": 6,
         "turret turn": 2,
         "velocity": 10,
@@ -54051,11 +54051,11 @@
       "weapon capacity": -33,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/point defense\"",
-        "fire effect": "\"point defense fire\"",
+        "hardpoint sprite": "hardpoint/point defense",
+        "fire effect": "point defense fire",
         "die effect": [
-          "\"point defense hit\"",
-          "\"point defense die\""
+          "point defense hit",
+          "point defense die"
         ],
         "anti-missile": 42,
         "velocity": 270,
@@ -54115,13 +54115,13 @@
         "sound": "torpedo",
         "ammo": "EMP Torpedo",
         "icon": "icon/emp",
-        "fire effect": "\"emp torpedo fire\" 5",
+        "fire effect": "emp torpedo fire\" 5",
         "hit effect": [
-          "\"nuke explosion\"",
-          "\"emp ring\" 30",
-          "\"emp spark\" 20"
+          "nuke explosion",
+          "emp ring\" 30",
+          "emp spark\" 20"
         ],
-        "die effect": "\"tiny explosion\"",
+        "die effect": "tiny explosion",
         "reload": 330,
         "firing energy": 400,
         "firing heat": 18,
@@ -54195,13 +54195,13 @@
         "sound": "torpedo",
         "ammo": "Teciimach Canister",
         "icon": "icon/emp",
-        "fire effect": "\"emp torpedo fire\" 5",
+        "fire effect": "emp torpedo fire\" 5",
         "hit effect": [
-          "\"nuke explosion\"",
-          "\"emp ring\" 30",
-          "\"emp spark\" 20"
+          "nuke explosion",
+          "emp ring\" 30",
+          "emp spark\" 20"
         ],
-        "die effect": "\"tiny explosion\"",
+        "die effect": "tiny explosion",
         "reload": 310,
         "firing energy": 400,
         "firing heat": 18,
@@ -54248,13 +54248,13 @@
         "sound": "torpedo",
         "ammo": "Teciimach Canister",
         "icon": "icon/emp",
-        "fire effect": "\"emp torpedo fire\" 5",
+        "fire effect": "emp torpedo fire\" 5",
         "hit effect": [
-          "\"nuke explosion\"",
-          "\"emp ring\" 30",
-          "\"emp spark\" 20"
+          "nuke explosion",
+          "emp ring\" 30",
+          "emp spark\" 20"
         ],
-        "die effect": "\"tiny explosion\"",
+        "die effect": "tiny explosion",
         "burst count": 3,
         "burst reload": 110,
         "reload": 620,
@@ -54303,11 +54303,11 @@
         "sprite": "projectile/ember tear/ember tear",
         "sound": "ember tear",
         "hit effect": [
-          "\"ember tear spark\"",
-          "\"ember tear impact\"",
-          "\"ember tear vortex\""
+          "ember tear spark",
+          "ember tear impact",
+          "ember tear vortex"
         ],
-        "fire effect": "\"ember tear fire\"",
+        "fire effect": "ember tear fire",
         "velocity": 800,
         "inaccuracy": 0,
         "safe": true,
@@ -54746,7 +54746,7 @@
       "gun ports": -1,
       "weapon": {
         "sound": "fate fire",
-        "fire effect": "\"fate fire\"",
+        "fire effect": "fate fire",
         "velocity": 0,
         "lifetime": 60,
         "velocity override": 1400,
@@ -54761,7 +54761,7 @@
         "optical tracking": 1,
         "cluster": true,
         "safe": true,
-        "submunition": "\"Fate Sealer Activated\""
+        "submunition": "Fate Sealer Activated"
       },
       "description": "An energy particle weapon that intensifies a blast to a single location after a brief duration. The after-effect of the explosion pulls the target closer to the origin of the blast."
     },
@@ -54778,7 +54778,7 @@
       "gun ports": -1,
       "weapon": {
         "sound": "fate fire",
-        "fire effect": "\"fate fire\"",
+        "fire effect": "fate fire",
         "velocity": 0,
         "lifetime": 60,
         "velocity override": 1400,
@@ -54793,7 +54793,7 @@
         "optical tracking": 1,
         "cluster": true,
         "safe": true,
-        "submunition": "\"Fate Divider Activated\""
+        "submunition": "Fate Divider Activated"
       },
       "description": "An energy particle weapon that intensifies a blast to a single location after a brief duration. The after-effect of the explosion pushes the target farther from the origin of the blast."
     },
@@ -54812,8 +54812,8 @@
         "sound": "composer",
         "Abyssal Composer": 0,
         "hit effect": [
-          "\"composed\" 2",
-          "\"drained\""
+          "composed\" 2",
+          "drained"
         ],
         "inaccuracy": 45,
         "velocity": 660,
@@ -54994,11 +54994,11 @@
       "weapon": {
         "sound": "dragonflame",
         "icon": "icon/dragonflame",
-        "fire effect": "\"dragonflame\"",
+        "fire effect": "dragonflame",
         "hit effect": [
-          "\"bright hit\"",
-          "\"dragonflame plasma\" 30",
-          "\"dragonflame debris\" 50"
+          "bright hit",
+          "dragonflame plasma\" 30",
+          "dragonflame debris\" 50"
         ],
         "velocity": 2000,
         "lifetime": 1,
@@ -55029,9 +55029,9 @@
       "turret mounts": -1,
       "unique": 1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/sheragiam\"",
+        "hardpoint sprite": "hardpoint/sheragiam",
         "hardpoint offset": 1.5,
-        "hit effect": "\"sheragiam\"",
+        "hit effect": "sheragiam",
         "anti-missile": 200,
         "velocity": 450,
         "lifetime": 1,
@@ -55057,10 +55057,10 @@
       "weapon": {
         "sprite": "projectile/pwavecannon",
         "sound": "pwave",
-        "hardpoint sprite": "\"hardpoint/pwavehp\"",
+        "hardpoint sprite": "hardpoint/pwavehp",
         "hardpoint offset": 11,
-        "fire effect": "\"lightning flare\"",
-        "hit effect": "\"pwave impact\"",
+        "fire effect": "lightning flare",
+        "hit effect": "pwave impact",
         "inaccuracy": 1.5,
         "turret turn": 1.2,
         "velocity": 50,
@@ -55094,9 +55094,9 @@
         "sprite": "projectile/shardactive",
         "sound": "grab-strike",
         "icon": "icon/shard",
-        "fire effect": "\"basic launch\"",
-        "hit effect": "\"shard impact\"",
-        "submunition": "\"Shard inactive\"",
+        "fire effect": "basic launch",
+        "hit effect": "shard impact",
+        "submunition": "Shard inactive",
         "inaccuracy": 80,
         "velocity": 15,
         "lifetime": 40,
@@ -55131,8 +55131,8 @@
       "weapon": {
         "sprite": "projectile/hion",
         "sound": "hion",
-        "hit effect": "\"proton impact\" 3",
-        "submunition": "\"Heavy Ion Fragment\" 3",
+        "hit effect": "proton impact\" 3",
+        "submunition": "Heavy Ion Fragment\" 3",
         "velocity": 28,
         "lifetime": 1,
         "reload": 1,
@@ -55790,8 +55790,8 @@
       "weapon": {
         "sprite": "projectile/bimodal",
         "sound": "bimodal",
-        "hit effect": "\"bimodal impact\"",
-        "fire effect": "\"moonbeam fleck\" 4",
+        "hit effect": "bimodal impact",
+        "fire effect": "moonbeam fleck\" 4",
         "inaccuracy": 1,
         "velocity": 30,
         "lifetime": 15,
@@ -55806,7 +55806,7 @@
         "hull damage": 75,
         "hit force": 120,
         "cluster": true,
-        "submunition": "\"Bimodal Switch\" 3"
+        "submunition": "Bimodal Switch\" 3"
       },
       "description": "Precise and deadly, the Ojet Bimodal Coilgun has been the High Houses' armament of choice since long before humans ever took to the stars. It was designed quite simply as a perfect weapon; it is said that by the time the empire of the Predecessors fell, they had seen no need to install any other weapon on their ships for over a thousand years. \tThe Ojet fires hyperdense packets of charged particles that disperse as they travel: up close the concentrated bolt pierces armor, while at a distance the ionic spray destabilizes shielding. Together, a ship equipped with these weapons can adjust its damage profile just by changing its engagement range, allowing it to be highly effective against any foe."
     },
@@ -55826,12 +55826,12 @@
       "turret mounts": -1,
       "required crew": 1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/bimodal turret\"",
+        "hardpoint sprite": "hardpoint/bimodal turret",
         "hardpoint offset": 12,
         "sprite": "projectile/bimodal",
         "sound": "bimodal",
-        "hit effect": "\"bimodal impact\"",
-        "fire effect": "\"moonbeam fleck\" 4",
+        "hit effect": "bimodal impact",
+        "fire effect": "moonbeam fleck\" 4",
         "inaccuracy": 1,
         "velocity": 30,
         "lifetime": 15,
@@ -55847,7 +55847,7 @@
         "hull damage": 75,
         "hit force": 120,
         "cluster": true,
-        "submunition": "\"Bimodal Switch\" 3"
+        "submunition": "Bimodal Switch\" 3"
       },
       "description": "Successor warships have traditionally relied on fixed weaponry to deal with their foes, but the High Houses do produce a turreted platform for the Ojet Coilgun so that their larger and slower vessels can maintain their combat effectiveness against more maneuverable targets. It mounts two of the weapons side by side, rigged to fire double the amount of shots per burst to keep them in sync with the fixed hardpoints."
     },
@@ -55867,8 +55867,8 @@
       "gun ports": -1,
       "weapon": {
         "sound": "drag cannon",
-        "fire effect": "\"moonbeam fleck\" 2",
-        "hit effect": "\"drag cannon impact\" 3",
+        "fire effect": "moonbeam fleck\" 2",
+        "hit effect": "drag cannon impact\" 3",
         "velocity": 0,
         "lifetime": 0,
         "range override": 375,
@@ -55879,7 +55879,7 @@
         "firing energy": 30,
         "firing heat": 55,
         "cluster": true,
-        "submunition": "\"Drag Projectile\" 3"
+        "submunition": "Drag Projectile\" 3"
       },
       "description": "The Successors have a historical affinity for projectile weaponry which persists to the modern day. The Drag Cannon fires a short-ranged, highly inaccurate blast of projectiles that not only deal substantial damage but also temporarily disrupt the target's engines. \tWhile it is an inelegant design in comparison to the time-tested Ojet Coilgun, and consequently less appreciated, the Drag Cannon has found a place on the Successors' fast attack craft primarily as a tool for slowing down enemy vessels so that they can be engaged by a larger fleet."
     },
@@ -55900,7 +55900,7 @@
       "weapon": {
         "sprite": "projectile/successor pulse laser",
         "sound": "successor pulse laser",
-        "hit effect": "\"successor pulse laser impact\"",
+        "hit effect": "successor pulse laser impact",
         "inaccuracy": 0.4,
         "velocity": 490,
         "lifetime": 1,
@@ -55932,10 +55932,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/successor pulse laser",
-        "hardpoint sprite": "\"hardpoint/successor pulse laser turret\"",
+        "hardpoint sprite": "hardpoint/successor pulse laser turret",
         "hardpoint offset": 8,
         "sound": "successor pulse laser",
-        "hit effect": "\"successor pulse laser impact\"",
+        "hit effect": "successor pulse laser impact",
         "inaccuracy": 0.4,
         "velocity": 490,
         "turret turn": 2.6,
@@ -55968,7 +55968,7 @@
       "weapon": {
         "sprite": "projectile/successor pulse laser",
         "sound": "overcharged pulse laser",
-        "hit effect": "\"overcharged pulse laser impact\"",
+        "hit effect": "overcharged pulse laser impact",
         "inaccuracy": 5.5,
         "velocity": 490,
         "lifetime": 1,
@@ -56001,10 +56001,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/successor pulse laser",
-        "hardpoint sprite": "\"hardpoint/overcharged pulse laser turret\"",
+        "hardpoint sprite": "hardpoint/overcharged pulse laser turret",
         "hardpoint offset": 8,
         "sound": "overcharged pulse laser",
-        "hit effect": "\"overcharged pulse laser impact\"",
+        "hit effect": "overcharged pulse laser impact",
         "inaccuracy": 5.5,
         "velocity": 490,
         "lifetime": 1,
@@ -56043,10 +56043,10 @@
         "ammo": "High-Velocity Spike",
         "icon": "icon/hv spike",
         "fire effect": [
-          "\"moonbeam fleck\" 20",
-          "\"electron impact\""
+          "moonbeam fleck\" 20",
+          "electron impact"
         ],
-        "hit effect": "\"torpedo hit\"",
+        "hit effect": "torpedo hit",
         "cluster": true,
         "velocity": 320,
         "lifetime": 8,
@@ -56108,7 +56108,7 @@
       "weapon": {
         "sprite": "projectile/sunbeam/sunbeam",
         "sound": "sunbeam",
-        "hit effect": "\"sunbeam impact\"",
+        "hit effect": "sunbeam impact",
         "inaccuracy": 0.2,
         "velocity": 540,
         "lifetime": 1,
@@ -56138,10 +56138,10 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/sunbeam/sunbeam",
-        "hardpoint sprite": "\"hardpoint/sunbeam turret\"",
+        "hardpoint sprite": "hardpoint/sunbeam turret",
         "hardpoint offset": -2,
         "sound": "sunbeam",
-        "hit effect": "\"sunbeam impact\"",
+        "hit effect": "sunbeam impact",
         "inaccuracy": 0.2,
         "turret turn": 1.8,
         "velocity": 540,
@@ -56172,10 +56172,10 @@
       "required crew": 2,
       "weapon": {
         "sprite": "projectile/sunbeam/2x sunbeam",
-        "hardpoint sprite": "\"hardpoint/dual sunbeam turret\"",
+        "hardpoint sprite": "hardpoint/dual sunbeam turret",
         "hardpoint offset": 12,
         "sound": "sunbeam",
-        "hit effect": "\"sunbeam impact\" 2",
+        "hit effect": "sunbeam impact\" 2",
         "inaccuracy": 0.2,
         "turret turn": 1,
         "velocity": 540,
@@ -56206,8 +56206,8 @@
       "weapon": {
         "sprite": "projectile/moonbeam",
         "sound": "moonbeam",
-        "fire effect": "\"moonbeam fleck\"",
-        "hit effect": "\"moonbeam impact\"",
+        "fire effect": "moonbeam fleck",
+        "hit effect": "moonbeam impact",
         "inaccuracy": 2,
         "velocity": 490,
         "lifetime": 1,
@@ -56239,11 +56239,11 @@
       "required crew": 1,
       "weapon": {
         "sprite": "projectile/moonbeam",
-        "hardpoint sprite": "\"hardpoint/moonbeam turret\"",
+        "hardpoint sprite": "hardpoint/moonbeam turret",
         "hardpoint offset": 9,
         "sound": "moonbeam",
-        "fire effect": "\"moonbeam fleck\"",
-        "hit effect": "\"moonbeam impact\"",
+        "fire effect": "moonbeam fleck",
+        "hit effect": "moonbeam impact",
         "inaccuracy": 2,
         "turret turn": 2.2,
         "velocity": 490,
@@ -56274,9 +56274,9 @@
       "weapon capacity": -24,
       "turret mounts": -1,
       "weapon": {
-        "hardpoint sprite": "\"hardpoint/wanderer anti-missile\"",
+        "hardpoint sprite": "hardpoint/wanderer anti-missile",
         "hardpoint offset": 6,
-        "hit effect": "\"wanderer anti-missile\"",
+        "hit effect": "wanderer anti-missile",
         "anti-missile": 40,
         "velocity": 360,
         "lifetime": 1,
@@ -56306,11 +56306,11 @@
         "sound": "thunderhead",
         "ammo": "Thunderhead Missile",
         "icon": "icon/thunderhead",
-        "submunition": "\"Thunderhead\" 5",
+        "submunition": "Thunderhead\" 5",
         "split range": 600,
-        "fire effect": "\"meteor fire\"",
-        "die effect": "\"missile death\"",
-        "hit effect": "\"medium explosion\"",
+        "fire effect": "meteor fire",
+        "die effect": "missile death",
+        "hit effect": "medium explosion",
         "inaccuracy": 10,
         "velocity": 4,
         "lifetime": 400,
@@ -56711,5 +56711,5 @@
       "description": "The history of the Wanderers is not without hardship and failure. Immortalized in a bronze mold, this withered branch recalls the time the Wanderers could not save a world, for skilled as they may be, they cannot stop destruction when it is actively sought after by others mightier than them. The fall of the Noble Watchwood, their cherished emblem, now stands as a solemn vow: when peace fails, they too must prepare to fight. To stand and fight with the Wanderers, this license grants access to their greatest warships."
     }
   ],
-  "parsedAt": "2026-01-22T08:45:10.157Z"
+  "parsedAt": "2026-01-22T13:40:15.677Z"
 }

@@ -646,8 +646,13 @@ class EndlessSkyParser {
           i++;
           continue;
         }
+
+        const matchQuotes = stripped.match(/^bay\s+"([^"]+)"\s+(-?\d+\.?\d*)/);
+        const matchBackticks = stripped.match(/^bay\s+`(.+?)`\s+(-?\d+\.?\d*)/);
+        const matchUnquoted = stripped.match(/^bay\s+(\w+)\s+(-?\d+\.?\d*)/);
+        const match = matchBackticks || matchQuotes || matchUnquoted;
         
-        if (stripped.match(/bay\s+(-?\d+)/)) {
+        if (match) {
           hasSignificantChanges = true;
           replaceBays = true;
           const bayMatchQuotes = stripped.match(/bay\s+"([^"]+)"\s+([^\s]+)\s+([^\s]+)(?:\s+(.+))?/);

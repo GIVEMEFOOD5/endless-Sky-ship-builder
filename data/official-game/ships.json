@@ -100,6 +100,8 @@
         "y": 174
       }
     ],
+    "ship/dredger": true,
+    "thumbnail/dredger": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 29370000,
@@ -213,6 +215,8 @@
         "position": "back"
       }
     ],
+    "ship/raider": true,
+    "thumbnail/raider": true,
     "attributes": {
       "category": "Utility",
       "cost": 16570000,
@@ -266,6 +270,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/chaser": true,
+    "thumbnail/chaser": true,
     "attributes": {
       "category": "Fighter",
       "cost": 671000,
@@ -354,6 +360,8 @@
       }
     ],
     "bays": [],
+    "ship/world-ship a": true,
+    "thumbnail/world-ship a": true,
     "attributes": {
       "category": "Utility",
       "cost": 27690000,
@@ -422,6 +430,8 @@
       }
     ],
     "bays": [],
+    "ship/skylark": true,
+    "thumbnail/skylark": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 5900000,
@@ -622,6 +632,8 @@
       }
     ],
     "bays": [],
+    "ship/avgi koryfi/koryfi": true,
+    "thumbnail/avgi koryfi": true,
     "attributes": {
       "category": "Transport",
       "cost": 600000,
@@ -905,6 +917,8 @@
     ],
     "bays": [],
     "Melodikos": true,
+    "ship/avgi melodikos/melodikos": true,
+    "thumbnail/avgi melodikos": true,
     "attributes": {
       "category": "Space Liner",
       "cost": 1200000,
@@ -1105,6 +1119,8 @@
       }
     ],
     "bays": [],
+    "ship/avgi avlaki": true,
+    "thumbnail/avgi avlaki": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 450000,
@@ -1388,6 +1404,8 @@
     ],
     "bays": [],
     "Harmonikos": true,
+    "ship/avgi harmonikos": true,
+    "thumbnail/avgi harmonikos": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 900000,
@@ -1471,6 +1489,8 @@
     "turrets": [],
     "bays": [],
     "Phononos": true,
+    "ship/avgi phononos": true,
+    "thumbnail/avgi phononos": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 180000,
@@ -1540,6 +1560,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/avgi frequentia": true,
+    "thumbnail/avgi frequentia": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 1200000,
@@ -1648,6 +1670,8 @@
         "launch effect": "avgi internal"
       }
     ],
+    "ship/avgi polari": true,
+    "thumbnail/avgi polari": true,
     "attributes": {
       "category": "Utility",
       "cost": 1800000,
@@ -1870,6 +1894,8 @@
         "launch effect": "avgi internal"
       }
     ],
+    "ship/avgi entasi": true,
+    "thumbnail/avgi entasi": true,
     "attributes": {
       "category": "Utility",
       "cost": 2400000,
@@ -2015,6 +2041,8 @@
         "launch effect": "avgi internal"
       }
     ],
+    "ship/avgi undsyni": true,
+    "thumbnail/avgi undsyni": true,
     "attributes": {
       "category": "Utility",
       "cost": 12000000,
@@ -2246,6 +2274,8 @@
         "launch effect": "avgi internal"
       }
     ],
+    "ship/avgi tachytia/tachytia": true,
+    "thumbnail/avgi tachytia": true,
     "attributes": {
       "category": "Utility",
       "cost": 99000000,
@@ -2358,6 +2388,8 @@
     ],
     "bays": [],
     "Tremoros": true,
+    "ship/avgi tremoros": true,
+    "thumbnail/avgi tremoros": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 600000,
@@ -2471,6 +2503,8 @@
     ],
     "bays": [],
     "Prismaios": true,
+    "ship/avgi prismaios": true,
+    "thumbnail/avgi prismaios": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -2595,6 +2629,8 @@
     ],
     "bays": [],
     "Interferos": true,
+    "ship/avgi interferos": true,
+    "thumbnail/avgi interferos": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 1500000,
@@ -2763,6 +2799,8 @@
         "launch effect": "avgi internal"
       }
     ],
+    "ship/avgi diaspersi": true,
+    "thumbnail/avgi diaspersi": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -2919,6 +2957,8 @@
     ],
     "bays": [],
     "Refraktos": true,
+    "ship/avgi refraktos": true,
+    "thumbnail/avgi refraktos": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -3083,6 +3123,8 @@
       }
     ],
     "Difraktos": true,
+    "ship/avgi difraktos": true,
+    "thumbnail/avgi difraktos": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -3378,6 +3420,8 @@
         "launch effect": "avgi external"
       }
     ],
+    "ship/avgi atenuatia": true,
+    "thumbnail/avgi atenuatia": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -3477,6 +3521,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/avgi akoustiki": true,
+    "thumbnail/avgi akoustiki": true,
     "attributes": {
       "category": "Fighter",
       "cost": 120000,
@@ -3574,6 +3620,8 @@
       }
     ],
     "bays": [],
+    "ship/avgi photikon": true,
+    "thumbnail/avgi photikon": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -3662,6 +3710,8 @@
     "turrets": [],
     "bays": [],
     "Vibratia": true,
+    "ship/avgi vibratia": true,
+    "thumbnail/avgi vibratia": true,
     "attributes": {
       "category": "Drone",
       "licenses": {
@@ -3744,6 +3794,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/avgi undulon": true,
+    "thumbnail/avgi undulon": true,
     "attributes": {
       "category": "Drone",
       "licenses": {
@@ -3795,6 +3847,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/avgi optikon": true,
+    "thumbnail/avgi optikon": true,
     "attributes": {
       "category": "Drone",
       "cost": 54000,
@@ -3878,6 +3932,8 @@
     "turrets": [],
     "bays": [],
     "Sonikis": true,
+    "ship/avgi sonikis": true,
+    "thumbnail/avgi sonikis": true,
     "attributes": {
       "category": "Drone",
       "cost": 60000,
@@ -3912,6 +3968,7 @@
     "turrets": [],
     "bays": [],
     "never disabled": true,
+    "ship/pollen": true,
     "attributes": {
       "category": "Unclassified Minor",
       "cost": 126000,
@@ -3948,6 +4005,7 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/pollen": true,
     "uncapturable": true,
     "attributes": {
       "category": "Unclassified Minor",
@@ -4011,6 +4069,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/kaiken": true,
+    "thumbnail/kaiken": true,
     "attributes": {
       "category": "Fighter",
       "cost": 1199000,
@@ -4096,6 +4156,8 @@
         "y": -93
       }
     ],
+    "ship/sasumata": true,
+    "thumbnail/sasumata": true,
     "attributes": {
       "category": "Transport",
       "cost": 12650000,
@@ -4171,6 +4233,8 @@
       }
     ],
     "bays": [],
+    "ship/tanto": true,
+    "thumbnail/tanto": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 5995000,
@@ -4281,6 +4345,8 @@
         "y": -133.5
       }
     ],
+    "ship/ararebo": true,
+    "thumbnail/ararebo": true,
     "attributes": {
       "category": "Utility",
       "cost": 17565000,
@@ -4357,6 +4423,8 @@
       }
     ],
     "bays": [],
+    "ship/tekkan": true,
+    "thumbnail/tekkan": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 10119000,
@@ -4436,6 +4504,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/kunai": true,
+    "thumbnail/kunai": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 12444000,
@@ -4541,6 +4611,8 @@
       }
     ],
     "bays": [],
+    "ship/kama": true,
+    "thumbnail/kama": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 20580000,
@@ -4696,6 +4768,8 @@
       }
     ],
     "bays": [],
+    "ship/chigiriki": true,
+    "thumbnail/chigiriki": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 30876000,
@@ -4769,6 +4843,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/arach courier": true,
+    "thumbnail/arach courier": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -4845,6 +4921,8 @@
       }
     ],
     "bays": [],
+    "ship/arach freighter": true,
+    "thumbnail/arach freighter": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -4932,6 +5010,8 @@
       }
     ],
     "bays": [],
+    "ship/arach hulk": true,
+    "thumbnail/arach hulk": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -5010,6 +5090,8 @@
       }
     ],
     "bays": [],
+    "ship/arach spindle": true,
+    "thumbnail/arach spindle": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -5087,6 +5169,8 @@
       }
     ],
     "bays": [],
+    "ship/arach transport": true,
+    "thumbnail/arach transport": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -5164,6 +5248,8 @@
       }
     ],
     "bays": [],
+    "ship/heliarch breacher": true,
+    "thumbnail/heliarch breacher": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -5253,6 +5339,8 @@
       }
     ],
     "bays": [],
+    "ship/heliarch hunter": true,
+    "thumbnail/heliarch hunter": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -5338,6 +5426,8 @@
       }
     ],
     "bays": [],
+    "ship/heliarch interdictor": true,
+    "thumbnail/heliarch interdictor": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -5455,6 +5545,8 @@
         "launch effect": "coalition launch"
       }
     ],
+    "ship/heliarch judicator": true,
+    "thumbnail/heliarch judicator": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -5534,6 +5626,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/heliarch neutralizer": true,
+    "thumbnail/heliarch neutralizer": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -5643,6 +5737,8 @@
       }
     ],
     "bays": [],
+    "ship/heliarch punisher": true,
+    "thumbnail/heliarch punisher": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -5704,6 +5800,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/heliarch pursuer": true,
+    "thumbnail/heliarch pursuer": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -5759,6 +5857,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/heliarch rover": true,
+    "thumbnail/heliarch rover": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -5806,6 +5906,8 @@
       }
     ],
     "bays": [],
+    "ship/heliarch stalker": true,
+    "thumbnail/heliarch stalker": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -5874,6 +5976,8 @@
       }
     ],
     "bays": [],
+    "ship/kimek briar": true,
+    "thumbnail/kimek briar": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -5966,6 +6070,8 @@
       }
     ],
     "bays": [],
+    "ship/kimek spire": true,
+    "thumbnail/kimek spire": true,
     "attributes": {
       "category": "Space Liner",
       "licenses": {
@@ -6044,6 +6150,8 @@
       }
     ],
     "bays": [],
+    "ship/kimek thistle": true,
+    "thumbnail/kimek thistle": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -6110,6 +6218,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/kimek thorn": true,
+    "thumbnail/kimek thorn": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -6170,6 +6280,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/saryd runabout": true,
+    "thumbnail/saryd runabout": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -6261,6 +6373,8 @@
       }
     ],
     "bays": [],
+    "ship/saryd sojourner": true,
+    "thumbnail/saryd sojourner": true,
     "attributes": {
       "category": "Utility",
       "licenses": {
@@ -6354,6 +6468,8 @@
       }
     ],
     "bays": [],
+    "ship/saryd traveler": true,
+    "thumbnail/saryd traveler": true,
     "attributes": {
       "category": "Utility",
       "licenses": {
@@ -6433,6 +6549,8 @@
       }
     ],
     "bays": [],
+    "ship/saryd visitor": true,
+    "thumbnail/saryd visitor": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -6564,6 +6682,8 @@
     ],
     "bays": [],
     "entity": true,
+    "ship/archon": true,
+    "thumbnail/archon": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -6644,6 +6764,8 @@
     ],
     "bays": [],
     "creature": true,
+    "ship/subsidurial": true,
+    "thumbnail/subsidurial": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -6691,6 +6813,8 @@
     "turrets": [],
     "bays": [],
     "creature": true,
+    "ship/void sprite/void sprite adult": true,
+    "thumbnail/void sprite adult": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -6753,6 +6877,8 @@
     "turrets": [],
     "bays": [],
     "creature": true,
+    "ship/ember waste node/ember waste node": true,
+    "thumbnail/ember waste node": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -6816,6 +6942,7 @@
     "turrets": [],
     "bays": [],
     "creature": true,
+    "ship/embershade/embershade": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -6860,6 +6987,7 @@
     ],
     "bays": [],
     "creature": true,
+    "ship/embersylph/embersylph": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -6904,6 +7032,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno shale": true,
+    "thumbnail/gegno shale": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -6951,6 +7081,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno dolomite": true,
+    "thumbnail/gegno dolomite": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -7012,6 +7144,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno conglomerate": true,
+    "thumbnail/gegno conglomerate": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -7076,6 +7210,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno granofel": true,
+    "thumbnail/gegno granofel": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -7129,6 +7265,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/gegno gypsum": true,
+    "thumbnail/gegno gypsum": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -7205,6 +7343,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/gegno corundum": true,
+    "thumbnail/gegno corundum": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -7291,6 +7431,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno protolith": true,
+    "thumbnail/gegno protolith": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 115700000,
@@ -7347,6 +7489,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/gegno dunite": true,
+    "thumbnail/gegno dunite": true,
     "attributes": {
       "category": "Interceptor",
       "licenses": {
@@ -7580,6 +7724,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno augen": true,
+    "thumbnail/gegno augen": true,
     "attributes": {
       "category": "Superheavy",
       "licenses": {
@@ -7628,6 +7774,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno slate": true,
+    "thumbnail/gegno slate": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -7708,6 +7856,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno schist a": true,
+    "thumbnail/gegno schist a": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -7780,6 +7930,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/gegno rhyolite": true,
+    "thumbnail/gegno rhyolite": true,
     "attributes": {
       "category": "Interceptor",
       "licenses": {
@@ -7852,6 +8004,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/gegno eclogite": true,
+    "thumbnail/gegno eclogite": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -7933,6 +8087,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno diorite": true,
+    "thumbnail/gegno diorite": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -8046,6 +8202,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno hornfel a": true,
+    "thumbnail/gegno hornfel a": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -8171,6 +8329,8 @@
     ],
     "bays": [],
     "Gneiss": true,
+    "ship/gegno gneiss": true,
+    "thumbnail/gegno gneiss": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -8304,6 +8464,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno granulite": true,
+    "thumbnail/gegno granulite": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -8367,6 +8529,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/gegno halite": true,
+    "thumbnail/gegno halite": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -8409,6 +8573,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno mica": true,
+    "thumbnail/gegno mica": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -8477,6 +8643,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno coesite": true,
+    "thumbnail/gegno coesite": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -8531,6 +8699,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/gegno tridymite": true,
+    "thumbnail/gegno tridymite": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -8602,6 +8772,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno felsic": true,
+    "thumbnail/gegno felsic": true,
     "attributes": {
       "category": "Utility",
       "licenses": {
@@ -8724,6 +8896,8 @@
         "launch effect": "scin launch"
       }
     ],
+    "ship/gegno feldspar": true,
+    "thumbnail/gegno feldspar": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -8815,6 +8989,8 @@
         "launch effect": "scin launch"
       }
     ],
+    "ship/gegno epidote": true,
+    "thumbnail/gegno epidote": true,
     "attributes": {
       "category": "Utility",
       "licenses": {
@@ -8921,6 +9097,8 @@
       }
     ],
     "bays": [],
+    "ship/gegno kyanite": true,
+    "thumbnail/gegno kyanite": true,
     "attributes": {
       "category": "Utility",
       "cost": 28870000,
@@ -9016,6 +9194,8 @@
     ],
     "bays": [],
     "Geodesic Geocoris": true,
+    "ship/geodesic geocoris": true,
+    "thumbnail/geodesic geocoris": true,
     "attributes": {
       "category": "Utility",
       "cost": 23540000,
@@ -9118,6 +9298,8 @@
     ],
     "bays": [],
     "Anomalocarises": true,
+    "ship/hai anomalocaris": true,
+    "thumbnail/hai anomalocaris": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 7400000,
@@ -9172,6 +9354,8 @@
       }
     ],
     "bays": [],
+    "ship/hai aphid": true,
+    "thumbnail/hai aphid": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 570000,
@@ -9244,6 +9428,8 @@
       }
     ],
     "bays": [],
+    "ship/hai centipede": true,
+    "thumbnail/hai centipede": true,
     "attributes": {
       "category": "Space Liner",
       "cost": 6300000,
@@ -9320,6 +9506,8 @@
       }
     ],
     "bays": [],
+    "ship/hai cicada": true,
+    "thumbnail/hai cicada": true,
     "attributes": {
       "category": "Transport",
       "cost": 3850000,
@@ -9382,6 +9570,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/hai flea": true,
+    "thumbnail/hai flea": true,
     "attributes": {
       "category": "Drone",
       "cost": 142400,
@@ -9460,6 +9650,8 @@
     ],
     "bays": [],
     "Geocoris": true,
+    "ship/hai geocoris": true,
+    "thumbnail/hai geocoris": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 12540000,
@@ -9517,6 +9709,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/hai grasshopper": true,
+    "thumbnail/hai grasshopper": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 684000,
@@ -9580,6 +9774,8 @@
       }
     ],
     "bays": [],
+    "ship/hai lightning bug": true,
+    "thumbnail/hai lightning bug": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 3200000,
@@ -9657,6 +9853,8 @@
       }
     ],
     "bays": [],
+    "ship/hai ladybug": true,
+    "thumbnail/hai ladybug": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 8950000,
@@ -9802,6 +10000,8 @@
         "launch effect": "hai launch"
       }
     ],
+    "ship/hai pond strider": true,
+    "thumbnail/hai pond strider": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 5250000,
@@ -9885,6 +10085,8 @@
       }
     ],
     "bays": [],
+    "ship/hai sea scorpion": true,
+    "thumbnail/hai sea scorpion": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 5450000,
@@ -9944,6 +10146,8 @@
       }
     ],
     "bays": [],
+    "ship/hai scarab": true,
+    "thumbnail/hai scarab": true,
     "attributes": {
       "category": "Transport",
       "cost": 1620000,
@@ -10054,6 +10258,8 @@
       }
     ],
     "bays": [],
+    "ship/hai shield beetle": true,
+    "thumbnail/hai shield beetle": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 17900000,
@@ -10212,6 +10418,8 @@
       }
     ],
     "bays": [],
+    "ship/hai emperor beetle": true,
+    "thumbnail/hai emperor beetle": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 35100000,
@@ -10371,6 +10579,8 @@
         "launch effect": "hai launch"
       }
     ],
+    "ship/hai solifuge": true,
+    "thumbnail/hai solifuge": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -10436,6 +10646,8 @@
       }
     ],
     "bays": [],
+    "ship/hai violin spider": true,
+    "thumbnail/hai violin spider": true,
     "attributes": {
       "category": "Fighter",
       "cost": 139000,
@@ -10505,6 +10717,8 @@
       }
     ],
     "bays": [],
+    "ship/hai water bug": true,
+    "thumbnail/hai water bug": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 6500000,
@@ -10590,6 +10804,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/racing flivver": true,
+    "thumbnail/racing flivver": true,
     "attributes": {
       "category": "Transport",
       "#": "This Flivver has a high cost so that you can sell it for roughly the same amount as a normal Flivver would cost.",
@@ -10631,6 +10847,7 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/escape shuttle": true,
     "attributes": {
       "category": "Utility",
       "cost": 45000,
@@ -10742,6 +10959,8 @@
         "launch effect": "human internal"
       }
     ],
+    "ship/kestrel": true,
+    "thumbnail/kestrel": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 14700000,
@@ -10805,6 +11024,8 @@
       }
     ],
     "bays": [],
+    "ship/marrows": true,
+    "thumbnail/marrows": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 1320000,
@@ -10868,6 +11089,8 @@
       }
     ],
     "bays": [],
+    "ship/mbounders": true,
+    "thumbnail/mbounders": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 1250000,
@@ -10956,6 +11179,8 @@
       }
     ],
     "bays": [],
+    "ship/mfalcons": true,
+    "thumbnail/mfalcons": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 13900000,
@@ -11035,6 +11260,8 @@
       }
     ],
     "bays": [],
+    "ship/mfirebirds": true,
+    "thumbnail/mfirebirds": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 4100000,
@@ -11124,6 +11351,8 @@
       }
     ],
     "bays": [],
+    "ship/mleviathans": true,
+    "thumbnail/mleviathans": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 10800000,
@@ -11208,6 +11437,8 @@
       }
     ],
     "bays": [],
+    "ship/mmantas": true,
+    "thumbnail/mmantas": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3740000,
@@ -11271,6 +11502,8 @@
       }
     ],
     "bays": [],
+    "ship/mquicksilvers": true,
+    "thumbnail/mquicksilvers": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 1200000,
@@ -11343,6 +11576,8 @@
       }
     ],
     "bays": [],
+    "ship/mravens": true,
+    "thumbnail/mravens": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 2750000,
@@ -11417,6 +11652,8 @@
       }
     ],
     "bays": [],
+    "ship/msplinters": true,
+    "thumbnail/msplinters": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3400000,
@@ -11516,6 +11753,8 @@
         "launch effect": "human internal"
       }
     ],
+    "ship/aerie": true,
+    "thumbnail/aerie": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3500000,
@@ -11610,6 +11849,8 @@
     ],
     "bays": [],
     "Argosies": true,
+    "ship/argosy": true,
+    "thumbnail/argosy": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 1960000,
@@ -11675,6 +11916,8 @@
       }
     ],
     "bays": [],
+    "ship/arrow": true,
+    "thumbnail/arrow": true,
     "attributes": {
       "category": "Transport",
       "cost": 1200000,
@@ -11781,6 +12024,8 @@
       }
     ],
     "Auxiliaries": true,
+    "ship/auxiliaryh": true,
+    "thumbnail/auxiliaryh": true,
     "attributes": {
       "category": "Utility",
       "licenses": {
@@ -11905,6 +12150,8 @@
         "launch effect": "human internal"
       }
     ],
+    "ship/bactrian": true,
+    "thumbnail/bactrian": true,
     "attributes": {
       "licenses": {
         "description": "City-Ship"
@@ -11969,6 +12216,8 @@
       }
     ],
     "bays": [],
+    "ship/barb": true,
+    "thumbnail/barb": true,
     "attributes": {
       "category": "Fighter",
       "cost": 50000,
@@ -12048,6 +12297,8 @@
       }
     ],
     "bays": [],
+    "ship/bastion": true,
+    "thumbnail/bastion": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3860000,
@@ -12151,6 +12402,8 @@
       }
     ],
     "bays": [],
+    "ship/behemoth": true,
+    "thumbnail/behemoth": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 10800000,
@@ -12221,6 +12474,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/berserker": true,
+    "thumbnail/berserker": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 520000,
@@ -12278,6 +12533,8 @@
       }
     ],
     "bays": [],
+    "ship/blackbird": true,
+    "thumbnail/blackbird": true,
     "attributes": {
       "category": "Transport",
       "cost": 2230000,
@@ -12337,6 +12594,8 @@
       }
     ],
     "bays": [],
+    "ship/bounder": true,
+    "thumbnail/bounder": true,
     "attributes": {
       "category": "Transport",
       "cost": 1140000,
@@ -12391,6 +12650,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/boxwing": true,
+    "thumbnail/boxwing": true,
     "attributes": {
       "category": "Fighter",
       "cost": 369000,
@@ -12471,6 +12732,8 @@
       }
     ],
     "bays": [],
+    "ship/bulk freighter": true,
+    "thumbnail/bulk freighter": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 11100000,
@@ -12557,6 +12820,8 @@
       }
     ],
     "bays": [],
+    "ship/pirate bulwark": true,
+    "thumbnail/pirate bulwark": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 4360000,
@@ -12730,6 +12995,8 @@
         "launch effect": "human internal"
       }
     ],
+    "ship/carrier": true,
+    "thumbnail/carrier": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -12905,6 +13172,8 @@
         "launch effect": "human internal"
       }
     ],
+    "ship/bulk freighter": true,
+    "thumbnail/bulk freighter": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 13400000,
@@ -12975,6 +13244,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/clipper": true,
+    "thumbnail/clipper": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 900000,
@@ -13030,6 +13301,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/combat drone": true,
+    "thumbnail/combat drone": true,
     "attributes": {
       "category": "Drone",
       "licenses": {
@@ -13108,6 +13381,8 @@
       }
     ],
     "bays": [],
+    "ship/container transport": true,
+    "thumbnail/container transport": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 9200000,
@@ -13189,6 +13464,8 @@
       }
     ],
     "bays": [],
+    "ship/corvette": true,
+    "thumbnail/corvette": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 4400000,
@@ -13327,6 +13604,8 @@
         "launch effect": "human internal"
       }
     ],
+    "ship/cruiser": true,
+    "thumbnail/cruiser": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -13411,6 +13690,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/pirate cutthroat": true,
+    "thumbnail/pirate cutthroat": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 1100000,
@@ -13474,6 +13755,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/dagger": true,
+    "thumbnail/dagger": true,
     "attributes": {
       "category": "Fighter",
       "cost": 129000,
@@ -13563,6 +13846,8 @@
       }
     ],
     "bays": [],
+    "ship/dreadnought": true,
+    "thumbnail/dreadnought": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -13627,6 +13912,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/dropship": true,
+    "thumbnail/dropship": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -13696,6 +13983,8 @@
       }
     ],
     "bays": [],
+    "ship/enforcer": true,
+    "thumbnail/enforcer": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 490000,
@@ -13784,6 +14073,8 @@
       }
     ],
     "bays": [],
+    "ship/falcon": true,
+    "thumbnail/falcon": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 10900000,
@@ -13850,6 +14141,8 @@
     "turrets": [],
     "bays": [],
     "Finches": true,
+    "ship/finch": true,
+    "thumbnail/finch": true,
     "attributes": {
       "category": "Fighter",
       "cost": 126000,
@@ -13924,6 +14217,8 @@
       }
     ],
     "bays": [],
+    "ship/firebird": true,
+    "thumbnail/firebird": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3700000,
@@ -13983,6 +14278,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/flivver": true,
+    "thumbnail/flivver": true,
     "attributes": {
       "category": "Transport",
       "cost": 180000,
@@ -14043,6 +14340,8 @@
       }
     ],
     "bays": [],
+    "ship/freighter": true,
+    "thumbnail/freighter": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 730000,
@@ -14127,6 +14426,8 @@
       }
     ],
     "bays": [],
+    "ship/frigate": true,
+    "thumbnail/frigate": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -14223,6 +14524,8 @@
     "turrets": [],
     "bays": [],
     "Furies": true,
+    "ship/fury": true,
+    "thumbnail/fury": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 490000,
@@ -14286,6 +14589,8 @@
       }
     ],
     "bays": [],
+    "ship/gunboat": true,
+    "thumbnail/gunboat": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -14368,6 +14673,8 @@
       }
     ],
     "bays": [],
+    "ship/hauler i": true,
+    "thumbnail/hauler i": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 1430000,
@@ -14449,6 +14756,8 @@
       }
     ],
     "bays": [],
+    "ship/hauler ii": true,
+    "thumbnail/hauler ii": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 2340000,
@@ -14530,6 +14839,8 @@
       }
     ],
     "bays": [],
+    "ship/hauler iii": true,
+    "thumbnail/hauler iii": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 3260000,
@@ -14590,6 +14901,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/hawk": true,
+    "thumbnail/hawk": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 670000,
@@ -14662,6 +14975,8 @@
       }
     ],
     "bays": [],
+    "ship/headhunter": true,
+    "thumbnail/headhunter": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 1850000,
@@ -14720,6 +15035,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/heavy shuttle": true,
+    "thumbnail/heavy shuttle": true,
     "attributes": {
       "category": "Transport",
       "cost": 470000,
@@ -14786,6 +15103,8 @@
       }
     ],
     "bays": [],
+    "ship/hogshead": true,
+    "thumbnail/hogshead": true,
     "attributes": {
       "category": "Space Liner",
       "cost": 3150000,
@@ -14855,6 +15174,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/jackal": true,
+    "thumbnail/jackal": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 320000,
@@ -14917,6 +15238,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/lance": true,
+    "thumbnail/lance": true,
     "attributes": {
       "category": "Fighter",
       "cost": 93000,
@@ -15000,6 +15323,8 @@
       }
     ],
     "bays": [],
+    "ship/leviathan": true,
+    "thumbnail/leviathan": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 9800000,
@@ -15123,6 +15448,8 @@
       }
     ],
     "bays": [],
+    "ship/pirate mammoth": true,
+    "thumbnail/pirate mammoth": true,
     "attributes": {
       "category": "Utility",
       "cost": 18800000,
@@ -15204,6 +15531,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/manta": true,
+    "thumbnail/manta": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3400000,
@@ -15254,6 +15583,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/mining drone": true,
+    "thumbnail/mining drone": true,
     "attributes": {
       "category": "Drone",
       "cost": 58000,
@@ -15337,6 +15668,8 @@
     ],
     "bays": [],
     "Modified Argosies": true,
+    "ship/modified argosy": true,
+    "thumbnail/modified argosy": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 1960000,
@@ -15417,6 +15750,8 @@
       }
     ],
     "bays": [],
+    "ship/monitor": true,
+    "thumbnail/monitor": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 2900000,
@@ -15505,6 +15840,8 @@
         "launch effect": "human internal"
       }
     ],
+    "ship/mule": true,
+    "thumbnail/mule": true,
     "attributes": {
       "category": "Utility",
       "cost": 4080000,
@@ -15600,6 +15937,8 @@
         "launch effect": "human external"
       }
     ],
+    "ship/nest": true,
+    "thumbnail/nest": true,
     "attributes": {
       "category": "Utility",
       "cost": 2500000,
@@ -15677,6 +16016,8 @@
       }
     ],
     "bays": [],
+    "ship/pirate nighthawk": true,
+    "thumbnail/pirate nighthawk": true,
     "attributes": {
       "category": "Transport",
       "cost": 2630000,
@@ -15770,6 +16111,8 @@
       }
     ],
     "bays": [],
+    "ship/osprey": true,
+    "thumbnail/osprey": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 4200000,
@@ -15871,6 +16214,8 @@
       }
     ],
     "bays": [],
+    "ship/protector": true,
+    "thumbnail/protector": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 5500000,
@@ -15930,6 +16275,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/quicksilver": true,
+    "thumbnail/quicksilver": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 836000,
@@ -16008,6 +16355,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/rainmaker": true,
+    "thumbnail/rainmaker": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -16078,6 +16427,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/raven": true,
+    "thumbnail/raven": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 2200000,
@@ -16187,6 +16538,8 @@
         "launch effect": "human external"
       }
     ],
+    "ship/roost": true,
+    "thumbnail/roost": true,
     "attributes": {
       "category": "Utility",
       "cost": 3000000,
@@ -16264,6 +16617,8 @@
       }
     ],
     "bays": [],
+    "ship/saber": true,
+    "thumbnail/saber": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 2200000,
@@ -16330,6 +16685,8 @@
       }
     ],
     "bays": [],
+    "ship/scout": true,
+    "thumbnail/scout": true,
     "attributes": {
       "category": "Transport",
       "cost": 850000,
@@ -16383,6 +16740,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/pirate scrapper": true,
+    "thumbnail/pirate scrapper": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 60000,
@@ -16433,6 +16792,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/shuttle": true,
+    "thumbnail/shuttle": true,
     "attributes": {
       "category": "Transport",
       "cost": 180000,
@@ -16552,6 +16913,8 @@
         "launch effect": "human external"
       }
     ],
+    "ship/skein": true,
+    "thumbnail/skein": true,
     "attributes": {
       "category": "Utility",
       "licenses": {
@@ -16625,6 +16988,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/sparrow": true,
+    "thumbnail/sparrow": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 225000,
@@ -16696,6 +17061,8 @@
       }
     ],
     "bays": [],
+    "ship/splinter": true,
+    "thumbnail/splinter": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3100000,
@@ -16751,6 +17118,8 @@
       }
     ],
     "bays": [],
+    "ship/star barge": true,
+    "thumbnail/star barge": true,
     "attributes": {
       "category": "Light Freighter",
       "cost": 190000,
@@ -16833,6 +17202,8 @@
       }
     ],
     "bays": [],
+    "ship/star queen": true,
+    "thumbnail/star queen": true,
     "attributes": {
       "category": "Space Liner",
       "cost": 4200000,
@@ -16911,6 +17282,8 @@
         "launch effect": "human external"
       }
     ],
+    "ship/sunder": true,
+    "thumbnail/sunder": true,
     "attributes": {
       "category": "Utility",
       "cost": 1000000,
@@ -16958,6 +17331,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/surveillance drone": true,
+    "thumbnail/surveillance drone": true,
     "attributes": {
       "category": "Drone",
       "licenses": {
@@ -17042,6 +17417,8 @@
         "y": 2
       }
     ],
+    "ship/pirate valkyrie": true,
+    "thumbnail/pirate valkyrie": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 3900000,
@@ -17133,6 +17510,8 @@
       }
     ],
     "bays": [],
+    "ship/vanguard": true,
+    "thumbnail/vanguard": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 7200000,
@@ -17207,6 +17586,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/wasp": true,
+    "thumbnail/wasp": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 400000,
@@ -17774,6 +18155,7 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/silent harvester": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -17829,6 +18211,8 @@
     "bays": [],
     "display name": "`K-IA \"Latte\"`",
     "Lattes": true,
+    "ship/aberrant latte": true,
+    "thumbnail/aberrant latte": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",
@@ -17926,6 +18310,8 @@
     "bays": [],
     "display name": "`K-IB \"Chomper\"`",
     "Chompers": true,
+    "ship/aberrant chomper": true,
+    "thumbnail/aberrant chomper": true,
     "never disabled": true,
     "attributes": {
       "category": "Light Warship",
@@ -17998,6 +18384,8 @@
     "bays": [],
     "display name": "`K-IC \"Pileup\"`",
     "Pileups": true,
+    "ship/aberrant pileup": true,
+    "thumbnail/aberrant pileup": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",
@@ -18080,6 +18468,8 @@
     "bays": [],
     "display name": "`K-IE \"Hugger\"`",
     "Huggers": true,
+    "ship/aberrant hugger": true,
+    "thumbnail/aberrant hugger": true,
     "never disabled": true,
     "attributes": {
       "category": "Light Warship",
@@ -18171,6 +18561,8 @@
     "bays": [],
     "display name": "`K-IF \"Longfellow\"`",
     "Longfellows": true,
+    "ship/aberrant longfellow": true,
+    "thumbnail/aberrant longfellow": true,
     "never disabled": true,
     "attributes": {
       "category": "Light Warship",
@@ -18269,6 +18661,8 @@
     "bays": [],
     "display name": "`K-IG \"Dancer\"`",
     "Dancers": true,
+    "ship/aberrant dancer": true,
+    "thumbnail/aberrant dancer": true,
     "never disabled": true,
     "attributes": {
       "category": "Light Warship",
@@ -18351,6 +18745,8 @@
     "bays": [],
     "display name": "`K-IIA \"Junior\"`",
     "Juniors": true,
+    "ship/aberrant junior": true,
+    "thumbnail/aberrant junior": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",
@@ -18433,6 +18829,8 @@
     "bays": [],
     "display name": "`K-IIB \"Icebreaker\"`",
     "Icebreakers": true,
+    "ship/aberrant icebreaker": true,
+    "thumbnail/aberrant icebreaker": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",
@@ -18515,6 +18913,8 @@
     "bays": [],
     "display name": "`K-IIC \"Pike\"`",
     "Pikes": true,
+    "ship/aberrant pike": true,
+    "thumbnail/aberrant pike": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",
@@ -18607,6 +19007,8 @@
     "bays": [],
     "display name": "`K-IID \"Mole\"`",
     "Moles": true,
+    "ship/aberrant mole": true,
+    "thumbnail/aberrant mole": true,
     "never disabled": true,
     "attributes": {
       "category": "Light Warship",
@@ -18679,6 +19081,8 @@
     "bays": [],
     "display name": "`K-IIE \"Whiskers\"`",
     "Whiskers": true,
+    "ship/aberrant whiskers": true,
+    "thumbnail/aberrant whiskers": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",
@@ -18785,6 +19189,8 @@
     "bays": [],
     "display name": "`K-IIF \"Trip\"`",
     "Trips": true,
+    "ship/aberrant trip": true,
+    "thumbnail/aberrant trip": true,
     "never disabled": true,
     "attributes": {
       "category": "Medium Warship",
@@ -18911,6 +19317,8 @@
     "bays": [],
     "display name": "`K-IIG \"Triplet\"`",
     "Triplets": true,
+    "ship/aberrant triplet": true,
+    "thumbnail/aberrant triplet": true,
     "never disabled": true,
     "attributes": {
       "category": "Medium Warship",
@@ -19003,6 +19411,8 @@
     ],
     "bays": [],
     "Maeri'heta": true,
+    "ship/maeri'het": true,
+    "thumbnail/maeri'het": true,
     "never disabled": true,
     "attributes": {
       "category": "Light Warship",
@@ -19109,6 +19519,8 @@
     ],
     "bays": [],
     "Telis'heta": true,
+    "ship/telis'het": true,
+    "thumbnail/telis'het": true,
     "never disabled": true,
     "attributes": {
       "category": "Medium Warship",
@@ -19243,6 +19655,7 @@
     ],
     "bays": [],
     "Vareti'heta": true,
+    "thumbnail/vareti'het": true,
     "never disabled": true,
     "attributes": {
       "category": "Heavy Warship",
@@ -19301,6 +19714,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/selii'mar": true,
+    "thumbnail/selii'mar": true,
     "attributes": {
       "category": "Drone",
       "cost": 965000,
@@ -19345,6 +19760,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/faes'mar": true,
+    "thumbnail/faes'mar": true,
     "attributes": {
       "category": "Drone",
       "cost": 1180000,
@@ -19395,6 +19812,8 @@
     "turrets": [],
     "bays": [],
     "Fetri'seia": true,
+    "ship/fetri'sei": true,
+    "thumbnail/fetri'sei": true,
     "never disabled": true,
     "attributes": {
       "category": "Interceptor",
@@ -19539,6 +19958,8 @@
         "launch effect": "korath internal"
       }
     ],
+    "ship/dredger": true,
+    "thumbnail/dredger": true,
     "attributes": {
       "category": "Utility",
       "cost": 29370000,
@@ -19654,6 +20075,8 @@
         "launch effect": "korath internal"
       }
     ],
+    "ship/raider": true,
+    "thumbnail/raider": true,
     "attributes": {
       "category": "Utility",
       "cost": 16570000,
@@ -19826,6 +20249,8 @@
         "launch effect": "korath internal"
       }
     ],
+    "ship/tubfalet": true,
+    "thumbnail/tubfalet": true,
     "attributes": {
       "category": "Utility",
       "cost": 22895000,
@@ -19937,6 +20362,8 @@
       }
     ],
     "bays": [],
+    "ship/-nra-ret": true,
+    "thumbnail/-nra-ret": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 24760000,
@@ -19991,6 +20418,8 @@
     "turrets": [],
     "bays": [],
     "'olofezes": true,
+    "ship/chaser": true,
+    "thumbnail/chaser": true,
     "attributes": {
       "category": "Fighter",
       "cost": 671000,
@@ -20035,6 +20464,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/kas-ik tek 7": true,
+    "thumbnail/kas-ik tek 7": true,
     "attributes": {
       "category": "Drone",
       "cost": 210000,
@@ -20157,6 +20588,8 @@
         "launch effect": "korath internal"
       }
     ],
+    "ship/rai-alorej": true,
+    "thumbnail/rai-alorej": true,
     "attributes": {
       "category": "Utility",
       "cost": 31970000,
@@ -20278,6 +20711,8 @@
       }
     ],
     "bays": [],
+    "ship/ikatila-ej": true,
+    "thumbnail/ikatila-ej": true,
     "attributes": {
       "category": "Superheavy",
       "cost": 109375000,
@@ -20427,6 +20862,8 @@
       }
     ],
     "display name": "\"Karek A'awoj\"",
+    "ship/world-ship a": true,
+    "thumbnail/world-ship a": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 29650000,
@@ -20588,6 +21025,8 @@
     ],
     "bays": [],
     "display name": "\"Sapira A'awoj\"",
+    "ship/world-ship b": true,
+    "thumbnail/world-ship b": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 49640000,
@@ -20725,6 +21164,8 @@
       }
     ],
     "display name": "\"Dathnak A'awoj\"",
+    "ship/world-ship c": true,
+    "thumbnail/world-ship c": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 28190000,
@@ -20864,6 +21305,8 @@
       }
     ],
     "display name": "\"Spera A'awoj\"",
+    "ship/world-ship d": true,
+    "thumbnail/world-ship d": true,
     "attributes": {
       "category": "Space Liner",
       "cost": 33640000,
@@ -21059,6 +21502,8 @@
       }
     ],
     "display name": "\"Ikfar A'awoj\"",
+    "ship/world-ship e": true,
+    "thumbnail/world-ship e": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 43590000,
@@ -21165,6 +21610,8 @@
       }
     ],
     "bays": [],
+    "ship/world-ship f": true,
+    "thumbnail/world-ship f": true,
     "attributes": {
       "category": "Space Liner",
       "cost": 42290000,
@@ -21590,6 +22037,8 @@
         "launch effect": "korath internal"
       }
     ],
+    "ship/korsmanath a-awoj": true,
+    "thumbnail/korsmanath a-awoj": true,
     "uncapturable": true,
     "attributes": {
       "category": "Superheavy",
@@ -21696,6 +22145,8 @@
       }
     ],
     "bays": [],
+    "ship/echo-galleon": true,
+    "thumbnail/echo-galleon": true,
     "attributes": {
       "category": "Utility",
       "cost": 27690000,
@@ -21789,6 +22240,8 @@
       }
     ],
     "bays": [],
+    "ship/arch-carrack": true,
+    "thumbnail/arch-carrack": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 15815000,
@@ -21866,6 +22319,8 @@
       }
     ],
     "bays": [],
+    "ship/charm-shallop": true,
+    "thumbnail/charm-shallop": true,
     "attributes": {
       "category": "Utility",
       "cost": 14070000,
@@ -21978,6 +22433,8 @@
       }
     ],
     "bays": [],
+    "ship/kar ik vot 349": true,
+    "thumbnail/kar ik vot 349": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 41280000,
@@ -22135,6 +22592,8 @@
         "launch effect": "korath external"
       }
     ],
+    "ship/tek far 71 lek": true,
+    "thumbnail/tek far 71 lek": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 22870000,
@@ -22295,6 +22754,8 @@
         "launch effect": "korath external"
       }
     ],
+    "ship/tek far 78 osk": true,
+    "thumbnail/tek far 78 osk": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 25630000,
@@ -22484,6 +22945,8 @@
         "launch effect": "korath external"
       }
     ],
+    "ship/tek far 109": true,
+    "thumbnail/tek far 109": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 18290000,
@@ -22580,6 +23043,8 @@
       }
     ],
     "bays": [],
+    "ship/met par tek 53": true,
+    "thumbnail/met par tek 53": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 14480000,
@@ -22635,6 +23100,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/far lek 14": true,
+    "thumbnail/far lek 14": true,
     "attributes": {
       "category": "Drone",
       "cost": 573000,
@@ -22688,6 +23155,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/far osk 27": true,
+    "thumbnail/far osk 27": true,
     "attributes": {
       "category": "Fighter",
       "cost": 761000,
@@ -22741,6 +23210,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/model 8": true,
+    "thumbnail/model 8": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 3725000,
@@ -22804,6 +23275,8 @@
       }
     ],
     "bays": [],
+    "ship/model 16": true,
+    "thumbnail/model 16": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 8449000,
@@ -22874,6 +23347,8 @@
       }
     ],
     "bays": [],
+    "ship/model 32": true,
+    "thumbnail/model 32": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 12765000,
@@ -22949,6 +23424,8 @@
       }
     ],
     "bays": [],
+    "ship/model 64": true,
+    "thumbnail/model 64": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 19552000,
@@ -23034,6 +23511,8 @@
       }
     ],
     "bays": [],
+    "ship/model 128": true,
+    "thumbnail/model 128": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 24073000,
@@ -23124,6 +23603,8 @@
       }
     ],
     "bays": [],
+    "ship/model 256": true,
+    "thumbnail/model 256": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 34920000,
@@ -23219,6 +23700,8 @@
       }
     ],
     "bays": [],
+    "ship/model 512": true,
+    "thumbnail/model 512": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 40375000,
@@ -23288,6 +23771,8 @@
       }
     ],
     "bays": [],
+    "ship/wardragon": true,
+    "thumbnail/wardragon": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 5900000,
@@ -23406,6 +23891,8 @@
     "turrets": [],
     "bays": [],
     "Marauder Furies": true,
+    "ship/mfury": true,
+    "thumbnail/mfury": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 750000,
@@ -23465,6 +23952,7 @@
     ],
     "bays": [],
     "genocidal maniac": true,
+    "ship/shooting star/shooting star": true,
     "attributes": {
       "category": "Heavy Warship",
       "hull": 31500,
@@ -23606,6 +24094,8 @@
       }
     ],
     "bays": [],
+    "ship/modified boxwing": true,
+    "thumbnail/modified boxwing": true,
     "attributes": {
       "category": "Interceptor",
       "cost": 3690000,
@@ -23751,6 +24241,8 @@
       }
     ],
     "bays": [],
+    "ship/battleship": true,
+    "thumbnail/battleship": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 35000000,
@@ -23906,6 +24398,7 @@
       }
     ],
     "bays": [],
+    "ship/modified ladybug": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 8950000,
@@ -23985,6 +24478,7 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/waverider": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 3000000,
@@ -24092,6 +24586,8 @@
       }
     ],
     "bays": [],
+    "ship/hauler vi": true,
+    "thumbnail/hauler vi": true,
     "attributes": {
       "category": "Heavy Freighter",
       "shields": 13200,
@@ -24151,6 +24647,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/pug zibruka": true,
+    "thumbnail/pug zibruka": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 1900000,
@@ -24229,6 +24727,8 @@
       }
     ],
     "bays": [],
+    "ship/pug enfolta": true,
+    "thumbnail/pug enfolta": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 6300000,
@@ -24317,6 +24817,8 @@
       }
     ],
     "bays": [],
+    "ship/pug maboro": true,
+    "thumbnail/pug maboro": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 9500000,
@@ -24394,6 +24896,8 @@
       }
     ],
     "bays": [],
+    "ship/pug arfecta": true,
+    "thumbnail/pug arfecta": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 90000000,
@@ -24472,6 +24976,8 @@
       }
     ],
     "bays": [],
+    "ship/quarg lindwyrm": true,
+    "thumbnail/quarg lindwyrm": true,
     "attributes": {
       "category": "Heavy Freighter",
       "cost": 20000000,
@@ -24534,6 +25040,8 @@
       }
     ],
     "bays": [],
+    "ship/quarg guivre": true,
+    "thumbnail/quarg guivre": true,
     "attributes": {
       "category": "Utility",
       "cost": 75000000,
@@ -24601,6 +25109,8 @@
       }
     ],
     "bays": [],
+    "ship/quarg drake": true,
+    "thumbnail/quarg drake": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 12000000,
@@ -24668,6 +25178,8 @@
       }
     ],
     "bays": [],
+    "ship/quarg wardragon": true,
+    "thumbnail/quarg wardragon": true,
     "attributes": {
       "category": "Light Warship",
       "cost": 15000000,
@@ -24741,6 +25253,8 @@
       }
     ],
     "bays": [],
+    "ship/quarg wyvern": true,
+    "thumbnail/quarg wyvern": true,
     "attributes": {
       "category": "Medium Warship",
       "cost": 27000000,
@@ -24828,6 +25342,8 @@
       }
     ],
     "bays": [],
+    "ship/quarg hydra": true,
+    "thumbnail/quarg hydra": true,
     "attributes": {
       "category": "Heavy Warship",
       "cost": 65000000,
@@ -24944,6 +25460,8 @@
     ],
     "bays": [],
     "Albatrosses": true,
+    "ship/albatross": true,
+    "thumbnail/albatross": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -25070,6 +25588,8 @@
       }
     ],
     "Modified Dromedaries": true,
+    "ship/modified dromedary": true,
+    "thumbnail/modified dromedary": true,
     "attributes": {
       "licenses": {
         "Remnant Capital": true
@@ -25157,6 +25677,8 @@
       }
     ],
     "bays": [],
+    "ship/gull": true,
+    "thumbnail/gull": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -25524,6 +26046,7 @@
         "launch effect": "remnant internal"
       }
     ],
+    "ship/heron": true,
     "attributes": {
       "category": "Superheavy",
       "licenses": {
@@ -25678,6 +26201,8 @@
       }
     ],
     "Ibises": true,
+    "ship/ibis": true,
+    "thumbnail/ibis": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -25763,6 +26288,8 @@
       }
     ],
     "bays": [],
+    "ship/merganser": true,
+    "thumbnail/merganser": true,
     "attributes": {
       "category": "Interceptor",
       "licenses": {
@@ -25875,6 +26402,8 @@
       }
     ],
     "bays": [],
+    "ship/pelican": true,
+    "thumbnail/pelican": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -25974,6 +26503,8 @@
       }
     ],
     "bays": [],
+    "ship/penguin/penguin": true,
+    "thumbnail/penguin": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -26104,6 +26635,8 @@
       }
     ],
     "bays": [],
+    "ship/peregrine/peregrine": true,
+    "thumbnail/peregrine": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -26191,6 +26724,8 @@
       }
     ],
     "bays": [],
+    "ship/petrel": true,
+    "thumbnail/petrel": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -26244,6 +26779,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/puffin": true,
+    "thumbnail/puffin": true,
     "attributes": {
       "category": "Transport",
       "licenses": {
@@ -26304,6 +26841,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/smew": true,
+    "thumbnail/smew": true,
     "attributes": {
       "category": "Fighter",
       "licenses": {
@@ -26402,6 +26941,8 @@
       }
     ],
     "bays": [],
+    "ship/starling": true,
+    "thumbnail/starling": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -26471,6 +27012,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/tern": true,
+    "thumbnail/tern": true,
     "attributes": {
       "category": "Drone",
       "licenses": {
@@ -26563,6 +27106,8 @@
     "turrets": [],
     "bays": [],
     "entity": true,
+    "ship/vyuir/vyuir": true,
+    "thumbnail/vyuir": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -26786,6 +27331,7 @@
         "launch effect": "sheragi launch"
       }
     ],
+    "thumbnail/emeraldsword": true,
     "attributes": {
       "category": "Superheavy",
       "cost": 100000000,
@@ -26868,6 +27414,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/blackdiamond": true,
+    "thumbnail/blackdiamond": true,
     "attributes": {
       "category": "Fighter",
       "cost": 1000000,
@@ -26986,6 +27534,8 @@
     ],
     "bays": [],
     "Aaulqran": true,
+    "ship/aaulqra": true,
+    "thumbnail/aaulqra": true,
     "attributes": {
       "licenses": {
         "High Houses": true
@@ -27091,6 +27641,8 @@
     ],
     "bays": [],
     "Ejniisden": true,
+    "ship/ejniisde": true,
+    "thumbnail/ejniisde": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -27217,6 +27769,8 @@
     ],
     "bays": [],
     "Kaskhoraden": true,
+    "ship/kaskhorade": true,
+    "thumbnail/kaskhorade": true,
     "attributes": {
       "licenses": {
         "High Houses": true
@@ -27317,6 +27871,8 @@
     ],
     "bays": [],
     "Kvelqden": true,
+    "ship/kvelqde": true,
+    "thumbnail/kvelqde": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -27418,6 +27974,8 @@
     ],
     "bays": [],
     "Kvelqden-Khora": true,
+    "ship/kvelqde-khora": true,
+    "thumbnail/kvelqde-khora": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -27524,6 +28082,8 @@
     ],
     "bays": [],
     "Myaeden": true,
+    "ship/myaede": true,
+    "thumbnail/myaede": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -27610,6 +28170,8 @@
     ],
     "bays": [],
     "Nnaatejen": true,
+    "ship/nnaatej": true,
+    "thumbnail/nnaatej": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -27702,6 +28264,8 @@
     "turrets": [],
     "bays": [],
     "Nnesaaraun": true,
+    "ship/nnesaarau": true,
+    "thumbnail/nnesaarau": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -27813,6 +28377,8 @@
     ],
     "bays": [],
     "Ojden": true,
+    "ship/ojde": true,
+    "thumbnail/ojde": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -27924,6 +28490,8 @@
     ],
     "bays": [],
     "Seiitejen": true,
+    "ship/seiitej": true,
+    "thumbnail/seiitej": true,
     "attributes": {
       "licenses": {
         "High Houses": true
@@ -28028,6 +28596,8 @@
     "turrets": [],
     "bays": [],
     "Stolsaqran": true,
+    "ship/stolsaqra": true,
+    "thumbnail/stolsaqra": true,
     "attributes": {
       "licenses": {
         "Successor": true
@@ -28157,6 +28727,8 @@
     "turrets": [],
     "bays": [],
     "Veusaden": true,
+    "ship/veusade": true,
+    "thumbnail/veusade": true,
     "attributes": {
       "licenses": {
         "High Houses": true
@@ -28266,6 +28838,8 @@
     "turrets": [],
     "bays": [],
     "Vujleten": true,
+    "ship/vujlet": true,
+    "thumbnail/vujlet": true,
     "attributes": {
       "licenses": {
         "High Houses": true
@@ -28321,6 +28895,7 @@
     "bays": [],
     "creature": true,
     "Vyrmeid": true,
+    "ship/vyrmeid/plankton": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified Minor",
@@ -28376,6 +28951,7 @@
     "turrets": [],
     "bays": [],
     "creature": true,
+    "ship/astral cetacean/astral": true,
     "never disabled": true,
     "attributes": {
       "category": "Unclassified",
@@ -28438,6 +29014,8 @@
     "guns": [],
     "turrets": [],
     "bays": [],
+    "ship/earth shaper": true,
+    "thumbnail/earth shaper": true,
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
@@ -28488,6 +29066,8 @@
       }
     ],
     "bays": [],
+    "ship/flycatcher": true,
+    "thumbnail/flycatcher": true,
     "attributes": {
       "category": "Drone",
       "licenses": {
@@ -28542,6 +29122,8 @@
     "turrets": [],
     "bays": [],
     "Summer Leaves": true,
+    "ship/summer leaf": true,
+    "thumbnail/summer leaf": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -28608,6 +29190,8 @@
     ],
     "bays": [],
     "Autumn Leaves": true,
+    "ship/autumn leaf": true,
+    "thumbnail/autumn leaf": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -28687,6 +29271,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/strong wind": true,
+    "thumbnail/strong wind": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -28775,6 +29361,8 @@
       }
     ],
     "bays": [],
+    "ship/heavy gust": true,
+    "thumbnail/heavy gust": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -28861,6 +29449,8 @@
       }
     ],
     "bays": [],
+    "ship/tempest": true,
+    "thumbnail/tempest": true,
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
@@ -28951,6 +29541,8 @@
       }
     ],
     "bays": [],
+    "ship/derecho": true,
+    "thumbnail/derecho": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -29057,6 +29649,8 @@
       }
     ],
     "bays": [],
+    "ship/hurricane": true,
+    "thumbnail/hurricane": true,
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
@@ -29117,6 +29711,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/cool breeze": true,
+    "thumbnail/cool breeze": true,
     "attributes": {
       "category": "Interceptor",
       "licenses": {
@@ -29201,6 +29797,8 @@
       }
     ],
     "bays": [],
+    "ship/winter gale": true,
+    "thumbnail/winter gale": true,
     "attributes": {
       "category": "Light Warship",
       "licenses": {
@@ -29286,6 +29884,8 @@
     ],
     "turrets": [],
     "bays": [],
+    "ship/deep river": true,
+    "thumbnail/deep river": true,
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
@@ -29362,6 +29962,8 @@
       }
     ],
     "bays": [],
+    "ship/deep river": true,
+    "thumbnail/deep river": true,
     "attributes": {
       "category": "Space Liner",
       "licenses": {
@@ -29427,6 +30029,8 @@
       }
     ],
     "bays": [],
+    "ship/riptide": true,
+    "thumbnail/riptide": true,
     "attributes": {
       "category": "Space Liner",
       "licenses": {
@@ -29479,6 +30083,8 @@
     "bays": [],
     "proper": "name for this",
     "creature": true,
+    "ship/pincer beast": true,
+    "thumbnail/pincer beast": true,
     "attributes": {
       "category": "Unclassified",
       "hull": 14300,

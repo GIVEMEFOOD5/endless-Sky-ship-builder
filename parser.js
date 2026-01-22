@@ -216,7 +216,7 @@ class EndlessSkyParser {
       const stripped = currentLine.trim();
       
       if (indent === 1) {
-        if (stripped.startsWith('engine ')) {
+        if (stripped.startsWith('engine ') || stripped.startsWith('"engine"')) {
           const parts = stripped.substring(7).trim().split(/\s+/);
           const engineData = { x: parseFloat(parts[0]), y: parseFloat(parts[1]) };
           if (parts[2]) engineData.zoom = parseFloat(parts[2]);
@@ -279,21 +279,21 @@ class EndlessSkyParser {
           continue;
         }
         
-        if (stripped.startsWith('gun ')) {
+        if (stripped.startsWith('gun') || stripped.startsWith('"gun"')) {
           const parts = stripped.substring(4).trim().split(/\s+/);
           shipData.guns.push({ x: parseFloat(parts[0]), y: parseFloat(parts[1]), gun: "" });
           i++;
           continue;
         }
         
-        if (stripped.startsWith('turret ')) {
+        if (stripped.startsWith('turret') || stripped.startsWith('"turret"')) {
           const parts = stripped.substring(7).trim().split(/\s+/);
           shipData.turrets.push({ x: parseFloat(parts[0]), y: parseFloat(parts[1]), turret: "" });
           i++;
           continue;
         }
         
-        if (stripped.startsWith('bay ')) {
+        if (stripped.startsWith('bay') || stripped.startsWith('"bay"')) {
           const bayMatchQuotes = stripped.match(/bay\s+"([^"]+)"\s+([^\s]+)\s+([^\s]+)(?:\s+(.+))?/);
           const bayMatchBackticks = stripped.match(/bay\s+`([^`]+)`\s+([^\s]+)\s+([^\s]+)(?:\s+(.+))?/);
           const bayMatch = bayMatchBackticks || bayMatchQuotes;

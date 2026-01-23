@@ -2508,8 +2508,7 @@
     "attributes": {
       "category": "Light Warship",
       "licenses": {
-        "Twilight Guard": true,
-        "Avgi Torch": true
+        "description": "\"Twilight Guard\" \"Avgi Torch\""
       },
       "cost": 3600000,
       "shields": 1800,
@@ -2804,8 +2803,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Twilight Guard": true,
-        "Avgi Torch": true
+        "description": "\"Twilight Guard\" \"Avgi Torch\""
       },
       "cost": 4200000,
       "shields": 2400,
@@ -2962,8 +2960,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Twilight Guard": true,
-        "Avgi Torch": true
+        "description": "\"Twilight Guard\" \"Avgi Torch\""
       },
       "cost": 4500000,
       "shields": 3600,
@@ -3128,8 +3125,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Twilight Guard": true,
-        "Avgi Torch": true
+        "description": "\"Twilight Guard\" \"Avgi Torch\""
       },
       "cost": 6000000,
       "shields": 6000,
@@ -3425,8 +3421,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Twilight Guard": true,
-        "Avgi Torch": true
+        "description": "\"Twilight Guard\" \"Avgi Torch\""
       },
       "cost": 14400000,
       "shields": 4200,
@@ -3625,7 +3620,7 @@
     "attributes": {
       "category": "Fighter",
       "licenses": {
-        "Twilight Guard": true
+        "description": "\"Twilight Guard\""
       },
       "cost": 180000,
       "shields": 240,
@@ -3715,7 +3710,7 @@
     "attributes": {
       "category": "Drone",
       "licenses": {
-        "Twilight Guard": true
+        "description": "\"Twilight Guard\""
       },
       "cost": 90000,
       "hull": 1200,
@@ -3799,8 +3794,7 @@
     "attributes": {
       "category": "Drone",
       "licenses": {
-        "Twilight Guard": true,
-        "Avgi Atomics": true
+        "description": "\"Twilight Guard\" \"Avgi Atomics\""
       },
       "cost": 36000,
       "hull": 600,
@@ -7039,7 +7033,7 @@
     "attributes": {
       "category": "Transport",
       "licenses": {
-        "Gegno Civilian": true
+        "description": "\"Gegno Civilian\""
       },
       "cost": 148000,
       "shields": 0,
@@ -7088,7 +7082,7 @@
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
-        "Gegno Civilian": true
+        "description": "\"Gegno Civilian\""
       },
       "cost": 2768000,
       "shields": 0,
@@ -7151,7 +7145,7 @@
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
-        "Gegno Civilian": true
+        "description": "\"Gegno Civilian\""
       },
       "cost": 5909000,
       "shields": 0,
@@ -7217,7 +7211,7 @@
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
-        "Gegno Civilian": true
+        "description": "\"Gegno Civilian\""
       },
       "cost": 5150000,
       "shields": 0,
@@ -7272,8 +7266,7 @@
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
-        "Gegno Civilian": true,
-        "Gegno Driller": true
+        "description": "\"Gegno Civilian\" \"Gegno Driller\""
       },
       "cost": 1692000,
       "shields": 0,
@@ -7350,8 +7343,7 @@
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
-        "Gegno Civilian": true,
-        "Gegno Driller": true
+        "description": "\"Gegno Civilian\" \"Gegno Driller\""
       },
       "cost": 2465000,
       "shields": 0,
@@ -7496,7 +7488,7 @@
     "attributes": {
       "category": "Interceptor",
       "licenses": {
-        "Vi Evocati": true
+        "description": "\"Vi Evocati\""
       },
       "cost": 50000,
       "shields": 0,
@@ -7731,7 +7723,7 @@
     "attributes": {
       "category": "Superheavy",
       "licenses": {
-        "Vi Lord": true
+        "description": "\"Vi Lord\""
       },
       "cost": 58800000,
       "shields": 0,
@@ -7781,7 +7773,7 @@
     "attributes": {
       "category": "Light Freighter",
       "licenses": {
-        "Vi Evocati": true
+        "description": "\"Vi Evocati\""
       },
       "cost": 169000,
       "shields": 0,
@@ -7863,7 +7855,7 @@
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
-        "Vi Evocati": true
+        "description": "\"Vi Evocati\""
       },
       "cost": 3737000,
       "shields": 0,
@@ -7937,7 +7929,7 @@
     "attributes": {
       "category": "Interceptor",
       "licenses": {
-        "Vi Centurion": true
+        "description": "\"Vi Centurion\""
       },
       "cost": 1165000,
       "shields": 0,
@@ -8011,7 +8003,7 @@
     "attributes": {
       "category": "Light Warship",
       "licenses": {
-        "Vi Centurion": true
+        "description": "\"Vi Centurion\""
       },
       "cost": 2500000,
       "shields": 0,
@@ -8094,7 +8086,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Vi Centurion": true
+        "description": "\"Vi Centurion\""
       },
       "cost": 3350000,
       "shields": 0,
@@ -8209,7 +8201,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Vi Centurion": true
+        "description": "\"Vi Centurion\""
       },
       "cost": 5052000,
       "shields": 0,
@@ -8336,7 +8328,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Vi Lord": true
+        "description": "\"Vi Lord\""
       },
       "cost": 15066000,
       "shields": 0,
@@ -8471,7 +8463,7 @@
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
-        "Vi Lord": true
+        "description": "\"Vi Lord\""
       },
       "cost": 16820000,
       "shields": 0,
@@ -8536,8 +8528,7 @@
     "attributes": {
       "category": "Fighter",
       "licenses": {
-        "Scin Hoplologist": true,
-        "Scin Architect": true
+        "description": "\"Scin Hoplologist\" \"Scin Architect\""
       },
       "cost": 71000,
       "shields": 300,
@@ -8580,7 +8571,7 @@
     "attributes": {
       "category": "Transport",
       "licenses": {
-        "Scin Adjutant": true
+        "description": "\"Scin Adjutant\""
       },
       "cost": 201000,
       "shields": 0,
@@ -8650,7 +8641,7 @@
     "attributes": {
       "category": "Light Warship",
       "licenses": {
-        "Scin Adjutant": true
+        "description": "\"Scin Adjutant\""
       },
       "cost": 1872000,
       "shields": 0,
@@ -8706,8 +8697,7 @@
     "attributes": {
       "category": "Transport",
       "licenses": {
-        "Scin Architect": true,
-        "Scin Hoplologist": true
+        "description": "\"Scin Architect\" \"Scin Hoplologist\""
       },
       "cost": 1170000,
       "shields": 0,
@@ -8779,8 +8769,7 @@
     "attributes": {
       "category": "Utility",
       "licenses": {
-        "Scin Architect": true,
-        "Scin Hoplologist": true
+        "description": "\"Scin Architect\" \"Scin Hoplologist\""
       },
       "cost": 3955000,
       "shields": 0,
@@ -8903,8 +8892,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Scin Architect": true,
-        "Scin Hoplologist": true
+        "description": "\"Scin Architect\" \"Scin Hoplologist\""
       },
       "cost": 14760000,
       "shields": 0,
@@ -8996,8 +8984,7 @@
     "attributes": {
       "category": "Utility",
       "licenses": {
-        "Scin Architect": true,
-        "Scin Hoplologist": true
+        "description": "\"Scin Architect\" \"Scin Hoplologist\""
       },
       "cost": 14454000,
       "shields": 0,
@@ -10443,7 +10430,10 @@
       "weapon": {
         "shield damage": 5000,
         "hull damage": 2500,
-        "#": "This should be adjusted downward if the ship is reused more widely.",
+        "#": [
+          "High hit force and wide radius for a spectacle if the leader dies.",
+          "This should be adjusted downward if the ship is reused more widely."
+        ],
         "blast radius": 800,
         "hit force": 8000
       }
@@ -10586,7 +10576,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Unfettered Militia": true
+        "description": "\"Unfettered Militia\""
       },
       "cost": 22800000,
       "shields": 37800,
@@ -12031,7 +12021,7 @@
     "attributes": {
       "category": "Utility",
       "licenses": {
-        "Navy Auxiliary": true
+        "description": "\"Navy Auxiliary\""
       },
       "cost": 13720000,
       "shields": 17100,
@@ -13002,7 +12992,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Navy Carrier": true
+        "description": "\"Navy Carrier\""
       },
       "cost": 15200000,
       "shields": 21400,
@@ -13611,7 +13601,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Navy Cruiser": true
+        "description": "\"Navy Cruiser\""
       },
       "cost": 11200000,
       "shields": 19600,
@@ -13853,7 +13843,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Militia": true
+        "description": "\"Militia\""
       },
       "cost": 11900000,
       "shields": 18100,
@@ -16920,7 +16910,7 @@
     "attributes": {
       "category": "Utility",
       "licenses": {
-        "Militia": true
+        "description": "\"Militia\""
       },
       "cost": 3500000,
       "shields": 3300,
@@ -17862,7 +17852,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Hicemus Conflict": true
+        "description": "\"Hicemus Conflict\""
       },
       "cost": 25000000,
       "hull": 9600,
@@ -17950,7 +17940,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Hicemus Conflict": true
+        "description": "\"Hicemus Conflict\""
       },
       "cost": 3250000,
       "hull": 4000,
@@ -24405,7 +24395,10 @@
     "attributes": {
       "category": "Medium Warship",
       "cost": 8950000,
-      "#": "Features from original Ladybug:",
+      "#": [
+        "Shaming the Solifuge",
+        "Features from original Ladybug:"
+      ],
       "shields": 38000,
       "hull": 20000,
       "required crew": 16,
@@ -25468,7 +25461,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Remnant Capital": true
+        "description": "\"Remnant Capital\""
       },
       "cost": 20250000,
       "shields": 34200,
@@ -25595,7 +25588,7 @@
     "thumbnail": "thumbnail/modified dromedary",
     "attributes": {
       "licenses": {
-        "Remnant Capital": true
+        "description": "\"Remnant Capital\""
       },
       "category": "Utility",
       "cost": 57600000,
@@ -26053,7 +26046,7 @@
     "attributes": {
       "category": "Superheavy",
       "licenses": {
-        "Remnant Capital": true
+        "description": "\"Remnant Capital\""
       },
       "cost": 256375000,
       "shields": 250500,
@@ -26410,7 +26403,7 @@
     "attributes": {
       "category": "Heavy Freighter",
       "licenses": {
-        "Remnant Capital": true
+        "description": "\"Remnant Capital\""
       },
       "cost": 9900000,
       "shields": 11300,
@@ -26643,7 +26636,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Remnant Capital": true
+        "description": "\"Remnant Capital\""
       },
       "cost": 41627000,
       "shields": 15400,
@@ -27541,7 +27534,7 @@
     "thumbnail": "thumbnail/aaulqra",
     "attributes": {
       "licenses": {
-        "High Houses": true
+        "description": "\"High Houses\""
       },
       "category": "Medium Warship",
       "cost": 26000000,
@@ -27648,7 +27641,7 @@
     "thumbnail": "thumbnail/ejniisde",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Space Liner",
       "cost": 4100000,
@@ -27776,7 +27769,7 @@
     "thumbnail": "thumbnail/kaskhorade",
     "attributes": {
       "licenses": {
-        "High Houses": true
+        "description": "\"High Houses\""
       },
       "category": "Utility",
       "cost": 45250000,
@@ -27878,7 +27871,7 @@
     "thumbnail": "thumbnail/kvelqde",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Transport",
       "cost": 185000,
@@ -27981,7 +27974,7 @@
     "thumbnail": "thumbnail/kvelqde-khora",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Interceptor",
       "cost": 240000,
@@ -28089,7 +28082,7 @@
     "thumbnail": "thumbnail/myaede",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Light Freighter",
       "cost": 3250000,
@@ -28177,7 +28170,7 @@
     "thumbnail": "thumbnail/nnaatej",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Transport",
       "cost": 3825000,
@@ -28271,7 +28264,7 @@
     "thumbnail": "thumbnail/nnesaarau",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Transport",
       "cost": 1225000,
@@ -28384,7 +28377,7 @@
     "thumbnail": "thumbnail/ojde",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Heavy Freighter",
       "cost": 8250000,
@@ -28497,7 +28490,7 @@
     "thumbnail": "thumbnail/seiitej",
     "attributes": {
       "licenses": {
-        "High Houses": true
+        "description": "\"High Houses\""
       },
       "category": "Utility",
       "cost": 9250000,
@@ -28603,7 +28596,7 @@
     "thumbnail": "thumbnail/stolsaqra",
     "attributes": {
       "licenses": {
-        "Successor": true
+        "description": "\"Successor\""
       },
       "category": "Interceptor",
       "cost": 450000,
@@ -28734,7 +28727,7 @@
     "thumbnail": "thumbnail/veusade",
     "attributes": {
       "licenses": {
-        "High Houses": true
+        "description": "\"High Houses\""
       },
       "category": "Light Warship",
       "cost": 16500000,
@@ -28845,7 +28838,7 @@
     "thumbnail": "thumbnail/vujlet",
     "attributes": {
       "licenses": {
-        "High Houses": true
+        "description": "\"High Houses\""
       },
       "category": "Light Warship",
       "cost": 8200000,
@@ -29279,7 +29272,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Wanderer": true
+        "description": "\"Wanderer\""
       },
       "cost": 16100000,
       "shields": 28500,
@@ -29369,7 +29362,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Wanderer Military": true
+        "description": "\"Wanderer Military\""
       },
       "cost": 17600000,
       "shields": 35200,
@@ -29457,7 +29450,7 @@
     "attributes": {
       "category": "Medium Warship",
       "licenses": {
-        "Wanderer Military": true
+        "description": "\"Wanderer Military\""
       },
       "cost": 19700000,
       "shields": 42100,
@@ -29549,7 +29542,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Wanderer Military": true
+        "description": "\"Wanderer Military\""
       },
       "cost": 30500000,
       "shields": 53200,
@@ -29657,7 +29650,7 @@
     "attributes": {
       "category": "Heavy Warship",
       "licenses": {
-        "Wanderer Military": true
+        "description": "\"Wanderer Military\""
       },
       "cost": 39100000,
       "shields": 72400,
@@ -29719,7 +29712,7 @@
     "attributes": {
       "category": "Interceptor",
       "licenses": {
-        "Wanderer Military": true
+        "description": "\"Wanderer Military\""
       },
       "cost": 4530000,
       "shields": 7700,
@@ -29805,7 +29798,7 @@
     "attributes": {
       "category": "Light Warship",
       "licenses": {
-        "Wanderer Military": true
+        "description": "\"Wanderer Military\""
       },
       "cost": 14100000,
       "shields": 22400,

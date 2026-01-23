@@ -163,7 +163,9 @@
       "acceleration": 1,
       "drag": 0.1,
       "turn": 0.2,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "tracking": 0.7,
       "shield damage": 108,
       "hull damage": 32,
@@ -268,12 +270,12 @@
       "reload": 10,
       "burst reload": 4,
       "burst count": 3,
-      "cluster": true,
       "firing energy": 24,
       "firing heat": 108,
       "shield damage": 26,
       "hull damage": 22,
-      "heat damage": 33
+      "heat damage": 33,
+      "description": "\"cluster\""
     },
     "description": "This is the smallest and simplest Korath projectile weapon, designed mostly for use on fighters and drones. As with most Korath technology, it generates a large amount of heat, enough that the gun must pause briefly after every few shots to cool down."
   },
@@ -301,12 +303,12 @@
       "reload": 5,
       "burst reload": 2,
       "burst count": 6,
-      "cluster": true,
       "firing energy": 24,
       "firing heat": 108,
       "shield damage": 26,
       "hull damage": 22,
-      "heat damage": 33
+      "heat damage": 33,
+      "description": "\"cluster\""
     },
     "description": "Korath repeaters fire compact bolts of superheated plasma at their targets. For every one of these turrets installed on a ship, an auxiliary cooling system is typically required to cope with its heat output."
   },
@@ -361,14 +363,16 @@
       "acceleration": 0.54,
       "drag": 0.03,
       "turn": 1.6,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "infrared tracking": 0.9,
       "shield damage": 290,
       "hull damage": 440,
       "piercing": 0.2,
       "hit force": 450,
       "missile strength": 73,
-      "stream": true
+      "description": "\"stream\""
     },
     "description": "Korath Piercer Missiles carry a pair of warheads. The first, a smaller one in the very tip of the missile, explodes on impact to blast a hole in the ship's shields to allow some of the subsequent, larger explosion to pierce through."
   },
@@ -410,8 +414,8 @@
       "icon": "icon/minelayer",
       "fire effect": "minelayer fire",
       "hit effect": "huge explosion",
-      "die effect": "minelayer split\" 5",
-      "submunition": "Korath Mine Submunition\" 11",
+      "die effect": "minelayer split",
+      "submunition": "Korath Mine Submunition",
       "inaccuracy": 10,
       "velocity": 3,
       "lifetime": 100,
@@ -421,13 +425,15 @@
       "acceleration": 0.16,
       "drag": 0.04,
       "turn": 2,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "infrared tracking": 0.9,
       "missile strength": 35,
       "shield damage": -3200,
       "hull damage": -2400,
       "hit force": -225,
-      "stream": true
+      "description": "\"stream\""
     },
     "description": "This launcher fires cluster munitions that split into a cloud of stationary mines that each do a considerable amount of damage if a ship crashes into them. However, if a ship hits the mine before it has a chance to deploy, the damage is considerably reduced."
   },
@@ -615,7 +621,7 @@
     "index": 11030,
     "thumbnail": "outfit/successor armor light",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "slowing protection": 0.5,
     "corrosion protection": 0.5,
@@ -629,7 +635,7 @@
     "series": "Ammunition",
     "index": 7021,
     "licenses": {
-      "Twilight Guard": true
+      "description": "\"Twilight Guard\""
     },
     "cost": 60000,
     "thumbnail": "outfit/nettle magazine",
@@ -645,7 +651,7 @@
     "series": "Ammunition",
     "index": 7031,
     "licenses": {
-      "Avgi Atomics": true
+      "description": "\"Avgi Atomics\""
     },
     "cost": 150000,
     "thumbnail": "outfit/orchid magazine",
@@ -701,7 +707,7 @@
     "series": "Special Systems",
     "index": 7020,
     "licenses": {
-      "Twilight Guard": true
+      "description": "\"Twilight Guard\""
     },
     "cost": 3000000,
     "thumbnail": "outfit/concealment lamina",
@@ -1013,7 +1019,7 @@
     "series": "Engines",
     "index": 7050,
     "licenses": {
-      "Avgi Torch": true
+      "description": "\"Avgi Torch\""
     },
     "cost": 3600000,
     "thumbnail": "outfit/spark fusion torch",
@@ -1037,7 +1043,7 @@
     "series": "Engines",
     "index": 7060,
     "licenses": {
-      "Avgi Torch": true
+      "description": "\"Avgi Torch\""
     },
     "cost": 9000000,
     "thumbnail": "outfit/zap fusion torch",
@@ -1061,7 +1067,7 @@
     "series": "Engines",
     "index": 7070,
     "licenses": {
-      "Avgi Torch": true
+      "description": "\"Avgi Torch\""
     },
     "cost": 14400000,
     "thumbnail": "outfit/arc fusion torch",
@@ -1085,7 +1091,7 @@
     "series": "Engines",
     "index": 7099,
     "licenses": {
-      "Avgi Torch": true
+      "description": "\"Avgi Torch\""
     },
     "cost": 90000,
     "thumbnail": "outfit/remass injector",
@@ -1105,7 +1111,7 @@
     "series": "Engines",
     "index": 7098,
     "licenses": {
-      "Avgi Torch": true
+      "description": "\"Avgi Torch\""
     },
     "cost": 120000,
     "thumbnail": "outfit/inductive extractor",
@@ -1280,11 +1286,11 @@
       "reload": 18,
       "burst reload": 6,
       "burst count": 3,
-      "cluster": true,
       "firing energy": 36,
       "firing heat": 30,
       "firing force": 12,
-      "submunition": "Speck"
+      "submunition": "Speck",
+      "description": "\"cluster\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -1312,7 +1318,6 @@
       "reload": 18,
       "burst reload": 6,
       "burst count": 3,
-      "cluster": true,
       "turret turn": 3,
       "firing energy": 72,
       "firing heat": 60,
@@ -1320,7 +1325,8 @@
       "submunition": [
         "Speck",
         "Speck"
-      ]
+      ],
+      "description": "\"cluster\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -1355,8 +1361,8 @@
       "sound": "optical laser",
       "fire effect": "green laser glare",
       "die effect": [
-        "laser ejecta\" 4",
-        "green laser reflection\" 30",
+        "laser ejecta",
+        "green laser reflection",
         "green laser scattering"
       ],
       "anti-missile": 2,
@@ -1373,7 +1379,7 @@
     "series": "Turrets",
     "index": 7010,
     "licenses": {
-      "Twilight Guard": true
+      "description": "\"Twilight Guard\""
     },
     "cost": 120000,
     "thumbnail": "outfit/blue optical laser",
@@ -1388,8 +1394,8 @@
       "sound": "optical laser",
       "fire effect": "blue laser glare",
       "hit effect": [
-        "laser ejecta\" 6",
-        "blue laser reflection\" 60",
+        "laser ejecta",
+        "blue laser reflection",
         "blue laser scattering"
       ],
       "velocity": 1500,
@@ -1413,7 +1419,7 @@
     "series": "Secondary Weapons",
     "index": 7010,
     "licenses": {
-      "Avgi Atomics": true
+      "description": "\"Avgi Atomics\""
     },
     "cost": 90000,
     "thumbnail": "outfit/external launch rail",
@@ -1426,10 +1432,6 @@
       "sprite": "projectile/orchid terminal",
       "sound": "nuke",
       "Ophrys": "Nuclear Torpedo",
-      "stream": [
-        true,
-        true
-      ],
       "icon": "icon/orchid",
       "fire effect": "torpedo fire",
       "firing energy": 30,
@@ -1439,10 +1441,10 @@
       "velocity": 6,
       "lifetime": 3,
       "turn": 90,
-      "homing": true,
       "optical tracking": 0.72,
       "range override": 600,
-      "submunition": "Ophrys Terminal"
+      "submunition": "Ophrys Terminal",
+      "description": "\"stream\" \"homing\" \"stream\""
     },
     "description": "This pylon externally mounts a single torpedo, employing a small electromagnetic catapult to fling its payload towards a nearby target."
   },
@@ -1452,7 +1454,7 @@
     "series": "Secondary Weapons",
     "index": 7020,
     "licenses": {
-      "Twilight Guard": true
+      "description": "\"Twilight Guard\""
     },
     "cost": 450000,
     "thumbnail": "outfit/external launch tube",
@@ -1479,10 +1481,12 @@
       "firing heat": 30,
       "drag": 3,
       "radar tracking": 0.9,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "missile strength": 18,
-      "stream": true,
-      "submunition": "Orchid Active"
+      "submunition": "Orchid Active",
+      "description": "\"stream\""
     },
     "description": "This is a large launcher capable of carrying and deploying large torch-driven missiles and torpedoes. With a standardized design, it is compatible with a wide range of Avgi torch missiles. A coilgun-based ejection system allows missiles to be deployed with considerable initial velocity."
   },
@@ -1493,7 +1497,7 @@
     "series": "Secondary Weapons",
     "index": 7030,
     "licenses": {
-      "Twilight Guard": true
+      "description": "\"Twilight Guard\""
     },
     "cost": 36000,
     "thumbnail": "outfit/tiny vls",
@@ -1522,7 +1526,9 @@
       "drag": 0.024,
       "infrared tracking": 0.6,
       "optical tracking": 0.6,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "missile strength": 9,
       "submunition": "Nettle Active"
     },
@@ -1535,7 +1541,7 @@
     "series": "Secondary Weapons",
     "index": 7031,
     "licenses": {
-      "Twilight Guard": true
+      "description": "\"Twilight Guard\""
     },
     "cost": 108000,
     "thumbnail": "outfit/small vls",
@@ -1564,7 +1570,9 @@
       "drag": 0.024,
       "infrared tracking": 0.6,
       "optical tracking": 0.6,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "missile strength": 9,
       "submunition": "Nettle Active"
     },
@@ -1577,7 +1585,7 @@
     "series": "Secondary Weapons",
     "index": 7032,
     "licenses": {
-      "Twilight Guard": true
+      "description": "\"Twilight Guard\""
     },
     "cost": 216000,
     "thumbnail": "outfit/medium vls",
@@ -1606,7 +1614,9 @@
       "drag": 0.024,
       "infrared tracking": 0.6,
       "optical tracking": 0.6,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "missile strength": 9,
       "submunition": "Nettle Active"
     },
@@ -1629,7 +1639,7 @@
     "series": "Ammunition",
     "index": 7030,
     "licenses": {
-      "Avgi Atomics": true
+      "description": "\"Avgi Atomics\""
     },
     "cost": 300000,
     "thumbnail": "outfit/orchid missile",
@@ -1643,7 +1653,7 @@
     "series": "Ammunition",
     "index": 7040,
     "licenses": {
-      "Avgi Atomics": true
+      "description": "\"Avgi Atomics\""
     },
     "cost": 90000,
     "thumbnail": "outfit/ophrys torpedo",
@@ -1657,7 +1667,7 @@
     "series": "Ammunition",
     "index": 7041,
     "licenses": {
-      "Avgi Atomics": true
+      "description": "\"Avgi Atomics\""
     },
     "cost": 210000,
     "thumbnail": "outfit/ophrys stockpile",
@@ -1691,7 +1701,9 @@
       "acceleration": 1.3,
       "drag": 0.1,
       "turn": 4,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "tracking": 0.5,
       "missile strength": 40
     },
@@ -2073,14 +2085,14 @@
       "sound": "thorax cannon",
       "fire effect": "torpedo fire",
       "live effect": [
-        "yellow spark\" 140",
-        "yellow spark trail\" 840",
-        "yellow spark twinkle\" 400"
+        "yellow spark",
+        "yellow spark trail",
+        "yellow spark twinkle"
       ],
       "hit effect": [
-        "finisher impact\" 2",
-        "yellow spark\" 10",
-        "yellow spark fragment\" 150"
+        "finisher impact",
+        "yellow spark",
+        "yellow spark fragment"
       ],
       "inaccuracy": 0,
       "velocity": 15,
@@ -2138,7 +2150,7 @@
       "icon": "icon/swarm",
       "die effect": "missile death",
       "hit effect": "particle impact",
-      "live effect": "swarm flare\" 1000000",
+      "live effect": "swarm flare",
       "inaccuracy": 90,
       "velocity": 13,
       "lifetime": 460,
@@ -2148,13 +2160,12 @@
       "acceleration": 1.3,
       "drag": 0.1,
       "turn": 5.35,
-      "homing": true,
       "radar tracking": 0.5,
       "optical tracking": 0.5,
       "shield damage": 46,
       "hull damage": 24,
       "missile strength": 8,
-      "stream": true
+      "description": "\"homing\" \"stream\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -2824,12 +2835,12 @@
       "sound": "finisher",
       "ammo": "Finisher Torpedo",
       "icon": "icon/finisher",
-      "fire effect": "finisher sparks\" 8",
+      "fire effect": "finisher sparks",
       "hit effect": [
-        "finisher impact\" 1",
-        "finisher fragment\" 12"
+        "finisher impact",
+        "finisher fragment"
       ],
-      "die effect": "finisher fragment\" 6",
+      "die effect": "finisher fragment",
       "inaccuracy": 5,
       "velocity": 10,
       "lifetime": 60,
@@ -2839,10 +2850,10 @@
       "acceleration": 0.8,
       "drag": 0.1,
       "turn": 0.1,
-      "homing": true,
       "radar tracking": 0.8,
       "missile strength": 50,
-      "submunition": "Active Finisher\" 1"
+      "submunition": "Active Finisher",
+      "description": "\"homing\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -2866,12 +2877,12 @@
       "sound": "finisher",
       "ammo": "Finisher Torpedo",
       "icon": "icon/finisher",
-      "fire effect": "finisher sparks\" 8",
+      "fire effect": "finisher sparks",
       "hit effect": [
-        "finisher impact\" 1",
-        "finisher fragment\" 12"
+        "finisher impact",
+        "finisher fragment"
       ],
-      "die effect": "finisher fragment\" 6",
+      "die effect": "finisher fragment",
       "inaccuracy": 6,
       "velocity": 9,
       "lifetime": 60,
@@ -2883,10 +2894,10 @@
       "acceleration": 0.8,
       "drag": 0.1,
       "turn": 0.1,
-      "homing": true,
       "radar tracking": 0.8,
       "missile strength": 50,
-      "submunition": "Active Finisher\" 1"
+      "submunition": "Active Finisher",
+      "description": "\"homing\""
     },
     "furious thunderstorm,": "this enormous launcher is not meant for prolonged fights nor for use by lighter craft, but for delivering a few quick, devastating bursts of Finisher Torpedoes. It has much greater damage potential than its smaller counterpart.",
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
@@ -3015,7 +3026,7 @@
       "burst count": 5,
       "firing energy": 48,
       "firing heat": 24,
-      "submunition": "ion hail\" 4"
+      "submunition": "ion hail"
     },
     "description": "Instead of just placing an Ion Rain Gun on a turret mount, the Heliarch tweaked the cycles of shots, having each shot be significantly more effective and seeing an overall increase to the weapon's range, but at the cost of a reload period."
   },
@@ -3136,7 +3147,7 @@
       "ion damage": 0.5,
       "scrambling damage": 0.5,
       "disruption damage": 1,
-      "safe": true
+      "description": "\"safe\""
     },
     "description": "This device is the Archon's primary defensive tool: not only does it disrupt the shields and energy supplies of all hostile ships within it, it also exerts a powerful repelling force that keeps ships from closing in with the Archon."
   },
@@ -3170,7 +3181,7 @@
       "ion damage": 1,
       "scrambling damage": 1,
       "disruption damage": 2,
-      "safe": true
+      "description": "\"safe\""
     },
     "description": "\tWhile normally kept at minimal strength, the Archons have demonstrated the ability to ramp up the field to be vastly stronger when faced with a serious threat."
   },
@@ -3293,17 +3304,17 @@
       "inaccuracy": 0,
       "velocity": 20,
       "lifetime": 1,
-      "submunition": "Drak Antimatter Fragment\" 3",
+      "submunition": "Drak Antimatter Fragment",
       "hit effect": [
-        "antimatter dust\" 10",
+        "antimatter dust",
         "nuke explosion"
       ],
-      "safe": true,
       "reload": 187,
       "firing energy": 5610,
       "firing heat": 1870,
       "blast radius": 100,
-      "hit force": 1500
+      "hit force": 1500,
+      "description": "\"safe\""
     },
     "description": "This is the most powerful weapon that the Archons deign to utilize in the presence of the younger races."
   },
@@ -3325,17 +3336,17 @@
       "inaccuracy": 0,
       "velocity": 20,
       "lifetime": 1,
-      "submunition": "Drak Antimatter Fragment (Augmented)\" 5",
+      "submunition": "Drak Antimatter Fragment (Augmented)",
       "hit effect": [
-        "antimatter dust\" 10",
+        "antimatter dust",
         "nuke explosion"
       ],
-      "safe": true,
       "reload": 187,
       "firing energy": 5610,
       "firing heat": 1870,
       "blast radius": 250,
-      "hit force": 1500
+      "hit force": 1500,
+      "description": "\"safe\""
     },
     "description": "This is the most powerful weapon that the Archons deign to utilize in the presence of the younger races. Hitherto unknown as Archons are rarely pushed to the point of needing to use more than their minimum abilities, the Antimatter Cannon is capable of far more damage than originally thought."
   },
@@ -3346,7 +3357,7 @@
     "series": "Batteries",
     "index": 6010,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 5900,
     "thumbnail": "outfit/skirmish battery",
@@ -3362,7 +3373,7 @@
     "series": "Batteries",
     "index": 6020,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 12600,
     "thumbnail": "outfit/battlezone battery",
@@ -3378,7 +3389,7 @@
     "series": "Batteries",
     "index": 6030,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 27800,
     "thumbnail": "outfit/warforge battery",
@@ -3394,10 +3405,7 @@
     "series": "Batteries",
     "index": 6040,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true,
-      "Vi Lord": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\" \"Vi Lord\""
     },
     "cost": 44700,
     "thumbnail": "outfit/crusade battery",
@@ -3412,7 +3420,7 @@
     "series": "Generators",
     "index": 6010,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 47000,
     "thumbnail": "outfit/scrap cell",
@@ -3428,7 +3436,7 @@
     "series": "Generators",
     "index": 6020,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 64000,
     "thumbnail": "outfit/brawl cell",
@@ -3444,7 +3452,7 @@
     "series": "Generators",
     "index": 6030,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 1620000,
     "thumbnail": "outfit/warzone core",
@@ -3460,10 +3468,7 @@
     "series": "Generators",
     "index": 6040,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true,
-      "Vi Lord": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\" \"Vi Lord\""
     },
     "cost": 3672000,
     "thumbnail": "outfit/campaign core",
@@ -3479,9 +3484,7 @@
     "series": "Generators",
     "index": 6050,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Hoplologist": true,
-      "Scin Architect": true
+      "description": "\"Gegno Civilian\" \"Scin Hoplologist\" \"Scin Architect\""
     },
     "cost": 57000,
     "thumbnail": "outfit/ameliorate cell",
@@ -3498,7 +3501,7 @@
     "series": "Engines",
     "index": 6011,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 17000,
     "thumbnail": "outfit/small torch thruster vi",
@@ -3518,7 +3521,7 @@
     "series": "Engines",
     "index": 6010,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 15000,
     "thumbnail": "outfit/small torch steering vi",
@@ -3538,7 +3541,7 @@
     "series": "Engines",
     "index": 6021,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 38000,
     "thumbnail": "outfit/medium torch thruster vi",
@@ -3558,7 +3561,7 @@
     "series": "Engines",
     "index": 6020,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 32000,
     "thumbnail": "outfit/medium torch steering vi",
@@ -3578,10 +3581,7 @@
     "series": "Engines",
     "index": 6031,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true,
-      "Vi Lord": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\" \"Vi Lord\""
     },
     "cost": 84000,
     "thumbnail": "outfit/large torch thruster vi",
@@ -3601,10 +3601,7 @@
     "series": "Engines",
     "index": 6030,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true,
-      "Vi Lord": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\" \"Vi Lord\""
     },
     "cost": 70000,
     "thumbnail": "outfit/large torch steering vi",
@@ -3625,9 +3622,7 @@
     "series": "Engines",
     "index": 6040,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Hoplologist": true,
-      "Scin Architect": true
+      "description": "\"Gegno Civilian\" \"Scin Hoplologist\" \"Scin Architect\""
     },
     "cost": 21200,
     "thumbnail": "outfit/tiny plasma engines scin",
@@ -3652,8 +3647,7 @@
     "series": "Engines",
     "index": 6051,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Adjutant": true
+      "description": "\"Gegno Civilian\" \"Scin Adjutant\""
     },
     "cost": 20900,
     "thumbnail": "outfit/small plasma thruster scin",
@@ -3673,8 +3667,7 @@
     "series": "Engines",
     "index": 6050,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Adjutant": true
+      "description": "\"Gegno Civilian\" \"Scin Adjutant\""
     },
     "cost": 17000,
     "thumbnail": "outfit/small plasma steering scin",
@@ -3694,8 +3687,7 @@
     "series": "Engines",
     "index": 6061,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Adjutant": true
+      "description": "\"Gegno Civilian\" \"Scin Adjutant\""
     },
     "cost": 52500,
     "thumbnail": "outfit/medium plasma thruster scin",
@@ -3715,8 +3707,7 @@
     "series": "Engines",
     "index": 6060,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Adjutant": true
+      "description": "\"Gegno Civilian\" \"Scin Adjutant\""
     },
     "cost": 41500,
     "thumbnail": "outfit/medium plasma steering scin",
@@ -3737,9 +3728,7 @@
     "index": 6070,
     "category": "Engines",
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Hoplologist": true,
-      "Scin Architect": true
+      "description": "\"Gegno Civilian\" \"Scin Hoplologist\" \"Scin Architect\""
     },
     "cost": 170400,
     "thumbnail": "outfit/large plasma engines scin",
@@ -3764,8 +3753,7 @@
     "series": "Guns",
     "index": 6010,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\""
     },
     "cost": 12000,
     "thumbnail": "outfit/irate cannon",
@@ -3777,7 +3765,7 @@
       "sprite": "projectile/irate",
       "sound": "irate",
       "fire effect": "irate fire",
-      "live effect": "irate smoke\" 12",
+      "live effect": "irate smoke",
       "hit effect": "tiny explosion",
       "inaccuracy": 2,
       "velocity": 22,
@@ -3797,8 +3785,7 @@
     "series": "Turrets",
     "index": 6010,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\""
     },
     "cost": 30000,
     "thumbnail": "outfit/irate turret",
@@ -3813,7 +3800,7 @@
       "hardpoint offset": -0.8,
       "sound": "irate",
       "fire effect": "irate fire",
-      "live effect": "irate smoke\" 12",
+      "live effect": "irate smoke",
       "hit effect": "tiny explosion",
       "inaccuracy": 2,
       "turret turn": 3.6,
@@ -3834,9 +3821,7 @@
     "series": "Guns",
     "index": 6020,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\""
     },
     "cost": 45000,
     "thumbnail": "outfit/choleric cannon",
@@ -3848,7 +3833,7 @@
       "sprite": "projectile/choleric",
       "sound": "choleric",
       "fire effect": "choleric fire",
-      "live effect": "choleric smoke\" 24",
+      "live effect": "choleric smoke",
       "hit effect": "small explosion",
       "inaccuracy": 2,
       "velocity": 11,
@@ -3868,9 +3853,7 @@
     "series": "Turrets",
     "index": 6020,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\""
     },
     "cost": 112500,
     "thumbnail": "outfit/choleric turret",
@@ -3885,7 +3868,7 @@
       "hardpoint offset": 15,
       "sound": "choleric",
       "fire effect": "choleric fire",
-      "live effect": "choleric smoke\" 24",
+      "live effect": "choleric smoke",
       "hit effect": "small explosion",
       "inaccuracy": 2,
       "turret turn": 2.2,
@@ -3906,10 +3889,7 @@
     "series": "Guns",
     "index": 6030,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true,
-      "Vi Lord": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\" \"Vi Lord\""
     },
     "cost": 128000,
     "thumbnail": "outfit/ballistic cannon",
@@ -3921,7 +3901,7 @@
       "sprite": "projectile/ballistic",
       "sound": "ballistic",
       "fire effect": "ballistic fire",
-      "live effect": "ballistic smoke\" 36",
+      "live effect": "ballistic smoke",
       "hit effect": "ballistic hit",
       "inaccuracy": 3,
       "velocity": 8,
@@ -3932,8 +3912,8 @@
       "shield damage": 181,
       "hull damage": 970,
       "hit force": 540,
-      "stream": true,
-      "missile strength": 18
+      "missile strength": 18,
+      "description": "\"stream\""
     },
     "description": "The Gegno Vi Ballistic Cannon tops its sister cannons as the highest caliber weapon that the Gegno field. Each cannon round can inflict tremendous damage to a target's exposed hull. Due to the size and power of these cannons, their shells have a slow reload time and travel speed. As such, they can often be dodged by faster or smaller craft, but if able to be equipped in numbers, they can create a deadly wall of fire."
   },
@@ -3943,10 +3923,7 @@
     "series": "Turrets",
     "index": 6030,
     "licenses": {
-      "Gegno Civilian": true,
-      "Vi Evocati": true,
-      "Vi Centurion": true,
-      "Vi Lord": true
+      "description": "\"Gegno Civilian\" \"Vi Evocati\" \"Vi Centurion\" \"Vi Lord\""
     },
     "cost": 320000,
     "thumbnail": "outfit/ballistic turret",
@@ -3961,7 +3938,7 @@
       "hardpoint offset": 10,
       "sound": "ballistic",
       "fire effect": "ballistic fire",
-      "live effect": "ballistic smoke\" 36",
+      "live effect": "ballistic smoke",
       "hit effect": "ballistic hit",
       "inaccuracy": 3,
       "turret turn": 0.4,
@@ -3983,8 +3960,7 @@
     "series": "Turrets",
     "index": 6040,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Adjutant": true
+      "description": "\"Gegno Civilian\" \"Scin Adjutant\""
     },
     "cost": 42000,
     "thumbnail": "outfit/astuit",
@@ -4017,8 +3993,7 @@
     "series": "Turrets",
     "index": 6050,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Hoplologist": true
+      "description": "\"Gegno Civilian\" \"Scin Hoplologist\""
     },
     "cost": 244000,
     "thumbnail": "outfit/acuit",
@@ -4052,8 +4027,7 @@
     "series": "Guns",
     "index": 6040,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Hoplologist": true
+      "description": "\"Gegno Civilian\" \"Scin Hoplologist\""
     },
     "cost": 58000,
     "thumbnail": "outfit/acumen",
@@ -4084,8 +4058,7 @@
     "series": "Guns",
     "index": 6050,
     "licenses": {
-      "Gegno Civilian": true,
-      "Scin Hoplologist": true
+      "description": "\"Gegno Civilian\" \"Scin Hoplologist\""
     },
     "cost": 31000,
     "thumbnail": "outfit/guile pulse laser",
@@ -4107,7 +4080,7 @@
       "firing heat": 6.7,
       "shield damage": 12.4,
       "hull damage": 20.2,
-      "cluster": true
+      "description": "\"cluster\""
     },
     "description": "\tGuile Pulse Lasers have noticeable drawbacks as they quickly consume energy and generate notable heat per shot. Unlike a beam-type weapon, they are incapable of consistent output, and have a fairly short range."
   },
@@ -4117,7 +4090,7 @@
     "series": "Guns",
     "index": 6060,
     "licenses": {
-      "Gegno Civilian": true
+      "description": "\"Gegno Civilian\""
     },
     "cost": 500000,
     "thumbnail": "outfit/excavator",
@@ -4151,8 +4124,7 @@
     "series": "Guns",
     "index": 6070,
     "licenses": {
-      "Gegno Civilian": true,
-      "Gegno Driller": true
+      "description": "\"Gegno Civilian\" \"Gegno Driller\""
     },
     "cost": 326000,
     "thumbnail": "outfit/burrower",
@@ -4188,8 +4160,7 @@
     "series": "Guns",
     "index": 6080,
     "licenses": {
-      "Gegno Civilian": true,
-      "Gegno Driller": true
+      "description": "\"Gegno Civilian\" \"Gegno Driller\""
     },
     "cost": 410000,
     "thumbnail": "outfit/ion torch",
@@ -4229,7 +4200,7 @@
     "index": 6090,
     "cost": 10000,
     "licenses": {
-      "Vi Evocati": true
+      "description": "\"Vi Evocati\""
     },
     "thumbnail": "outfit/unknown",
     "mass": 10,
@@ -4255,8 +4226,7 @@
     "series": "H2H",
     "index": 6010,
     "licenses": {
-      "Vi Evocati": true,
-      "Vi Centurion": true
+      "description": "\"Vi Evocati\" \"Vi Centurion\""
     },
     "cost": 13000,
     "thumbnail": "outfit/savagery pike",
@@ -4271,7 +4241,7 @@
     "series": "Fortifications",
     "index": 6010,
     "licenses": {
-      "Vi Centurion": true
+      "description": "\"Vi Centurion\""
     },
     "cost": 39000,
     "thumbnail": "outfit/irate carronade",
@@ -4287,7 +4257,7 @@
     "series": "H2H",
     "index": 6020,
     "licenses": {
-      "Scin Hoplologist": true
+      "description": "\"Scin Hoplologist\""
     },
     "cost": 11000,
     "thumbnail": "outfit/plasmasickle",
@@ -4303,7 +4273,7 @@
     "series": "H2H",
     "index": 6030,
     "licenses": {
-      "Scin Hoplologist": true
+      "description": "\"Scin Hoplologist\""
     },
     "cost": 60000,
     "thumbnail": "outfit/plasma grenades",
@@ -4470,11 +4440,11 @@
       "reload": 6,
       "burst count": 36,
       "burst reload": 4,
-      "cluster": true,
       "firing energy": 25,
       "firing heat": 60,
       "shield damage": 45,
-      "hull damage": 34
+      "hull damage": 34,
+      "description": "\"cluster\""
     },
     "description": "An early stage in the development of better and faster weaponry to rival that of the Wanderers, the Tripulse Shredder consists of three Pulse Cannons in a single housing. Advancements in cooling capabilities have reduced the heat generated by each shot at the cost of drawing slightly more power. Additionally, the single shared housing results in a less consistent firing pattern, limiting it to bursts. These factors have made the Tripulse Shredder a popular hit-and-run weapon among the Unfettered."
   },
@@ -4492,7 +4462,7 @@
     "weapon": {
       "sprite": "projectile/ion bolt",
       "sound": "ion",
-      "hit effect": "ion impact\" 2",
+      "hit effect": "ion impact",
       "inaccuracy": 1,
       "velocity": 16,
       "lifetime": 50,
@@ -4556,7 +4526,7 @@
       "hardpoint sprite": "hardpoint/hai ionic turret",
       "hardpoint offset": 16,
       "sound": "ion",
-      "hit effect": "ionic impact\" 5",
+      "hit effect": "ionic impact",
       "inaccuracy": 2,
       "turret turn": 1.4,
       "velocity": 12,
@@ -4627,8 +4597,8 @@
       "firing energy": 3.5,
       "firing heat": 7.2,
       "firing force": 105,
-      "stream": true,
-      "submunition": "rslug\" 1"
+      "submunition": "rslug",
+      "description": "\"stream\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -4676,7 +4646,7 @@
       "fire effect": "tracker fire",
       "hit effect": [
         "tracker impact",
-        "tracker cloud\" 3"
+        "tracker cloud"
       ],
       "die effect": "tracker impact",
       "inaccuracy": 20,
@@ -4688,7 +4658,9 @@
       "acceleration": 0.7,
       "drag": 0.05,
       "turn": 1.2,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "optical tracking": 0.8,
       "infrared tracking": 0.4,
       "shield damage": 200,
@@ -4719,7 +4691,7 @@
       "reload": 20,
       "firing energy": 12,
       "firing heat": 5,
-      "stream": true
+      "description": "\"stream\""
     },
     "description": "Centuries ago, the Hai fought with more rudimentary versions of the Tracker, and this was the primary defense against them. In spite of the dated design, it is still effective against small numbers of their latest missile weapons."
   },
@@ -4744,7 +4716,7 @@
       "reload": 15,
       "firing energy": 23,
       "firing heat": 6,
-      "stream": true
+      "description": "\"stream\""
     },
     "description": "The Chameleon Anti-Missile Turret has a longer range, higher power, and shorter reload time than the Bullfrog."
   },
@@ -6951,7 +6923,7 @@
         "Blaster Submunition",
         "Blaster Submunition"
       ],
-      "hit effect": "blaster impact\" 2",
+      "hit effect": "blaster impact",
       "inaccuracy": 3,
       "lifetime": 1,
       "velocity override": 10.625,
@@ -7065,7 +7037,7 @@
         "Modified Blaster Submunition",
         "Modified Blaster Submunition"
       ],
-      "hit effect": "blaster impact\" 2",
+      "hit effect": "blaster impact",
       "inaccuracy": 4,
       "lifetime": 0,
       "velocity override": 10,
@@ -7475,9 +7447,9 @@
     "weapon": {
       "sprite": "projectile/proton",
       "sound": "proton",
-      "hit effect": "proton impact\" 3",
+      "hit effect": "proton impact",
       "inaccuracy": 4,
-      "submunition": "Proton Fragment\" 3",
+      "submunition": "Proton Fragment",
       "velocity": 24,
       "lifetime": 2,
       "reload": 8,
@@ -7504,10 +7476,10 @@
       "hardpoint sprite": "hardpoint/proton turret",
       "hardpoint offset": 14,
       "sound": "proton",
-      "hit effect": "proton impact\" 3",
+      "hit effect": "proton impact",
       "inaccuracy": 4,
       "turret turn": 2.4,
-      "submunition": "Proton Fragment\" 3",
+      "submunition": "Proton Fragment",
       "velocity": 24,
       "lifetime": 2,
       "reload": 8,
@@ -7685,7 +7657,9 @@
       "acceleration": 1,
       "drag": 0.1,
       "turn": 1.8,
-      "homing": true,
+      "homing": {
+        "description": "\"blindspot\""
+      },
       "infrared tracking": 0.65,
       "shield damage": 360,
       "hull damage": 220,
@@ -7725,7 +7699,9 @@
       "acceleration": 1,
       "drag": 0.1,
       "turn": 1.8,
-      "homing": true,
+      "homing": {
+        "description": "\"blindspot\""
+      },
       "infrared tracking": 0.65,
       "shield damage": 360,
       "hull damage": 220,
@@ -7787,7 +7763,9 @@
       "acceleration": 1.2,
       "drag": 0.1,
       "turn": 4,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "radar tracking": 0.9,
       "shield damage": 260,
       "hull damage": 180,
@@ -7827,7 +7805,9 @@
       "acceleration": 1.2,
       "drag": 0.1,
       "turn": 4,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "radar tracking": 0.9,
       "shield damage": 260,
       "hull damage": 180,
@@ -8014,7 +7994,9 @@
       "acceleration": 0.12,
       "drag": 0.02,
       "turn": 1.5,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "optical tracking": 0.8,
       "shield damage": 820,
       "hull damage": 820,
@@ -8055,7 +8037,9 @@
       "acceleration": 0.12,
       "drag": 0.02,
       "turn": 1.5,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "optical tracking": 0.8,
       "shield damage": 820,
       "hull damage": 820,
@@ -8118,7 +8102,9 @@
       "acceleration": 0.15,
       "drag": 0.04,
       "turn": 1.5,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "optical tracking": 0.9,
       "shield damage": 1050,
       "hull damage": 1050,
@@ -8158,7 +8144,9 @@
       "acceleration": 0.15,
       "drag": 0.04,
       "turn": 1.5,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "optical tracking": 0.9,
       "shield damage": 1050,
       "hull damage": 1050,
@@ -8284,8 +8272,8 @@
       "icon": "icon/nuke",
       "hit effect": [
         "nuke explosion",
-        "nuke residue fast\" 10",
-        "nuke residue slow\" 10"
+        "nuke residue fast",
+        "nuke residue slow"
       ],
       "die effect": "missile death",
       "inaccuracy": 1,
@@ -8297,7 +8285,9 @@
       "acceleration": 0.8,
       "drag": 0.1,
       "turn": 4,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "radar tracking": 0.5,
       "optical tracking": 1,
       "trigger radius": 30,
@@ -8362,8 +8352,8 @@
       "firing energy": 0.03,
       "firing heat": 2.5,
       "submunition": "gbullet",
-      "cluster": true,
-      "hit effect": "bullet impact"
+      "hit effect": "bullet impact",
+      "description": "\"cluster\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -8399,8 +8389,8 @@
       "burst reload": 1,
       "firing energy": 0.06,
       "firing heat": 5,
-      "cluster": true,
-      "hit effect": "bullet impact"
+      "hit effect": "bullet impact",
+      "description": "\"cluster\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -8419,7 +8409,7 @@
       "sprite": "projectile/plasma discharge",
       "sound": "plasma discharger",
       "hit effect": "blaster impact",
-      "submunition": "plasma particle\" 5",
+      "submunition": "plasma particle",
       "inaccuracy": 8,
       "velocity": 10,
       "lifetime": 64,
@@ -8445,7 +8435,7 @@
     "turret mounts": -1,
     "thumbnail": "outfit/stagnation beam",
     "licenses": {
-      "Hicemus Conflict": true
+      "description": "\"Hicemus Conflict\""
     },
     "weapon": {
       "sprite": "projectile/stagnation beam",
@@ -8480,7 +8470,7 @@
     "thumbnail": "outfit/star tail launcher",
     "star tail capacity": 20,
     "licenses": {
-      "Hicemus Conflict": true
+      "description": "\"Hicemus Conflict\""
     },
     "weapon": {
       "sprite": "projectile/star tail upload",
@@ -8495,11 +8485,13 @@
       "hull damage": 860,
       "range override": 3000,
       "#": "To make the AI fire even if the ship is not directly in front.",
-      "homing": true,
+      "homing": {
+        "description": "\"blindspot\""
+      },
       "optical tracking": 1,
       "turn": 0.5,
       "ammo": "Star Tail Cell",
-      "submunition": "Star Tail Projectile\" 1"
+      "submunition": "Star Tail Projectile"
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -8522,7 +8514,7 @@
     "star tail capacity": 20,
     "ammo": "Star Tail Cell",
     "licenses": {
-      "Hicemus Conflict": true
+      "description": "\"Hicemus Conflict\""
     },
     "description": "\tOne layer of this easily expandable system is already shipped with the gun itself. To increase storage space, more layers are simply stacked on top."
   },
@@ -8697,7 +8689,7 @@
     "cost": 10000,
     "thumbnail": "outfit/cloud piercer",
     "licenses": {
-      "Hicemus Conflict": true
+      "description": "\"Hicemus Conflict\""
     },
     "capture attack": 0.55,
     "capture defense": 1.5,
@@ -8757,8 +8749,8 @@
       "sprite": "projectile/aberrant spike",
       "sound": "minelayer",
       "icon": "icon/finisher",
-      "fire effect": "blood\" 20",
-      "live effect": "spiker trail\" 10000",
+      "fire effect": "blood",
+      "live effect": "spiker trail",
       "die effect": "spiker impact",
       "hit effect": "spiker impact",
       "inaccuracy": 7,
@@ -8772,7 +8764,9 @@
       "acceleration": 1.45,
       "drag": 0.21,
       "turn": 1.3,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "optical tracking": 0.9,
       "hit force": -1350,
       "hull damage": 730,
@@ -8948,7 +8942,7 @@
       "sound": "magic am",
       "hit effect": "large explosion",
       "inaccuracy": 0.5,
-      "submunition": "Asteroid Circle Submunition\" 7",
+      "submunition": "Asteroid Circle Submunition",
       "velocity": 4,
       "lifetime": 100,
       "reload": 60,
@@ -9037,7 +9031,9 @@
         "asteroid missile",
         "magic deployer1"
       ],
-      "homing": true,
+      "homing": {
+        "description": "\"blindspot\""
+      },
       "optical tracking": 1,
       "turn": 0,
       "split range": 180,
@@ -9065,7 +9061,7 @@
       "acceleration": 1,
       "lifetime": 20,
       "turn": -6,
-      "submunition": "wep1 print\" 2",
+      "submunition": "wep1 print",
       "reload": 130,
       "burst count": 7,
       "burst reload": 1,
@@ -9102,22 +9098,21 @@
     "weapon": {
       "sprite": "projectile/ionball",
       "sound": "ionball",
-      "fire effect": "finisher sparks\" 20",
+      "fire effect": "finisher sparks",
       "hit effect": [
-        "ionball ring\" 15",
+        "ionball ring",
         "ionball impact",
-        "ionball fragment\" 24"
+        "ionball fragment"
       ],
       "live effect": [
-        "ionball spark\" 140",
-        "ionball trail\" 140",
-        "ionball twinkle\" 560"
+        "ionball spark",
+        "ionball trail",
+        "ionball twinkle"
       ],
       "inaccuracy": 0.2,
       "velocity": 9,
       "lifetime": 200,
       "reload": 350,
-      "cluster": true,
       "firing energy": 710,
       "firing force": 135,
       "firing heat": 160,
@@ -9128,7 +9123,8 @@
       "ion damage": 220,
       "scrambling damage": 10,
       "hit force": 75,
-      "blast radius": 20
+      "blast radius": 20,
+      "description": "\"cluster\""
     },
     "description": "The Nullifier was one of the largest weapons the Builders ever developed, created specifically to be carried in battle by the Vareti. Although it does almost no damage to shields and hull, one shot is capable of disabling most kinds of reactors in a matter of seconds."
   },
@@ -9237,7 +9233,7 @@
       "reload": 10,
       "firing energy": 62,
       "firing heat": 16,
-      "submunition": "Annihilator Projectile\" 2"
+      "submunition": "Annihilator Projectile"
     },
     "description": "The Builders mounted two Annihilators on this turret, making it highly efficient against enemy shields."
   },
@@ -9258,11 +9254,11 @@
       "sound": "torpedo",
       "ammo": "EMP Torpedo",
       "icon": "icon/emp",
-      "fire effect": "emp torpedo fire\" 5",
+      "fire effect": "emp torpedo fire",
       "hit effect": [
         "nuke explosion",
-        "emp ring\" 30",
-        "emp spark\" 20"
+        "emp ring",
+        "emp spark"
       ],
       "die effect": "tiny explosion",
       "inaccuracy": 4,
@@ -9274,7 +9270,9 @@
       "acceleration": 0.7,
       "drag": 0.1,
       "turn": 2,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "infrared tracking": 0.7,
       "radar tracking": 0.8,
       "trigger radius": 50,
@@ -9306,7 +9304,7 @@
       "icon": "icon/mhd",
       "hit effect": [
         "mhd explosion",
-        "mhd spark\" 860"
+        "mhd spark"
       ],
       "die effect": "small explosion",
       "inaccuracy": 3,
@@ -10386,7 +10384,9 @@
       "acceleration": 1,
       "drag": 0.1,
       "turn": 0.2,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "tracking": 0.7,
       "shield damage": 108,
       "hull damage": 32,
@@ -10426,7 +10426,9 @@
       "acceleration": 1,
       "drag": 0.1,
       "turn": 0.2,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "tracking": 0.9,
       "blast radius": 30,
       "shield damage": 48,
@@ -10434,7 +10436,7 @@
       "minable damage": 200,
       "piercing": 0.1,
       "missile strength": 80,
-      "safe": true
+      "description": "\"safe\""
     },
     "description": "\tBecause the same property that allows the microbots through a target's shields disrupts the shields of the ship firing them, it should never be used without an appropriately large Systems Core. Given adequate shield generation, however, the microbots make fantastic miners."
   },
@@ -10633,12 +10635,12 @@
       "reload": 10,
       "burst reload": 4,
       "burst count": 3,
-      "cluster": true,
       "firing energy": 24,
       "firing heat": 108,
       "shield damage": 26,
       "hull damage": 22,
-      "heat damage": 33
+      "heat damage": 33,
+      "description": "\"cluster\""
     },
     "description": "This is the smallest and simplest Korath projectile weapon, designed mostly for use on fighters and drones. As with most Korath technology, it generates a large amount of heat, enough that the gun must pause briefly after every few shots to cool down."
   },
@@ -10668,12 +10670,12 @@
       "reload": 5,
       "burst reload": 2,
       "burst count": 6,
-      "cluster": true,
       "firing energy": 24,
       "firing heat": 108,
       "shield damage": 26,
       "hull damage": 22,
-      "heat damage": 33
+      "heat damage": 33,
+      "description": "\"cluster\""
     },
     "description": "Thermal Repeaters fire compact bolts of superheated plasma at their targets. For every one of these turrets installed on a ship, an auxiliary cooling system is typically required to cope with its heat output."
   },
@@ -10734,14 +10736,16 @@
       "acceleration": 0.54,
       "drag": 0.03,
       "turn": 1.6,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "infrared tracking": 0.9,
       "shield damage": 290,
       "hull damage": 440,
       "piercing": 0.2,
       "hit force": 450,
       "missile strength": 73,
-      "stream": true
+      "description": "\"stream\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -10761,10 +10765,10 @@
       "sprite": "projectile/detainer",
       "sound": "detainer",
       "hit effect": [
-        "detainer impact\" 3",
-        "detainer smoke\" 5"
+        "detainer impact",
+        "detainer smoke"
       ],
-      "live effect": "detainer sparks\" 50",
+      "live effect": "detainer sparks",
       "inaccuracy": 0.5,
       "velocity": 14,
       "lifetime": 140,
@@ -10826,8 +10830,8 @@
       "icon": "icon/minelayer",
       "fire effect": "minelayer fire",
       "hit effect": "huge explosion",
-      "die effect": "minelayer split\" 5",
-      "submunition": "Korath Mine Submunition\" 11",
+      "die effect": "minelayer split",
+      "submunition": "Korath Mine Submunition",
       "inaccuracy": 10,
       "velocity": 3,
       "lifetime": 100,
@@ -10837,13 +10841,15 @@
       "acceleration": 0.16,
       "drag": 0.04,
       "turn": 2,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "infrared tracking": 0.9,
       "missile strength": 35,
       "shield damage": -3200,
       "hull damage": -2400,
       "hit force": -225,
-      "stream": true
+      "description": "\"stream\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -11081,7 +11087,7 @@
       "sound": "firelight",
       "ammo": "Firelight Missile",
       "icon": "icon/firelight",
-      "hit effect": "firelight ring\" 20",
+      "hit effect": "firelight ring",
       "die effect": "piercer fire",
       "velocity": 4,
       "velocity override": 13,
@@ -11094,12 +11100,14 @@
       "acceleration": 0.6,
       "drag": 0.1,
       "optical tracking": 0.7,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "blast radius": 48,
       "hit force": 150,
       "missile strength": 33,
       "submunition": "Firelight Turning",
-      "stream": true
+      "description": "\"stream\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -11131,7 +11139,7 @@
       "minable damage": 200,
       "firing hull": -100,
       "piercing": 0.1,
-      "safe": true
+      "description": "\"safe\""
     },
     "description": "This is a huge grinder that digests incoming material with the aid of microbots. With intake bays large enough to swallow a drone whole, wrecking claws massive enough to tear apart the hulls of heavy warships, and a seemingly omnicidal swarm of microbots ready to break down anything that falls in to its component molecules, it is a fearsome sight that any captain would be foolish to fly within reach of."
   },
@@ -11184,7 +11192,7 @@
       "ammo": "Firestorm Torpedo",
       "turret turn": 2.6,
       "icon": "icon/firestorm torpedo",
-      "hit effect": "firestorm ring\" 40",
+      "hit effect": "firestorm ring",
       "die effect": "small explosion",
       "reload": 210,
       "firing energy": 635,
@@ -11196,7 +11204,9 @@
       "acceleration": 0.6,
       "drag": 0.12,
       "turn": 1.6,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "optical tracking": 0.9,
       "trigger radius": 40,
       "blast radius": 95,
@@ -11282,7 +11292,7 @@
     "core crystal": 1,
     "weapon": {
       "sound": "crunch",
-      "hit effect": "void sprite chewing\" 3",
+      "hit effect": "void sprite chewing",
       "turret turn": 6,
       "velocity": 42,
       "lifetime": 1,
@@ -11321,16 +11331,16 @@
       "sound": "dragonflame",
       "icon": "icon/dragonflame",
       "fire effect": "fusion cannon fire",
-      "die effect": "fusion cannon cloud\" 5",
+      "die effect": "fusion cannon cloud",
       "hit effect": [
-        "fusion cannon impact\" 20",
-        "fusion cannonspark\" 40",
-        "fusion cannon explosion 1\" 10",
-        "fusion cannon explosion 2\" 10",
-        "fusion cannon explosion 3\" 10",
-        "fusion cannon nuke\" 1"
+        "fusion cannon impact",
+        "fusion cannonspark",
+        "fusion cannon explosion 1",
+        "fusion cannon explosion 2",
+        "fusion cannon explosion 3",
+        "fusion cannon nuke"
       ],
-      "live effect": "fusion cannon cloud\" 10",
+      "live effect": "fusion cannon cloud",
       "inaccuracy": 0.2,
       "velocity": 66,
       "lifetime": 20,
@@ -11434,7 +11444,9 @@
       "acceleration": 1.3,
       "drag": 0.1,
       "turn": 4,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "tracking": 0.5,
       "shield damage": 24,
       "hull damage": 13,
@@ -11482,7 +11494,7 @@
     "weapon": {
       "hardpoint sprite": "hardpoint/t3 anti missile",
       "fire effect": "tier 3 anti-missile fire",
-      "die effect": "tier 3 anti-missile die\" 2",
+      "die effect": "tier 3 anti-missile die",
       "anti-missile": 100,
       "velocity": 570,
       "lifetime": 1,
@@ -11508,11 +11520,10 @@
       "hardpoint sprite": "hardpoint/pug gridfire turret",
       "fire effect": "gridfire fire",
       "hit effect": [
-        "gridfire hit\" 2",
+        "gridfire hit",
         "gridfire cloud"
       ],
       "sound": "gridfire",
-      "phasing": true,
       "velocity": 1440,
       "lifetime": 1,
       "reload": 20,
@@ -11522,7 +11533,8 @@
       "shield damage": 300,
       "hull damage": 300,
       "blast radius": 40,
-      "piercing": 0.3
+      "piercing": 0.3,
+      "description": "\"phasing\""
     },
     "description": "No one understands how the Gridfire Turret works, and the Pug aren't interested in explaining."
   },
@@ -11998,7 +12010,7 @@
       "fire effect": "ranseur",
       "hit effect": [
         "jump drive",
-        "disruptor impact\" 10"
+        "disruptor impact"
       ],
       "lifetime": 1,
       "reload": 100,
@@ -12026,17 +12038,18 @@
     "weapon": {
       "sprite": "projectile/culverin",
       "sound": "culverin",
-      "hit effect": "culverin hit\" 20",
+      "hit effect": "culverin hit",
       "die effect": "culverin die",
       "lifetime": 110,
       "reload": 36,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "velocity": 10,
       "acceleration": 0.6,
       "drag": 0.05,
       "turn": 60,
       "inaccuracy": 12,
-      "stream": true,
       "tracking": 0.7,
       "firing energy": 180,
       "firing heat": 22.5,
@@ -12044,7 +12057,8 @@
       "hull damage": 225,
       "slowing damage": 4.5,
       "fuel damage": 9,
-      "missile strength": 600
+      "missile strength": 600,
+      "description": "\"stream\""
     },
     "description": "This weapon tangles with spacetime in ways beyond understanding, producing gravitational forces that slow the target down. As if fulfilling their own intended destiny, the projectiles are guided to their target, disrupting their fuel systems. This utility, on top of being almost unavoidable, allows the weapon to lock down the Quarg's more distant enemies."
   },
@@ -12075,7 +12089,7 @@
       "burst count": 19,
       "firing energy": 80,
       "firing heat": 5,
-      "submunition": "ribault unguided\" 2"
+      "submunition": "ribault unguided"
     },
     "description": "The rapid flurries shot by this turret cover a wide area at a long range, firing a storm of negative energy particles. Attractive forces guide these particles towards their target, dealing very high damage to enemies within the immediate vicinity while keeping those that flee within the Quarg's reach."
   },
@@ -12133,20 +12147,20 @@
     "weapon": {
       "sprite": "projectile/inhibitor",
       "sound": "inhibitor",
-      "hit effect": "inhibitor impact\" 3",
+      "hit effect": "inhibitor impact",
       "inaccuracy": 0.5,
       "velocity": 36,
       "random velocity": 0.5,
       "lifetime": 24,
       "reload": 13,
-      "cluster": true,
       "firing energy": 26,
       "firing heat": 45.5,
       "firing force": 19.5,
       "shield damage": 26,
       "hull damage": 19.5,
       "hit force": 58.5,
-      "slowing damage": 0.5
+      "slowing damage": 0.5,
+      "description": "\"cluster\""
     },
     "We aren't going home until we steal that weapon.": "That alien technology became the basis of the Inhibitor Cannon.",
     "description": "\tAlthough the Remnant appreciated the original weapon, they were disappointed that it was too big to fit on most of their ships. Instead of letting their effort go to waste, they instead opted to put their newfound knowledge to use creating a weapon suitable for their more nimble craft. Thus, the Inhibitor is excellent at controlling engagement distances, keeping targets at range by both pushing them backward with the impact of each shot while also slowing their approach by interfering with their engines."
@@ -12171,21 +12185,21 @@
       "hardpoint sprite": "hardpoint/inhibitor turret",
       "hardpoint offset": 6,
       "sound": "inhibitor",
-      "hit effect": "inhibitor impact\" 3",
+      "hit effect": "inhibitor impact",
       "inaccuracy": 0.5,
       "turret turn": 3.6,
       "velocity": 36,
       "random velocity": 0.5,
       "lifetime": 24,
       "reload": 6.5,
-      "cluster": true,
       "firing energy": 26,
       "firing heat": 45.5,
       "firing force": 19.5,
       "shield damage": 26,
       "hull damage": 19.5,
       "hit force": 58.5,
-      "slowing damage": 0.5
+      "slowing damage": 0.5,
+      "description": "\"cluster\""
     },
     "description": "Although these turrets are unremarkable in terms of performance, the comparatively recent perfection of a technique of installing the bulk of the weapon itself externally on the turret mount instead of under the base has resulted in a weapon that takes comparatively little outfit space. It does, however, still add quite a bit more to the mass of the ship."
   },
@@ -12330,11 +12344,11 @@
       "sound": "torpedo",
       "ammo": "EMP Torpedo",
       "icon": "icon/emp",
-      "fire effect": "emp torpedo fire\" 5",
+      "fire effect": "emp torpedo fire",
       "hit effect": [
         "nuke explosion",
-        "emp ring\" 30",
-        "emp spark\" 20"
+        "emp ring",
+        "emp spark"
       ],
       "die effect": "tiny explosion",
       "reload": 330,
@@ -12346,7 +12360,9 @@
       "acceleration": 0.7,
       "drag": 0.1,
       "turn": 2,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "infrared tracking": 0.7,
       "radar tracking": 0.8,
       "trigger radius": 50,
@@ -12410,11 +12426,11 @@
       "sound": "torpedo",
       "ammo": "Teciimach Canister",
       "icon": "icon/emp",
-      "fire effect": "emp torpedo fire\" 5",
+      "fire effect": "emp torpedo fire",
       "hit effect": [
         "nuke explosion",
-        "emp ring\" 30",
-        "emp spark\" 20"
+        "emp ring",
+        "emp spark"
       ],
       "die effect": "tiny explosion",
       "reload": 310,
@@ -12426,7 +12442,9 @@
       "acceleration": 0.7,
       "drag": 0.1,
       "turn": 2.5,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "infrared tracking": 0.8,
       "radar tracking": 0.9,
       "trigger radius": 50,
@@ -12463,11 +12481,11 @@
       "sound": "torpedo",
       "ammo": "Teciimach Canister",
       "icon": "icon/emp",
-      "fire effect": "emp torpedo fire\" 5",
+      "fire effect": "emp torpedo fire",
       "hit effect": [
         "nuke explosion",
-        "emp ring\" 30",
-        "emp spark\" 20"
+        "emp ring",
+        "emp spark"
       ],
       "die effect": "tiny explosion",
       "burst count": 3,
@@ -12481,7 +12499,9 @@
       "acceleration": 0.7,
       "drag": 0.1,
       "turn": 2.5,
-      "homing": true,
+      "homing": {
+        "description": "\"throttle control\""
+      },
       "infrared tracking": 0.8,
       "radar tracking": 0.9,
       "trigger radius": 50,
@@ -12504,7 +12524,7 @@
     "series": "Secondary Weapons",
     "index": 3040,
     "licenses": {
-      "Remnant Capital": true
+      "description": "\"Remnant Capital\""
     },
     "cost": 270000000,
     "thumbnail": "outfit/ember tear",
@@ -12525,7 +12545,6 @@
       "fire effect": "ember tear fire",
       "velocity": 800,
       "inaccuracy": 0,
-      "safe": true,
       "lifetime": 1,
       "reload": 1,
       "firing force": 1.5,
@@ -12536,7 +12555,8 @@
       "shield damage": 250,
       "hull damage": 250,
       "slowing damage": 10,
-      "fuel damage": 2.5
+      "fuel damage": 2.5,
+      "description": "\"safe\""
     },
     "description": "\tThese massive weapons require special hardpoints, and are built in such few number that the Remnant distribute them directly on an as-needed basis. Due to the prodigious energy and fuel requirements, only the most massive of Remnant ships can support regular use of these weapons."
   },
@@ -12970,13 +12990,11 @@
       "firing energy": 800,
       "firing heat": 400,
       "turn": 180,
-      "homing": true,
       "infrared tracking": 1,
       "radar tracking": 1,
       "optical tracking": 1,
-      "cluster": true,
-      "safe": true,
-      "submunition": "Fate Sealer Activated"
+      "submunition": "Fate Sealer Activated",
+      "description": "\"homing\" \"cluster\" \"safe\""
     },
     "description": "An energy particle weapon that intensifies a blast to a single location after a brief duration. The after-effect of the explosion pulls the target closer to the origin of the blast."
   },
@@ -13002,13 +13020,11 @@
       "firing energy": 800,
       "firing heat": 400,
       "turn": 180,
-      "homing": true,
       "infrared tracking": 1,
       "radar tracking": 1,
       "optical tracking": 1,
-      "cluster": true,
-      "safe": true,
-      "submunition": "Fate Divider Activated"
+      "submunition": "Fate Divider Activated",
+      "description": "\"homing\" \"cluster\" \"safe\""
     },
     "description": "An energy particle weapon that intensifies a blast to a single location after a brief duration. The after-effect of the explosion pushes the target farther from the origin of the blast."
   },
@@ -13027,7 +13043,7 @@
       "sound": "composer",
       "Abyssal Composer": 0,
       "hit effect": [
-        "composed\" 2",
+        "composed",
         "drained"
       ],
       "inaccuracy": 45,
@@ -13212,8 +13228,8 @@
       "fire effect": "dragonflame",
       "hit effect": [
         "bright hit",
-        "dragonflame plasma\" 30",
-        "dragonflame debris\" 50"
+        "dragonflame plasma",
+        "dragonflame debris"
       ],
       "velocity": 2000,
       "lifetime": 1,
@@ -13325,7 +13341,9 @@
       "acceleration": 1.5,
       "drag": 0.1,
       "turn": 8,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "radar tracking": 0.8,
       "missile strength": 1
     },
@@ -13346,8 +13364,8 @@
     "weapon": {
       "sprite": "projectile/hion",
       "sound": "hion",
-      "hit effect": "proton impact\" 3",
-      "submunition": "Heavy Ion Fragment\" 3",
+      "hit effect": "proton impact",
+      "submunition": "Heavy Ion Fragment",
       "velocity": 28,
       "lifetime": 1,
       "reload": 1,
@@ -13379,7 +13397,7 @@
     "series": "Shields",
     "index": 11010,
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "cost": 225000,
     "thumbnail": "outfit/tiny successor shield",
@@ -13397,7 +13415,7 @@
     "series": "Shields",
     "index": 11020,
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "cost": 565000,
     "thumbnail": "outfit/small successor shield",
@@ -13415,7 +13433,7 @@
     "series": "Shields",
     "index": 11030,
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "cost": 3550000,
     "thumbnail": "outfit/medium successor shield",
@@ -13435,7 +13453,7 @@
     "cost": 8250000,
     "thumbnail": "outfit/large successor shield",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 55,
     "outfit space": -55,
@@ -13453,7 +13471,7 @@
     "series": "Shields",
     "index": 11099,
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 3,
     "outfit space": -3,
@@ -13538,7 +13556,7 @@
     "cost": 60000,
     "thumbnail": "outfit/small successor battery",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 5,
     "outfit space": -5,
@@ -13554,7 +13572,7 @@
     "cost": 320000,
     "thumbnail": "outfit/large successor battery",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 20,
     "outfit space": -20,
@@ -13570,7 +13588,7 @@
     "cost": 4754000,
     "thumbnail": "outfit/small successor reactor",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 56,
     "outfit space": -56,
@@ -13588,7 +13606,7 @@
     "cost": 12250000,
     "thumbnail": "outfit/medium successor reactor",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 98,
     "outfit space": -98,
@@ -13606,7 +13624,7 @@
     "cost": 17754000,
     "thumbnail": "outfit/large successor reactor",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 145,
     "outfit space": -145,
@@ -13624,7 +13642,7 @@
     "cost": 94000,
     "thumbnail": "outfit/successor cooling",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 8,
     "outfit space": -8,
@@ -13641,7 +13659,7 @@
     "cost": 112000,
     "thumbnail": "outfit/fuel sail",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 4,
     "outfit space": -14,
@@ -13658,7 +13676,7 @@
     "cost": 220000,
     "thumbnail": "outfit/veldt combat scanner",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 6,
     "outfit space": -6,
@@ -13676,7 +13694,7 @@
     "cost": 220000,
     "thumbnail": "outfit/tuur scanning suite",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 4,
     "outfit space": -4,
@@ -13694,7 +13712,7 @@
     "cost": 255000,
     "thumbnail": "outfit/successor engines tiny",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 28,
     "outfit space": -28,
@@ -13723,7 +13741,7 @@
     "cost": 150000,
     "thumbnail": "outfit/small successor thruster",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 25,
     "outfit space": -25,
@@ -13748,7 +13766,7 @@
     "cost": 120000,
     "thumbnail": "outfit/small successor steering",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 18,
     "outfit space": -18,
@@ -13769,7 +13787,7 @@
     "cost": 140000,
     "thumbnail": "outfit/small successor reverse",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 15,
     "outfit space": -15,
@@ -13790,7 +13808,7 @@
     "cost": 680000,
     "thumbnail": "outfit/medium successor thruster",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 40,
     "outfit space": -40,
@@ -13815,7 +13833,7 @@
     "cost": 560000,
     "thumbnail": "outfit/medium successor steering",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 32,
     "outfit space": -32,
@@ -13836,7 +13854,7 @@
     "cost": 590000,
     "thumbnail": "outfit/medium successor reverse",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 24,
     "outfit space": -24,
@@ -13857,7 +13875,7 @@
     "cost": 3550000,
     "thumbnail": "outfit/large successor thruster",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 65,
     "outfit space": -65,
@@ -13882,7 +13900,7 @@
     "cost": 2925000,
     "thumbnail": "outfit/large successor steering",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 42,
     "outfit space": -42,
@@ -13903,7 +13921,7 @@
     "cost": 3050000,
     "thumbnail": "outfit/large successor reverse",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 35,
     "outfit space": -35,
@@ -13923,7 +13941,7 @@
     "index": 11010,
     "thumbnail": "outfit/successor armor light",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "hull protection": 0.1,
     "inertia reduction": 0.15,
@@ -13938,7 +13956,7 @@
     "index": 11020,
     "thumbnail": "outfit/successor armor heavy",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "hull protection": 0.2,
     "multimodal armor": -1,
@@ -13952,7 +13970,7 @@
     "index": 11030,
     "thumbnail": "outfit/successor armor regen",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "hull repair multiplier": 0.75,
     "multimodal armor": -1,
@@ -13966,7 +13984,7 @@
     "index": 11040,
     "thumbnail": "outfit/successor armor keystone",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "cost": 10000000,
     "quantum keystone": 1,
@@ -13996,7 +14014,7 @@
     "cost": 1370000,
     "thumbnail": "outfit/bimodal coilgun",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 22,
     "outfit space": -22,
@@ -14006,7 +14024,7 @@
       "sprite": "projectile/bimodal",
       "sound": "bimodal",
       "hit effect": "bimodal impact",
-      "fire effect": "moonbeam fleck\" 4",
+      "fire effect": "moonbeam fleck",
       "inaccuracy": 1,
       "velocity": 30,
       "lifetime": 15,
@@ -14016,12 +14034,20 @@
       "reload": 30,
       "firing energy": 80,
       "firing heat": 120,
-      "#": "far: 60 hull damage",
+      "#": [
+        "Because parent projectiles inherit the damage of their submunitions, we must subtract the total damage of all submunitions from the parent projectile to get the desired behavior (different damage profiles over different ranges).",
+        50,
+        "close: 50 shield damage",
+        "far: 144 shield damage",
+        135,
+        "close: 135 hull damage",
+        "far: 60 hull damage"
+      ],
       "shield damage": -94,
       "hull damage": 75,
       "hit force": 120,
-      "cluster": true,
-      "submunition": "Bimodal Switch\" 3"
+      "submunition": "Bimodal Switch",
+      "description": "\"cluster\""
     },
     "description": "\tThe Ojet fires hyperdense packets of charged particles that disperse as they travel: up close the concentrated bolt pierces armor, while at a distance the ionic spray destabilizes shielding. Together, a ship equipped with these weapons can adjust its damage profile just by changing its engagement range, allowing it to be highly effective against any foe."
   },
@@ -14033,7 +14059,7 @@
     "cost": 2950000,
     "thumbnail": "outfit/bimodal coilgun turret",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 55,
     "outfit space": -55,
@@ -14046,7 +14072,7 @@
       "sprite": "projectile/bimodal",
       "sound": "bimodal",
       "hit effect": "bimodal impact",
-      "fire effect": "moonbeam fleck\" 4",
+      "fire effect": "moonbeam fleck",
       "inaccuracy": 1,
       "velocity": 30,
       "lifetime": 15,
@@ -14061,8 +14087,8 @@
       "shield damage": -94,
       "hull damage": 75,
       "hit force": 120,
-      "cluster": true,
-      "submunition": "Bimodal Switch\" 3"
+      "submunition": "Bimodal Switch",
+      "description": "\"cluster\""
     },
     "description": "Successor warships have traditionally relied on fixed weaponry to deal with their foes, but the High Houses do produce a turreted platform for the Ojet Coilgun so that their larger and slower vessels can maintain their combat effectiveness against more maneuverable targets. It mounts two of the weapons side by side, rigged to fire double the amount of shots per burst to keep them in sync with the fixed hardpoints."
   },
@@ -14074,7 +14100,7 @@
     "cost": 455000,
     "thumbnail": "outfit/drag cannon",
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "mass": 12,
     "outfit space": -12,
@@ -14082,8 +14108,8 @@
     "gun ports": -1,
     "weapon": {
       "sound": "drag cannon",
-      "fire effect": "moonbeam fleck\" 2",
-      "hit effect": "drag cannon impact\" 3",
+      "fire effect": "moonbeam fleck",
+      "hit effect": "drag cannon impact",
       "velocity": 0,
       "lifetime": 0,
       "range override": 375,
@@ -14093,8 +14119,8 @@
       "reload": 45,
       "firing energy": 30,
       "firing heat": 55,
-      "cluster": true,
-      "submunition": "Drag Projectile\" 3"
+      "submunition": "Drag Projectile",
+      "description": "\"cluster\""
     },
     "description": "\tWhile it is an inelegant design in comparison to the time-tested Ojet Coilgun, and consequently less appreciated, the Drag Cannon has found a place on the Successors' fast attack craft primarily as a tool for slowing down enemy vessels so that they can be engaged by a larger fleet."
   },
@@ -14106,7 +14132,7 @@
     "cost": 69000,
     "thumbnail": "outfit/successor pulse laser",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 10,
     "outfit space": -10,
@@ -14138,7 +14164,7 @@
     "cost": 145000,
     "thumbnail": "outfit/successor pulse laser turret",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 30,
     "outfit space": -30,
@@ -14174,7 +14200,7 @@
     "cost": 84000,
     "thumbnail": "outfit/overcharged pulse laser",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 12,
     "outfit space": -12,
@@ -14195,7 +14221,7 @@
       "shield damage": 14,
       "hull damage": 13.3,
       "piercing": 0.05,
-      "cluster": true
+      "description": "\"cluster\""
     },
     "description": "Unable to access large quantities of the high-quality weaponry produced by the High Houses, the People's Houses have had to work with what is available to them: mostly the relatively low-powered pulse lasers produced independently in Successor space. This pulse laser has had its safeties bypassed and its optics upgraded, allowing it to do more damage to shields at a lower power cost in exchange for producing substantially more heat."
   },
@@ -14207,7 +14233,7 @@
     "cost": 136000,
     "thumbnail": "outfit/overcharged pulse laser turret",
     "licenses": {
-      "Successor": true
+      "description": "\"Successor\""
     },
     "mass": 24,
     "outfit space": -24,
@@ -14232,7 +14258,7 @@
       "shield damage": 19.6,
       "hull damage": 18.667,
       "piercing": 0.05,
-      "cluster": true
+      "description": "\"cluster\""
     },
     "description": "Hand-crafted by the more colorful members of the People's Houses, this bespoke overcharged Pulse Laser turret has had even more power pumped into its laser generator compared to the fixed version, producing a truly prodigious amount of heat for a weapon of its size. Despite its inelegant design, it is nonetheless a fearsome weapon, especially considering that it retains the ability to partially punch through shielding."
   },
@@ -14243,7 +14269,7 @@
     "index": 11010,
     "cost": 3500000,
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "thumbnail": "outfit/sjeja kinetic lance",
     "mass": 60,
@@ -14258,11 +14284,10 @@
       "ammo": "High-Velocity Spike",
       "icon": "icon/hv spike",
       "fire effect": [
-        "moonbeam fleck\" 20",
+        "moonbeam fleck",
         "electron impact"
       ],
       "hit effect": "torpedo hit",
-      "cluster": true,
       "velocity": 320,
       "lifetime": 8,
       "reload": 160,
@@ -14274,7 +14299,8 @@
       "hull damage": 1920,
       "piercing": 0.15,
       "hit force": 800,
-      "penetration count": 5
+      "penetration count": 5,
+      "description": "\"cluster\""
     },
     "description": "\tAmmunition for this weapon can be restocked at any outfitter."
   },
@@ -14296,7 +14322,7 @@
     "index": 11020,
     "cost": 50000,
     "licenses": {
-      "High Houses": true
+      "description": "\"High Houses\""
     },
     "thumbnail": "outfit/hv spike rack",
     "mass": 7,
@@ -14312,7 +14338,7 @@
     "series": "Guns",
     "index": 9020,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 1390000,
     "thumbnail": "outfit/sunbeam",
@@ -14342,7 +14368,7 @@
     "series": "Turrets",
     "index": 9020,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 1970000,
     "thumbnail": "outfit/sunbeam turret",
@@ -14376,7 +14402,7 @@
     "series": "Turrets",
     "index": 9030,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 3720000,
     "thumbnail": "outfit/dual sunbeam turret",
@@ -14390,7 +14416,7 @@
       "hardpoint sprite": "hardpoint/dual sunbeam turret",
       "hardpoint offset": 12,
       "sound": "sunbeam",
-      "hit effect": "sunbeam impact\" 2",
+      "hit effect": "sunbeam impact",
       "inaccuracy": 0.2,
       "turret turn": 1,
       "velocity": 540,
@@ -14410,7 +14436,7 @@
     "series": "Guns",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 760000,
     "thumbnail": "outfit/moonbeam",
@@ -14443,7 +14469,7 @@
     "series": "Turrets",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 1730000,
     "thumbnail": "outfit/moonbeam turret",
@@ -14480,7 +14506,7 @@
     "series": "Anti-Missile",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 850000,
     "thumbnail": "outfit/wanderer anti-missile",
@@ -14507,7 +14533,7 @@
     "series": "Secondary Weapons",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 450000,
     "thumbnail": "outfit/thunderhead launcher",
@@ -14521,7 +14547,7 @@
       "sound": "thunderhead",
       "ammo": "Thunderhead Missile",
       "icon": "icon/thunderhead",
-      "submunition": "Thunderhead\" 5",
+      "submunition": "Thunderhead",
       "split range": 600,
       "fire effect": "meteor fire",
       "die effect": "missile death",
@@ -14535,7 +14561,9 @@
       "acceleration": 1.1,
       "drag": 0.1,
       "turn": 2,
-      "homing": true,
+      "homing": {
+        "description": "\"leading\" \"throttle control\""
+      },
       "infrared tracking": 0.9,
       "radar tracking": 0.6,
       "missile strength": 12
@@ -14559,7 +14587,7 @@
     "series": "Ammunition",
     "index": 9011,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 36000,
     "thumbnail": "outfit/thunderhead storage",
@@ -14575,7 +14603,7 @@
     "series": "Generators",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 230000,
     "thumbnail": "outfit/small biochemical",
@@ -14592,7 +14620,7 @@
     "series": "Generators",
     "index": 9020,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 940000,
     "thumbnail": "outfit/large biochemical",
@@ -14609,7 +14637,7 @@
     "series": "Generators",
     "index": 9030,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 3800000,
     "thumbnail": "outfit/red sun",
@@ -14626,7 +14654,7 @@
     "series": "Generators",
     "index": 9040,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 7500000,
     "thumbnail": "outfit/yellow sun",
@@ -14643,7 +14671,7 @@
     "series": "Generators",
     "index": 9050,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 13900000,
     "thumbnail": "outfit/white sun",
@@ -14660,7 +14688,7 @@
     "series": "Generators",
     "index": 9060,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 21500000,
     "thumbnail": "outfit/blue sun",
@@ -14677,7 +14705,7 @@
     "series": "Shields",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 220000,
     "thumbnail": "outfit/bright cloud",
@@ -14693,7 +14721,7 @@
     "series": "Shields",
     "index": 9020,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 800000,
     "thumbnail": "outfit/dark storm",
@@ -14709,7 +14737,7 @@
     "series": "Ramscoops",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 460000,
     "thumbnail": "outfit/wanderer ramscoop",
@@ -14724,7 +14752,7 @@
     "series": "Cooling",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 94000,
     "thumbnail": "outfit/wanderer heat sink",
@@ -14739,7 +14767,7 @@
     "series": "Engines",
     "index": 9011,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 135000,
     "thumbnail": "outfit/tiny radiant thruster",
@@ -14760,7 +14788,7 @@
     "series": "Engines",
     "index": 9021,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 390000,
     "thumbnail": "outfit/small radiant thruster",
@@ -14781,7 +14809,7 @@
     "series": "Engines",
     "index": 9031,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 750000,
     "thumbnail": "outfit/medium radiant thruster",
@@ -14802,7 +14830,7 @@
     "series": "Engines",
     "index": 9041,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 1370000,
     "thumbnail": "outfit/large radiant thruster",
@@ -14823,7 +14851,7 @@
     "series": "Engines",
     "index": 9010,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 115000,
     "thumbnail": "outfit/tiny radiant steering",
@@ -14844,7 +14872,7 @@
     "series": "Engines",
     "index": 9020,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 325000,
     "thumbnail": "outfit/small radiant steering",
@@ -14865,7 +14893,7 @@
     "series": "Engines",
     "index": 9030,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 590000,
     "thumbnail": "outfit/medium radiant steering",
@@ -14886,7 +14914,7 @@
     "series": "Engines",
     "index": 9040,
     "licenses": {
-      "Wanderer Outfits": true
+      "description": "\"Wanderer Outfits\""
     },
     "cost": 1100000,
     "thumbnail": "outfit/large radiant steering",

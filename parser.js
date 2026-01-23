@@ -799,24 +799,75 @@ class EndlessSkyParser {
       if (indent === 1) {
         const stripped = currentLine.trim();
         
-        const quotedMatch = stripped.match(/"([^"]+)"\s+(.+)/);
-        if (quotedMatch) {
-          const num = parseFloat(quotedMatch[2].trim());
-          outfitData[quotedMatch[1]] = isNaN(num) ? quotedMatch[2].trim() : num;
+        // Handle "key" "value" format (both quoted)
+        const quotedBothMatch = stripped.match(/"([^"]+)"\s+"([^"]+)"/);
+        if (quotedBothMatch) {
+          outfitData[quotedBothMatch[1]] = quotedBothMatch[2];
           i++;
           continue;
         }
-        
-        // Handle unquoted single-word attributes like: category "Systems"
-        const unquotedMatch = stripped.match(/^(\S+)\s+"([^"]+)"$/);
-        if (unquotedMatch) {
-          const key = unquotedMatch[1];
-          outfitData[key] = unquotedMatch[2];
+
+        // Handle "key" `value` format (quoted key, backtick value)
+        const quotedKeyBacktickValueMatch = stripped.match(/"([^"]+)"\s+`([^`]+)`/);
+        if (quotedKeyBacktickValueMatch) {
+          outfitData[quotedKeyBacktickValueMatch[1]] = quotedKeyBacktickValueMatch[2];
           i++;
           continue;
         }
-        
-        // Handle unquoted key-value pairs like: mass 40
+
+        // Handle `key` "value" format (backtick key, quoted value)
+        const backtickKeyQuotedValueMatch = stripped.match(/`([^`]+)`\s+"([^"]+)"/);
+        if (backtickKeyQuotedValueMatch) {
+          outfitData[backtickKeyQuotedValueMatch[1]] = backtickKeyQuotedValueMatch[2];
+          i++;
+          continue;
+        }
+
+        // Handle `key` `value` format (both backticks)
+        const backtickBothMatch = stripped.match(/`([^`]+)`\s+`([^`]+)`/);
+        if (backtickBothMatch) {
+          outfitData[backtickBothMatch[1]] = backtickBothMatch[2];
+          i++;
+          continue;
+        }
+
+        // Handle "key" value format (quoted key with unquoted value)
+        const quotedKeyMatch = stripped.match(/"([^"]+)"\s+([^"`\s][^"`]*)/);
+        if (quotedKeyMatch) {
+          const valueStr = quotedKeyMatch[2].trim();
+          const num = parseFloat(valueStr);
+          outfitData[quotedKeyMatch[1]] = isNaN(num) ? valueStr : num;
+          i++;
+          continue;
+        }
+
+        // Handle `key` value format (backtick key with unquoted value)
+        const backtickKeyMatch = stripped.match(/`([^`]+)`\s+([^"`\s][^"`]*)/);
+        if (backtickKeyMatch) {
+          const valueStr = backtickKeyMatch[2].trim();
+          const num = parseFloat(valueStr);
+          outfitData[backtickKeyMatch[1]] = isNaN(num) ? valueStr : num;
+          i++;
+          continue;
+        }
+
+        // Handle key "value" format (unquoted key with quoted value)
+        const unquotedKeyQuotedValueMatch = stripped.match(/^(\S+)\s+"([^"]+)"$/);
+        if (unquotedKeyQuotedValueMatch) {
+          outfitData[unquotedKeyQuotedValueMatch[1]] = unquotedKeyQuotedValueMatch[2];
+          i++;
+          continue;
+        }
+
+        // Handle key `value` format (unquoted key with backtick value)
+        const unquotedKeyBacktickValueMatch = stripped.match(/^(\S+)\s+`([^`]+)`$/);
+        if (unquotedKeyBacktickValueMatch) {
+          outfitData[unquotedKeyBacktickValueMatch[1]] = unquotedKeyBacktickValueMatch[2];
+          i++;
+          continue;
+        }
+
+        // Handle key value format (both unquoted) - must come last
         const simpleMatch = stripped.match(/^(\S+)\s+(.+)$/);
         if (simpleMatch && !stripped.startsWith('description')) {
           const key = simpleMatch[1];
@@ -826,6 +877,7 @@ class EndlessSkyParser {
           i++;
           continue;
         }
+
         
         // Handle description keyword (can use backticks or quotes)
         if (stripped === 'description' || stripped.startsWith('description ')) {
@@ -1050,7 +1102,7 @@ class EndlessSkyParser {
     for (const imagePath of imagePaths) {
       // Try common image extensions
       let imageFound = false;
-      for (const ext of ['.png', '.jpg', '.jpeg', '.gif']) {
+      for (const ext of ['.png', '.jpeg', '.avif']) {
         const fullPath = `${imagePath}${ext}`;
         const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${fullPath}`;
         

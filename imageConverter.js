@@ -15,9 +15,8 @@ class ImageConverter {
    */
   sanitizeFilename(name) {
     return name
-      .replace(/[^a-zA-Z0-9\s_-]/g, '')
+      .replace(/[^a-zA-Z0-9_-]+$/, '')
       .trim()
-      .replace(/\s+/g, '_'); // Replace spaces with underscores
   }
 
   async processAllImages(pluginDir, options = {}) {
@@ -65,7 +64,7 @@ class ImageConverter {
 
         // Create ping-pong effect: lowest to highest, then highest to lowest
         // Exclude the last frame to avoid duplicate when reversing
-        const reversedSeq = seqFiles.slice(0, -1).reverse();
+        const reversedSeq = seqFiles.reverse();
         const pingPongSeq = [...seqFiles, ...reversedSeq];
 
         const listFile = path.join(dir, `._${baseName}_frames.txt`);

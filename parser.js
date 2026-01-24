@@ -1305,26 +1305,75 @@ class EndlessSkyParser {
 
       console.log(`Found ${imagePaths.size} unique image paths to process`);
 
-      // Copy only the needed image paths
+      // Copy only the needed image paths and their variants
       for (const imagePath of imagePaths) {
         const normalizedPath = imagePath.replace(/\\/g, '/');
-        const sourcePath = path.join(sourceImagesDir, normalizedPath);
-        const destPath = path.join(imageDir, normalizedPath);
 
+        // Get the directory and basename
+        const pathParts = normalizedPath.split('/');
+        const basenamePattern = pathParts[pathParts.length - 1];
+        const parentDir = pathParts.slice(0, -1).join('/');
+
+        const sourceParentDir = path.join(sourceImagesDir, parentDir);
+        const destParentDir = path.join(imageDir, parentDir);
+      
         try {
-          // Check if source exists and is a directory
-          const stats = await fs.stat(sourcePath);
+          // Check if parent directory exists
+          await fs.access(sourceParentDir);
 
-          if (stats.isDirectory()) {
-            console.log(`  Copying directory: ${normalizedPath}`);
-            await this.copyDirectory(sourcePath, destPath);
+          // Read all files in the parent directory
+          const files = await fs.readdir(sourceParentDir);
+
+          // Filter files that match the basename pattern
+          const matchingFiles = files.filter(fileName => {
+            const fileExt = path.extname(fileName).toLowerCase();
+            const fileBase = path.basename(fileName, fileExt);
+
+            // Escape regex special characters in the pattern
+            const escapedPattern = basenamePattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+            // Check if filename matches various patterns:
+            // 1. Exactly "basename"
+            // 2. "basename-##" (dash followed by numbers)
+            // 3. "basename*##" or "basename^##" (any single char + numbers)
+            // 4. "basename-anything##" (dash + any chars + numbers, like shipname-variant0)
+            // 5. "basenameAnything##" (any chars + numbers, like shipnamevariant0)
+            // 6. "basename+" or "basename*" (single special character, no numbers)
+            // 7. "basename-variant" (dash + any chars, no numbers required)
+            // 8. "basenamevariant" (any chars, no numbers required)
+
+            const matchesExact = fileBase === basenamePattern;
+            const matchesDashNumber = fileBase.match(new RegExp(`^${escapedPattern}-\\d+$`));
+            const matchesSingleCharNumber = fileBase.match(new RegExp(`^${escapedPattern}.\\d+$`));
+            const matchesDashAnythingNumber = fileBase.match(new RegExp(`^${escapedPattern}-.+\\d+$`));
+            const matchesAnythingNumber = fileBase.match(new RegExp(`^${escapedPattern}.+\\d+$`));
+            const matchesAnySpecialCharacter = fileBase.match(new RegExp(`^${escapedPattern}.$`));
+            const matchesDashAnything = fileBase.match(new RegExp(`^${escapedPattern}-.+$`));
+            const matchesAnything = fileBase.match(new RegExp(`^${escapedPattern}.+$`));
+
+            const matchesPattern = matchesExact || matchesDashNumber || matchesSingleCharNumber || 
+                                  matchesDashAnythingNumber || matchesAnythingNumber || matchesAnySpecialCharacter ||
+                                  matchesDashAnything || matchesAnything;
+
+            return matchesPattern && ['.png', '.jpg', '.jpeg', '.gif', '.avif', '.webp'].includes(fileExt);
+          });
+
+          if (matchingFiles.length > 0) {
+            await fs.mkdir(destParentDir, { recursive: true });
+
+            for (const fileName of matchingFiles) {
+              const sourceFile = path.join(sourceParentDir, fileName);
+              const destFile = path.join(destParentDir, fileName);
+
+              await fs.copyFile(sourceFile, destFile);
+              console.log(`  ✓ Copied: ${parentDir}/${fileName}`);
+            }
           } else {
-            console.log(`  Copying file: ${normalizedPath}`);
-            await fs.mkdir(path.dirname(destPath), { recursive: true });
-            await fs.copyFile(sourcePath, destPath);
+            console.log(`  ✗ No matching files found for: ${normalizedPath}`);
           }
+
         } catch (error) {
-          console.log(`  ✗ Path not found or error: ${normalizedPath} - ${error.message}`);
+          console.log(`  ✗ Error processing ${normalizedPath}: ${error.message}`);
         }
       }
 

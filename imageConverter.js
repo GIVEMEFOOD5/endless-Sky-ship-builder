@@ -9,6 +9,17 @@ const execFileAsync = util.promisify(execFile);
 const SEQ_REGEX = /^(.*?)(\d+)\.(png|jpg|jpeg)$/i;
 
 class ImageConverter {
+  /**
+   * Sanitize filename by removing special characters
+   * Keeps alphanumeric, spaces, hyphens, and underscores
+   */
+  sanitizeFilename(name) {
+    return name
+      .replace(/[^a-zA-Z0-9\s_-]/g, '')
+      .trim()
+      .replace(/\s+/g, '_'); // Replace spaces with underscores
+  }
+
   async processAllImages(pluginDir, options = {}) {
     const imagesRoot = path.join(pluginDir, 'images');
 
@@ -45,21 +56,28 @@ class ImageConverter {
           continue;
         }
 
-        // Sort numerically
+        // Sort numerically (lowest to highest)
         seqFiles.sort((a, b) => {
           const na = parseInt(a.match(SEQ_REGEX)[2], 10);
           const nb = parseInt(b.match(SEQ_REGEX)[2], 10);
           return na - nb;
         });
 
+        // Create ping-pong effect: lowest to highest, then highest to lowest
+        // Exclude the last frame to avoid duplicate when reversing
+        const reversedSeq = seqFiles.slice(0, -1).reverse();
+        const pingPongSeq = [...seqFiles, ...reversedSeq];
+
         const listFile = path.join(dir, `._${baseName}_frames.txt`);
-        const listContent = seqFiles
+        const listContent = pingPongSeq
           .map(f => `file '${path.join(dir, f).replace(/\\/g, '/')}'`)
           .join('\n');
 
         await fs.writeFile(listFile, listContent);
 
-        const outputPath = path.join(dir, `${baseName}.avif`);
+        // Sanitize the output filename
+        const sanitizedName = this.sanitizeFilename(baseName);
+        const outputPath = path.join(dir, `${sanitizedName}.avif`);
 
         try {
           await execFileAsync('ffmpeg', [

@@ -1335,64 +1335,72 @@ class EndlessSkyParser {
     // Helper function to download files matching a pattern from a directory
     const downloadFromDirectoryWithPattern = async (dirPath, basenamePattern) => {
       let normalizedPath = dirPath.replace(/\\/g, '/');
-      
+
       const pathsToTry = [
         `images/${normalizedPath}`,
         normalizedPath
       ];
-      
+
       for (const tryPath of pathsToTry) {
         try {
           const encodedPath = tryPath.split('/').map(segment => encodeURIComponent(segment)).join('/');
           const dirUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${encodedPath}?ref=${branch}`;
-          
+
           console.log(`    Checking directory for pattern: ${dirUrl}`);
           const dirData = await this.fetchUrl(dirUrl);
           const dirContents = JSON.parse(dirData);
-          
+
           if (!Array.isArray(dirContents)) {
             continue;
           }
-          
+
           let dirDownloaded = 0;
-          
+
           // Filter files that match the pattern
           for (const item of dirContents) {
             await delay(50);
-            
+
             if (item.type === 'file') {
               const fileName = item.name;
               const fileExt = path.extname(fileName).toLowerCase();
               const fileBase = path.basename(fileName, fileExt);
-              
+
               // Escape regex special characters in the pattern
               const escapedPattern = basenamePattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-              
+
               // Check if filename matches various patterns:
               // 1. Exactly "basename"
               // 2. "basename-##" (dash followed by numbers)
               // 3. "basename*##" or "basename^##" (any single char + numbers)
               // 4. "basename-anything##" (dash + any chars + numbers, like shipname-variant0)
               // 5. "basenameAnything##" (any chars + numbers, like shipnamevariant0)
+              // 6. "basename+" or "basename*" (single special character, no numbers)
+              // 7. "basename-variant" (dash + any chars, no numbers required)
+              // 8. "basenamevariant" (any chars, no numbers required)
+
               const matchesExact = fileBase === basenamePattern;
               const matchesDashNumber = fileBase.match(new RegExp(`^${escapedPattern}-\\d+$`));
               const matchesSingleCharNumber = fileBase.match(new RegExp(`^${escapedPattern}.\\d+$`));
               const matchesDashAnythingNumber = fileBase.match(new RegExp(`^${escapedPattern}-.+\\d+$`));
               const matchesAnythingNumber = fileBase.match(new RegExp(`^${escapedPattern}.+\\d+$`));
-              
+              const matchesAnySpecialCharecter = fileBase.match(new RegExp(`^${escapedPattern}.$`))
+              const matchesDashAnything = fileBase.match(new RegExp(`^${escapedPattern}-.+$`));
+              const matchesAnything = fileBase.match(new RegExp(`^${escapedPattern}.+$`));
+
               const matchesPattern = matchesExact || matchesDashNumber || matchesSingleCharNumber || 
-                                    matchesDashAnythingNumber || matchesAnythingNumber;
-              
-              if (matchesPattern && ['.png', '.jpg', '.jpeg', '.gif', '.avif', '.webp'].includes(fileExt)) {
+                                    matchesDashAnythingNumber || matchesAnythingNumber || matchesAnySpecialCharecter ||
+                                    matchesDashAnything || matchesAnything;
+
+              if (matchesPattern && ['.png', '.jpg', '.jpeg', '.avif'].includes(fileExt)) {
                 try {
                   const fileRawUrl = item.download_url || `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${item.path}`;
                   console.log(`      Downloading: ${fileName}`);
                   const fileData = await this.fetchBinaryUrl(fileRawUrl);
-                  
+
                   const localPath = path.join(imageDir, normalizedPath, fileName);
                   await fs.mkdir(path.dirname(localPath), { recursive: true });
                   await fs.writeFile(localPath, fileData);
-                  
+
                   console.log(`      ✓ Downloaded ${normalizedPath}/${fileName}`);
                   dirDownloaded++;
                 } catch (error) {
@@ -1401,16 +1409,16 @@ class EndlessSkyParser {
               }
             }
           }
-          
+
           if (dirDownloaded > 0) {
             return dirDownloaded;
           }
-          
+
         } catch (error) {
           continue;
         }
       }
-      
+
       return 0;
     };
 

@@ -173,7 +173,7 @@ class ImageConverter {
         // Framerate filter with scene change detection disabled
         // Creates the smoothest interpolation by blending frames
         // This is the best option for eliminating jitter
-        filters.push(`framerate=fps=${GAME_FPS}:interp_start=${FRAMERATE_INTERP_START}:interp_end=${FRAMERATE_INTERP_END}:scene=100000`);
+        filters.push(`framerate=fps=${GAME_FPS}:interp_start=${FRAMERATE_INTERP_START}:interp_end=${FRAMERATE_INTERP_END}:scene=100`);
         filters.push('setpts=PTS-STARTPTS');
         break;
         

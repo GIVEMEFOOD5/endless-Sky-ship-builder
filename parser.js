@@ -749,31 +749,6 @@ class EndlessSkyParser {
             const attrIndent = attrLine.length - attrLine.replace(/^\t+/, '').length;
             if (attrIndent <= indent) break;
             const attrStripped = attrLine.trim();
-
-            // Handle sprite
-            if (stripped.includes('sprite')) {
-              const spriteMatchQuotes = stripped.match(/sprite\s+"([^"]+)"/);
-              const spriteMatchBackticks = stripped.match(/sprite\s+`([^`]+)`/);
-              const spriteMatch = spriteMatchBackticks || spriteMatchQuotes;
-              if (spriteMatch) {
-                outfitData.sprite = spriteMatch[1];
-
-                // Check if there's nested data below sprite
-                if (i + 1 < lines.length) {
-                  const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
-
-                  if (nextIndent > indent) {
-                    // Collect nested sprite data
-                    const result = this.parseIndentedBlock(lines, i + 1);
-                    outfitData.spriteData = result[0];
-                    i = result[1];
-                    continue;
-                  }
-                }
-              }
-              i++;
-              continue;
-            }
             
             const quotedMatchQuotes = attrStripped.match(/"([^"]+)"\s+(.+)/);
             const quotedMatchBackticks = attrStripped.match(/`([^`]+)`\s+(.+)/);
@@ -1010,6 +985,31 @@ class EndlessSkyParser {
       if (indent === 1) {
         const stripped = currentLine.trim();
         
+          // Handle sprite
+          if (stripped.startsWith('sprite ')) {
+            const spriteMatchQuotes = stripped.match(/sprite\s+"([^"]+)"/);
+            const spriteMatchBackticks = stripped.match(/sprite\s+`([^`]+)`/);
+            const spriteMatch = spriteMatchBackticks || spriteMatchQuotes;
+            if (spriteMatch) {
+              outfitData.sprite = spriteMatch[1];
+              
+              // Check if there's nested data below sprite
+              if (i + 1 < lines.length) {
+                const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
+                
+                if (nextIndent > indent) {
+                  // Collect nested sprite data
+                  const result = this.parseIndentedBlock(lines, i + 1);
+                  outfitData.spriteData = result[0];
+                  i = result[1];
+                  continue;
+                }
+              }
+            }
+            i++;
+            continue;
+          }
+
         // Handle "key" "value" format (both quoted)
         const quotedBothMatch = stripped.match(/"([^"]+)"\s+"([^"]+)"/);
         if (quotedBothMatch) {

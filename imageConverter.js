@@ -11,13 +11,13 @@ const SEQ_REGEX = /^(.*?)(\d+)\.(png|jpg|jpeg)$/i;
 const GAME_FPS = 60;
 const MIN_LOGICAL_FPS = 0.1;
 const MAX_HOLD_FRAMES = 600;
-const DISABLE_PINGPONG_BELOW = 1;
+const DISABLE_PINGPONG_BELOW = 0.09;
 
 // Interpolation modes for smooth transitions
 const INTERPOLATION_MODE = 'adaptive'; // Options: 'none', 'blend', 'minterpolate', 'weighted', 'framerate', 'adaptive'
 
 // Adaptive mode: automatically chooses best smoothing based on frame count
-const ADAPTIVE_LOW_FRAME_THRESHOLD = 4; // Sequences with <= this many frames get extra smoothing
+const ADAPTIVE_LOW_FRAME_THRESHOLD = 15; // Sequences with <= this many frames get extra smoothing
 
 const BLEND_FRAMES = 5; // Number of frames to blend together (for 'blend' mode)
 const MINTERPOLATE_MODE = 'mci'; // 'mci' (motion compensated) or 'blend'

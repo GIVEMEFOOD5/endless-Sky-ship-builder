@@ -136,16 +136,42 @@ class EndlessSkyParser {
     let i = startIdx;
     const baseIndent = lines[i].length - lines[i].replace(/^\t+/, '').length;
     let descriptionLines = [];
-    
+
     while (i < lines.length) {
       const line = lines[i];
       if (!line.trim()) { i++; continue; }
-      
+
       const currentIndent = line.length - line.replace(/^\t+/, '').length;
       if (currentIndent < baseIndent) break;
-      
+
       if (currentIndent === baseIndent) {
         const stripped = line.trim();
+
+        // Handle sprite with nested data
+        if (stripped.startsWith('sprite ')) {
+          const spriteMatchQuotes = stripped.match(/sprite\s+"([^"]+)"/);
+          const spriteMatchBackticks = stripped.match(/sprite\s+`([^`]+)`/);
+          const spriteMatch = spriteMatchBackticks || spriteMatchQuotes;
+
+          if (spriteMatch) {
+            data.sprite = spriteMatch[1];
+
+            // Check if sprite has nested properties
+            if (i + 1 < lines.length) {
+              const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
+
+              if (nextIndent > currentIndent) {
+                // Collect sprite properties like "frame rate", "no repeat"
+                const result = this.parseIndentedBlock(lines, i + 1);
+                data.spriteData = result[0];
+                i = result[1];
+                continue;
+              }
+            }
+          }
+          i++;
+          continue;
+        }
         
         // Handle "key" "value" format (both quoted)
         const quotedBothMatch = stripped.match(/"([^"]+)"\s+"([^"]+)"/);

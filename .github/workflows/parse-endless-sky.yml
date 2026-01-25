@@ -30,13 +30,22 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libxi-dev libglu1-mesa-dev libglew-dev pkg-config build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+          sudo apt-get install -y \
+            libxi-dev libglu1-mesa-dev libglew-dev pkg-config \
+            build-essential libcairo2-dev libpango1.0-dev \
+            libjpeg-dev libgif-dev librsvg2-dev \
+            mesa-utils libgl1-mesa-dri libgl1-mesa-glx \
+            xvfb libglvnd0 libglx0 libgl1
           npm install
-      
+              
       - name: Run parser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node parser.js
+          DISPLAY: :99
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          sleep 3
+          node parser.js
       
       - name: Commit and push changes
         run: |

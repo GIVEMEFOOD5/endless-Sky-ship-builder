@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const { createCanvas, loadImage } = require('canvas');
-const gl = require('gl');
+const { createContext } = require('gl');
 const { execFile } = require('child_process');
 const util = require('util');
 
@@ -30,7 +30,19 @@ class OpenGLSpriteRenderer {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.glContext = gl(width, height, { preserveDrawingBuffer: true });
+    
+    try {
+      this.glContext = createContext(width, height, { preserveDrawingBuffer: true });
+      
+      if (!this.glContext) {
+        throw new Error('Failed to create OpenGL context');
+      }
+      
+      console.log(`✓ OpenGL context created: ${width}x${height}`);
+    } catch (error) {
+      throw new Error(`OpenGL initialization failed: ${error.message}. Ensure mesa libraries and Xvfb are installed.`);
+    }
+    
     this.textures = [];
     this.framebuffers = [];
     this.shaders = {};
@@ -56,7 +68,14 @@ class OpenGLSpriteRenderer {
     // Fragment shader for Gaussian blur blending
     const gaussianFragmentSource = `
       precision mediump float;
-      uniform sampler2D u_textures[8];
+      uniform sampler2D u_texture0;
+      uniform sampler2D u_texture1;
+      uniform sampler2D u_texture2;
+      uniform sampler2D u_texture3;
+      uniform sampler2D u_texture4;
+      uniform sampler2D u_texture5;
+      uniform sampler2D u_texture6;
+      uniform sampler2D u_texture7;
       uniform float u_weights[8];
       uniform int u_numTextures;
       varying vec2 v_texCoord;
@@ -69,14 +88,14 @@ class OpenGLSpriteRenderer {
           if (i >= u_numTextures) break;
           
           vec4 sample;
-          if (i == 0) sample = texture2D(u_textures[0], v_texCoord);
-          else if (i == 1) sample = texture2D(u_textures[1], v_texCoord);
-          else if (i == 2) sample = texture2D(u_textures[2], v_texCoord);
-          else if (i == 3) sample = texture2D(u_textures[3], v_texCoord);
-          else if (i == 4) sample = texture2D(u_textures[4], v_texCoord);
-          else if (i == 5) sample = texture2D(u_textures[5], v_texCoord);
-          else if (i == 6) sample = texture2D(u_textures[6], v_texCoord);
-          else if (i == 7) sample = texture2D(u_textures[7], v_texCoord);
+          if (i == 0) sample = texture2D(u_texture0, v_texCoord);
+          else if (i == 1) sample = texture2D(u_texture1, v_texCoord);
+          else if (i == 2) sample = texture2D(u_texture2, v_texCoord);
+          else if (i == 3) sample = texture2D(u_texture3, v_texCoord);
+          else if (i == 4) sample = texture2D(u_texture4, v_texCoord);
+          else if (i == 5) sample = texture2D(u_texture5, v_texCoord);
+          else if (i == 6) sample = texture2D(u_texture6, v_texCoord);
+          else if (i == 7) sample = texture2D(u_texture7, v_texCoord);
           
           float weight = u_weights[i];
           color += sample * weight;
@@ -125,14 +144,29 @@ class OpenGLSpriteRenderer {
     gl.shaderSource(vertShader, vertSource);
     gl.compileShader(vertShader);
     
+    if (!gl.getShaderParameter(vertShader, gl.COMPILE_STATUS)) {
+      console.error('Vertex shader compilation error:', gl.getShaderInfoLog(vertShader));
+      throw new Error('Vertex shader compilation failed');
+    }
+    
     const fragShader = gl.createShader(gl.FRAGMENT_SHADER);
     gl.shaderSource(fragShader, fragSource);
     gl.compileShader(fragShader);
+    
+    if (!gl.getShaderParameter(fragShader, gl.COMPILE_STATUS)) {
+      console.error('Fragment shader compilation error:', gl.getShaderInfoLog(fragShader));
+      throw new Error('Fragment shader compilation failed');
+    }
     
     const program = gl.createProgram();
     gl.attachShader(program, vertShader);
     gl.attachShader(program, fragShader);
     gl.linkProgram(program);
+    
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error('Program linking error:', gl.getProgramInfoLog(program));
+      throw new Error('Shader program linking failed');
+    }
     
     return program;
   }
@@ -209,44 +243,66 @@ class OpenGLSpriteRenderer {
     
     gl.useProgram(program);
     gl.viewport(0, 0, this.width, this.height);
+    gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     
-    // Enable blending
+    // Enable blending for transparency
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     
-    // Bind textures
+    // Bind textures to texture units
     for (let i = 0; i < Math.min(textures.length, 8); i++) {
       gl.activeTexture(gl.TEXTURE0 + i);
       gl.bindTexture(gl.TEXTURE_2D, textures[i]);
-      const loc = gl.getUniformLocation(program, `u_textures[${i}]`);
-      gl.uniform1i(loc, i);
+      const loc = gl.getUniformLocation(program, `u_texture${i}`);
+      if (loc !== null) {
+        gl.uniform1i(loc, i);
+      }
     }
     
     // Set weights
     const weightLoc = gl.getUniformLocation(program, 'u_weights');
-    gl.uniform1fv(weightLoc, new Float32Array(weights));
+    if (weightLoc !== null) {
+      gl.uniform1fv(weightLoc, new Float32Array(weights));
+    }
     
     const numLoc = gl.getUniformLocation(program, 'u_numTextures');
-    gl.uniform1i(numLoc, textures.length);
+    if (numLoc !== null) {
+      gl.uniform1i(numLoc, textures.length);
+    }
     
     // Setup attributes
     const posLoc = gl.getAttribLocation(program, 'a_position');
     const texLoc = gl.getAttribLocation(program, 'a_texCoord');
     
     gl.bindBuffer(gl.ARRAY_BUFFER, this.quadBuffer);
-    gl.enableVertexAttribArray(posLoc);
-    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 16, 0);
-    gl.enableVertexAttribArray(texLoc);
-    gl.vertexAttribPointer(texLoc, 2, gl.FLOAT, false, 16, 8);
+    
+    if (posLoc !== -1) {
+      gl.enableVertexAttribArray(posLoc);
+      gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 16, 0);
+    }
+    
+    if (texLoc !== -1) {
+      gl.enableVertexAttribArray(texLoc);
+      gl.vertexAttribPointer(texLoc, 2, gl.FLOAT, false, 16, 8);
+    }
     
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     
-    // Read pixels
+    // Read pixels - flip Y because OpenGL is bottom-up
     const pixels = new Uint8Array(this.width * this.height * 4);
     gl.readPixels(0, 0, this.width, this.height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
     
-    return pixels;
+    // Flip the image vertically
+    const flipped = new Uint8Array(this.width * this.height * 4);
+    const rowSize = this.width * 4;
+    for (let y = 0; y < this.height; y++) {
+      const srcRow = (this.height - 1 - y) * rowSize;
+      const dstRow = y * rowSize;
+      flipped.set(pixels.subarray(srcRow, srcRow + rowSize), dstRow);
+    }
+    
+    return flipped;
   }
 
   getFrameAsCanvas(pixels) {
@@ -262,6 +318,11 @@ class OpenGLSpriteRenderer {
     const gl = this.glContext;
     this.textures.forEach(t => gl.deleteTexture(t));
     this.framebuffers.forEach(f => gl.deleteFramebuffer(f));
+    
+    // Destroy the GL context
+    if (gl.getExtension('STACKGL_destroy_context')) {
+      gl.getExtension('STACKGL_destroy_context').destroy();
+    }
   }
 }
 
@@ -369,46 +430,38 @@ class ImageConverter {
     const blurSamples = ENABLE_MOTION_BLUR ? MOTION_BLUR_SAMPLES : 1;
     const blurMultiplier = (ADAPTIVE_BLUR_STRENGTH && isLowFrameCount) ? LOW_FRAME_BLUR_MULTIPLIER : 1.0;
     
-    let frameIndex = 0;
+    // Build frame timeline
+    const frameTimeline = [];
     for (const item of sequence) {
-      const texture = textureMap.get(item.file);
-      
       for (let rep = 0; rep < item.repeat; rep++) {
-        if (ENABLE_MOTION_BLUR && blurSamples > 1) {
-          // Multi-sample motion blur
-          const samples = [];
-          const weights = renderer.calculateGaussianWeights(blurSamples, 1.0 * blurMultiplier);
-          
-          // Collect nearby frames for blending
-          const sampleRange = Math.floor(blurSamples / 2);
-          for (let s = -sampleRange; s <= sampleRange; s++) {
-            const sampleIdx = frameIndex + s;
-            if (sampleIdx >= 0 && sampleIdx < sequence.length * MAX_HOLD_FRAMES) {
-              // Find which sequence item this sample belongs to
-              let accumFrames = 0;
-              let sampleTexture = texture;
-              for (const seqItem of sequence) {
-                if (sampleIdx < accumFrames + seqItem.repeat) {
-                  sampleTexture = textureMap.get(seqItem.file);
-                  break;
-                }
-                accumFrames += seqItem.repeat;
-              }
-              samples.push(sampleTexture);
-            } else {
-              samples.push(texture); // Clamp to current frame
-            }
-          }
-          
-          const pixels = renderer.renderBlendedFrame(samples, weights);
-          frames.push(renderer.getFrameAsCanvas(pixels));
-        } else {
-          // No motion blur - direct render
-          const pixels = renderer.renderBlendedFrame([texture], [1.0]);
-          frames.push(renderer.getFrameAsCanvas(pixels));
+        frameTimeline.push(item.file);
+      }
+    }
+    
+    for (let frameIndex = 0; frameIndex < frameTimeline.length; frameIndex++) {
+      const currentFile = frameTimeline[frameIndex];
+      const texture = textureMap.get(currentFile);
+      
+      if (ENABLE_MOTION_BLUR && blurSamples > 1) {
+        // Multi-sample motion blur
+        const samples = [];
+        const weights = renderer.calculateGaussianWeights(blurSamples, 1.0 * blurMultiplier);
+        
+        // Collect nearby frames for blending
+        const sampleRange = Math.floor(blurSamples / 2);
+        for (let s = -sampleRange; s <= sampleRange; s++) {
+          const sampleIdx = Math.max(0, Math.min(frameTimeline.length - 1, frameIndex + s));
+          const sampleFile = frameTimeline[sampleIdx];
+          const sampleTexture = textureMap.get(sampleFile);
+          samples.push(sampleTexture);
         }
         
-        frameIndex++;
+        const pixels = renderer.renderBlendedFrame(samples, weights);
+        frames.push(renderer.getFrameAsCanvas(pixels));
+      } else {
+        // No motion blur - direct render
+        const pixels = renderer.renderBlendedFrame([texture], [1.0]);
+        frames.push(renderer.getFrameAsCanvas(pixels));
       }
     }
 
@@ -512,6 +565,7 @@ class ImageConverter {
           converted++;
         } catch (e) {
           console.error(`✖ Failed: ${outputPath}`, e.message);
+          console.error(e.stack);
         }
       }
 

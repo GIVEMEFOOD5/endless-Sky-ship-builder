@@ -13,8 +13,16 @@ const MIN_LOGICAL_FPS = 0.1;
 const MAX_HOLD_FRAMES = 600;
 const DISABLE_PINGPONG_BELOW = 1;
 
-const ENABLE_FRAME_BLENDING = true;
-const BLEND_BELOW_FPS = 0.5;
+// Interpolation modes for smooth transitions
+const INTERPOLATION_MODE = 'minterpolate'; // Options: 'none', 'blend', 'minterpolate', 'weighted'
+const BLEND_FRAMES = 3; // Number of frames to blend together (for 'blend' mode)
+const MINTERPOLATE_MODE = 'mci'; // 'mci' (motion compensated) or 'blend'
+const MINTERPOLATE_MC_MODE = 'aobmc'; // 'obmc' or 'aobmc' (adaptive) - better quality
+const MINTERPOLATE_ME_MODE = 'bidir'; // 'bidir' (bidirectional) - smoother
+const MINTERPOLATE_VFE = 'pde'; // 'pde' (partial differential equation) - better for smooth gradients
+
+// Weighted blending configuration
+const WEIGHTED_BLEND_OVERLAP = 0.3; // 30% overlap between frames (0.0 to 1.0)
 // ----------------------------------------
 
 class ImageConverter {
@@ -87,7 +95,9 @@ class ImageConverter {
       repeat: holdFrames
     }));
 
+    // Create pingpong/bounce effect for smoother looping
     if (fps >= DISABLE_PINGPONG_BELOW && sorted.length > 2) {
+      // Don't duplicate first and last frames to avoid stuttering
       const reverse = sequence.slice(1, -1).reverse();
       return [...sequence, ...reverse];
     }
@@ -97,19 +107,75 @@ class ImageConverter {
 
   createConcatFile(sequence, dir) {
     const lines = [];
+    const frameDuration = 1 / GAME_FPS;
+    
     for (const item of sequence) {
       const filePath = path.join(dir, item.file).replace(/\\/g, '/');
       for (let i = 0; i < item.repeat; i++) {
         lines.push(`file '${filePath}'`);
-        lines.push('duration 0.016667'); // 1/60 second per frame
+        lines.push(`duration ${frameDuration.toFixed(6)}`);
       }
     }
-    // Add the last file reference without duration
+    
+    // FFmpeg concat requires the last file to be listed again without duration
     if (sequence.length > 0) {
       const lastFile = path.join(dir, sequence[sequence.length - 1].file).replace(/\\/g, '/');
       lines.push(`file '${lastFile}'`);
     }
+    
     return lines.join('\n') + '\n';
+  }
+
+  // Build interpolation filter chain
+  buildInterpolationFilter(mode, spriteFps) {
+    const filters = [];
+    
+    switch (mode) {
+      case 'blend':
+        // Simple temporal blending - blends multiple consecutive frames together
+        // Creates smooth transitions but can look slightly blurry
+        filters.push(`tmix=frames=${BLEND_FRAMES}:weights='1 1 1'`);
+        filters.push('setpts=PTS-STARTPTS');
+        break;
+        
+      case 'minterpolate':
+        // Motion-interpolated frames - generates intermediate frames using motion estimation
+        // Best for smooth, fluid motion with minimal blur
+        filters.push(`minterpolate=fps=${GAME_FPS}:mi_mode=${MINTERPOLATE_MODE}:mc_mode=${MINTERPOLATE_MC_MODE}:me_mode=${MINTERPOLATE_ME_MODE}:vsbmc=1`);
+        filters.push('setpts=PTS-STARTPTS');
+        break;
+        
+      case 'weighted':
+        // Weighted crossfade between frames - smooth transitions with controlled overlap
+        // Good balance between smoothness and clarity
+        const overlapFrames = Math.max(2, Math.floor(GAME_FPS / spriteFps * WEIGHTED_BLEND_OVERLAP));
+        filters.push(`tmix=frames=${overlapFrames}:weights='${this.generateWeightedBlendWeights(overlapFrames)}'`);
+        filters.push('setpts=PTS-STARTPTS');
+        break;
+        
+      case 'none':
+      default:
+        // No interpolation, just timestamp normalization
+        filters.push('setpts=PTS-STARTPTS');
+        break;
+    }
+    
+    return filters.join(',');
+  }
+
+  // Generate gaussian-like weights for smoother blending
+  generateWeightedBlendWeights(numFrames) {
+    const weights = [];
+    const center = (numFrames - 1) / 2;
+    
+    for (let i = 0; i < numFrames; i++) {
+      // Gaussian-like weighting (bell curve)
+      const distance = Math.abs(i - center);
+      const weight = Math.exp(-(distance * distance) / (numFrames / 2));
+      weights.push(weight.toFixed(3));
+    }
+    
+    return weights.join(' ');
   }
 
   // ---------------- MAIN ----------------
@@ -157,12 +223,10 @@ class ImageConverter {
         const outName = this.sanitizeFilename(baseName);
         const outputPath = path.join(dir, `${outName}.avif`);
 
-        const useBlending =
-          ENABLE_FRAME_BLENDING && spriteFps <= BLEND_BELOW_FPS;
+        const interpolationMode = options.interpolation || INTERPOLATION_MODE;
 
         console.log(
-          `▶ ${path.relative(imagesRoot, dir)}/${baseName} | fps=${spriteFps}` +
-          (useBlending ? ' | blending ON' : '')
+          `▶ ${path.relative(imagesRoot, dir)}/${baseName} | fps=${spriteFps} | mode=${interpolationMode}`
         );
 
         const ffmpegArgs = [
@@ -170,24 +234,17 @@ class ImageConverter {
           '-f', 'concat',
           '-safe', '0',
           '-i', listFile,
-          '-r', String(GAME_FPS)
-        ];
-
-        if (useBlending) {
-          ffmpegArgs.push(
-            '-vf',
-            'tblend=all_mode=average'
-          );
-        }
-
-        ffmpegArgs.push(
+          '-vsync', 'cfr',
+          '-r', String(GAME_FPS),
+          '-vf', this.buildInterpolationFilter(interpolationMode, spriteFps),
           '-c:v', 'libaom-av1',
           '-crf', String(options.crf ?? 40),
           '-cpu-used', String(options.speed ?? 6),
           '-pix_fmt', 'yuv420p',
           '-still-picture', '0',
+          '-movflags', '+faststart',
           outputPath
-        );
+        ];
 
         try {
           await execFileAsync('ffmpeg', ffmpegArgs);

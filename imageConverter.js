@@ -161,58 +161,50 @@ class ImageConverter {
    * @param {number} transitionFrames - Number of interpolated frames to add between original frames (0 = no interpolation)
    * @returns {Array} Array of {file, duration} objects
    */
-  generateTransitionSequence(seqFiles, transition = 'linear', transitionFrames = 0) {
-    // Sort numerically (lowest to highest)
+  generateTransitionSequence(seqFiles, transition = 'smooth') {
     const sorted = [...seqFiles].sort((a, b) => {
       const na = parseInt(a.match(SEQ_REGEX)[2], 10);
       const nb = parseInt(b.match(SEQ_REGEX)[2], 10);
       return na - nb;
     });
 
-    // Easing functions (t ranges from 0 to 1)
     const easingFunctions = {
-      linear: (t) => t,
-      'ease-in': (t) => t * t,
-      'ease-out': (t) => t * (2 - t),
-      'ease-in-out': (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
-      smooth: (t) => t * t * (3 - 2 * t), // Smoothstep
-      bounce: (t) => {
-        // Simple bounce effect
-        if (t < 0.5) return 2 * t * t;
-        return 1 - 2 * (1 - t) * (1 - t);
-      }
+      linear: t => t,
+      'ease-in': t => t * t,
+      'ease-out': t => t * (2 - t),
+      'ease-in-out': t => t < 0.5
+        ? 2 * t * t
+        : -1 + (4 - 2 * t) * t,
+      smooth: t => t * t * (3 - 2 * t),
     };
 
-    const easingFn = easingFunctions[transition] || easingFunctions.linear;
+    const ease = easingFunctions[transition] ?? easingFunctions.smooth;
 
-    // Calculate frame durations based on easing
     const sequence = [];
-    const totalFrames = sorted.length;
+    const baseRepeats = 1;
+    const maxRepeats = 4; // controls smoothness
 
-    for (let i = 0; i < totalFrames; i++) {
-      // Calculate normalized position (0 to 1)
-      const t = i / (totalFrames - 1);
-      
-      // Apply easing function to get duration multiplier
-      const easedValue = easingFn(t);
-      
-      // Map easing value to duration (0.5 to 2.0 range for variety)
-      // Lower easing value = shorter duration (faster)
-      // Higher easing value = longer duration (slower)
-      const durationMultiplier = 0.5 + easedValue * 1.5;
-      
+    const total = sorted.length - 1;
+
+    for (let i = 0; i < sorted.length; i++) {
+      const t = i / total;
+      const w = ease(t);
+
+      const repeats = Math.round(
+        baseRepeats + w * maxRepeats
+      );
+
       sequence.push({
         file: sorted[i],
-        duration: durationMultiplier
+        repeat: Math.max(1, repeats)
       });
     }
 
-    // Create ping-pong: forward + reverse (excluding last frame to avoid duplicate)
-    const reverseSequence = sequence.slice(0, -1).reverse();
-    const pingPongSequence = [...sequence, ...reverseSequence];
-
-    return pingPongSequence;
+    // ping-pong
+    const reverse = sequence.slice(1, -1).reverse();
+    return [...sequence, ...reverse];
   }
+
 
   /**
    * Create ffmpeg concat file with frame durations
@@ -221,23 +213,16 @@ class ImageConverter {
    * @param {number} baseFps - Base frames per second
    * @returns {string} Content for concat file
    */
-  createConcatFileWithDurations(sequence, dir, baseFps) {
+  createConcatFile(sequence, dir) {
     const lines = [];
-    
+
     for (const item of sequence) {
       const filePath = path.join(dir, item.file).replace(/\\/g, '/');
-      // Calculate actual duration in seconds
-      const duration = item.duration / baseFps;
-      
-      lines.push(`file '${filePath}'`);
-      lines.push(`duration ${duration.toFixed(6)}`);
+      for (let i = 0; i < item.repeat; i++) {
+        lines.push(`file '${filePath}'`);
+      }
     }
-    
-    // Add the last file again without duration (required by ffmpeg concat)
-    const lastItem = sequence[sequence.length - 1];
-    const lastFilePath = path.join(dir, lastItem.file).replace(/\\/g, '/');
-    lines.push(`file '${lastFilePath}'`);
-    
+
     return lines.join('\n');
   }
 
@@ -301,7 +286,7 @@ class ImageConverter {
         const fps = spriteFrameRate || options.fps || 10;
         
         // Create concat file with durations based on transition
-        const listContent = this.createConcatFileWithDurations(transitionSequence, dir, fps);
+        const listContent = this.createConcatFile(transitionSequence, dir);
         await fs.writeFile(listFile, listContent);
 
         // Sanitize the output filename - removes ALL special characters from end
@@ -316,12 +301,15 @@ class ImageConverter {
             '-f', 'concat',
             '-safe', '0',
             '-i', listFile,
+            '-vsync', 'cfr',
+            '-r', String(fps),
             '-c:v', 'libaom-av1',
             '-crf', String(options.crf ?? 40),
             '-cpu-used', String(options.speed ?? 6),
             '-pix_fmt', 'yuv420p',
             outputPath
           ]);
+
 
           console.log(`✔ ${path.relative(imagesRoot, outputPath)} (${fps} fps, ${transition})`);
           converted++;

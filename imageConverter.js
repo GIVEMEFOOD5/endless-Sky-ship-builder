@@ -87,18 +87,18 @@ class OpenGLSpriteRenderer {
         for (int i = 0; i < 8; i++) {
           if (i >= u_numTextures) break;
           
-          vec4 sample;
-          if (i == 0) sample = texture2D(u_texture0, v_texCoord);
-          else if (i == 1) sample = texture2D(u_texture1, v_texCoord);
-          else if (i == 2) sample = texture2D(u_texture2, v_texCoord);
-          else if (i == 3) sample = texture2D(u_texture3, v_texCoord);
-          else if (i == 4) sample = texture2D(u_texture4, v_texCoord);
-          else if (i == 5) sample = texture2D(u_texture5, v_texCoord);
-          else if (i == 6) sample = texture2D(u_texture6, v_texCoord);
-          else if (i == 7) sample = texture2D(u_texture7, v_texCoord);
+          vec4 texSample;
+          if (i == 0) texSample = texture2D(u_texture0, v_texCoord);
+          else if (i == 1) texSample = texture2D(u_texture1, v_texCoord);
+          else if (i == 2) texSample = texture2D(u_texture2, v_texCoord);
+          else if (i == 3) texSample = texture2D(u_texture3, v_texCoord);
+          else if (i == 4) texSample = texture2D(u_texture4, v_texCoord);
+          else if (i == 5) texSample = texture2D(u_texture5, v_texCoord);
+          else if (i == 6) texSample = texture2D(u_texture6, v_texCoord);
+          else if (i == 7) texSample = texture2D(u_texture7, v_texCoord);
           
           float weight = u_weights[i];
-          color += sample * weight;
+          color += texSample * weight;
           totalWeight += weight;
         }
         

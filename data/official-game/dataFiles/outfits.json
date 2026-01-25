@@ -148,6 +148,10 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/grab-strike",
+      "spriteData": {
+        "frame rate": 25,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/grab-strike",
       "hardpoint offset": 7,
       "sound": "grab-strike",
@@ -185,6 +189,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/banisher",
+      "spriteData": {
+        "frame rate": 60
+      },
       "hardpoint sprite": "hardpoint/banisher",
       "hardpoint offset": 5,
       "sound": "banisher",
@@ -236,6 +243,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/fire-lance",
+      "spriteData": {
+        "frame rate": 12,
+        "description": "\"random start frame\""
+      },
       "sound": "fire-lance",
       "hit effect": "fire-lance impact",
       "inaccuracy": 0.4,
@@ -262,6 +273,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/repeater",
+      "spriteData": {
+        "frame rate": 5
+      },
       "sound": "repeater",
       "hit effect": "repeater impact",
       "inaccuracy": 4,
@@ -292,6 +306,9 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/repeater",
+      "spriteData": {
+        "frame rate": 5
+      },
       "hardpoint sprite": "hardpoint/repeater turret",
       "hardpoint offset": 7,
       "sound": "repeater",
@@ -345,6 +362,10 @@
     "piercer capacity": 31,
     "weapon": {
       "sprite": "projectile/piercer",
+      "spriteData": {
+        "frame rate": 5,
+        "description": "\"random start frame\""
+      },
       "sound": "piercer",
       "ammo": "Korath Piercer",
       "icon": "icon/piercer",
@@ -409,6 +430,10 @@
     "minelayer capacity": 17,
     "weapon": {
       "sprite": "projectile/korath minelayer",
+      "spriteData": {
+        "frame rate": 0.6,
+        "description": "\"no repeat\""
+      },
       "sound": "minelayer",
       "ammo": "Korath Mine",
       "icon": "icon/minelayer",
@@ -449,6 +474,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/disruptor",
+      "spriteData": {
+        "frame rate": 15
+      },
       "hardpoint sprite": "hardpoint/disruptor",
       "hardpoint offset": 15,
       "sound": "disruptor",
@@ -477,6 +505,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/slicer",
+      "spriteData": {
+        "frame rate": 6
+      },
       "sound": "slicer",
       "hit effect": "slicer impact",
       "inaccuracy": 0,
@@ -504,6 +535,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/slicer",
+      "spriteData": {
+        "frame rate": 6
+      },
       "hardpoint sprite": "hardpoint/slicer turret",
       "hardpoint offset": 17,
       "sound": "slicer",
@@ -575,6 +609,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/skylance",
+      "spriteData": {
+        "frame rate": 1
+      },
       "hardpoint sprite": "hardpoint/quarg skylance",
       "hardpoint offset": 10,
       "sound": "skylance",
@@ -1430,6 +1467,9 @@
     "ophrys capacity": 1,
     "weapon": {
       "sprite": "projectile/orchid terminal",
+      "spriteData": {
+        "scale": 0.5
+      },
       "sound": "nuke",
       "Ophrys": "Nuclear Torpedo",
       "icon": "icon/orchid",
@@ -1465,6 +1505,9 @@
     "orchid capacity": 6,
     "weapon": {
       "sprite": "projectile/orchid inactive",
+      "spriteData": {
+        "scale": 0.5
+      },
       "sound": "nuke",
       "Orchid": "Nuclear Missile",
       "icon": "icon/orchid",
@@ -1509,6 +1552,9 @@
     "weapon": {
       "hardpoint sprite": "hardpoint/tiny vls",
       "sprite": "projectile/nettle",
+      "spriteData": {
+        "scale": 0.5
+      },
       "sound": "bounce",
       "Nettle": "KKV",
       "icon": "icon/nettle",
@@ -1553,6 +1599,9 @@
     "weapon": {
       "hardpoint sprite": "hardpoint/small vls",
       "sprite": "projectile/nettle",
+      "spriteData": {
+        "scale": 0.5
+      },
       "sound": "bounce",
       "Nettle": "KKV",
       "icon": "icon/nettle",
@@ -1597,6 +1646,9 @@
     "weapon": {
       "hardpoint sprite": "hardpoint/medium vls",
       "sprite": "projectile/nettle",
+      "spriteData": {
+        "scale": 0.5
+      },
       "sound": "bounce",
       "Nettle": "KKV",
       "icon": "icon/nettle",
@@ -2051,6 +2103,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/mandible cannon",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"random start frame\""
+      },
       "sound": "mandible cannon",
       "hit effect": "proton impact",
       "inaccuracy": 0.1,
@@ -2082,6 +2138,10 @@
     "energy capacity": 7000,
     "weapon": {
       "sprite": "projectile/thorax cannon",
+      "spriteData": {
+        "frame rate": 15,
+        "description": "\"rewind\""
+      },
       "sound": "thorax cannon",
       "fire effect": "torpedo fire",
       "live effect": [
@@ -2145,6 +2205,9 @@
     "swarm capacity": 400,
     "weapon": {
       "sprite": "effect/swarm",
+      "spriteData": {
+        "frame rate": 0.01
+      },
       "sound": "swarm missile",
       "ammo": "Swarm Missile",
       "icon": "icon/swarm",
@@ -2767,6 +2830,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/bombardment",
+      "spriteData": {
+        "frame rate": 3.2,
+        "description": "\"no repeat\""
+      },
       "sound": "bombardment",
       "hit effect": "bombardment impact",
       "inaccuracy": 4,
@@ -2798,6 +2865,10 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/bombardment",
+      "spriteData": {
+        "frame rate": 3.2,
+        "description": "\"no repeat\""
+      },
       "hardpoint sprite": "hardpoint/bombardment turret",
       "hardpoint offset": 10,
       "sound": "bombardment",
@@ -2832,6 +2903,10 @@
     "finisher capacity": 40,
     "weapon": {
       "sprite": "projectile/finisher activating",
+      "spriteData": {
+        "frame rate": 1,
+        "description": "\"no repeat\""
+      },
       "sound": "finisher",
       "ammo": "Finisher Torpedo",
       "icon": "icon/finisher",
@@ -2874,6 +2949,10 @@
     "finisher capacity": 60,
     "weapon": {
       "sprite": "projectile/finisher activating",
+      "spriteData": {
+        "frame rate": 1,
+        "description": "\"no repeat\""
+      },
       "sound": "finisher",
       "ammo": "Finisher Torpedo",
       "icon": "icon/finisher",
@@ -2945,6 +3024,10 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/attractor",
+      "spriteData": {
+        "frame rate": 5.2,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/heliarch attractor",
       "hardpoint offset": 9,
       "sound": "heliarch attractor",
@@ -2980,6 +3063,10 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/repulsor",
+      "spriteData": {
+        "frame rate": 3.2,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/heliarch repulsor",
       "hardpoint offset": 9,
       "sound": "heliarch repulsor",
@@ -3046,6 +3133,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/ion rain",
+      "spriteData": {
+        "frame rate": 7,
+        "description": "\"random start frame\""
+      },
       "sound": "ion rain",
       "hit effect": "ion rain impact",
       "inaccuracy": 4.5,
@@ -3244,6 +3335,10 @@
     "energy capacity": 4800,
     "weapon": {
       "sprite": "projectile/drak bolt",
+      "spriteData": {
+        "frame rate": 13.318,
+        "description": "\"random start frame\""
+      },
       "hit effect": "drak bolt impact",
       "inaccuracy": 1,
       "turret turn": 4,
@@ -3273,6 +3368,10 @@
     "weapon": {
       "Jump Drive": 0,
       "sprite": "projectile/drak bolt",
+      "spriteData": {
+        "frame rate": 13.318,
+        "description": "\"random start frame\""
+      },
       "hit effect": "drak bolt impact",
       "inaccuracy": 1,
       "turret turn": 8,
@@ -4004,6 +4103,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/acuit",
+      "spriteData": {
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/acuit",
       "hardpoint offset": 14,
       "hit effect": "acuit hit",
@@ -4037,6 +4139,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/neutron bolt",
+      "spriteData": {
+        "scale": 0.5
+      },
       "hit effect": "neutron explosion",
       "sound": "neutron bolt",
       "inaccuracy": 9,
@@ -4461,6 +4566,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/ion bolt",
+      "spriteData": {
+        "frame rate": 5
+      },
       "sound": "ion",
       "hit effect": "ion impact",
       "inaccuracy": 1,
@@ -4491,6 +4599,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/ionic blast",
+      "spriteData": {
+        "frame rate": 5
+      },
       "sound": "ionic blast",
       "hit effect": "ion impact",
       "inaccuracy": 4,
@@ -4522,6 +4633,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/ionic turret",
+      "spriteData": {
+        "frame rate": 20
+      },
       "fade out": 10,
       "hardpoint sprite": "hardpoint/hai ionic turret",
       "hardpoint offset": 16,
@@ -4584,6 +4698,9 @@
     "railgun slug capacity": 1000,
     "weapon": {
       "sprite": "projectile/rail slug",
+      "spriteData": {
+        "frame rate": 30
+      },
       "ammo": "Railgun Slug",
       "icon": "icon/rail gun",
       "sound": "ion impact",
@@ -4640,6 +4757,10 @@
     "tracker capacity": 56,
     "weapon": {
       "sprite": "projectile/tracker",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"random start frame\""
+      },
       "sound": "tracker",
       "ammo": "Hai Tracker",
       "icon": "icon/tracker",
@@ -7117,6 +7238,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/laser",
+      "spriteData": {
+        "frame rate": 1
+      },
       "sound": "laser",
       "hit effect": "beam laser impact",
       "inaccuracy": 0.5,
@@ -7144,6 +7268,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/2x laser",
+      "spriteData": {
+        "frame rate": 1
+      },
       "hardpoint sprite": "hardpoint/laser turret",
       "hardpoint offset": -0.5,
       "sound": "laser",
@@ -7173,6 +7300,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/heavy laser",
+      "spriteData": {
+        "frame rate": 1
+      },
       "sound": "heavy laser",
       "hit effect": "heavy laser impact",
       "inaccuracy": 0.4,
@@ -7200,6 +7330,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/2x heavy laser",
+      "spriteData": {
+        "frame rate": 1
+      },
       "hardpoint sprite": "hardpoint/heavy laser turret",
       "hardpoint offset": 8,
       "sound": "heavy laser",
@@ -7229,6 +7362,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/mining laser",
+      "spriteData": {
+        "frame rate": 1
+      },
       "sound": "mining laser",
       "hit effect": "beam laser impact",
       "inaccuracy": 0.35,
@@ -7258,6 +7394,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/mining laser",
+      "spriteData": {
+        "frame rate": 1
+      },
       "hardpoint sprite": "hardpoint/mining laser turret",
       "hardpoint offset": 0.7,
       "sound": "mining laser",
@@ -7314,6 +7453,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/electron",
+      "spriteData": {
+        "frame rate": 60
+      },
       "sound": "electron beam",
       "hit effect": "electron impact",
       "inaccuracy": 0.3,
@@ -7341,6 +7483,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/2x electron",
+      "spriteData": {
+        "frame rate": 60
+      },
       "hardpoint sprite": "hardpoint/electron turret",
       "hardpoint offset": 8,
       "sound": "electron beam",
@@ -7502,6 +7647,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/plasma",
+      "spriteData": {
+        "frame rate": 3
+      },
       "sound": "plasma",
       "hit effect": "plasma explosion",
       "inaccuracy": 2,
@@ -7531,6 +7679,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/plasma",
+      "spriteData": {
+        "frame rate": 3
+      },
       "hardpoint sprite": "hardpoint/plasma turret",
       "hardpoint offset": 15,
       "sound": "plasma",
@@ -7562,6 +7713,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/plasma",
+      "spriteData": {
+        "frame rate": 3
+      },
       "sound": "plasma",
       "hit effect": "plasma explosion",
       "lifetime": 38,
@@ -7590,6 +7744,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "effect/explosion/small",
+      "spriteData": {
+        "frame rate": 60,
+        "description": "\"no repeat\""
+      },
       "sound": "flamethrower",
       "icon": "icon/flamethrower",
       "submunition": "Flamethrower Projectile",
@@ -7642,6 +7800,10 @@
     "meteor capacity": 30,
     "weapon": {
       "sprite": "projectile/meteor",
+      "spriteData": {
+        "frame rate": 0.25,
+        "description": "\"no repeat\""
+      },
       "sound": "meteor",
       "ammo": "Meteor Missile",
       "icon": "icon/meteor",
@@ -7682,6 +7844,10 @@
     "meteor capacity": 7,
     "weapon": {
       "sprite": "projectile/meteor",
+      "spriteData": {
+        "frame rate": 0.25,
+        "description": "\"no repeat\""
+      },
       "sound": "meteor",
       "ammo": "Meteor Missile",
       "icon": "icon/meteor",
@@ -7748,6 +7914,10 @@
     "sidewinder capacity": 45,
     "weapon": {
       "sprite": "projectile/sidewinder",
+      "spriteData": {
+        "frame rate": 0.25,
+        "description": "\"no repeat\""
+      },
       "sound": "sidewinder",
       "ammo": "Sidewinder Missile",
       "icon": "icon/sidewinder",
@@ -7788,6 +7958,10 @@
     "sidewinder capacity": 6,
     "weapon": {
       "sprite": "projectile/sidewinder",
+      "spriteData": {
+        "frame rate": 0.25,
+        "description": "\"no repeat\""
+      },
       "sound": "sidewinder",
       "ammo": "Sidewinder Missile",
       "icon": "icon/sidewinder",
@@ -7978,6 +8152,10 @@
     "torpedo capacity": 30,
     "weapon": {
       "sprite": "projectile/torpedo",
+      "spriteData": {
+        "frame rate": 2,
+        "description": "\"random start frame\""
+      },
       "sound": "torpedo",
       "ammo": "Torpedo",
       "icon": "icon/torpedo",
@@ -8019,6 +8197,10 @@
     "torpedo capacity": 3,
     "weapon": {
       "sprite": "projectile/torpedo",
+      "spriteData": {
+        "frame rate": 2,
+        "description": "\"random start frame\""
+      },
       "sound": "torpedo",
       "ammo": "Torpedo",
       "icon": "icon/torpedo",
@@ -8087,6 +8269,10 @@
     "typhoon capacity": 30,
     "weapon": {
       "sprite": "projectile/typhoon",
+      "spriteData": {
+        "frame rate": 4,
+        "description": "\"random start frame\""
+      },
       "sound": "typhoon",
       "ammo": "Typhoon Torpedo",
       "icon": "icon/typhoon",
@@ -8127,6 +8313,10 @@
     "typhoon capacity": 3,
     "weapon": {
       "sprite": "projectile/typhoon",
+      "spriteData": {
+        "frame rate": 4,
+        "description": "\"random start frame\""
+      },
       "sound": "typhoon",
       "ammo": "Typhoon Torpedo",
       "icon": "icon/typhoon",
@@ -8193,6 +8383,9 @@
     "rocket capacity": 20,
     "weapon": {
       "sprite": "projectile/rocket",
+      "spriteData": {
+        "frame rate": 4
+      },
       "sound": "rocket",
       "ammo": "Heavy Rocket",
       "icon": "icon/rocket",
@@ -8229,6 +8422,9 @@
     "rocket capacity": 2,
     "weapon": {
       "sprite": "projectile/rocket",
+      "spriteData": {
+        "frame rate": 4
+      },
       "sound": "rocket",
       "ammo": "Heavy Rocket",
       "icon": "icon/rocket",
@@ -8266,6 +8462,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/missile",
+      "spriteData": {
+        "frame rate": 0.25,
+        "description": "\"no repeat\""
+      },
       "hardpoint sprite": "hardpoint/nuke",
       "sound": "nuke",
       "ammo": "Nuclear Missile",
@@ -8340,6 +8540,9 @@
     "gatling round capacity": 3000,
     "weapon": {
       "sprite": "projectile/tinyflare",
+      "spriteData": {
+        "description": "\"random start frame\""
+      },
       "sound": "gatling",
       "ammo": "Gatling Gun Ammo",
       "icon": "icon/gat",
@@ -8373,6 +8576,9 @@
     "weapon": {
       "sound": "gatling",
       "sprite": "projectile/2x tinyflare",
+      "spriteData": {
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/gat turret hardpoint",
       "submunition": [
         "gbullet",
@@ -8439,6 +8645,10 @@
     },
     "weapon": {
       "sprite": "projectile/stagnation beam",
+      "spriteData": {
+        "frame rate": 6,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/stagnation beam",
       "sound": "stagnation beam",
       "hit effect": "stagnation beam impact",
@@ -8474,6 +8684,10 @@
     },
     "weapon": {
       "sprite": "projectile/star tail upload",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"no repeat\""
+      },
       "sound": "star tail",
       "hit effect": "blaster impact",
       "velocity": 1,
@@ -8710,6 +8924,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/strange ray",
+      "spriteData": {
+        "frame rate": 60,
+        "description": "\"no repeat\""
+      },
       "inaccuracy": 20,
       "velocity": 6,
       "lifetime": 10,
@@ -8747,6 +8965,11 @@
     "unplunderable": 1,
     "weapon": {
       "sprite": "projectile/aberrant spike",
+      "spriteData": {
+        "frame rate": 24,
+        "scale": 0.5,
+        "description": "\"rewind\""
+      },
       "sound": "minelayer",
       "icon": "icon/finisher",
       "fire effect": "blood",
@@ -8792,6 +9015,9 @@
     "unplunderable": 1,
     "weapon": {
       "sprite": "projectile/nucleolysis",
+      "spriteData": {
+        "frame rate": 15
+      },
       "sound": "nucleolysis",
       "hit effect": "acuit hit",
       "inaccuracy": 0.2,
@@ -8939,6 +9165,11 @@
     "asteroid mount small": -1,
     "weapon": {
       "sprite": "projectile/asteroid weapon circle",
+      "spriteData": {
+        "frame time": 20,
+        "start frame": 0,
+        "description": "\"no repeat\""
+      },
       "sound": "magic am",
       "hit effect": "large explosion",
       "inaccuracy": 0.5,
@@ -8968,6 +9199,9 @@
     "asteroid mount": -1,
     "weapon": {
       "sprite": "effect/asteroid projectile print",
+      "spriteData": {
+        "frame rate": 21
+      },
       "velocity": 10,
       "sound": "magic weapon",
       "drag": 0.1,
@@ -9021,6 +9255,10 @@
     "asteroid mount 3": -1,
     "weapon": {
       "sprite": "projectile/asteroid twin projectile",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"random start frame\""
+      },
       "sound": "magic weapon",
       "velocity": 20,
       "drag": 0.1,
@@ -9055,6 +9293,9 @@
     "asteroid mount 4": -1,
     "weapon": {
       "sprite": "effect/asteroid projectile print",
+      "spriteData": {
+        "frame rate": 21
+      },
       "sound": "magic weapon",
       "velocity": 100,
       "drag": 0.1,
@@ -9097,6 +9338,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/ionball",
+      "spriteData": {
+        "frame rate": 15,
+        "description": "\"rewind\""
+      },
       "sound": "ionball",
       "fire effect": "finisher sparks",
       "hit effect": [
@@ -9141,6 +9386,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/ravager beam",
+      "spriteData": {
+        "frame rate": 15
+      },
       "sound": "disruptor",
       "hit effect": "ravager impact",
       "inaccuracy": 0.2,
@@ -9167,6 +9415,9 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/ravager beam",
+      "spriteData": {
+        "frame rate": 15
+      },
       "hardpoint sprite": "hardpoint/ravager turret",
       "hardpoint offset": 3,
       "sound": "disruptor",
@@ -9196,6 +9447,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/annihilator",
+      "spriteData": {
+        "frame rate": 7
+      },
       "sound": "inhibitor",
       "hit effect": "bullet impact",
       "inaccuracy": 2.5,
@@ -9222,6 +9476,9 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/annihilator",
+      "spriteData": {
+        "frame rate": 7
+      },
       "sound": "inhibitor",
       "hardpoint sprite": "hardpoint/annihilator turret",
       "hardpoint offset": 15,
@@ -9251,6 +9508,10 @@
     "emp torpedo capacity": 16,
     "weapon": {
       "sprite": "projectile/emp torpedo",
+      "spriteData": {
+        "frame rate": 2,
+        "description": "\"no repeat\""
+      },
       "sound": "torpedo",
       "ammo": "EMP Torpedo",
       "icon": "icon/emp",
@@ -9299,6 +9560,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/mhd",
+      "spriteData": {
+        "frame rate": 2
+      },
       "sound": "rocket",
       "ammo": "Ka'het MHD Generator",
       "icon": "icon/mhd",
@@ -10369,6 +10633,10 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/grab-strike",
+      "spriteData": {
+        "frame rate": 25,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/grab-strike",
       "hardpoint offset": 7,
       "sound": "grab-strike",
@@ -10410,6 +10678,10 @@
     "asteroid scan power": 16,
     "weapon": {
       "sprite": "projectile/shunt-strike",
+      "spriteData": {
+        "frame rate": 24,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/shunt-strike",
       "hardpoint offset": 7,
       "sound": "shunt-strike",
@@ -10454,6 +10726,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/banisher",
+      "spriteData": {
+        "frame rate": 60
+      },
       "hardpoint sprite": "hardpoint/banisher",
       "hardpoint offset": 5,
       "sound": "banisher",
@@ -10484,6 +10759,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/expeller",
+      "spriteData": {
+        "frame rate": 60
+      },
       "sound": "banisher",
       "hit effect": "banisher impact",
       "inaccuracy": 0.4,
@@ -10536,6 +10814,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/fire-lance",
+      "spriteData": {
+        "frame rate": 12,
+        "description": "\"random start frame\""
+      },
       "sound": "fire-lance",
       "hit effect": "fire-lance impact",
       "inaccuracy": 0.4,
@@ -10565,6 +10847,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/blaze-pike",
+      "spriteData": {
+        "frame rate": 20
+      },
       "hardpoint sprite": "hardpoint/blaze-pike",
       "sound": "blaze-pike",
       "hit effect": "blaze-pike hit",
@@ -10596,6 +10881,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/korath inferno",
+      "spriteData": {
+        "frame rate": 20
+      },
       "hardpoint sprite": "hardpoint/korath inferno",
       "sound": "korath inferno",
       "hit effect": "korath inferno hit",
@@ -10627,6 +10915,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/repeater",
+      "spriteData": {
+        "frame rate": 5
+      },
       "sound": "repeater",
       "hit effect": "repeater impact",
       "inaccuracy": 4,
@@ -10659,6 +10950,9 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/repeater",
+      "spriteData": {
+        "frame rate": 5
+      },
       "hardpoint sprite": "hardpoint/repeater turret",
       "hardpoint offset": 7,
       "sound": "repeater",
@@ -10718,6 +11012,10 @@
     "piercer capacity": 31,
     "weapon": {
       "sprite": "projectile/piercer",
+      "spriteData": {
+        "frame rate": 5,
+        "description": "\"random start frame\""
+      },
       "sound": "piercer",
       "ammo": "Piercer Missile",
       "icon": "icon/piercer",
@@ -10763,6 +11061,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/detainer",
+      "spriteData": {
+        "frame rate": 2.5
+      },
       "sound": "detainer",
       "hit effect": [
         "detainer impact",
@@ -10825,6 +11126,10 @@
     "minelayer capacity": 17,
     "weapon": {
       "sprite": "projectile/korath minelayer",
+      "spriteData": {
+        "frame rate": 0.6,
+        "description": "\"no repeat\""
+      },
       "sound": "minelayer",
       "ammo": "Cluster Mine",
       "icon": "icon/minelayer",
@@ -10867,6 +11172,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/disruptor",
+      "spriteData": {
+        "frame rate": 15
+      },
       "hardpoint sprite": "hardpoint/disruptor",
       "hardpoint offset": 15,
       "sound": "disruptor",
@@ -10897,6 +11205,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/slicer",
+      "spriteData": {
+        "frame rate": 6
+      },
       "sound": "slicer",
       "hit effect": "slicer impact",
       "inaccuracy": 0,
@@ -10926,6 +11237,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/slicer",
+      "spriteData": {
+        "frame rate": 6
+      },
       "hardpoint sprite": "hardpoint/slicer turret",
       "hardpoint offset": 17,
       "sound": "slicer",
@@ -10959,6 +11273,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/digger",
+      "spriteData": {
+        "frame rate": 20
+      },
       "hardpoint sprite": "hardpoint/digger turret",
       "sound": "korath digger",
       "hit effect": "korath digger hit",
@@ -10991,6 +11308,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/digger thin",
+      "spriteData": {
+        "frame rate": 20
+      },
       "sound": "korath digger",
       "hit effect": "korath digger hit",
       "inaccuracy": 0.1,
@@ -11022,6 +11342,10 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/heaver hyperspace",
+      "spriteData": {
+        "frame rate": 12,
+        "description": "rewind"
+      },
       "hardpoint sprite": "hardpoint/korath heaver",
       "sound": "heaver",
       "icon": "icon/korath heaver",
@@ -11187,6 +11511,10 @@
     "firestorm torpedo capacity": 13,
     "weapon": {
       "sprite": "projectile/firestorm torpedo",
+      "spriteData": {
+        "frame rate": 6,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/firestorm battery",
       "sound": "firestorm",
       "ammo": "Firestorm Torpedo",
@@ -11328,6 +11656,10 @@
     "required crew": 12,
     "weapon": {
       "sprite": "projectile/fusion gun bolt",
+      "spriteData": {
+        "frame rate": 0.25,
+        "description": "\"no repeat\""
+      },
       "sound": "dragonflame",
       "icon": "icon/dragonflame",
       "fire effect": "fusion cannon fire",
@@ -11376,6 +11708,11 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/lightning",
+      "spriteData": {
+        "frame rate": 60,
+        "delay": 6,
+        "description": "\"random start frame\""
+      },
       "sound": "zapper",
       "hit effect": "zapper impact",
       "inaccuracy": 0.3,
@@ -11403,6 +11740,10 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/lightning",
+      "spriteData": {
+        "frame rate": 60,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/pug zapper turret",
       "hardpoint offset": 7,
       "sound": "zapper",
@@ -11432,6 +11773,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/seeker",
+      "spriteData": {
+        "frame rate": 20,
+        "description": "\"random start frame\""
+      },
       "sound": "seeker",
       "hit effect": "seeker impact",
       "die effect": "seeker impact",
@@ -11921,6 +12266,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/skydagger",
+      "spriteData": {
+        "frame rate": 1
+      },
       "hardpoint sprite": "hardpoint/quarg skydagger",
       "hardpoint offset": 7,
       "sound": "skydagger",
@@ -11953,6 +12301,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/skylance",
+      "spriteData": {
+        "frame rate": 1
+      },
       "hardpoint sprite": "hardpoint/quarg skylance",
       "hardpoint offset": 10,
       "sound": "skylance",
@@ -12036,7 +12387,6 @@
     "outfit space": -45,
     "weapon capacity": -45,
     "weapon": {
-      "sprite": "projectile/culverin",
       "sound": "culverin",
       "hit effect": "culverin hit",
       "die effect": "culverin die",
@@ -12107,6 +12457,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/slipstream projector/slipstream",
+      "spriteData": {
+        "frame rate": 20
+      },
       "sound": "slipstream projector",
       "inaccuracy": 0.1,
       "velocity": 500,
@@ -12146,6 +12499,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/inhibitor",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"no repeat\""
+      },
       "sound": "inhibitor",
       "hit effect": "inhibitor impact",
       "inaccuracy": 0.5,
@@ -12182,6 +12539,10 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/inhibitor",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"no repeat\""
+      },
       "hardpoint sprite": "hardpoint/inhibitor turret",
       "hardpoint offset": 6,
       "sound": "inhibitor",
@@ -12219,6 +12580,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/thrasher",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"random start frame\" \"no repeat\""
+      },
       "sound": "thrasher",
       "hit effect": "thrasher impact",
       "inaccuracy": 9,
@@ -12249,6 +12614,10 @@
     "turret mounts": -1,
     "weapon": {
       "sprite": "projectile/thrasher",
+      "spriteData": {
+        "frame rate": 10,
+        "description": "\"random start frame\" \"no repeat\""
+      },
       "hardpoint sprite": "hardpoint/thrasher turret",
       "hardpoint offset": 6,
       "sound": "thrasher",
@@ -12341,6 +12710,10 @@
     "emp torpedo capacity": 9,
     "weapon": {
       "sprite": "projectile/emp torpedo",
+      "spriteData": {
+        "frame rate": 2,
+        "description": "\"no repeat\""
+      },
       "sound": "torpedo",
       "ammo": "EMP Torpedo",
       "icon": "icon/emp",
@@ -12423,6 +12796,10 @@
     "teciimach canister capacity": 9,
     "weapon": {
       "sprite": "projectile/emp torpedo",
+      "spriteData": {
+        "frame rate": 2,
+        "description": "\"no repeat\""
+      },
       "sound": "torpedo",
       "ammo": "Teciimach Canister",
       "icon": "icon/emp",
@@ -12478,6 +12855,10 @@
     "teciimach canister capacity": 3,
     "weapon": {
       "sprite": "projectile/emp torpedo",
+      "spriteData": {
+        "frame rate": 2,
+        "description": "\"no repeat\""
+      },
       "sound": "torpedo",
       "ammo": "Teciimach Canister",
       "icon": "icon/emp",
@@ -12536,6 +12917,9 @@
     "unplunderable": 1,
     "weapon": {
       "sprite": "projectile/ember tear/ember tear",
+      "spriteData": {
+        "frame rate": 30
+      },
       "sound": "ember tear",
       "hit effect": [
         "ember tear spark",
@@ -13287,6 +13671,9 @@
     "unique": 1,
     "weapon": {
       "sprite": "projectile/pwavecannon",
+      "spriteData": {
+        "frame rate": 20
+      },
       "sound": "pwave",
       "hardpoint sprite": "hardpoint/pwavehp",
       "hardpoint offset": 11,
@@ -13323,6 +13710,10 @@
     "operating costs": 150,
     "weapon": {
       "sprite": "projectile/shardactive",
+      "spriteData": {
+        "frame rate": 30,
+        "description": "\"random start frame\""
+      },
       "sound": "grab-strike",
       "icon": "icon/shard",
       "fire effect": "basic launch",
@@ -13363,6 +13754,9 @@
     "unique": 1,
     "weapon": {
       "sprite": "projectile/hion",
+      "spriteData": {
+        "frame rate": 30
+      },
       "sound": "hion",
       "hit effect": "proton impact",
       "submunition": "Heavy Ion Fragment",
@@ -14022,6 +14416,11 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/bimodal",
+      "spriteData": {
+        "frame rate": 5,
+        "start frame": 0,
+        "description": "\"no repeat\""
+      },
       "sound": "bimodal",
       "hit effect": "bimodal impact",
       "fire effect": "moonbeam fleck",
@@ -14070,6 +14469,11 @@
       "hardpoint sprite": "hardpoint/bimodal turret",
       "hardpoint offset": 12,
       "sprite": "projectile/bimodal",
+      "spriteData": {
+        "frame rate": 5,
+        "start frame": 0,
+        "description": "\"no repeat\""
+      },
       "sound": "bimodal",
       "hit effect": "bimodal impact",
       "fire effect": "moonbeam fleck",
@@ -14140,6 +14544,10 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/successor pulse laser",
+      "spriteData": {
+        "frame rate": 5,
+        "description": "\"random start frame\""
+      },
       "sound": "successor pulse laser",
       "hit effect": "successor pulse laser impact",
       "inaccuracy": 0.4,
@@ -14173,6 +14581,10 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/successor pulse laser",
+      "spriteData": {
+        "frame rate": 5,
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/successor pulse laser turret",
       "hardpoint offset": 8,
       "sound": "successor pulse laser",
@@ -14208,6 +14620,11 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/successor pulse laser",
+      "spriteData": {
+        "start frame": 2,
+        "frame rate": 8,
+        "description": "\"rewind\""
+      },
       "sound": "overcharged pulse laser",
       "hit effect": "overcharged pulse laser impact",
       "inaccuracy": 5.5,
@@ -14242,6 +14659,11 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/successor pulse laser",
+      "spriteData": {
+        "start frame": 2,
+        "frame rate": 8,
+        "description": "\"rewind\""
+      },
       "hardpoint sprite": "hardpoint/overcharged pulse laser turret",
       "hardpoint offset": 8,
       "sound": "overcharged pulse laser",
@@ -14280,6 +14702,10 @@
     "spike capacity": 20,
     "weapon": {
       "sprite": "projectile/sjeja kinetic lance",
+      "spriteData": {
+        "frame rate": 4,
+        "description": "\"random start frame\""
+      },
       "sound": "sjeja lance",
       "ammo": "High-Velocity Spike",
       "icon": "icon/hv spike",
@@ -14348,6 +14774,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/sunbeam/sunbeam",
+      "spriteData": {
+        "frame rate": 30
+      },
       "sound": "sunbeam",
       "hit effect": "sunbeam impact",
       "inaccuracy": 0.2,
@@ -14379,6 +14808,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/sunbeam/sunbeam",
+      "spriteData": {
+        "frame rate": 30
+      },
       "hardpoint sprite": "hardpoint/sunbeam turret",
       "hardpoint offset": -2,
       "sound": "sunbeam",
@@ -14413,6 +14845,9 @@
     "required crew": 2,
     "weapon": {
       "sprite": "projectile/sunbeam/2x sunbeam",
+      "spriteData": {
+        "frame rate": 30
+      },
       "hardpoint sprite": "hardpoint/dual sunbeam turret",
       "hardpoint offset": 12,
       "sound": "sunbeam",
@@ -14446,6 +14881,9 @@
     "gun ports": -1,
     "weapon": {
       "sprite": "projectile/moonbeam",
+      "spriteData": {
+        "description": "\"random start frame\""
+      },
       "sound": "moonbeam",
       "fire effect": "moonbeam fleck",
       "hit effect": "moonbeam impact",
@@ -14480,6 +14918,9 @@
     "required crew": 1,
     "weapon": {
       "sprite": "projectile/moonbeam",
+      "spriteData": {
+        "description": "\"random start frame\""
+      },
       "hardpoint sprite": "hardpoint/moonbeam turret",
       "hardpoint offset": 9,
       "sound": "moonbeam",
@@ -14544,6 +14985,10 @@
     "thunderhead capacity": 40,
     "weapon": {
       "sprite": "projectile/thunderhead",
+      "spriteData": {
+        "frame rate": 0.1,
+        "description": "\"no repeat\""
+      },
       "sound": "thunderhead",
       "ammo": "Thunderhead Missile",
       "icon": "icon/thunderhead",

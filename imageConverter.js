@@ -10,17 +10,158 @@ const SEQ_REGEX = /^(.*?)(\d+)\.(png|jpg|jpeg)$/i;
 
 class ImageConverter {
   /**
-   * Sanitize filename by removing special characters
-   * Keeps alphanumeric, spaces, hyphens, and underscores
+   * Sanitize filename by removing ALL special characters from the end
+   * (including dashes and underscores)
    */
   sanitizeFilename(name) {
-    return name
-      .replace(/[^a-zA-Z0-9_-]+$/, '')
-      .trim()
+    return name.replace(/[^a-zA-Z0-9]+$/, '').trim();
   }
 
-  async processAllImages(pluginDir, options = {}) {
+  /**
+   * Collect all sprite paths and their metadata (spriteData)
+   * Returns an array of objects with path and metadata
+   */
+  async collectSpritesWithData(pluginDir, parsedData) {
     const imagesRoot = path.join(pluginDir, 'images');
+    const sprites = [];
+
+    // Helper function to extract sprite info from ships/variants/outfits
+    const extractSpriteInfo = (item) => {
+      const info = [];
+      
+      if (item.sprite) {
+        info.push({
+          path: item.sprite,
+          spriteData: item.spriteData || null,
+          type: 'sprite',
+          itemName: item.name || item.displayName
+        });
+      }
+      
+      if (item.thumbnail) {
+        info.push({
+          path: item.thumbnail,
+          spriteData: null, // Thumbnails typically don't have spriteData
+          type: 'thumbnail',
+          itemName: item.name || item.displayName
+        });
+      }
+
+      // Handle weapon sprites for outfits
+      if (item.weapon) {
+        if (item.weapon.sprite) {
+          info.push({
+            path: item.weapon.sprite,
+            spriteData: item.weapon.spriteData || null,
+            type: 'weapon-sprite',
+            itemName: item.name || item.displayName
+          });
+        }
+        if (item.weapon['hardpoint sprite']) {
+          info.push({
+            path: item.weapon['hardpoint sprite'],
+            spriteData: item.weapon.spriteData || null,
+            type: 'hardpoint-sprite',
+            itemName: item.name || item.displayName
+          });
+        }
+      }
+      
+      return info;
+    };
+
+    // Collect from ships
+    if (parsedData.ships) {
+      for (const ship of parsedData.ships) {
+        sprites.push(...extractSpriteInfo(ship));
+      }
+    }
+
+    // Collect from variants
+    if (parsedData.variants) {
+      for (const variant of parsedData.variants) {
+        sprites.push(...extractSpriteInfo(variant));
+      }
+    }
+
+    // Collect from outfits
+    if (parsedData.outfits) {
+      for (const outfit of parsedData.outfits) {
+        sprites.push(...extractSpriteInfo(outfit));
+      }
+    }
+
+    return sprites;
+  }
+
+  /**
+   * Get frame rate from spriteData
+   * Returns the FPS value to use for the animation
+   */
+  getFrameRate(spriteData) {
+    if (!spriteData) return null;
+    
+    // Check for "frame rate" - this is directly in FPS
+    if (spriteData['frame rate']) {
+      return parseFloat(spriteData['frame rate']);
+    }
+    
+    // Check for "frame time" - this is in 1/60ths of a second
+    if (spriteData['frame time']) {
+      const frameTime = parseFloat(spriteData['frame time']);
+      return 60 / frameTime; // Convert to FPS
+    }
+    
+    return null;
+  }
+
+  /**
+   * Build a lookup map of sprite paths to their frame rates
+   * This allows us to quickly find the frame rate for any sprite path
+   */
+  buildSpriteDataMap(spritesWithData) {
+    const map = new Map();
+    
+    for (const sprite of spritesWithData) {
+      // Normalize the path (remove leading/trailing slashes, use forward slashes)
+      const normalizedPath = sprite.path.replace(/\\/g, '/').replace(/^\/+|\/+$/g, '');
+      
+      // Get the frame rate
+      const frameRate = this.getFrameRate(sprite.spriteData);
+      
+      if (frameRate) {
+        map.set(normalizedPath, frameRate);
+      }
+    }
+    
+    return map;
+  }
+
+  /**
+   * Find the frame rate for a specific image file path
+   * Matches the file's directory and base name against sprite paths
+   */
+  findFrameRateForImage(imagePath, imagesRoot, spriteDataMap) {
+    // Get relative path from images directory
+    const relativePath = path.relative(imagesRoot, imagePath).replace(/\\/g, '/');
+    
+    // Remove the file extension and any frame number suffix
+    // e.g., "ship/kestrel-0.png" -> "ship/kestrel"
+    const withoutExt = relativePath.replace(/\.(png|jpg|jpeg)$/i, '');
+    const basePath = withoutExt.replace(/[-+]\d+$/, '');
+    
+    // Look up in the sprite data map
+    return spriteDataMap.get(basePath) || null;
+  }
+
+  async processAllImages(pluginDir, parsedData, options = {}) {
+    const imagesRoot = path.join(pluginDir, 'images');
+
+    // First, collect all sprite data and build a lookup map
+    const spritesWithData = await this.collectSpritesWithData(pluginDir, parsedData);
+    const spriteDataMap = this.buildSpriteDataMap(spritesWithData);
+    
+    console.log(`Built sprite data map with ${spriteDataMap.size} entries`);
 
     let converted = 0;
     let skipped = 0;
@@ -64,7 +205,7 @@ class ImageConverter {
 
         // Create ping-pong effect: lowest to highest, then highest to lowest
         // Exclude the last frame to avoid duplicate when reversing
-        const reversedSeq = seqFiles.reverse();
+        const reversedSeq = seqFiles.slice(0, -1).reverse();
         const pingPongSeq = [...seqFiles, ...reversedSeq];
 
         const listFile = path.join(dir, `._${baseName}_frames.txt`);
@@ -74,14 +215,23 @@ class ImageConverter {
 
         await fs.writeFile(listFile, listContent);
 
-        // Sanitize the output filename
+        // Sanitize the output filename - removes ALL special characters from end
         const sanitizedName = this.sanitizeFilename(baseName);
         const outputPath = path.join(dir, `${sanitizedName}.avif`);
+
+        // Find the frame rate for this specific image sequence
+        const firstImagePath = path.join(dir, seqFiles[0]);
+        const spriteFrameRate = this.findFrameRateForImage(firstImagePath, imagesRoot, spriteDataMap);
+        
+        // Use sprite's frame rate if available, otherwise use options.fps or default to 10
+        const fps = spriteFrameRate || options.fps || 10;
+        
+        console.log(`Processing ${path.relative(imagesRoot, dir)}/${baseName} at ${fps} fps`);
 
         try {
           await execFileAsync('ffmpeg', [
             '-y',
-            '-r', String(options.fps ?? 10),
+            '-r', String(fps),
             '-f', 'concat',
             '-safe', '0',
             '-i', listFile,
@@ -92,7 +242,7 @@ class ImageConverter {
             outputPath
           ]);
 
-          console.log(`✔ ${path.relative(imagesRoot, outputPath)}`);
+          console.log(`✔ ${path.relative(imagesRoot, outputPath)} (${fps} fps)`);
           converted++;
         } catch (err) {
           console.error(`✖ Failed: ${outputPath}`, err.message);

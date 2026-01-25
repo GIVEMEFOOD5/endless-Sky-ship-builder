@@ -1493,7 +1493,7 @@ async function main() {
       console.log(`${'='.repeat(60)}`);
       
       const parser = new EndlessSkyParser();
-      const data = await parser.parseRepository(plugin.repository);
+      const data = await parser.parseRepository(plugin.repository); 
       
       // Create plugin directories
       const pluginDir = path.join(process.cwd(), 'data', plugin.name);
@@ -1513,7 +1513,7 @@ async function main() {
 
         // Convert image sequences to AVIF
         const converter = new ImageConverter();
-        await converter.processAllImages(pluginDir);
+        await converter.processAllImages(pluginDir, data);
       }
       
       // Save JSON files to pluginDir/dataFiles/

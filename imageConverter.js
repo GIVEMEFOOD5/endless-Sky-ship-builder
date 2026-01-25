@@ -5,39 +5,31 @@ const util = require('util');
 
 const execFileAsync = util.promisify(execFile);
 
-// name + digits + extension
 const SEQ_REGEX = /^(.*?)(\d+)\.(png|jpg|jpeg)$/i;
 
-// ---- TIMING CONSTANTS ----
+// ---------------- CONFIG ----------------
 const GAME_FPS = 60;
-const MIN_LOGICAL_FPS = 0.1;     // lowest supported sprite FPS
-const MAX_HOLD_FRAMES = 600;     // max hold = 10 seconds @ 60fps
-const DISABLE_PINGPONG_BELOW = 1; // fps threshold
+const MIN_LOGICAL_FPS = 0.1;
+const MAX_HOLD_FRAMES = 600;
+const DISABLE_PINGPONG_BELOW = 1;
+
+const ENABLE_FRAME_BLENDING = true;
+const BLEND_BELOW_FPS = 0.5;
+// ----------------------------------------
 
 class ImageConverter {
   sanitizeFilename(name) {
-    return name.replace(/[^a-zA-Z0-9]+$/, '').trim();
+    const cleaned = name.replace(/[^a-zA-Z0-9]+$/g, '').trim();
+    return cleaned.length ? cleaned : 'sprite';
   }
-
-  // ---------------- SPRITE DATA ----------------
 
   async collectSpritesWithData(pluginDir, parsedData) {
     const sprites = [];
-
     const extract = (item) => {
       const out = [];
-      if (item.sprite) {
-        out.push({
-          path: item.sprite,
-          spriteData: item.spriteData || null
-        });
-      }
-      if (item.weapon?.sprite) {
-        out.push({
-          path: item.weapon.sprite,
-          spriteData: item.weapon.spriteData || null
-        });
-      }
+      if (item.sprite) out.push({ path: item.sprite, spriteData: item.spriteData || null });
+      if (item.weapon?.sprite)
+        out.push({ path: item.weapon.sprite, spriteData: item.weapon.spriteData || null });
       return out;
     };
 
@@ -78,7 +70,7 @@ class ImageConverter {
     return spriteDataMap.get(rel) || null;
   }
 
-  // ---------------- SEQUENCE GENERATION ----------------
+  // ---------------- SEQUENCE ----------------
 
   generateSequence(seqFiles, logicalFps) {
     const sorted = [...seqFiles].sort((a, b) => {
@@ -88,17 +80,13 @@ class ImageConverter {
     });
 
     const fps = Math.max(logicalFps, MIN_LOGICAL_FPS);
-    const holdFrames = Math.min(
-      Math.round(GAME_FPS / fps),
-      MAX_HOLD_FRAMES
-    );
+    const holdFrames = Math.min(Math.round(GAME_FPS / fps), MAX_HOLD_FRAMES);
 
-    const sequence = [];
-    for (const file of sorted) {
-      sequence.push({ file, repeat: holdFrames });
-    }
+    const sequence = sorted.map(file => ({
+      file,
+      repeat: holdFrames
+    }));
 
-    // Ping-pong only if sprite is not ultra-slow
     if (fps >= DISABLE_PINGPONG_BELOW && sorted.length > 2) {
       const reverse = sequence.slice(1, -1).reverse();
       return [...sequence, ...reverse];
@@ -115,10 +103,10 @@ class ImageConverter {
         lines.push(`file '${filePath}'`);
       }
     }
-    return lines.join('\n');
+    return lines.join('\n') + '\n';
   }
 
-  // ---------------- MAIN PROCESS ----------------
+  // ---------------- MAIN ----------------
 
   async processAllImages(pluginDir, parsedData, options = {}) {
     const imagesRoot = path.join(pluginDir, 'images');
@@ -154,32 +142,51 @@ class ImageConverter {
           || 10;
 
         const sequence = this.generateSequence(seqFiles, spriteFps);
+        const totalFrames = sequence.reduce((s, f) => s + f.repeat, 0);
+        if (totalFrames <= 0) continue;
+
         const listFile = path.join(dir, `._${baseName}_frames.txt`);
         await fs.writeFile(listFile, this.createConcatFile(sequence, dir));
 
         const outName = this.sanitizeFilename(baseName);
         const outputPath = path.join(dir, `${outName}.avif`);
 
+        const useBlending =
+          ENABLE_FRAME_BLENDING && spriteFps <= BLEND_BELOW_FPS;
+
         console.log(
-          `▶ ${path.relative(imagesRoot, dir)}/${baseName} | sprite FPS=${spriteFps}`
+          `▶ ${path.relative(imagesRoot, dir)}/${baseName} | fps=${spriteFps}` +
+          (useBlending ? ' | blending ON' : '')
+        );
+
+        const ffmpegArgs = [
+          '-y',
+          '-f', 'concat',
+          '-safe', '0',
+          '-i', listFile,
+          '-frames:v', String(totalFrames),
+          '-fps_mode', 'cfr',
+          '-r', String(GAME_FPS)
+        ];
+
+        if (useBlending) {
+          ffmpegArgs.push(
+            '-vf',
+            'tblend=all_mode=average'
+          );
+        }
+
+        ffmpegArgs.push(
+          '-c:v', 'libaom-av1',
+          '-crf', String(options.crf ?? 40),
+          '-cpu-used', String(options.speed ?? 6),
+          '-pix_fmt', 'yuv444p',
+          '-aom-params', 'enable-fwd-kf=0',
+          outputPath
         );
 
         try {
-          await execFileAsync('ffmpeg', [
-            '-y',
-            '-f', 'concat',
-            '-safe', '0',
-            '-i', listFile,
-            '-vsync', 'cfr',
-            '-r', String(GAME_FPS),
-            '-c:v', 'libaom-av1',
-            '-crf', String(options.crf ?? 40),
-            '-cpu-used', String(options.speed ?? 6),
-            '-pix_fmt', 'yuv444p',
-            '-aom-params', 'enable-fwd-kf=0',
-            outputPath
-          ]);
-
+          await execFileAsync('ffmpeg', ffmpegArgs);
           converted++;
         } catch (e) {
           console.error(`✖ Failed: ${outputPath}`, e.message);
@@ -195,9 +202,7 @@ class ImageConverter {
 
     await walk(imagesRoot);
 
-    console.log(
-      `\n✔ Done: ${converted} animated AVIFs, ${skipped} skipped`
-    );
+    console.log(`\n✔ Done: ${converted} animated AVIFs, ${skipped} skipped`);
   }
 }
 

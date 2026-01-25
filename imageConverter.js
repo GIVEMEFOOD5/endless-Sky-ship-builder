@@ -79,14 +79,13 @@ class OpenGLSpriteRenderer {
       uniform float u_weights[8];
       uniform int u_numTextures;
       varying vec2 v_texCoord;
-      
+
       void main() {
         vec4 color = vec4(0.0);
-        float totalWeight = 0.0;
-        
+
         for (int i = 0; i < 8; i++) {
-          if (i >= u_numTextures) break;
-          
+          if (i >= u_numTextures) continue;
+
           vec4 texSample = vec4(0.0);
           if (i == 0) texSample = texture2D(u_texture0, v_texCoord);
           else if (i == 1) texSample = texture2D(u_texture1, v_texCoord);
@@ -96,20 +95,14 @@ class OpenGLSpriteRenderer {
           else if (i == 5) texSample = texture2D(u_texture5, v_texCoord);
           else if (i == 6) texSample = texture2D(u_texture6, v_texCoord);
           else if (i == 7) texSample = texture2D(u_texture7, v_texCoord);
-          
-          float weight = u_weights[i];
-          color += texSample * weight;
-          totalWeight += weight;
+
+          color += texSample * u_weights[i];
         }
-        
-        if (totalWeight > 0.0) {
-          color /= totalWeight;
-        }
-        
+
         gl_FragColor = color;
       }
     `;
-
+    
     // Cubic interpolation shader
     const cubicFragmentSource = `
       precision mediump float;
@@ -246,25 +239,34 @@ class OpenGLSpriteRenderer {
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     
-    // Enable blending for transparency
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    // Disable blending initially - we'll blend in the shader
+    gl.disable(gl.BLEND);
     
     // Bind textures to texture units
     for (let i = 0; i < Math.min(textures.length, 8); i++) {
       gl.activeTexture(gl.TEXTURE0 + i);
       gl.bindTexture(gl.TEXTURE_2D, textures[i]);
+    }
+    
+    // Set uniform texture samplers
+    for (let i = 0; i < 8; i++) {
       const loc = gl.getUniformLocation(program, `u_texture${i}`);
       if (loc !== null) {
         gl.uniform1i(loc, i);
       }
     }
     
-    // Set weights - pad to 8 elements
+    // Set weights - pad to 8 elements and ensure they sum to 1.0
     const paddedWeights = new Float32Array(8);
-    for (let i = 0; i < 8; i++) {
-      paddedWeights[i] = i < weights.length ? weights[i] : 0.0;
+    let weightSum = 0;
+    for (let i = 0; i < weights.length; i++) {
+      weightSum += weights[i];
     }
+    
+    for (let i = 0; i < 8; i++) {
+      paddedWeights[i] = i < weights.length ? (weights[i] / weightSum) : 0.0;
+    }
+    
     const weightLoc = gl.getUniformLocation(program, 'u_weights');
     if (weightLoc !== null) {
       gl.uniform1fv(weightLoc, paddedWeights);

@@ -8,292 +8,161 @@ const execFileAsync = util.promisify(execFile);
 // name + digits + extension
 const SEQ_REGEX = /^(.*?)(\d+)\.(png|jpg|jpeg)$/i;
 
+// ---- TIMING CONSTANTS ----
+const GAME_FPS = 60;
+const MIN_LOGICAL_FPS = 0.1;     // lowest supported sprite FPS
+const MAX_HOLD_FRAMES = 600;     // max hold = 10 seconds @ 60fps
+const DISABLE_PINGPONG_BELOW = 1; // fps threshold
+
 class ImageConverter {
-  /**
-   * Sanitize filename by removing ALL special characters from the end
-   * (including dashes and underscores)
-   */
   sanitizeFilename(name) {
     return name.replace(/[^a-zA-Z0-9]+$/, '').trim();
   }
 
-  /**
-   * Collect all sprite paths and their metadata (spriteData)
-   * Returns an array of objects with path and metadata
-   */
+  // ---------------- SPRITE DATA ----------------
+
   async collectSpritesWithData(pluginDir, parsedData) {
-    const imagesRoot = path.join(pluginDir, 'images');
     const sprites = [];
 
-    // Helper function to extract sprite info from ships/variants/outfits
-    const extractSpriteInfo = (item) => {
-      const info = [];
-      
+    const extract = (item) => {
+      const out = [];
       if (item.sprite) {
-        info.push({
+        out.push({
           path: item.sprite,
-          spriteData: item.spriteData || null,
-          type: 'sprite',
-          itemName: item.name || item.displayName
+          spriteData: item.spriteData || null
         });
       }
-      
-      if (item.thumbnail) {
-        info.push({
-          path: item.thumbnail,
-          spriteData: null, // Thumbnails typically don't have spriteData
-          type: 'thumbnail',
-          itemName: item.name || item.displayName
+      if (item.weapon?.sprite) {
+        out.push({
+          path: item.weapon.sprite,
+          spriteData: item.weapon.spriteData || null
         });
       }
-
-      // Handle weapon sprites for outfits
-      if (item.weapon) {
-        if (item.weapon.sprite) {
-          info.push({
-            path: item.weapon.sprite,
-            spriteData: item.weapon.spriteData || null,
-            type: 'weapon-sprite',
-            itemName: item.name || item.displayName
-          });
-        }
-        if (item.weapon['hardpoint sprite']) {
-          info.push({
-            path: item.weapon['hardpoint sprite'],
-            spriteData: item.weapon.spriteData || null,
-            type: 'hardpoint-sprite',
-            itemName: item.name || item.displayName
-          });
-        }
-      }
-      
-      return info;
+      return out;
     };
 
-    // Collect from ships
-    if (parsedData.ships) {
-      for (const ship of parsedData.ships) {
-        sprites.push(...extractSpriteInfo(ship));
-      }
-    }
-
-    // Collect from variants
-    if (parsedData.variants) {
-      for (const variant of parsedData.variants) {
-        sprites.push(...extractSpriteInfo(variant));
-      }
-    }
-
-    // Collect from outfits
-    if (parsedData.outfits) {
-      for (const outfit of parsedData.outfits) {
-        sprites.push(...extractSpriteInfo(outfit));
-      }
-    }
+    parsedData.ships?.forEach(s => sprites.push(...extract(s)));
+    parsedData.variants?.forEach(v => sprites.push(...extract(v)));
+    parsedData.outfits?.forEach(o => sprites.push(...extract(o)));
 
     return sprites;
   }
 
-  /**
-   * Get frame rate from spriteData
-   * Returns the FPS value to use for the animation
-   */
   getFrameRate(spriteData) {
     if (!spriteData) return null;
-    
-    // Check for "frame rate" - this is directly in FPS
-    if (spriteData['frame rate']) {
-      return parseFloat(spriteData['frame rate']);
-    }
-    
-    // Check for "frame time" - this is in 1/60ths of a second
+    if (spriteData['frame rate']) return parseFloat(spriteData['frame rate']);
     if (spriteData['frame time']) {
-      const frameTime = parseFloat(spriteData['frame time']);
-      return 60 / frameTime; // Convert to FPS
+      const ft = parseFloat(spriteData['frame time']);
+      return ft > 0 ? 60 / ft : null;
     }
-    
     return null;
   }
 
-  /**
-   * Build a lookup map of sprite paths to their frame rates
-   * This allows us to quickly find the frame rate for any sprite path
-   */
-  buildSpriteDataMap(spritesWithData) {
+  buildSpriteDataMap(sprites) {
     const map = new Map();
-    
-    for (const sprite of spritesWithData) {
-      // Normalize the path (remove leading/trailing slashes, use forward slashes)
-      const normalizedPath = sprite.path.replace(/\\/g, '/').replace(/^\/+|\/+$/g, '');
-      
-      // Get the frame rate
-      const frameRate = this.getFrameRate(sprite.spriteData);
-      
-      if (frameRate) {
-        map.set(normalizedPath, frameRate);
-      }
+    for (const s of sprites) {
+      const key = s.path.replace(/\\/g, '/').replace(/\.(png|jpg|jpeg)$/i, '');
+      const fps = this.getFrameRate(s.spriteData);
+      if (fps) map.set(key, fps);
     }
-    
     return map;
   }
 
-  /**
-   * Find the frame rate for a specific image file path
-   * Matches the file's directory and base name against sprite paths
-   */
   findFrameRateForImage(imagePath, imagesRoot, spriteDataMap) {
-    // Get relative path from images directory
-    const relativePath = path.relative(imagesRoot, imagePath).replace(/\\/g, '/');
-    
-    // Remove the file extension and any frame number suffix
-    // e.g., "ship/kestrel-0.png" -> "ship/kestrel"
-    const withoutExt = relativePath.replace(/\.(png|jpg|jpeg)$/i, '');
-    const basePath = withoutExt.replace(/[-+]\d+$/, '');
-    
-    // Look up in the sprite data map
-    return spriteDataMap.get(basePath) || null;
+    const rel = path
+      .relative(imagesRoot, imagePath)
+      .replace(/\\/g, '/')
+      .replace(/\.(png|jpg|jpeg)$/i, '')
+      .replace(/[-+]\d+$/, '');
+
+    return spriteDataMap.get(rel) || null;
   }
 
-  /**
-   * Generate frame sequence with transition modifiers
-   * @param {string[]} seqFiles - Array of frame filenames
-   * @param {string} transition - Transition type: 'linear', 'ease-in', 'ease-out', 'ease-in-out', 'smooth', 'bounce'
-   * @param {number} transitionFrames - Number of interpolated frames to add between original frames (0 = no interpolation)
-   * @returns {Array} Array of {file, duration} objects
-   */
-  generateTransitionSequence(seqFiles, transition = 'smooth') {
+  // ---------------- SEQUENCE GENERATION ----------------
+
+  generateSequence(seqFiles, logicalFps) {
     const sorted = [...seqFiles].sort((a, b) => {
       const na = parseInt(a.match(SEQ_REGEX)[2], 10);
       const nb = parseInt(b.match(SEQ_REGEX)[2], 10);
       return na - nb;
     });
 
-    const easingFunctions = {
-      linear: t => t,
-      'ease-in': t => t * t,
-      'ease-out': t => t * (2 - t),
-      'ease-in-out': t => t < 0.5
-        ? 2 * t * t
-        : -1 + (4 - 2 * t) * t,
-      smooth: t => t * t * (3 - 2 * t),
-    };
-
-    const ease = easingFunctions[transition] ?? easingFunctions.smooth;
+    const fps = Math.max(logicalFps, MIN_LOGICAL_FPS);
+    const holdFrames = Math.min(
+      Math.round(GAME_FPS / fps),
+      MAX_HOLD_FRAMES
+    );
 
     const sequence = [];
-    const baseRepeats = 1;
-    const maxRepeats = 4; // controls smoothness
-
-    const total = sorted.length - 1;
-
-    for (let i = 0; i < sorted.length; i++) {
-      const t = i / total;
-      const w = ease(t);
-
-      const repeats = Math.round(
-        baseRepeats + w * maxRepeats
-      );
-
-      sequence.push({
-        file: sorted[i],
-        repeat: Math.max(1, repeats)
-      });
+    for (const file of sorted) {
+      sequence.push({ file, repeat: holdFrames });
     }
 
-    // ping-pong
-    const reverse = sequence.slice(1, -1).reverse();
-    return [...sequence, ...reverse];
+    // Ping-pong only if sprite is not ultra-slow
+    if (fps >= DISABLE_PINGPONG_BELOW && sorted.length > 2) {
+      const reverse = sequence.slice(1, -1).reverse();
+      return [...sequence, ...reverse];
+    }
+
+    return sequence;
   }
 
-
-  /**
-   * Create ffmpeg concat file with frame durations
-   * @param {Array} sequence - Array of {file, duration} objects
-   * @param {string} dir - Directory containing the files
-   * @param {number} baseFps - Base frames per second
-   * @returns {string} Content for concat file
-   */
   createConcatFile(sequence, dir) {
     const lines = [];
-
     for (const item of sequence) {
       const filePath = path.join(dir, item.file).replace(/\\/g, '/');
       for (let i = 0; i < item.repeat; i++) {
         lines.push(`file '${filePath}'`);
       }
     }
-
     return lines.join('\n');
   }
+
+  // ---------------- MAIN PROCESS ----------------
 
   async processAllImages(pluginDir, parsedData, options = {}) {
     const imagesRoot = path.join(pluginDir, 'images');
 
-    // Extract transition options
-    const transition = options.transition || 'linear'; // 'linear', 'ease-in', 'ease-out', 'ease-in-out', 'smooth', 'bounce'
-    const transitionFrames = options.transitionFrames || 0; // Number of interpolated frames (0 = disabled)
-
-    // First, collect all sprite data and build a lookup map
-    const spritesWithData = await this.collectSpritesWithData(pluginDir, parsedData);
-    const spriteDataMap = this.buildSpriteDataMap(spritesWithData);
-    
-    console.log(`Built sprite data map with ${spriteDataMap.size} entries`);
-    console.log(`Using transition: ${transition}`);
+    const sprites = await this.collectSpritesWithData(pluginDir, parsedData);
+    const spriteDataMap = this.buildSpriteDataMap(sprites);
 
     let converted = 0;
     let skipped = 0;
 
-    const walkDir = async (dir) => {
+    const walk = async (dir) => {
       const entries = await fs.readdir(dir, { withFileTypes: true });
+      const files = entries.filter(e => e.isFile()).map(e => e.name);
 
-      // Collect files in this directory
-      const files = entries
-        .filter(e => e.isFile())
-        .map(e => e.name);
-
-      /** @type {Map<string, string[]>} */
       const sequences = new Map();
-
       for (const file of files) {
         if (!SEQ_REGEX.test(file)) continue;
-
-        const [, base] = file.match(SEQ_REGEX);
-        const key = base.trim();
-
-        if (!sequences.has(key)) {
-          sequences.set(key, []);
-        }
-        sequences.get(key).push(file);
+        const base = file.match(SEQ_REGEX)[1].trim();
+        if (!sequences.has(base)) sequences.set(base, []);
+        sequences.get(base).push(file);
       }
 
-      // Convert each sequence
-      for (const [baseName, seqFiles] of sequences.entries()) {
+      for (const [baseName, seqFiles] of sequences) {
         if (seqFiles.length < 2) {
           skipped++;
           continue;
         }
 
-        // Generate transition sequence with dynamic timing
-        const transitionSequence = this.generateTransitionSequence(seqFiles, transition, transitionFrames);
-
-        const listFile = path.join(dir, `._${baseName}_frames.txt`);
-        
-        // Find the frame rate for this specific image sequence
         const firstImagePath = path.join(dir, seqFiles[0]);
-        const spriteFrameRate = this.findFrameRateForImage(firstImagePath, imagesRoot, spriteDataMap);
-        
-        // Use sprite's frame rate if available, otherwise use options.fps or default to 10
-        const fps = spriteFrameRate || options.fps || 10;
-        
-        // Create concat file with durations based on transition
-        const listContent = this.createConcatFile(transitionSequence, dir);
-        await fs.writeFile(listFile, listContent);
+        const spriteFps =
+          this.findFrameRateForImage(firstImagePath, imagesRoot, spriteDataMap)
+          || options.fps
+          || 10;
 
-        // Sanitize the output filename - removes ALL special characters from end
-        const sanitizedName = this.sanitizeFilename(baseName);
-        const outputPath = path.join(dir, `${sanitizedName}.avif`);
-        
-        console.log(`Processing ${path.relative(imagesRoot, dir)}/${baseName} at ${fps} fps with ${transition} transition`);
+        const sequence = this.generateSequence(seqFiles, spriteFps);
+        const listFile = path.join(dir, `._${baseName}_frames.txt`);
+        await fs.writeFile(listFile, this.createConcatFile(sequence, dir));
+
+        const outName = this.sanitizeFilename(baseName);
+        const outputPath = path.join(dir, `${outName}.avif`);
+
+        console.log(
+          `▶ ${path.relative(imagesRoot, dir)}/${baseName} | sprite FPS=${spriteFps}`
+        );
 
         try {
           await execFileAsync('ffmpeg', [
@@ -302,36 +171,32 @@ class ImageConverter {
             '-safe', '0',
             '-i', listFile,
             '-vsync', 'cfr',
-            '-r', String(fps),
+            '-r', String(GAME_FPS),
             '-c:v', 'libaom-av1',
             '-crf', String(options.crf ?? 40),
             '-cpu-used', String(options.speed ?? 6),
-            '-pix_fmt', 'yuv420p',
+            '-pix_fmt', 'yuv444p',
+            '-aom-params', 'enable-fwd-kf=0',
             outputPath
           ]);
 
-
-          console.log(`✔ ${path.relative(imagesRoot, outputPath)} (${fps} fps, ${transition})`);
           converted++;
-        } catch (err) {
-          console.error(`✖ Failed: ${outputPath}`, err.message);
+        } catch (e) {
+          console.error(`✖ Failed: ${outputPath}`, e.message);
         } finally {
           await fs.unlink(listFile);
         }
       }
 
-      // Recurse
-      for (const entry of entries) {
-        if (entry.isDirectory()) {
-          await walkDir(path.join(dir, entry.name));
-        }
+      for (const e of entries) {
+        if (e.isDirectory()) await walk(path.join(dir, e.name));
       }
     };
 
-    await walkDir(imagesRoot);
+    await walk(imagesRoot);
 
     console.log(
-      `\nConversion complete: ${converted} animated AVIFs, ${skipped} skipped`
+      `\n✔ Done: ${converted} animated AVIFs, ${skipped} skipped`
     );
   }
 }

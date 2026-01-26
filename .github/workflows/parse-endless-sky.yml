@@ -26,8 +26,11 @@ jobs:
         uses: FedericoCarboni/setup-ffmpeg@v3
         with:
           ffmpeg-version: release
-      
-      - name: Install dependencies
+          
+      - name: Setup OpenGL
+        uses: openrndr/setup-opengl@v1.1
+    
+      - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -35,28 +38,87 @@ jobs:
             build-essential libcairo2-dev libpango1.0-dev \
             libjpeg-dev libgif-dev librsvg2-dev \
             mesa-utils libgl1-mesa-dri \
-            xvfb libglvnd0 libglx0 libosmesa6
-          npm install
+            xvfb libglvnd0 libglx0 libosmesa6 \
+            git
 
-      - name: Run parser
+      - name: Clone Endless Sky repository
+        run: |
+          git clone --depth 1 https://github.com/endless-sky/endless-sky.git
+          echo "Cloned Endless Sky repository"
+          ls -la endless-sky/
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Start Xvfb
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          sleep 3
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+
+      - name: Run animation parser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DISPLAY: :99
         run: |
-          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-          sleep 3
           node parser.js
       
+      - name: Generate animation report
+        run: |
+          if [ -f data/animations.json ]; then
+            echo "## Animation Processing Report" > animation_report.md
+            echo "" >> animation_report.md
+            echo "**Date:** $(date +'%Y-%m-%d %H:%M:%S')" >> animation_report.md
+            echo "" >> animation_report.md
+            
+            # Count sprites processed
+            SPRITE_COUNT=$(jq '.sprites | length' data/animations.json)
+            echo "**Sprites Processed:** $SPRITE_COUNT" >> animation_report.md
+            echo "" >> animation_report.md
+            
+            # Count errors
+            ERROR_COUNT=$(jq '.errors | length' data/animations.json)
+            echo "**Errors:** $ERROR_COUNT" >> animation_report.md
+            echo "" >> animation_report.md
+            
+            # List processed sprites
+            echo "### Processed Sprites" >> animation_report.md
+            jq -r '.sprites[] | "- **\(.name)**: \(.originalFrames) frames → \(.interpolatedFrames) interpolated frames (\(.frameRate) fps)"' data/animations.json >> animation_report.md
+            
+            cat animation_report.md
+          fi
+
+      - name: Upload animation videos
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: endless-sky-animations
+          path: output/*.mp4
+          retention-days: 30
+
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-
-          # add data/ exactly as it exists now
+          
+          # Add data directory
           git add data/
-
+          
+          # Add report if exists
+          if [ -f animation_report.md ]; then
+            git add animation_report.md
+          fi
+          
           # Commit only if there are changes
-          git diff --staged --quiet || (
-            git commit -m "Update Endless Sky data - $(date +'%Y-%m-%d')" &&
+          if ! git diff --staged --quiet; then
+            git commit -m "Update Endless Sky data - $(date +'%Y-%m-%d')"
             git push
-          )
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf endless-sky temp
+          echo "Cleaned up temporary files"

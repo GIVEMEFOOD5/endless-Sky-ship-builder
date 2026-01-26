@@ -312,7 +312,7 @@ class ImageConverter {
   getSpriteFrameRate(data, spriteKey, defaultFps = 10) {
     // Search through data to find matching sprite
     // spriteKey is like "projectile/grab-strike"
-    
+
     // Check outfits
     if (data.outfits) {
       for (const outfit of Object.values(data.outfits)) {
@@ -326,7 +326,7 @@ class ImageConverter {
         }
       }
     }
-    
+
     // Check ships
     if (data.ships) {
       for (const ship of Object.values(data.ships)) {
@@ -335,7 +335,7 @@ class ImageConverter {
         }
       }
     }
-    
+
     // Check variants
     if (data.variants) {
       for (const variant of Object.values(data.variants)) {
@@ -344,7 +344,7 @@ class ImageConverter {
         }
       }
     }
-    
+
     return defaultFps;
   }
 
@@ -415,7 +415,7 @@ class ImageConverter {
   // Process all images
   async processAllImages(pluginDir, data, options = {}) {
 
-    var { fps = 60, animationFps = 10 } = options;
+    var { fps = 60, defaultAnimationFps = 10 } = options;
 
     await this.init();
     

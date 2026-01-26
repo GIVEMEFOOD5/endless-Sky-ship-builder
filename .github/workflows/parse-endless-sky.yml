@@ -26,120 +26,31 @@ jobs:
         uses: FedericoCarboni/setup-ffmpeg@v3
         with:
           ffmpeg-version: release
+          
+      - name: Setup OpenGL
+        uses: openrndr/setup-opengl@v1.1
     
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
             libxi-dev libglu1-mesa-dev libglew-dev pkg-config \
             build-essential libcairo2-dev libpango1.0-dev \
             libjpeg-dev libgif-dev librsvg2-dev \
-            mesa-utils libgl1-mesa-dri \
-            xvfb libglvnd0 libglx0 libosmesa6 \
-            libegl-mesa0 libgles2 \
-            git
-
-      - name: Clone Endless Sky repository
-        run: |
-          git clone --depth 1 https://github.com/endless-sky/endless-sky.git
-          echo "Cloned Endless Sky repository"
-          ls -la endless-sky/
-
-      - name: Install Node dependencies
-        run: npm install
-
-      - name: Start Xvfb and set DISPLAY
-        run: |
-          # Start Xvfb in the background
-          Xvfb :99 -screen 0 1280x1024x24 -ac +extension GLX +render -noreset &
-          XVFB_PID=$!
-          echo "XVFB_PID=$XVFB_PID" >> $GITHUB_ENV
+            mesa-utils libgl1-mesa-dri
+          npm install
           
-          # Wait for Xvfb to start
-          sleep 3
-          
-          # Set DISPLAY environment variable
-          echo "DISPLAY=:99" >> $GITHUB_ENV
-          
-          # Verify Xvfb is running
-          ps aux | grep Xvfb
-
-      - name: Verify OpenGL
-        run: |
-          export DISPLAY=:99
-          glxinfo | grep "OpenGL version" || echo "glxinfo not available, continuing anyway"
-
-      - name: Run animation parser
+      - name: Run parser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          export DISPLAY=:99
-          node parser.js
+        run: node parser.js
       
-      - name: Generate animation report
-        run: |
-          if [ -f data/animations.json ]; then
-            echo "## Animation Processing Report" > animation_report.md
-            echo "" >> animation_report.md
-            echo "**Date:** $(date +'%Y-%m-%d %H:%M:%S')" >> animation_report.md
-            echo "" >> animation_report.md
-            
-            # Count sprites processed
-            SPRITE_COUNT=$(jq '.sprites | length' data/animations.json)
-            echo "**Sprites Processed:** $SPRITE_COUNT" >> animation_report.md
-            echo "" >> animation_report.md
-            
-            # Count errors
-            ERROR_COUNT=$(jq '.errors | length' data/animations.json)
-            echo "**Errors:** $ERROR_COUNT" >> animation_report.md
-            echo "" >> animation_report.md
-            
-            # List processed sprites
-            echo "### Processed Sprites" >> animation_report.md
-            jq -r '.sprites[] | "- **\(.name)**: \(.originalFrames) frames → \(.interpolatedFrames) interpolated frames (\(.frameRate) fps)"' data/animations.json >> animation_report.md
-            
-            cat animation_report.md
-          fi
-
-      - name: Upload animation videos
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: endless-sky-animations
-          path: |
-            data/**/images/**/*.avif
-          retention-days: 30
-          if-no-files-found: warn
-
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
-          # Add data directory
           git add data/
-          
-          # Add report if exists
-          if [ -f animation_report.md ]; then
-            git add animation_report.md
-          fi
-          
-          # Commit only if there are changes
-          if ! git diff --staged --quiet; then
-            git commit -m "Update Endless Sky data - $(date +'%Y-%m-%d')"
+          git diff --staged --quiet || (
+            git commit -m "Update Endless Sky data - $(date +'%Y-%m-%d')" &&
             git push
-          else
-            echo "No changes to commit"
-          fi
-
-      - name: Cleanup
-        if: always()
-        run: |
-          # Kill Xvfb if it's still running
-          if [ ! -z "$XVFB_PID" ]; then
-            kill $XVFB_PID 2>/dev/null || true
-          fi
-          
-          # Clean up temp files
-          rm -rf endless-sky temp temp_frames
-          echo "Cleaned up temporary files"
+          )

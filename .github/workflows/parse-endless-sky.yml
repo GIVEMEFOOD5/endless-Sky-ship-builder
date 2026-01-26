@@ -26,9 +26,6 @@ jobs:
         uses: FedericoCarboni/setup-ffmpeg@v3
         with:
           ffmpeg-version: release
-          
-      - name: Setup OpenGL
-        uses: openrndr/setup-opengl@v1.1
     
       - name: Install system dependencies
         run: |
@@ -39,6 +36,7 @@ jobs:
             libjpeg-dev libgif-dev librsvg2-dev \
             mesa-utils libgl1-mesa-dri \
             xvfb libglvnd0 libglx0 libosmesa6 \
+            libegl1-mesa libgles2-mesa \
             git
 
       - name: Clone Endless Sky repository
@@ -50,17 +48,32 @@ jobs:
       - name: Install Node dependencies
         run: npm install
 
-      - name: Start Xvfb
+      - name: Start Xvfb and set DISPLAY
         run: |
-          Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          # Start Xvfb in the background
+          Xvfb :99 -screen 0 1280x1024x24 -ac +extension GLX +render -noreset &
+          XVFB_PID=$!
+          echo "XVFB_PID=$XVFB_PID" >> $GITHUB_ENV
+          
+          # Wait for Xvfb to start
           sleep 3
+          
+          # Set DISPLAY environment variable
           echo "DISPLAY=:99" >> $GITHUB_ENV
+          
+          # Verify Xvfb is running
+          ps aux | grep Xvfb
+
+      - name: Verify OpenGL
+        run: |
+          export DISPLAY=:99
+          glxinfo | grep "OpenGL version" || echo "glxinfo not available, continuing anyway"
 
       - name: Run animation parser
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DISPLAY: :99
         run: |
+          export DISPLAY=:99
           node parser.js
       
       - name: Generate animation report
@@ -93,8 +106,10 @@ jobs:
         if: always()
         with:
           name: endless-sky-animations
-          path: output/*.mp4
+          path: |
+            data/**/images/**/*.avif
           retention-days: 30
+          if-no-files-found: warn
 
       - name: Commit and push changes
         run: |
@@ -120,5 +135,11 @@ jobs:
       - name: Cleanup
         if: always()
         run: |
-          rm -rf endless-sky temp
+          # Kill Xvfb if it's still running
+          if [ ! -z "$XVFB_PID" ]; then
+            kill $XVFB_PID 2>/dev/null || true
+          fi
+          
+          # Clean up temp files
+          rm -rf endless-sky temp temp_frames
           echo "Cleaned up temporary files"

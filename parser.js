@@ -131,223 +131,232 @@ class EndlessSkyParser {
     return fileContents;
   }
 
-  parseIndentedBlock(lines, startIdx) {
-    const data = {};
-    let i = startIdx;
-    const baseIndent = lines[i].length - lines[i].replace(/^\t+/, '').length;
-    let descriptionLines = [];
+	parseIndentedBlock(lines, startIdx) {
+	  const data = {};
+	  let i = startIdx;
+	  const baseIndent = lines[i].length - lines[i].replace(/^\t+/, '').length;
+	  let descriptionLines = [];
 
-    while (i < lines.length) {
-      const line = lines[i];
-      if (!line.trim()) { i++; continue; }
+	  while (i < lines.length) {
+	    const line = lines[i];
+	    if (!line.trim()) { i++; continue; }
 
-      const currentIndent = line.length - line.replace(/^\t+/, '').length;
-      if (currentIndent < baseIndent) break;
+	    const currentIndent = line.length - line.replace(/^\t+/, '').length;
+	    if (currentIndent < baseIndent) break;
 
-      if (currentIndent === baseIndent) {
-        const stripped = line.trim();
+	    if (currentIndent === baseIndent) {
+	      const stripped = line.trim();
 
-        // Handle sprite with nested data
-        if (stripped.startsWith('sprite ')) {
-          const spriteMatchQuotes = stripped.match(/sprite\s+"([^"]+)"/);
-          const spriteMatchBackticks = stripped.match(/sprite\s+`([^`]+)`/);
-          const spriteMatch = spriteMatchBackticks || spriteMatchQuotes;
+	      // Handle sprite with nested data
+	      if (stripped.startsWith('sprite ')) {
+	        const spriteMatchQuotes = stripped.match(/sprite\s+"([^"]+)"/);
+	        const spriteMatchBackticks = stripped.match(/sprite\s+`([^`]+)`/);
+	        const spriteMatch = spriteMatchBackticks || spriteMatchQuotes;
 
-          if (spriteMatch) {
-            data.sprite = spriteMatch[1];
+	        if (spriteMatch) {
+	          data.sprite = spriteMatch[1];
 
-            // Check if sprite has nested properties
-            if (i + 1 < lines.length) {
-              const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
+	          // Check if sprite has nested properties
+	          if (i + 1 < lines.length) {
+	            const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
 
-              if (nextIndent > currentIndent) {
-                // Collect sprite properties like "frame rate", "no repeat"
-                const result = this.parseIndentedBlock(lines, i + 1);
-                data.spriteData = result[0];
-                i = result[1];
-                continue;
-              }
-            }
-          }
-          i++;
-          continue;
-        }
-        
-        // Handle "key" "value" format (both quoted)
-        const quotedBothMatch = stripped.match(/"([^"]+)"\s+"([^"]+)"/);
-        if (quotedBothMatch) {
-          const key = quotedBothMatch[1];
-          const value = quotedBothMatch[2];
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
+	            if (nextIndent > currentIndent) {
+	              // Collect sprite properties like "frame rate", "no repeat"
+	              const result = this.parseIndentedBlock(lines, i + 1);
+	              data.spriteData = result[0];
+	              i = result[1];
+	              continue;
+	            }
+	          }
+	        }
+	        i++;
+	        continue;
+	      }
+	      
+	      // Handle "key" "value" format (both quoted)
+	      const quotedBothMatch = stripped.match(/"([^"]+)"\s+"([^"]+)"/);
+	      if (quotedBothMatch) {
+	        const key = quotedBothMatch[1];
+	        const value = quotedBothMatch[2];
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
 
-        // Handle "key" `value` format (quoted key, backtick value)
-        const quotedKeyBacktickValueMatch = stripped.match(/"([^"]+)"\s+`([^`]+)`/);
-        if (quotedKeyBacktickValueMatch) {
-          const key = quotedKeyBacktickValueMatch[1];
-          const value = quotedKeyBacktickValueMatch[2];
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
+	      // Handle "key" `value` format (quoted key, backtick value)
+	      const quotedKeyBacktickValueMatch = stripped.match(/"([^"]+)"\s+`([^`]+)`/);
+	      if (quotedKeyBacktickValueMatch) {
+	        const key = quotedKeyBacktickValueMatch[1];
+	        const value = quotedKeyBacktickValueMatch[2];
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
 
-        // Handle `key` "value" format (backtick key, quoted value)
-        const backtickKeyQuotedValueMatch = stripped.match(/`([^`]+)`\s+"([^"]+)"/);
-        if (backtickKeyQuotedValueMatch) {
-          const key = backtickKeyQuotedValueMatch[1];
-          const value = backtickKeyQuotedValueMatch[2];
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
+	      // Handle `key` "value" format (backtick key, quoted value)
+	      const backtickKeyQuotedValueMatch = stripped.match(/`([^`]+)`\s+"([^"]+)"/);
+	      if (backtickKeyQuotedValueMatch) {
+	        const key = backtickKeyQuotedValueMatch[1];
+	        const value = backtickKeyQuotedValueMatch[2];
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
 
-        // Handle `key` `value` format (both backticks)
-        const backtickBothMatch = stripped.match(/`([^`]+)`\s+`([^`]+)`/);
-        if (backtickBothMatch) {
-          const key = backtickBothMatch[1];
-          const value = backtickBothMatch[2];
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
+	      // Handle `key` `value` format (both backticks)
+	      const backtickBothMatch = stripped.match(/`([^`]+)`\s+`([^`]+)`/);
+	      if (backtickBothMatch) {
+	        const key = backtickBothMatch[1];
+	        const value = backtickBothMatch[2];
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
 
-        // Handle "key" value format (quoted key with unquoted value)
-        const quotedKeyMatch = stripped.match(/"([^"]+)"\s+([^"`\s][^"`]*)/);
-        if (quotedKeyMatch) {
-          const key = quotedKeyMatch[1];
-          const valueStr = quotedKeyMatch[2].trim();
-          const num = parseFloat(valueStr);
-          const value = isNaN(num) ? valueStr : num;
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
+	      // Handle "key" value format (quoted key with unquoted value)
+	      const quotedKeyMatch = stripped.match(/"([^"]+)"\s+([^"`\s][^"`]*)/);
+	      if (quotedKeyMatch) {
+	        const key = quotedKeyMatch[1];
+	        const valueStr = quotedKeyMatch[2].trim();
+	        const num = parseFloat(valueStr);
+	        const value = isNaN(num) ? valueStr : num;
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
 
-        // Handle `key` value format (backtick key with unquoted value)
-        const backtickKeyMatch = stripped.match(/`([^`]+)`\s+([^"`\s][^"`]*)/);
-        if (backtickKeyMatch) {
-          const key = backtickKeyMatch[1];
-          const valueStr = backtickKeyMatch[2].trim();
-          const num = parseFloat(valueStr);
-          const value = isNaN(num) ? valueStr : num;
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
+	      // Handle `key` value format (backtick key with unquoted value)
+	      const backtickKeyMatch = stripped.match(/`([^`]+)`\s+([^"`\s][^"`]*)/);
+	      if (backtickKeyMatch) {
+	        const key = backtickKeyMatch[1];
+	        const valueStr = backtickKeyMatch[2].trim();
+	        const num = parseFloat(valueStr);
+	        const value = isNaN(num) ? valueStr : num;
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
 
-        // Handle key "value" format (unquoted key with quoted value)
-        const unquotedKeyQuotedValueMatch = stripped.match(/^(\S+)\s+"([^"]+)"$/);
-        if (unquotedKeyQuotedValueMatch) {
-          const key = unquotedKeyQuotedValueMatch[1];
-          const value = unquotedKeyQuotedValueMatch[2];
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
+	      // Handle key "value" format (unquoted key with quoted value)
+	      const unquotedKeyQuotedValueMatch = stripped.match(/^(\S+)\s+"([^"]+)"$/);
+	      if (unquotedKeyQuotedValueMatch) {
+	        const key = unquotedKeyQuotedValueMatch[1];
+	        const value = unquotedKeyQuotedValueMatch[2];
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
 
-        // Handle key `value` format (unquoted key with backtick value)
-        const unquotedKeyBacktickValueMatch = stripped.match(/^(\S+)\s+`([^`]+)`$/);
-        if (unquotedKeyBacktickValueMatch) {
-          const key = unquotedKeyBacktickValueMatch[1];
-          const value = unquotedKeyBacktickValueMatch[2];
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
-        
-        // Handle key value format (both unquoted) - must come before nested block check
-        const simpleMatch = stripped.match(/^(\S+)\s+(.+)$/);
-        if (simpleMatch && !stripped.includes('"') && !stripped.includes('`')) {
-          const key = simpleMatch[1];
-          const valueStr = simpleMatch[2].trim();
-          const num = parseFloat(valueStr);
-          const value = isNaN(num) ? valueStr : num;
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
-        
-        if (i + 1 < lines.length) {
-          const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
-          if (nextIndent > currentIndent) {
-            const key = stripped.replace(/"/g, '').replace(/`/g, '');
-            const result = this.parseIndentedBlock(lines, i + 1);
-            const nestedData = result[0];
-            const nextI = result[1];
-            
-            if (key in data) {
-              if (!Array.isArray(data[key])) data[key] = [data[key]];
-              data[key].push(nestedData);
-            } else {
-              data[key] = nestedData;
-            }
-            
-            i = nextI;
-            continue;
-          } else {
-            descriptionLines.push(stripped);
-          }
-        } else {
-          descriptionLines.push(stripped);
-        }
-      }
-      
-      i++;
-    }
-    
-    if (descriptionLines.length > 0) {
-      data.description = descriptionLines.join(' ');
-    }
-    
-    return [data, i];
-  }
+	      // Handle key `value` format (unquoted key with backtick value)
+	      const unquotedKeyBacktickValueMatch = stripped.match(/^(\S+)\s+`([^`]+)`$/);
+	      if (unquotedKeyBacktickValueMatch) {
+	        const key = unquotedKeyBacktickValueMatch[1];
+	        const value = unquotedKeyBacktickValueMatch[2];
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
+	      
+	      // Handle key value format (both unquoted) - must come before nested block check
+	      const simpleMatch = stripped.match(/^(\S+)\s+(.+)$/);
+	      if (simpleMatch && !stripped.includes('"') && !stripped.includes('`')) {
+	        const key = simpleMatch[1];
+	        const valueStr = simpleMatch[2].trim();
+	        const num = parseFloat(valueStr);
+	        const value = isNaN(num) ? valueStr : num;
+	        if (key in data) {
+	          if (!Array.isArray(data[key])) data[key] = [data[key]];
+	          data[key].push(value);
+	        } else {
+	          data[key] = value;
+	        }
+	        i++;
+	        continue;
+	      }
+	      
+	      // Handle single-word keys (like "no repeat") - set to true
+	      if (!stripped.includes(' ') && !stripped.includes('"') && !stripped.includes('`')) {
+	        const key = stripped;
+	        data[key] = true;
+	        i++;
+	        continue;
+	      }
+	      
+	      if (i + 1 < lines.length) {
+	        const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
+	        if (nextIndent > currentIndent) {
+	          const key = stripped.replace(/"/g, '').replace(/`/g, '');
+	          const result = this.parseIndentedBlock(lines, i + 1);
+	          const nestedData = result[0];
+	          const nextI = result[1];
+	          
+	          if (key in data) {
+	            if (!Array.isArray(data[key])) data[key] = [data[key]];
+	            data[key].push(nestedData);
+	          } else {
+	            data[key] = nestedData;
+	          }
+	          
+	          i = nextI;
+	          continue;
+	        } else {
+	          descriptionLines.push(stripped);
+	        }
+	      } else {
+	        descriptionLines.push(stripped);
+	      }
+	    }
+	    
+	    i++;
+	  }
+	  
+	  if (descriptionLines.length > 0) {
+	    data.description = descriptionLines.join(' ');
+	  }
+	  
+	  return [data, i];
+	}
+
 
   parseShip(lines, startIdx) {
     const line = lines[startIdx].trim();

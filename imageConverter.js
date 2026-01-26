@@ -1,588 +1,477 @@
+// imageConverter.js - Enhanced with Endless Sky animation support
 const fs = require('fs').promises;
 const path = require('path');
 const { createCanvas, loadImage } = require('canvas');
-const gl = require('gl');
-const { execFile } = require('child_process');
-const util = require('util');
-
-const execFileAsync = util.promisify(execFile);
-
-const SEQ_REGEX = /^(.*?)(\d+)\.(png|jpg|jpeg)$/i;
-
-// ---------------- CONFIG ----------------
-const GAME_FPS = 60;
-const MIN_LOGICAL_FPS = 0.1;
-const MAX_HOLD_FRAMES = 600;
-const DISABLE_PINGPONG_BELOW = 0.09;
-
-// OpenGL rendering settings
-const BLEND_MODE = 'gaussian'; // 'linear', 'gaussian', 'cubic', 'lanczos'
-const MOTION_BLUR_SAMPLES = 8; // Number of sub-frame samples for motion blur
-const ENABLE_MOTION_BLUR = true;
-const ADAPTIVE_BLUR_STRENGTH = true; // Stronger blur for low frame counts
-
-// Frame interpolation settings
-const ADAPTIVE_LOW_FRAME_THRESHOLD = 15;
-const LOW_FRAME_BLUR_MULTIPLIER = 2.0; // Extra blur for choppy animations
-// ----------------------------------------
-
-class OpenGLSpriteRenderer {
-  constructor(width, height) {
-    this.width = width;
-    this.height = height;
-    
-    try {
-      this.glContext = gl(width, height, { preserveDrawingBuffer: true });
-      
-      if (!this.glContext) {
-        throw new Error('Failed to create OpenGL context');
-      }
-      
-      console.log(`✓ OpenGL context created: ${width}x${height}`);
-    } catch (error) {
-      throw new Error(`OpenGL initialization failed: ${error.message}. Ensure mesa libraries and Xvfb are installed.`);
-    }
-    
-    this.textures = [];
-    this.framebuffers = [];
-    this.shaders = {};
-    
-    this.initShaders();
-  }
-
-  initShaders() {
-    const gl = this.glContext;
-
-    // Vertex shader (standard quad)
-    const vertexShaderSource = `
-      attribute vec2 a_position;
-      attribute vec2 a_texCoord;
-      varying vec2 v_texCoord;
-      
-      void main() {
-        gl_Position = vec4(a_position, 0.0, 1.0);
-        v_texCoord = a_texCoord;
-      }
-    `;
-
-    // Fragment shader for Gaussian blur blending
-    const gaussianFragmentSource = `
-      precision mediump float;
-      uniform sampler2D u_texture0;
-      uniform sampler2D u_texture1;
-      uniform sampler2D u_texture2;
-      uniform sampler2D u_texture3;
-      uniform sampler2D u_texture4;
-      uniform sampler2D u_texture5;
-      uniform sampler2D u_texture6;
-      uniform sampler2D u_texture7;
-      uniform float u_weights[8];
-      uniform int u_numTextures;
-      varying vec2 v_texCoord;
-
-      void main() {
-        vec4 color = vec4(0.0);
-
-        for (int i = 0; i < 8; i++) {
-          if (i >= u_numTextures) continue;
-
-          vec4 texSample = vec4(0.0);
-          if (i == 0) texSample = texture2D(u_texture0, v_texCoord);
-          else if (i == 1) texSample = texture2D(u_texture1, v_texCoord);
-          else if (i == 2) texSample = texture2D(u_texture2, v_texCoord);
-          else if (i == 3) texSample = texture2D(u_texture3, v_texCoord);
-          else if (i == 4) texSample = texture2D(u_texture4, v_texCoord);
-          else if (i == 5) texSample = texture2D(u_texture5, v_texCoord);
-          else if (i == 6) texSample = texture2D(u_texture6, v_texCoord);
-          else if (i == 7) texSample = texture2D(u_texture7, v_texCoord);
-
-          color += texSample * u_weights[i];
-        }
-
-        gl_FragColor = color;
-      }
-    `;
-    
-    // Cubic interpolation shader
-    const cubicFragmentSource = `
-      precision mediump float;
-      uniform sampler2D u_texture1;
-      uniform sampler2D u_texture2;
-      uniform float u_blend;
-      varying vec2 v_texCoord;
-      
-      // Cubic interpolation
-      float cubic(float t) {
-        return t * t * (3.0 - 2.0 * t);
-      }
-      
-      void main() {
-        float t = cubic(u_blend);
-        vec4 color1 = texture2D(u_texture1, v_texCoord);
-        vec4 color2 = texture2D(u_texture2, v_texCoord);
-        gl_FragColor = mix(color1, color2, t);
-      }
-    `;
-
-    this.shaders.gaussian = this.createProgram(vertexShaderSource, gaussianFragmentSource);
-    this.shaders.cubic = this.createProgram(vertexShaderSource, cubicFragmentSource);
-    
-    this.setupQuad();
-  }
-
-  createProgram(vertSource, fragSource) {
-    const gl = this.glContext;
-    
-    const vertShader = gl.createShader(gl.VERTEX_SHADER);
-    gl.shaderSource(vertShader, vertSource);
-    gl.compileShader(vertShader);
-    
-    if (!gl.getShaderParameter(vertShader, gl.COMPILE_STATUS)) {
-      console.error('Vertex shader compilation error:', gl.getShaderInfoLog(vertShader));
-      throw new Error('Vertex shader compilation failed');
-    }
-    
-    const fragShader = gl.createShader(gl.FRAGMENT_SHADER);
-    gl.shaderSource(fragShader, fragSource);
-    gl.compileShader(fragShader);
-    
-    if (!gl.getShaderParameter(fragShader, gl.COMPILE_STATUS)) {
-      console.error('Fragment shader compilation error:', gl.getShaderInfoLog(fragShader));
-      throw new Error('Fragment shader compilation failed');
-    }
-    
-    const program = gl.createProgram();
-    gl.attachShader(program, vertShader);
-    gl.attachShader(program, fragShader);
-    gl.linkProgram(program);
-    
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error('Program linking error:', gl.getProgramInfoLog(program));
-      throw new Error('Shader program linking failed');
-    }
-    
-    return program;
-  }
-
-  setupQuad() {
-    const gl = this.glContext;
-    
-    // Full-screen quad
-    const vertices = new Float32Array([
-      -1, -1,  0, 1,
-       1, -1,  1, 1,
-      -1,  1,  0, 0,
-       1,  1,  1, 0
-    ]);
-    
-    this.quadBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.quadBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
-  }
-
-  async loadTexture(imagePath) {
-    const gl = this.glContext;
-    const image = await loadImage(imagePath);
-    
-    const texture = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    
-    // Create canvas and draw image
-    const canvas = createCanvas(image.width, image.height);
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(image, 0, 0);
-    
-    const imageData = ctx.getImageData(0, 0, image.width, image.height);
-    
-    gl.texImage2D(
-      gl.TEXTURE_2D,
-      0,
-      gl.RGBA,
-      image.width,
-      image.height,
-      0,
-      gl.RGBA,
-      gl.UNSIGNED_BYTE,
-      new Uint8Array(imageData.data.buffer)
-    );
-    
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    
-    return { texture, width: image.width, height: image.height };
-  }
-
-  calculateGaussianWeights(numSamples, sigma = 1.0) {
-    const weights = [];
-    const center = (numSamples - 1) / 2;
-    let sum = 0;
-    
-    for (let i = 0; i < numSamples; i++) {
-      const x = i - center;
-      const weight = Math.exp(-(x * x) / (2 * sigma * sigma));
-      weights.push(weight);
-      sum += weight;
-    }
-    
-    // Normalize
-    return weights.map(w => w / sum);
-  }
-
-  renderBlendedFrame(textures, weights) {
-    const gl = this.glContext;
-    const program = this.shaders.gaussian;
-    
-    gl.useProgram(program);
-    gl.viewport(0, 0, this.width, this.height);
-    gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    
-    // Disable blending initially - we'll blend in the shader
-    gl.disable(gl.BLEND);
-    
-    // Bind textures to texture units
-    for (let i = 0; i < Math.min(textures.length, 8); i++) {
-      gl.activeTexture(gl.TEXTURE0 + i);
-      gl.bindTexture(gl.TEXTURE_2D, textures[i]);
-    }
-    
-    // Set uniform texture samplers
-    for (let i = 0; i < 8; i++) {
-      const loc = gl.getUniformLocation(program, `u_texture${i}`);
-      if (loc !== null) {
-        gl.uniform1i(loc, i);
-      }
-    }
-    
-    // Set weights - pad to 8 elements and ensure they sum to 1.0
-    const paddedWeights = new Float32Array(8);
-    let weightSum = 0;
-    for (let i = 0; i < weights.length; i++) {
-      weightSum += weights[i];
-    }
-    
-    for (let i = 0; i < 8; i++) {
-      paddedWeights[i] = i < weights.length ? (weights[i] / weightSum) : 0.0;
-    }
-    
-    const weightLoc = gl.getUniformLocation(program, 'u_weights');
-    if (weightLoc !== null) {
-      gl.uniform1fv(weightLoc, paddedWeights);
-    }
-    
-    const numLoc = gl.getUniformLocation(program, 'u_numTextures');
-    if (numLoc !== null) {
-      gl.uniform1i(numLoc, textures.length);
-    }
-    
-    // Setup attributes
-    const posLoc = gl.getAttribLocation(program, 'a_position');
-    const texLoc = gl.getAttribLocation(program, 'a_texCoord');
-    
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.quadBuffer);
-    
-    if (posLoc !== -1) {
-      gl.enableVertexAttribArray(posLoc);
-      gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 16, 0);
-    }
-    
-    if (texLoc !== -1) {
-      gl.enableVertexAttribArray(texLoc);
-      gl.vertexAttribPointer(texLoc, 2, gl.FLOAT, false, 16, 8);
-    }
-    
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    
-    // Read pixels - flip Y because OpenGL is bottom-up
-    const pixels = new Uint8Array(this.width * this.height * 4);
-    gl.readPixels(0, 0, this.width, this.height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
-    
-    // Flip the image vertically
-    const flipped = new Uint8Array(this.width * this.height * 4);
-    const rowSize = this.width * 4;
-    for (let y = 0; y < this.height; y++) {
-      const srcRow = (this.height - 1 - y) * rowSize;
-      const dstRow = y * rowSize;
-      flipped.set(pixels.subarray(srcRow, srcRow + rowSize), dstRow);
-    }
-    
-    return flipped;
-  }
-
-  getFrameAsCanvas(pixels) {
-    const canvas = createCanvas(this.width, this.height);
-    const ctx = canvas.getContext('2d');
-    const imageData = ctx.createImageData(this.width, this.height);
-    imageData.data.set(pixels);
-    ctx.putImageData(imageData, 0, 0);
-    return canvas;
-  }
-
-  cleanup() {
-    const gl = this.glContext;
-    this.textures.forEach(t => gl.deleteTexture(t));
-    this.framebuffers.forEach(f => gl.deleteFramebuffer(f));
-    
-    // Destroy the GL context
-    if (gl.getExtension('STACKGL_destroy_context')) {
-      gl.getExtension('STACKGL_destroy_context').destroy();
-    }
-  }
-}
+const ffmpeg = require('fluent-ffmpeg');
+const { exec: execCallback } = require('child_process');
+const { promisify } = require('util');
+const exec = promisify(execCallback);
 
 class ImageConverter {
-  sanitizeFilename(name) {
-    const cleaned = name.replace(/[^a-zA-Z0-9]+$/g, '').trim();
-    return cleaned.length ? cleaned : 'sprite';
+  constructor() {
+    this.tempDir = './temp_frames';
   }
 
-  async collectSpritesWithData(pluginDir, parsedData) {
-    const sprites = [];
-    const extract = (item) => {
-      const out = [];
-      if (item.sprite) out.push({ path: item.sprite, spriteData: item.spriteData || null });
-      if (item.weapon?.sprite)
-        out.push({ path: item.weapon.sprite, spriteData: item.weapon.spriteData || null });
-      return out;
-    };
-
-    parsedData.ships?.forEach(s => sprites.push(...extract(s)));
-    parsedData.variants?.forEach(v => sprites.push(...extract(v)));
-    parsedData.outfits?.forEach(o => sprites.push(...extract(o)));
-
-    return sprites;
+  async init() {
+    await fs.mkdir(this.tempDir, { recursive: true });
   }
 
-  getFrameRate(spriteData) {
-    if (!spriteData) return null;
-    if (spriteData['frame rate']) return parseFloat(spriteData['frame rate']);
-    if (spriteData['frame time']) {
-      const ft = parseFloat(spriteData['frame time']);
-      return ft > 0 ? 60 / ft : null;
+  async cleanup() {
+    try {
+      await fs.rm(this.tempDir, { recursive: true, force: true });
+    } catch (error) {
+      console.error(`Cleanup error: ${error.message}`);
     }
-    return null;
   }
 
-  shouldRewind(spriteData) {
-    if (!spriteData) return false;
-    const desc = spriteData.description || '';
-    return desc.includes('rewind');
-  }
-
-  buildSpriteDataMap(sprites) {
-    const map = new Map();
-    for (const s of sprites) {
-      const key = s.path.replace(/\\/g, '/').replace(/\.(png|jpg|jpeg)$/i, '');
-      const fps = this.getFrameRate(s.spriteData);
-      const rewind = this.shouldRewind(s.spriteData);
-      if (fps || rewind) map.set(key, { fps, rewind });
-    }
-    return map;
-  }
-
-  findSpriteDataForImage(imagePath, imagesRoot, spriteDataMap) {
-    const rel = path
-      .relative(imagesRoot, imagePath)
-      .replace(/\\/g, '/')
-      .replace(/\.(png|jpg|jpeg)$/i, '')
-      .replace(/[-+]\d+$/, '');
-
-    return spriteDataMap.get(rel) || { fps: null, rewind: false };
-  }
-
-  generateSequence(seqFiles, logicalFps, shouldRewind = false) {
-    const sorted = [...seqFiles].sort((a, b) => {
-      const na = parseInt(a.match(SEQ_REGEX)[2], 10);
-      const nb = parseInt(b.match(SEQ_REGEX)[2], 10);
-      return na - nb;
-    });
-
-    const fps = Math.max(logicalFps, MIN_LOGICAL_FPS);
-    const holdFrames = Math.min(Math.round(GAME_FPS / fps), MAX_HOLD_FRAMES);
-
-    const sequence = sorted.map(file => ({
-      file,
-      repeat: holdFrames
-    }));
-
-    const usePingpong = shouldRewind || (fps >= DISABLE_PINGPONG_BELOW && sorted.length >= 2);
-    
-    if (usePingpong) {
-      const reverse = sequence.slice(1, -1).reverse();
-      return [...sequence, ...reverse];
-    }
-
-    return sequence;
-  }
-
-  async renderSequenceWithOpenGL(dir, sequence, spriteFps, isLowFrameCount) {
-    // Load all unique frames
-    const uniqueFiles = [...new Set(sequence.map(s => s.file))];
-    const firstImagePath = path.join(dir, uniqueFiles[0]);
-    const firstImage = await loadImage(firstImagePath);
-    
-    const renderer = new OpenGLSpriteRenderer(firstImage.width, firstImage.height);
-    
-    // Load all textures
-    const textureMap = new Map();
-    for (const file of uniqueFiles) {
-      const texData = await renderer.loadTexture(path.join(dir, file));
-      textureMap.set(file, texData.texture);
-    }
-
+  // Find all frame files for a sprite (handles -0.png, -00.png, +0.png, ~0.png patterns)
+  async findSpriteFrames(imagesPath, spritePath) {
     const frames = [];
-    const blurSamples = ENABLE_MOTION_BLUR ? MOTION_BLUR_SAMPLES : 1;
-    const blurMultiplier = (ADAPTIVE_BLUR_STRENGTH && isLowFrameCount) ? LOW_FRAME_BLUR_MULTIPLIER : 1.0;
     
-    // Build frame timeline
-    const frameTimeline = [];
-    for (const item of sequence) {
-      for (let rep = 0; rep < item.repeat; rep++) {
-        frameTimeline.push(item.file);
-      }
-    }
-    
-    for (let frameIndex = 0; frameIndex < frameTimeline.length; frameIndex++) {
-      const currentFile = frameTimeline[frameIndex];
-      const texture = textureMap.get(currentFile);
+    try {
+      const fullPath = path.join(imagesPath, spritePath);
+      const dir = path.dirname(fullPath);
+      const baseName = path.basename(spritePath);
       
-      if (ENABLE_MOTION_BLUR && blurSamples > 1) {
-        // Multi-sample motion blur
-        const samples = [];
-        const weights = renderer.calculateGaussianWeights(blurSamples, 1.0 * blurMultiplier);
-        
-        // Collect nearby frames for blending
-        const sampleRange = Math.floor(blurSamples / 2);
-        for (let s = -sampleRange; s <= sampleRange; s++) {
-          const sampleIdx = Math.max(0, Math.min(frameTimeline.length - 1, frameIndex + s));
-          const sampleFile = frameTimeline[sampleIdx];
-          const sampleTexture = textureMap.get(sampleFile);
-          samples.push(sampleTexture);
-        }
-        
-        const pixels = renderer.renderBlendedFrame(samples, weights);
-        frames.push(renderer.getFrameAsCanvas(pixels));
-      } else {
-        // No motion blur - direct render
-        const pixels = renderer.renderBlendedFrame([texture], [1.0]);
-        frames.push(renderer.getFrameAsCanvas(pixels));
+      // Check if directory exists
+      try {
+        await fs.access(dir);
+      } catch {
+        console.log(`  Directory not found: ${dir}`);
+        return frames;
       }
+      
+      const files = await fs.readdir(dir);
+      
+      // Match patterns for animation frames
+      // sprite-0.png, sprite-00.png, sprite+0.png (additive), sprite~0.png (half-additive)
+      const patterns = [
+        { regex: new RegExp(`^${this.escapeRegex(baseName)}-(\\d+)\\.png$`), blend: 'normal' },
+        { regex: new RegExp(`^${this.escapeRegex(baseName)}\\+(\\d+)\\.png$`), blend: 'additive' },
+        { regex: new RegExp(`^${this.escapeRegex(baseName)}~(\\d+)\\.png$`), blend: 'half-additive' }
+      ];
+      
+      for (const file of files) {
+        for (const pattern of patterns) {
+          const match = file.match(pattern.regex);
+          if (match) {
+            const frameNum = parseInt(match[1]);
+            const fullPath = path.join(dir, file);
+            
+            frames.push({
+              num: frameNum,
+              path: fullPath,
+              blendMode: pattern.blend
+            });
+            break;
+          }
+        }
+      }
+      
+      // Sort by frame number
+      frames.sort((a, b) => a.num - b.num);
+      
+    } catch (err) {
+      console.error(`Error finding frames for ${spritePath}:`, err.message);
     }
-
-    renderer.cleanup();
+    
     return frames;
   }
 
-  async writeFramesToAVIF(frames, outputPath, options) {
-    const tempDir = path.join(path.dirname(outputPath), '._temp_frames');
-    await fs.mkdir(tempDir, { recursive: true });
-
-    try {
-      // Write frames as PNGs
-      const framePaths = [];
-      for (let i = 0; i < frames.length; i++) {
-        const framePath = path.join(tempDir, `frame_${String(i).padStart(6, '0')}.png`);
-        const buffer = frames[i].toBuffer('image/png');
-        await fs.writeFile(framePath, buffer);
-        framePaths.push(framePath);
-      }
-
-      // Create concat file
-      const listFile = path.join(tempDir, 'frames.txt');
-      const frameDuration = 1 / GAME_FPS;
-      const lines = framePaths.map(p => `file '${p}'\nduration ${frameDuration.toFixed(6)}`).join('\n');
-      await fs.writeFile(listFile, lines + `\nfile '${framePaths[framePaths.length - 1]}'`);
-
-      // Encode to AVIF
-      const ffmpegArgs = [
-        '-y',
-        '-f', 'concat',
-        '-safe', '0',
-        '-i', listFile,
-        '-fps_mode', 'cfr',
-        '-r', String(GAME_FPS),
-        '-c:v', 'libaom-av1',
-        '-crf', String(options.crf ?? 40),
-        '-cpu-used', String(options.speed ?? 6),
-        '-pix_fmt', 'yuv420p',
-        '-still-picture', '0',
-        '-movflags', '+faststart',
-        outputPath
-      ];
-
-      await execFileAsync('ffmpeg', ffmpegArgs);
-    } finally {
-      // Cleanup temp files
-      await fs.rm(tempDir, { recursive: true, force: true });
-    }
+  escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
-  async processAllImages(pluginDir, parsedData, options = {}) {
-    const imagesRoot = path.join(pluginDir, 'images');
+  // Helper function to strip quotes from strings
+  stripQuotes(value) {
+    if (typeof value !== 'string') return value;
+    
+    // Remove surrounding quotes or backticks
+    value = value.trim();
+    
+    // Strip double quotes
+    if ((value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith('`') && value.endsWith('`'))) {
+      value = value.slice(1, -1);
+    }
+    
+    // Handle escaped quotes inside the string
+    value = value.replace(/\\"/g, '"').replace(/\\`/g, '`');
+    
+    return value;
+  }
 
-    const sprites = await this.collectSpritesWithData(pluginDir, parsedData);
-    const spriteDataMap = this.buildSpriteDataMap(sprites);
+  // Helper function to get value from spriteData with or without quotes
+  getSpriteDataValue(spriteData, key) {
+    let value;
+    
+    // Try without quotes first
+    if (spriteData[key] !== undefined) {
+      value = spriteData[key];
+    }
+    // Try with double quotes in the key
+    else if (spriteData[`"${key}"`] !== undefined) {
+      value = spriteData[`"${key}"`];
+    }
+    // Try with backticks in the key
+    else if (spriteData[`\`${key}\``] !== undefined) {
+      value = spriteData[`\`${key}\``];
+    }
+    else {
+      return undefined;
+    }
+    
+    // Strip quotes from the value itself
+    return this.stripQuotes(value);
+  }
 
-    let converted = 0;
-    let skipped = 0;
-
-    const walk = async (dir) => {
-      const entries = await fs.readdir(dir, { withFileTypes: true });
-      const files = entries.filter(e => e.isFile()).map(e => e.name);
-
-      const sequences = new Map();
-      for (const file of files) {
-        if (!SEQ_REGEX.test(file)) continue;
-        const base = file.match(SEQ_REGEX)[1].trim();
-        if (!sequences.has(base)) sequences.set(base, []);
-        sequences.get(base).push(file);
-      }
-
-      for (const [baseName, seqFiles] of sequences) {
-        if (seqFiles.length < 2) {
-          skipped++;
-          continue;
-        }
-
-        const firstImagePath = path.join(dir, seqFiles[0]);
-        const spriteData = this.findSpriteDataForImage(firstImagePath, imagesRoot, spriteDataMap);
-        const spriteFps = spriteData.fps || options.fps || 10;
-        const shouldRewind = spriteData.rewind;
-
-        const sequence = this.generateSequence(seqFiles, spriteFps, shouldRewind);
-        const isLowFrameCount = seqFiles.length <= ADAPTIVE_LOW_FRAME_THRESHOLD;
-
-        const outName = this.sanitizeFilename(baseName);
-        const outputPath = path.join(dir, `${outName}.avif`);
-
-        const blurTag = ENABLE_MOTION_BLUR 
-          ? ` | blur=${MOTION_BLUR_SAMPLES}x${isLowFrameCount ? ' (enhanced)' : ''}`
-          : '';
-        
-        console.log(
-          `▶ ${path.relative(imagesRoot, dir)}/${baseName} | fps=${spriteFps} | frames=${seqFiles.length}${blurTag}`
-        );
-
-        try {
-          const renderedFrames = await this.renderSequenceWithOpenGL(dir, sequence, spriteFps, isLowFrameCount);
-          await this.writeFramesToAVIF(renderedFrames, outputPath, options);
-          converted++;
-        } catch (e) {
-          console.error(`✖ Failed: ${outputPath}`, e.message);
-          console.error(e.stack);
-        }
-      }
-
-      for (const e of entries) {
-        if (e.isDirectory()) await walk(path.join(dir, e.name));
-      }
+  // Extract animation parameters from spriteData
+  getAnimationParams(spriteData, defaultFps = 10) {
+    const params = {
+      frameRate: defaultFps,
+      frameTime: null,
+      delay: 0,
+      startFrame: 0,
+      randomStartFrame: false,
+      noRepeat: false,
+      rewind: false
     };
 
-    await walk(imagesRoot);
+    if (!spriteData) return params;
 
-    console.log(`\n✔ Done: ${converted} animated AVIFs, ${skipped} skipped`);
+    // Debug: log the raw spriteData to see what we're working with
+    // console.log('    Raw spriteData:', JSON.stringify(spriteData, null, 2));
+
+    // Parse frame rate (handle both "frame rate" and frame rate)
+    const frameRateVal = this.getSpriteDataValue(spriteData, 'frame rate');
+    if (frameRateVal !== undefined) {
+      params.frameRate = parseFloat(frameRateVal);
+    }
+
+    // Parse frame time (takes precedence over frame rate)
+    const frameTimeVal = this.getSpriteDataValue(spriteData, 'frame time');
+    if (frameTimeVal !== undefined) {
+      params.frameTime = parseFloat(frameTimeVal);
+      params.frameRate = 1.0 / params.frameTime;
+    }
+
+    // Parse delay
+    const delayVal = this.getSpriteDataValue(spriteData, 'delay');
+    if (delayVal !== undefined) {
+      params.delay = parseFloat(delayVal);
+    }
+
+    // Parse start frame
+    const startFrameVal = this.getSpriteDataValue(spriteData, 'start frame');
+    if (startFrameVal !== undefined) {
+      params.startFrame = parseInt(startFrameVal);
+    }
+
+    // Boolean flags - check if key exists (not just truthy value)
+    const randomStartFrameVal = this.getSpriteDataValue(spriteData, 'random start frame');
+    params.randomStartFrame = randomStartFrameVal !== undefined;
+    
+    const noRepeatVal = this.getSpriteDataValue(spriteData, 'no repeat');
+    params.noRepeat = noRepeatVal !== undefined;
+    
+    const rewindVal = this.getSpriteDataValue(spriteData, 'rewind');
+    params.rewind = rewindVal !== undefined;
+
+    // Debug: log extracted params
+    // console.log('    Extracted params:', params);
+
+    return params;
+  }
+
+  // Blend two frames using Endless Sky's tweening method
+  async blendFrames(frame1Path, frame2Path, fadeAmount, blendMode) {
+    const img1 = await loadImage(frame1Path);
+    const img2 = await loadImage(frame2Path);
+    
+    const canvas = createCanvas(img1.width, img1.height);
+    const ctx = canvas.getContext('2d');
+    
+    // Draw first frame
+    ctx.globalAlpha = 1.0 - fadeAmount;
+    ctx.drawImage(img1, 0, 0);
+    
+    // Draw second frame with appropriate blending
+    if (blendMode === 'additive') {
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalAlpha = fadeAmount;
+    } else if (blendMode === 'half-additive') {
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalAlpha = fadeAmount * 0.5;
+    } else {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.globalAlpha = fadeAmount;
+    }
+    
+    ctx.drawImage(img2, 0, 0);
+    
+    return canvas;
+  }
+
+  // Generate interpolated frames for smooth animation
+  async generateInterpolatedFrames(frames, animParams, outputFps = 60) {
+    const interpolatedFrames = [];
+    
+    if (frames.length === 0) return interpolatedFrames;
+    
+    // Single frame = static sprite
+    if (frames.length === 1) {
+      interpolatedFrames.push(frames[0].path);
+      return interpolatedFrames;
+    }
+
+    const frameOutputDir = path.join(this.tempDir, `anim_${Date.now()}`);
+    await fs.mkdir(frameOutputDir, { recursive: true });
+    
+    // Calculate how many output frames per animation frame
+    const framesPerAnimFrame = Math.max(1, Math.round(outputFps / animParams.frameRate));
+    
+    let outputFrameNum = 0;
+    const totalAnimFrames = frames.length;
+    
+    // Generate forward animation
+    for (let i = 0; i < totalAnimFrames; i++) {
+      const currentFrame = frames[i];
+      const nextFrame = frames[(i + 1) % totalAnimFrames];
+      
+      // Generate interpolated frames between current and next
+      for (let step = 0; step < framesPerAnimFrame; step++) {
+        const fade = step / framesPerAnimFrame;
+        
+        let canvas;
+        if (fade < 0.01 || i === totalAnimFrames - 1) {
+          // Use current frame directly
+          const img = await loadImage(currentFrame.path);
+          canvas = createCanvas(img.width, img.height);
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+        } else {
+          // Blend frames with tweening
+          canvas = await this.blendFrames(
+            currentFrame.path,
+            nextFrame.path,
+            fade,
+            currentFrame.blendMode
+          );
+        }
+        
+        const outputPath = path.join(frameOutputDir, `frame_${String(outputFrameNum).padStart(6, '0')}.png`);
+        const buffer = canvas.toBuffer('image/png');
+        await fs.writeFile(outputPath, buffer);
+        
+        interpolatedFrames.push(outputPath);
+        outputFrameNum++;
+        
+        // Stop if no repeat and we're on the last frame
+        if (animParams.noRepeat && i === totalAnimFrames - 1) break;
+      }
+      
+      if (animParams.noRepeat && i === totalAnimFrames - 1) break;
+    }
+    
+    // Handle rewind animation (plays forward then backward)
+    if (animParams.rewind && !animParams.noRepeat && totalAnimFrames > 2) {
+      // Add reverse frames (excluding first and last to avoid duplication)
+      for (let i = totalAnimFrames - 2; i > 0; i--) {
+        const currentFrame = frames[i];
+        const prevFrame = frames[i - 1];
+        
+        for (let step = 0; step < framesPerAnimFrame; step++) {
+          const fade = step / framesPerAnimFrame;
+          
+          const canvas = await this.blendFrames(
+            currentFrame.path,
+            prevFrame.path,
+            fade,
+            currentFrame.blendMode
+          );
+          
+          const outputPath = path.join(frameOutputDir, `frame_${String(outputFrameNum).padStart(6, '0')}.png`);
+          const buffer = canvas.toBuffer('image/png');
+          await fs.writeFile(outputPath, buffer);
+          
+          interpolatedFrames.push(outputPath);
+          outputFrameNum++;
+        }
+      }
+    }
+    
+    return { frames: interpolatedFrames, outputDir: frameOutputDir };
+  }
+
+  // Convert image sequence to AVIF using FFmpeg
+  async createAVIF(frameDir, outputPath, fps, options = {}) {
+    const { crf = 15, speed = 4 } = options;
+    
+    return new Promise((resolve, reject) => {
+      const framePattern = path.join(frameDir, 'frame_%06d.png');
+      
+      ffmpeg()
+        .input(framePattern)
+        .inputFPS(fps)
+        .outputOptions([
+          '-c:v libaom-av1',
+          `-crf ${crf}`,
+          `-cpu-used ${speed}`,
+          '-pix_fmt yuv420p',
+          '-movflags +faststart'
+        ])
+        .output(outputPath)
+        .on('start', (cmd) => {
+          console.log(`    FFmpeg command: ${cmd}`);
+        })
+        .on('end', () => {
+          console.log(`    ✓ Created AVIF: ${path.basename(outputPath)}`);
+          resolve();
+        })
+        .on('error', (err) => {
+          console.error(`    ✗ FFmpeg error: ${err.message}`);
+          reject(err);
+        })
+        .run();
+    });
+  }
+
+  // Process all sprites for ships, variants, and outfits
+  async processAllImages(pluginDir, data, options = {}) {
+    const { fps = 60, crf = 15, speed = 4 } = options;
+    
+    await this.init();
+    
+    const imagesDir = path.join(pluginDir, 'images');
+    const outputDir = path.join(pluginDir, 'animations');
+    await fs.mkdir(outputDir, { recursive: true });
+    
+    console.log('\n' + '='.repeat(60));
+    console.log('Processing sprite animations...');
+    console.log('='.repeat(60));
+    
+    const spritesToProcess = new Map();
+    
+    // Collect unique sprites from ships
+    for (const ship of data.ships) {
+      if (ship.sprite && !spritesToProcess.has(ship.sprite)) {
+        spritesToProcess.set(ship.sprite, {
+          sprite: ship.sprite,
+          spriteData: ship.spriteData,
+          type: 'ship',
+          name: ship.name
+        });
+      }
+    }
+    
+    // Collect unique sprites from variants
+    for (const variant of data.variants) {
+      if (variant.sprite && !spritesToProcess.has(variant.sprite)) {
+        spritesToProcess.set(variant.sprite, {
+          sprite: variant.sprite,
+          spriteData: variant.spriteData,
+          type: 'variant',
+          name: variant.name
+        });
+      }
+    }
+    
+    // Collect unique sprites from outfits
+    for (const outfit of data.outfits) {
+      if (outfit.sprite && !spritesToProcess.has(outfit.sprite)) {
+        spritesToProcess.set(outfit.sprite, {
+          sprite: outfit.sprite,
+          spriteData: outfit.spriteData,
+          type: 'outfit',
+          name: outfit.name
+        });
+      }
+      
+      // Also check weapon sprites
+      if (outfit.weapon) {
+        if (outfit.weapon.sprite && !spritesToProcess.has(outfit.weapon.sprite)) {
+          spritesToProcess.set(outfit.weapon.sprite, {
+            sprite: outfit.weapon.sprite,
+            spriteData: outfit.weapon.spriteData,
+            type: 'weapon',
+            name: `${outfit.name} (weapon)`
+          });
+        }
+        
+        if (outfit.weapon['hardpoint sprite'] && !spritesToProcess.has(outfit.weapon['hardpoint sprite'])) {
+          spritesToProcess.set(outfit.weapon['hardpoint sprite'], {
+            sprite: outfit.weapon['hardpoint sprite'],
+            spriteData: outfit.weapon.spriteData,
+            type: 'hardpoint',
+            name: `${outfit.name} (hardpoint)`
+          });
+        }
+      }
+    }
+    
+    console.log(`Found ${spritesToProcess.size} unique sprites to process\n`);
+    
+    let processed = 0;
+    let animated = 0;
+    let static = 0;
+    
+    for (const [spritePath, info] of spritesToProcess) {
+      try {
+        console.log(`\n[${++processed}/${spritesToProcess.size}] Processing: ${info.name}`);
+        console.log(`  Type: ${info.type}`);
+        console.log(`  Sprite: ${spritePath}`);
+        
+        // Find all frames for this sprite
+        const frames = await this.findSpriteFrames(imagesDir, spritePath);
+        
+        if (frames.length === 0) {
+          console.log(`  ✗ No frames found`);
+          continue;
+        }
+        
+        if (frames.length === 1) {
+          console.log(`  ℹ Static sprite (single frame)`);
+          static++;
+          // Optionally copy single frame as static AVIF
+          continue;
+        }
+        
+        console.log(`  Found ${frames.length} frames`);
+        
+        // Get animation parameters
+        const animParams = this.getAnimationParams(info.spriteData, 10);
+        console.log(`  Animation: ${animParams.frameRate.toFixed(1)} fps${animParams.rewind ? ' (rewind)' : ''}${animParams.noRepeat ? ' (no repeat)' : ''}`);
+        
+        // Generate interpolated frames
+        console.log(`  Generating interpolated frames...`);
+        const result = await this.generateInterpolatedFrames(frames, animParams, fps);
+        console.log(`  Generated ${result.frames.length} interpolated frames`);
+        
+        // Create AVIF animation
+        const safeName = spritePath.replace(/[\/\\]/g, '_');
+        const avifPath = path.join(outputDir, `${safeName}.avif`);
+        
+        console.log(`  Creating AVIF animation...`);
+        await this.createAVIF(result.outputDir, avifPath, fps, { crf, speed });
+        
+        // Cleanup temp frames
+        await fs.rm(result.outputDir, { recursive: true, force: true });
+        
+        animated++;
+        
+      } catch (error) {
+        console.error(`  ✗ Error processing ${spritePath}: ${error.message}`);
+      }
+    }
+    
+    console.log('\n' + '='.repeat(60));
+    console.log('Animation processing complete!');
+    console.log(`  Animated: ${animated}`);
+    console.log(`  Static: ${static}`);
+    console.log(`  Total: ${processed}`);
+    console.log('='.repeat(60) + '\n');
+    
+    await this.cleanup();
   }
 }
 

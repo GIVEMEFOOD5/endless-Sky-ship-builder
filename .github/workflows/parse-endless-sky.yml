@@ -36,7 +36,7 @@ jobs:
             libjpeg-dev libgif-dev librsvg2-dev \
             mesa-utils libgl1-mesa-dri \
             xvfb libglvnd0 libglx0 libosmesa6 \
-            libegl1-mesa libgles2-mesa \
+            libegl-mesa0 libgles2 \
             git
 
       - name: Clone Endless Sky repository

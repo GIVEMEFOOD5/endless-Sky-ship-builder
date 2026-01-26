@@ -308,6 +308,46 @@ class ImageConverter {
     return sprites;
   }
 
+  // Helper method to find frame rate for a specific sprite
+  getSpriteFrameRate(data, spriteKey, defaultFps = 10) {
+    // Search through data to find matching sprite
+    // spriteKey is like "projectile/grab-strike"
+    
+    // Check outfits
+    if (data.outfits) {
+      for (const outfit of Object.values(data.outfits)) {
+        // Check weapon sprite
+        if (outfit.weapon?.sprite === spriteKey) {
+          return outfit.weapon.spriteData?.["frame rate"] || defaultFps;
+        }
+        // Check regular sprite (for non-weapon outfits)
+        if (outfit.sprite === spriteKey) {
+          return outfit.spriteData?.["frame rate"] || defaultFps;
+        }
+      }
+    }
+    
+    // Check ships
+    if (data.ships) {
+      for (const ship of Object.values(data.ships)) {
+        if (ship.sprite === spriteKey) {
+          return ship.spriteData?.["frame rate"] || defaultFps;
+        }
+      }
+    }
+    
+    // Check variants
+    if (data.variants) {
+      for (const variant of Object.values(data.variants)) {
+        if (variant.sprite === spriteKey) {
+          return variant.spriteData?.["frame rate"] || defaultFps;
+        }
+      }
+    }
+    
+    return defaultFps;
+  }
+
   // Generate interpolated frames using OpenGL
   async generateInterpolatedFrames(sprite, fps, animationFps) {
     const frames = sprite.frames;
@@ -377,26 +417,6 @@ class ImageConverter {
 
     var { fps = 60, animationFps = 10 } = options;
 
-    if (data.ships.spriteData['frame rate']) {
-      options.animationFps = data.ships.spriteData['frame rate'];
-    }
-
-    else if (data.variants.spriteData['frame rate']) {
-      options.animationFps = data.variants.spriteData['frame rate'];
-    }
-    
-    else if (data.outfits.spriteData['frame rate']) {
-      options.animationFps = data.outfits.spriteData['frame rate'];
-    }
-
-    else if (data.outfits.weapon.spriteData['frame rate']) {
-      options.animationFps = data.outfits.weapon.spriteData['frame rate'];
-    }
-
-    else {
-      options.animationFps = 60;
-    }
-
     await this.init();
     
     const imagesDir = path.join(pluginDir, 'images');
@@ -418,6 +438,10 @@ class ImageConverter {
         console.log(`  Frames: ${sprite.frames.length}`);
         console.log(`  Blend mode: ${sprite.blendMode}`);
         
+        // Extract frame rate for THIS specific sprite from data
+        const animationFps = this.getSpriteFrameRate(data, spriteKey, defaultAnimationFps);
+        console.log(`  Animation FPS: ${animationFps}`);
+
         console.log(`  Generating ${fps} FPS animation with OpenGL shaders...`);
         const result = await this.generateInterpolatedFrames(sprite, fps, animationFps);
         console.log(`  Generated ${result.frames.length} interpolated frames`);

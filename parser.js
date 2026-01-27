@@ -1520,14 +1520,10 @@ async function main() {
         // Download images to pluginDir/images/
         await parser.downloadImages(owner, repo, branch, pluginDir);
 
-        // Convert image sequences to AVIF
+        // Convert image sequences to APNG
         const converter = new ImageConverter();
         await converter.processAllImages(pluginDir, data, {
-          fps: 10,           // Default FPS if not in spriteData
-          crf: 15,           // Quality (lower = better, 0-63)
-          speed: 4,          // Encoding speed (0-8, higher = faster)
-          transition: 'smooth',  // Transition type
-          transitionFrames: 0         // Interpolated frames (future feature)
+          fps: 60           // Default FPS if not in spriteData
         });
       }
       

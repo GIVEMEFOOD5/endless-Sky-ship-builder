@@ -1523,7 +1523,7 @@ async function main() {
         // Convert image sequences to APNG
         const converter = new ImageConverter();
         await converter.processAllImages(pluginDir, data, {
-          fps: 60           // Default FPS if not in spriteData
+          fps: 30           // Default FPS to compare with animation FPS
         });
       }
       

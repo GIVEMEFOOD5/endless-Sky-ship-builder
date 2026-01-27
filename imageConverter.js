@@ -108,8 +108,107 @@ class ImageConverter {
     return program;
   }
 
-  // Load image as OpenGL texture
-  async loadTextureFromImage(glContext, imagePath) {
+  // Detect if image has a solid background color (corners method)
+  detectBackgroundColor(imageData) {
+    const width = imageData.width;
+    const height = imageData.height;
+    const data = imageData.data;
+    
+    // Sample the four corners
+    const corners = [
+      { x: 0, y: 0 },                           // Top-left
+      { x: width - 1, y: 0 },                   // Top-right
+      { x: 0, y: height - 1 },                  // Bottom-left
+      { x: width - 1, y: height - 1 }           // Bottom-right
+    ];
+    
+    const cornerColors = corners.map(({ x, y }) => {
+      const index = (y * width + x) * 4;
+      return {
+        r: data[index],
+        g: data[index + 1],
+        b: data[index + 2],
+        a: data[index + 3]
+      };
+    });
+    
+    // Check if all corners have the same color
+    const firstColor = cornerColors[0];
+    const allCornersMatch = cornerColors.every(color => 
+      color.r === firstColor.r &&
+      color.g === firstColor.g &&
+      color.b === firstColor.b
+    );
+    
+    if (!allCornersMatch) {
+      return null; // No solid background detected
+    }
+    
+    // If corners already have transparency, no need to remove background
+    if (firstColor.a < 255) {
+      return null;
+    }
+    
+    // Count how many pixels match this color
+    let matchCount = 0;
+    const totalPixels = width * height;
+    
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        const index = (y * width + x) * 4;
+        if (data[index] === firstColor.r &&
+            data[index + 1] === firstColor.g &&
+            data[index + 2] === firstColor.b) {
+          matchCount++;
+        }
+      }
+    }
+    
+    // If more than 20% of pixels match corner color, it's likely a background
+    const matchPercentage = (matchCount / totalPixels) * 100;
+    if (matchPercentage > 20) {
+      return {
+        r: firstColor.r,
+        g: firstColor.g,
+        b: firstColor.b,
+        confidence: matchPercentage
+      };
+    }
+    
+    return null;
+  }
+
+  // Convert 24-bit texture data to 32-bit with alpha transparency
+  // Based on StackOverflow solution - processes BEFORE interpolation
+  convertToAlphaTexture(imageData, backgroundColor = { r: 0, g: 0, b: 0 }) {
+    const width = imageData.width;
+    const height = imageData.height;
+    const data = imageData.data;
+    
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        const index = (y * width + x) * 4;
+        
+        const r = data[index];
+        const g = data[index + 1];
+        const b = data[index + 2];
+        
+        // Check if pixel matches background color
+        if (r === backgroundColor.r && 
+            g === backgroundColor.g && 
+            b === backgroundColor.b) {
+          data[index + 3] = 0;   // Make transparent
+        } else {
+          data[index + 3] = 255; // Keep opaque
+        }
+      }
+    }
+    
+    return imageData;
+  }
+
+  // Load image as OpenGL texture with optional background removal
+  async loadTextureFromImage(glContext, imagePath, removeBackground = 'auto', bgColor = null) {
     const img = await loadImage(imagePath);
     
     const texture = glContext.createTexture();
@@ -119,7 +218,33 @@ class ImageConverter {
     const canvas = createCanvas(img.width, img.height);
     const ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
-    const imageData = ctx.getImageData(0, 0, img.width, img.height);
+    let imageData = ctx.getImageData(0, 0, img.width, img.height);
+    
+    // *** BACKGROUND REMOVAL - BEFORE uploading to GPU ***
+    // This happens BEFORE interpolation to prevent background colors from bleeding
+    
+    let actuallyRemoveBackground = false;
+    let backgroundColorToRemove = bgColor;
+    
+    if (removeBackground === 'auto') {
+      // Auto-detect if there's a solid background
+      const detected = this.detectBackgroundColor(imageData);
+      if (detected) {
+        actuallyRemoveBackground = true;
+        backgroundColorToRemove = detected;
+      }
+    } else if (removeBackground === true) {
+      actuallyRemoveBackground = true;
+      if (!backgroundColorToRemove) {
+        // Try to detect, fallback to black
+        const detected = this.detectBackgroundColor(imageData);
+        backgroundColorToRemove = detected || { r: 0, g: 0, b: 0 };
+      }
+    }
+    
+    if (actuallyRemoveBackground && backgroundColorToRemove) {
+      imageData = this.convertToAlphaTexture(imageData, backgroundColorToRemove);
+    }
     
     glContext.texImage2D(
       glContext.TEXTURE_2D,
@@ -139,11 +264,17 @@ class ImageConverter {
     glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MIN_FILTER, glContext.LINEAR);
     glContext.texParameteri(glContext.TEXTURE_2D, glContext.TEXTURE_MAG_FILTER, glContext.LINEAR);
     
-    return { texture, width: img.width, height: img.height };
+    return { 
+      texture, 
+      width: img.width, 
+      height: img.height,
+      backgroundRemoved: actuallyRemoveBackground,
+      detectedBackground: backgroundColorToRemove
+    };
   }
 
   // Blend two frames using OpenGL shader (Endless Sky's method)
-  async blendFramesWithGL(frame1Path, frame2Path, fadeAmount, blendMode) {
+  async blendFramesWithGL(frame1Path, frame2Path, fadeAmount, blendMode, removeBackground = 'auto', bgColor = null) {
     // Load both images to get dimensions
     const img1 = await loadImage(frame1Path);
     const width = img1.width;
@@ -156,9 +287,9 @@ class ImageConverter {
     const program = this.createBlendShaderProgram(glContext);
     glContext.useProgram(program);
     
-    // Load textures
-    const tex0 = await this.loadTextureFromImage(glContext, frame1Path);
-    const tex1 = await this.loadTextureFromImage(glContext, frame2Path);
+    // Load textures with optional background removal
+    const tex0 = await this.loadTextureFromImage(glContext, frame1Path, removeBackground, bgColor);
+    const tex1 = await this.loadTextureFromImage(glContext, frame2Path, removeBackground, bgColor);
     
     // Set up geometry (full-screen quad)
     const vertices = new Float32Array([
@@ -244,7 +375,11 @@ class ImageConverter {
     glContext.deleteBuffer(buffer);
     glContext.deleteProgram(program);
     
-    return canvas;
+    return {
+      canvas,
+      backgroundRemoved: tex0.backgroundRemoved,
+      detectedBackground: tex0.detectedBackground
+    };
   }
 
   // Find all animated sprite sequences
@@ -308,21 +443,52 @@ class ImageConverter {
     return sprites;
   }
 
-  // Helper method to find frame rate for a specific sprite
-  getSpriteFrameRate(data, spriteKey, defaultFps = 10) {
+  // Helper method to get sprite metadata from data
+  getSpriteMetadata(data, spriteKey, defaultFps = 10) {
+    const metadata = {
+      frameRate: defaultFps,
+      rewind: false,
+      removeBackground: 'auto',  // Changed from false to 'auto' - will auto-detect
+      backgroundColor: null      // null means auto-detect
+    };
+
     // Search through data to find matching sprite
-    // spriteKey is like "projectile/grab-strike"
+    const checkSpriteData = (spriteData) => {
+      if (!spriteData) return false;
+      
+      if (spriteData["frame rate"] !== undefined) {
+        metadata.frameRate = spriteData["frame rate"];
+      }
+      if (spriteData["rewind"] !== undefined) {
+        metadata.rewind = spriteData["rewind"];
+      }
+      if (spriteData["remove background"] !== undefined) {
+        // Can be true, false, or 'auto'
+        metadata.removeBackground = spriteData["remove background"];
+      }
+      if (spriteData["background color"] !== undefined) {
+        const bgColor = spriteData["background color"];
+        if (Array.isArray(bgColor) && bgColor.length >= 3) {
+          metadata.backgroundColor = {
+            r: bgColor[0],
+            g: bgColor[1],
+            b: bgColor[2]
+          };
+        }
+      }
+      return true;
+    };
 
     // Check outfits
     if (data.outfits) {
       for (const outfit of Object.values(data.outfits)) {
         // Check weapon sprite
         if (outfit.weapon?.sprite === spriteKey) {
-          return outfit.weapon.spriteData?.["frame rate"] || defaultFps;
+          if (checkSpriteData(outfit.weapon.spriteData)) return metadata;
         }
         // Check regular sprite (for non-weapon outfits)
         if (outfit.sprite === spriteKey) {
-          return outfit.spriteData?.["frame rate"] || defaultFps;
+          if (checkSpriteData(outfit.spriteData)) return metadata;
         }
       }
     }
@@ -331,7 +497,7 @@ class ImageConverter {
     if (data.ships) {
       for (const ship of Object.values(data.ships)) {
         if (ship.sprite === spriteKey) {
-          return ship.spriteData?.["frame rate"] || defaultFps;
+          if (checkSpriteData(ship.spriteData)) return metadata;
         }
       }
     }
@@ -340,16 +506,16 @@ class ImageConverter {
     if (data.variants) {
       for (const variant of Object.values(data.variants)) {
         if (variant.sprite === spriteKey) {
-          return variant.spriteData?.["frame rate"] || defaultFps;
+          if (checkSpriteData(variant.spriteData)) return metadata;
         }
       }
     }
 
-    return defaultFps;
+    return metadata;
   }
 
   // Generate interpolated frames using OpenGL
-  async generateInterpolatedFrames(sprite, fps, animationFps) {
+  async generateInterpolatedFrames(sprite, fps, metadata) {
     const frames = sprite.frames;
     if (frames.length === 0) return [];
     
@@ -357,12 +523,31 @@ class ImageConverter {
     await fs.mkdir(frameOutputDir, { recursive: true });
     
     const interpolatedFrames = [];
-    const framesPerAnimFrame = Math.max(1, Math.round(fps / animationFps));
+    const framesPerAnimFrame = Math.max(1, Math.round(fps / metadata.frameRate));
     
     let outputFrameNum = 0;
+    let detectedBackgroundInfo = null;
     
     console.log(`    Using OpenGL shader-based blending (${sprite.blendMode} mode)`);
     
+    if (metadata.removeBackground === 'auto') {
+      console.log(`    Auto-detecting background color...`);
+    } else if (metadata.removeBackground === true) {
+      if (metadata.backgroundColor) {
+        const bg = metadata.backgroundColor;
+        console.log(`    Removing background color: RGB(${bg.r}, ${bg.g}, ${bg.b})`);
+      } else {
+        console.log(`    Background removal enabled with auto-detection`);
+      }
+    } else if (metadata.removeBackground === false) {
+      console.log(`    Background removal disabled`);
+    }
+    
+    if (metadata.rewind) {
+      console.log(`    Rewind mode enabled - animation will play forward then reverse`);
+    }
+    
+    // Generate forward frames
     for (let i = 0; i < frames.length; i++) {
       const currentFrame = frames[i];
       const nextFrame = frames[(i + 1) % frames.length];
@@ -371,19 +556,53 @@ class ImageConverter {
         const fade = step / framesPerAnimFrame;
         
         let canvas;
+        let backgroundRemoved = false;
+        let detectedBg = null;
+        
         if (fade < 0.01 || i === frames.length - 1) {
           const img = await loadImage(currentFrame.path);
           canvas = createCanvas(img.width, img.height);
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0);
+          
+          // Apply background removal even to non-interpolated frames
+          let imageData = ctx.getImageData(0, 0, img.width, img.height);
+          
+          // Check if we should remove background
+          if (metadata.removeBackground === 'auto') {
+            detectedBg = this.detectBackgroundColor(imageData);
+            if (detectedBg) {
+              imageData = this.convertToAlphaTexture(imageData, detectedBg);
+              backgroundRemoved = true;
+            }
+          } else if (metadata.removeBackground === true) {
+            const bgToRemove = metadata.backgroundColor || this.detectBackgroundColor(imageData) || { r: 0, g: 0, b: 0 };
+            imageData = this.convertToAlphaTexture(imageData, bgToRemove);
+            backgroundRemoved = true;
+            detectedBg = bgToRemove;
+          }
+          
+          if (backgroundRemoved) {
+            ctx.putImageData(imageData, 0, 0);
+          }
         } else {
           // Use OpenGL shader blending (Endless Sky's method)
-          canvas = await this.blendFramesWithGL(
+          const result = await this.blendFramesWithGL(
             currentFrame.path,
             nextFrame.path,
             fade,
-            sprite.blendMode
+            sprite.blendMode,
+            metadata.removeBackground,
+            metadata.backgroundColor
           );
+          canvas = result.canvas;
+          backgroundRemoved = result.backgroundRemoved;
+          detectedBg = result.detectedBackground;
+        }
+        
+        // Store detection info from first frame
+        if (!detectedBackgroundInfo && backgroundRemoved && detectedBg) {
+          detectedBackgroundInfo = detectedBg;
         }
         
         const outputPath = path.join(frameOutputDir, `frame_${String(outputFrameNum).padStart(6, '0')}.png`);
@@ -393,6 +612,39 @@ class ImageConverter {
         interpolatedFrames.push(outputPath);
         outputFrameNum++;
       }
+    }
+    
+    // Report what was detected
+    if (detectedBackgroundInfo) {
+      if (metadata.removeBackground === 'auto') {
+        console.log(`    ✓ Auto-detected and removed background: RGB(${detectedBackgroundInfo.r}, ${detectedBackgroundInfo.g}, ${detectedBackgroundInfo.b})`);
+        if (detectedBackgroundInfo.confidence) {
+          console.log(`      Confidence: ${detectedBackgroundInfo.confidence.toFixed(1)}% of pixels matched`);
+        }
+      } else {
+        console.log(`    ✓ Removed background successfully`);
+      }
+    } else if (metadata.removeBackground === 'auto') {
+      console.log(`    ℹ No solid background detected - keeping original transparency`);
+    }
+    
+    // If rewind is enabled, add reversed frames (excluding first and last to avoid duplication)
+    if (metadata.rewind && interpolatedFrames.length > 2) {
+      const reverseStartCount = interpolatedFrames.length;
+      
+      // Copy frames in reverse order, excluding the last frame (to avoid duplication)
+      // and stopping before the first frame (to avoid duplication on loop)
+      for (let i = interpolatedFrames.length - 2; i > 0; i--) {
+        const sourcePath = interpolatedFrames[i];
+        const outputPath = path.join(frameOutputDir, `frame_${String(outputFrameNum).padStart(6, '0')}.png`);
+        
+        // Copy the frame
+        await fs.copyFile(sourcePath, outputPath);
+        interpolatedFrames.push(outputPath);
+        outputFrameNum++;
+      }
+      
+      console.log(`    ✓ Added ${outputFrameNum - reverseStartCount} reverse frames for rewind`);
     }
     
     return { frames: interpolatedFrames, outputDir: frameOutputDir };
@@ -415,7 +667,11 @@ class ImageConverter {
   // Process all images
   async processAllImages(pluginDir, data, options = {}) {
 
-    var { fps = 60, defaultAnimationFps = 10 } = options;
+    var { 
+      fps = null,  // null means auto-calculate based on frame rate
+      fpsMultiplier = 6,  // Multiplier for auto-calculation (frame_rate * multiplier = output fps)
+      defaultAnimationFps = 10 
+    } = options;
 
     await this.init();
     
@@ -438,18 +694,30 @@ class ImageConverter {
         console.log(`  Frames: ${sprite.frames.length}`);
         console.log(`  Blend mode: ${sprite.blendMode}`);
         
-        // Extract frame rate for THIS specific sprite from data
-        const animationFps = this.getSpriteFrameRate(data, spriteKey, defaultAnimationFps);
-        console.log(`  Animation FPS: ${animationFps}`);
+        // Extract metadata for THIS specific sprite from data
+        const metadata = this.getSpriteMetadata(data, spriteKey, defaultAnimationFps);
+        console.log(`  Animation FPS: ${metadata.frameRate}`);
 
-        console.log(`  Generating ${fps} FPS animation with OpenGL shaders...`);
-        const result = await this.generateInterpolatedFrames(sprite, fps, animationFps);
-        console.log(`  Generated ${result.frames.length} interpolated frames`);
+        // Calculate output FPS for this sprite
+        let outputFps;
+        if (fps !== null) {
+          // User specified a fixed FPS for all sprites
+          outputFps = fps;
+        } else {
+          // Auto-calculate based on the sprite's frame rate
+          outputFps = metadata.frameRate * fpsMultiplier;
+        }
+        
+        console.log(`  Output FPS: ${outputFps} ${fps === null ? '(auto-calculated: ' + metadata.frameRate + ' × ' + fpsMultiplier + ')' : '(fixed)'}`);
+
+        console.log(`  Generating interpolated animation with OpenGL shaders...`);
+        const result = await this.generateInterpolatedFrames(sprite, outputFps, metadata);
+        console.log(`  Generated ${result.frames.length} total frames`);
         
         const outputPath = path.join(sprite.directory, `${sprite.baseName}.png`);
         
         console.log(`  Creating APNG...`);
-        await this.createAPNG(result.outputDir, outputPath, fps);
+        await this.createAPNG(result.outputDir, outputPath, outputFps);
         
         await fs.rm(result.outputDir, { recursive: true, force: true });
         

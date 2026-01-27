@@ -261,7 +261,7 @@ class ImageConverter {
           if (entry.isDirectory()) {
             await scanDirectory(fullPath);
           } else if (entry.name.endsWith('.png')) {
-            const match = entry.name.match(/^(.+?)([-+~])(\d+)\.png$/);
+            const match = entry.name.match(/^(.+?)([-+~^])(\d+)\.png$/);
             
             if (match) {
               const baseName = match[1];

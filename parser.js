@@ -1379,6 +1379,21 @@ class EndlessSkyParser {
           const removeLast = path.replace(/\/[^/]*$(?=.*\/)/, '');
           imagePaths.add(removeLast);
         }
+        if (outfit['steering flare sprite']) {
+          const path = outfit['flare sprite'];
+          const removeLast = path.replace(/\/[^/]*$(?=.*\/)/, '');
+          imagePaths.add(removeLast);
+        }
+        if (outfit['reverse flare sprite']) {
+          const path = outfit['flare sprite'];
+          const removeLast = path.replace(/\/[^/]*$(?=.*\/)/, '');
+          imagePaths.add(removeLast);
+        }
+        if (outfit['afterburner effect']) {
+          const path = outfit['flare sprite'];
+          const removeLast = path.replace(/\/[^/]*$(?=.*\/)/, '');
+          imagePaths.add(removeLast);
+        }
         if (outfit.weapon) {
           if (outfit.weapon['hardpoint sprite']) {
             const path = outfit.weapon['hardpoint sprite'];
@@ -1527,7 +1542,7 @@ async function main() {
         // Convert image sequences to APNG
         const converter = new ImageConverter();
         await converter.processAllImages(pluginDir, data, {
-          fps: 30           // Default FPS to compare with animation FPS
+          fps: null           // Default FPS to compare with animation FPS
         });
       }
       

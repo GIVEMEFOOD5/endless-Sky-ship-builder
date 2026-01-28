@@ -264,22 +264,6 @@ class EndlessSkyParser {
           continue;
         }
 
-        // === KEY-VALUE PAIR PARSING ===
-        const kvResult = this.parseKeyValue(stripped);
-        if (kvResult) {
-          const [key, value] = kvResult;
-          
-          // Handle multiple values for same key (convert to array)
-          if (key in data) {
-            if (!Array.isArray(data[key])) data[key] = [data[key]];
-            data[key].push(value);
-          } else {
-            data[key] = value;
-          }
-          i++;
-          continue;
-        }
-
         // === NESTED BLOCK HANDLING ===
         if (i + 1 < lines.length) {
           const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
@@ -306,6 +290,22 @@ class EndlessSkyParser {
             i = nextI;
             continue;
           }
+        }
+
+        // === KEY-VALUE PAIR PARSING ===
+        const kvResult = this.parseKeyValue(stripped);
+        if (kvResult) {
+          const [key, value] = kvResult;
+          
+          // Handle multiple values for same key (convert to array)
+          if (key in data) {
+            if (!Array.isArray(data[key])) data[key] = [data[key]];
+            data[key].push(value);
+          } else {
+            data[key] = value;
+          }
+          i++;
+          continue;
         }
 
         // === FALLBACK: Treat as description text ===

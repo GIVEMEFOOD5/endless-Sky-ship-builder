@@ -222,10 +222,11 @@ class EndlessSkyParser {
       // Calculate current line's indentation
       const currentIndent = line.length - line.replace(/^\t+/, '').length;
       
-      // If we've outdented, we're done with this block
+      // If we've outdented below base level, we're done with this block
       if (currentIndent < baseIndent) break;
 
-      // Process lines at the base indentation level
+      // Only process lines at our base indentation level
+      // Lines with deeper indentation are handled by nested parseBlock() calls
       if (currentIndent === baseIndent) {
         const stripped = line.trim();
 
@@ -282,7 +283,11 @@ class EndlessSkyParser {
               data[key] = nestedData;
             }
             
-            //i = nextI;
+            // nextI points to the line that outdented from the nested block
+            // This could be:
+            // 1. Another line at our base level (continue processing)
+            // 2. A line that outdented even further (will break on next iteration)
+            i = nextI;
             continue;
           }
         }

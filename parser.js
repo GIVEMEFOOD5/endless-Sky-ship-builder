@@ -635,6 +635,7 @@ class EndlessSkyParser {
     
     // If variant, store for later processing
     if (variantName) {
+      console.log (`$(baseName) has the variant $(variantName)`)
       this.pendingVariants.push({
         baseName: baseName,
         variantName: variantName,

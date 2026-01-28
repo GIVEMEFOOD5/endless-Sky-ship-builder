@@ -639,9 +639,23 @@ class EndlessSkyParser {
     const baseName = match[1];
     const variantName = match[2];
     
+    // Check if next line is indented - if not, this is an incomplete ship definition
+    if (startIdx + 1 >= lines.length) {
+      return [null, startIdx + 1]; // No next line, skip
+    }
+    
+    const nextLine = lines[startIdx + 1];
+    if (nextLine.trim()) { // If next line has content
+      const nextIndent = nextLine.length - nextLine.replace(/^\t+/, '').length;
+      if (nextIndent === 0) {
+        // Next line is not indented, this ship has no data
+        console.log(`  Skipping ship "${baseName}" - no indented content`);
+        return [null, startIdx + 1];
+      }
+    }
+    
     // If variant, store for later processing
     if (variantName) {
-      console.log(`Base Name: ${baseName}.... Variant Name ${variantName}`)
       this.pendingVariants.push({
         baseName: baseName,
         variantName: variantName,
@@ -697,6 +711,23 @@ class EndlessSkyParser {
     if (!baseShip) {
       console.warn(`Warning: Base ship "${variantInfo.baseName}" not found`);
       return null;
+    }
+    
+    // Check if variant has any indented content
+    const startIdx = variantInfo.startIdx;
+    if (startIdx + 1 >= variantInfo.lines.length) {
+      console.log(`  Skipping variant "${variantInfo.variantName}" - no content`);
+      return null; // No next line
+    }
+    
+    const nextLine = variantInfo.lines[startIdx + 1];
+    if (nextLine.trim()) { // If next line has content
+      const nextIndent = nextLine.length - nextLine.replace(/^\t+/, '').length;
+      if (nextIndent === 0) {
+        // Next line is not indented, this variant has no modifications
+        console.log(`  Skipping variant "${variantInfo.variantName}" - no indented content`);
+        return null;
+      }
     }
     
     // Deep copy base ship
@@ -794,9 +825,26 @@ class EndlessSkyParser {
     const match = line.match(/^outfit\s+["'`]([^"'`]+)["'`]\s*$/);
     if (!match) return [null, startIdx + 1];
     
-    console.log('Matched outfit:', match[1]);
+    const outfitName = match[1];
     
-    const outfitData = { name: match[1] };
+    // Check if next line is indented - if not, this is an incomplete outfit definition
+    if (startIdx + 1 >= lines.length) {
+      return [null, startIdx + 1]; // No next line, skip
+    }
+    
+    const nextLine = lines[startIdx + 1];
+    if (nextLine.trim()) { // If next line has content
+      const nextIndent = nextLine.length - nextLine.replace(/^\t+/, '').length;
+      if (nextIndent === 0) {
+        // Next line is not indented, this outfit has no data
+        console.log(`  Skipping outfit "${outfitName}" - no indented content`);
+        return [null, startIdx + 1];
+      }
+    }
+    
+    console.log('Matched outfit:', outfitName);
+    
+    const outfitData = { name: outfitName };
     
     // Parse outfit block (no hardpoints, no skip blocks)
     const [parsedData, nextIdx] = this.parseBlock(lines, startIdx + 1, {

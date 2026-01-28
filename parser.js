@@ -263,7 +263,7 @@ class EndlessSkyParser {
           i = nextIdx;
           continue;
         }
-
+        
         // === NESTED BLOCK HANDLING ===
         if (i + 1 < lines.length) {
           const nextIndent = lines[i + 1].length - lines[i + 1].replace(/^\t+/, '').length;
@@ -868,23 +868,31 @@ class EndlessSkyParser {
     let i = 0;
   
     while (i < lines.length) {
-      const line = lines[i].trim();
-    
-      // Check for ship definition
-      if (line.startsWith('ship "') || line.startsWith('ship `')) {
-        const [shipData, nextI] = this.parseShip(lines, i);
-        if (shipData) this.ships.push(shipData);
-        i = nextI;
-      } 
-      // Check for outfit definition
-      else if (line.startsWith('outfit "') || line.startsWith('outfit `')) {
-        const [outfitData, nextI] = this.parseOutfit(lines, i);
-        if (outfitData) this.outfits.push(outfitData);
-        i = nextI;
-      } 
-      else {
-        i++;
+      const line = lines[i];
+      const trimmed = line.trim();
+      
+      // Calculate indentation level
+      const indent = line.length - line.replace(/^\t+/, '').length;
+      
+      // Only parse ship/outfit definitions at root level (indent 0)
+      if (indent === 0) {
+        // Check for ship definition
+        if (trimmed.startsWith('ship "') || trimmed.startsWith('ship `')) {
+          const [shipData, nextI] = this.parseShip(lines, i);
+          if (shipData) this.ships.push(shipData);
+          i = nextI;
+          continue;
+        } 
+        // Check for outfit definition
+        else if (trimmed.startsWith('outfit "') || trimmed.startsWith('outfit `')) {
+          const [outfitData, nextI] = this.parseOutfit(lines, i);
+          if (outfitData) this.outfits.push(outfitData);
+          i = nextI;
+          continue;
+        }
       }
+      
+      i++;
     }
   }
   

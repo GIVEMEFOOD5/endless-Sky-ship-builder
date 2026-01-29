@@ -219,6 +219,11 @@ class EndlessSkyParser {
         continue; 
       }
 
+      if (line.trim().startsWith("#")) {
+        i++;
+        continue;
+      }
+
       // Calculate current line's indentation
       const currentIndent = line.length - line.replace(/^\t+/, '').length;
       
